@@ -1,762 +1,478 @@
 ---
 cite_key: yang_2025
-title: Graphusion: A RAG Framework for Scientific Knowledge Graph Construction with a Global Perspective
-authors: Rui Yang, Fan Gao, Moritz Blum, Freddy Lecue, Boming Yang, Aosong Feng, Tianwei She, Jinghui Lu, Xinjie Zhao, Sixun Ouyang, Yuang Jiang, Irene Li
+title: Pseudo-Knowledge Graph: Meta-Path Guided Retrieval and In-Graph Text for RAG-Equipped LLM
+authors: China yxyan, China yang, China wh, China ma, China wangta, China glu
 year: 2025
-doi: 10.18653/v1/P19-1470
-date_processed: '2025-07-02'
-phase2_processed: true
-original_folder: arxiv_2024_graphusion_rag_framework_global_perspective
-images_total: 12
-images_kept: 12
-images_removed: 0
-tags:
-- Healthcare
-- Knowledge Graph
-- Machine Learning
-- Natural Language Processing
-- Semantic Web
-keywords:
-- -relation concepts and definitions-
-- API
-- ArXiv
-- BERT
-- ChaTa
-- DeepWalk
-- GPT
-- IreneZihuiLi
-- LangChain
-- NLP
-- PubGraph
-- a is larger than b
-- a learning
-- a tool is evaluated for b
-- ablation study
-- acm reference format
-- additional corpora description
-- al-hariri
-- al-rfou
-- application programming interface
-- artificial intelligence
-- aspect-based
-- aspect-based sentiment
-- auto-tuning
-- background background
-- benchmark details
-- bias-variance
-- bidirectional encoder representations from transformers
-- ccs concepts
-- ceur-ws
+doi: arXiv:2503.00309
+url: https://arxiv.org/abs/2503.00309
+relevancy: High
+tldr: Novel PKG framework for LLM enhancement that addresses RAG limitations in high-volume, low-information-density databases through multi-modal retrieval and improved relational awareness.
+insights: Develops Pseudo-Knowledge Graph framework that integrates Meta-path Retrieval, In-graph Text, and Vector Retrieval to enhance RAG systems by preserving natural language and leveraging various retrieval techniques for richer knowledge representation.
+summary: This paper proposes a Pseudo-Knowledge Graph (PKG) framework that enhances Retrieval-Augmented Generation for Large Language Models by addressing limitations in traditional RAG systems when dealing with high-volume, low-information-density databases. The approach integrates meta-path guided retrieval, in-graph text preservation, and vector retrieval to improve relational awareness and overcome fragmented answer generation. The framework preserves natural language text while leveraging various retrieval techniques for richer knowledge representation.
+research_question: How can knowledge graphs enhance Large Language Model retrieval capabilities while addressing fragmentation and relational awareness limitations in traditional RAG systems?
+methodology: Developed PKG framework integrating Meta-path Retrieval, In-graph Text, and Vector Retrieval; evaluated on Open Compass and MultiHop-RAG benchmarks; focused on managing large volumes of data and complex relationships.
+key_findings: Demonstrates effectiveness in managing large volumes of data and complex relationships, improves relational awareness in information retrieval, overcomes fragmented answer generation in traditional RAG systems.
+limitations: Detailed implementation specifics, code availability, and comprehensive technical depth not provided in abstract; requires further technical validation.
+conclusion: Successfully addresses RAG limitations through novel PKG framework that preserves natural language while enhancing retrieval capabilities for complex knowledge relationships.
+future_work: Expand technical implementation details, develop comprehensive evaluation framework, integrate with established PKG methodologies.
+implementation_insights: Provides framework for intelligent query interfaces in HDM systems, particularly relevant for personalized knowledge access and LLM-based conversational interfaces.
+tags: 
 ---
 
-# Graphusion: A RAG Framework for Scientific Knowledge Graph Construction with a Global Perspective
+# Pseudo-Knowledge Graph: Meta-Path Guided Retrieval and In-Graph Text for RAG-Equipped LLM
 
-Rui Yang Duke-NUS Medical School Singapore yang\_rui@u.nus.edu
+Yuxin Yang Peking University Beijing, China yxyang@pku.edu.cn
 
-Fan Gao The University of Tokyo Tokyo, Japan fangao0802@gmail.com
+Jia Yang Peking University Beijing, China yangj@pku.edu.cn
 
-Moritz Blum Bielefeld University Bielefeld, Germany mblum@techfak.uni-bielefeld.de
+Haoyang Wu Peking University Beijing, China why@stu.pku.edu.cn
 
-> Freddy Lecue INRIA Paris, France freddy.lecue@inria.fr
+Hao Ma Peking University Beijing, China mah@pku.edu.cn
 
-Boming Yang The University of Tokyo Tokyo, Japan boming@g.ecc.u-tokyo.ac.jp
+Tao Wang Peking University Beijing, China wangtao@pku.edu.cn
 
-Aosong Feng Yale University New Haven, CT, USA aosong.feng@yale.edu
+Guojie Luo Peking University Beijing, China gluo@pku.edu.cn
 
-Tianwei She Smartor Inc. Shanghai, China tianwei.v.she@gmail.com
+## ABSTRACT
 
-Jinghui Lu Smartor Inc. Shanghai, China liuxiangtian213@gmail.com
+The advent of Large Language Models (LLMs) has revolutionized natural language processing. However, these models face challenges in retrieving precise information from vast datasets. Retrieval-Augmented Generation (RAG) was developed to combining LLMs with external information retrieval systems to enhance the accuracy and context of responses. Despite improvements, RAG still struggles with comprehensive retrieval in high-volume, low-informationdensity databases and lacks relational awareness, leading to fragmented answers.
 
-Xinjie Zhao The University of Tokyo Tokyo, Japan xinjie-zhao@g.ecc.u-tokyo.ac.jp
+To address this, this paper introduces the Pseudo-Knowledge Graph (PKG) framework, designed to overcome these limitations by integrating Meta-path Retrieval, In-graph Text and Vector Retrieval into LLMs. By preserving natural language text and leveraging various retrieval techniques, the PKG offers a richer knowledge representation and improves accuracy in information retrieval. Extensive evaluations using Open Compass and MultiHop-RAG benchmarks demonstrate the framework's effectiveness in managing large volumes of data and complex relationships.
 
-> Sixun Ouyang Smartor Inc. Shanghai, China troy.oysx@gmail.com
+### PVLDB Reference Format:
 
-Yuang Jiang Smartor Inc. Shanghai, China jiangyuang1995@gmail.com
+Yuxin Yang, Haoyang Wu, Tao Wang, Jia Yang, Hao Ma, and Guojie Luo. Pseudo-Knowledge Graph: Meta-Path Guided Retrieval and In-Graph Text for RAG-Equipped LLM . PVLDB, XX(X): XXX-XXX, 2025. [doi:XX.XX/XXX.XX](https://doi.org/XX.XX/XXX.XX)
 
-Irene Li University of Tokyo Tokyo, Japan ireneli@ds.itc.u-tokyo.ac.jp
+### PVLDB Artifact Availability:
 
-## Abstract
+The source code, data, and/or other artifacts have been made available at [https://github.com/yxyang1111/Pseudo-Knowledge-Graph/.](https://github.com/yxyang1111/Pseudo-Knowledge-Graph/)
 
-Knowledge Graphs (KGs) are crucial in the field of artificial intelligence and are widely used in downstream tasks, such as questionanswering (QA). The construction of KGs typically requires significant effort from domain experts. Large Language Models (LLMs) have recently been used for Knowledge Graph Construction (KGC). However, most existing approaches focus on a local perspective, extracting knowledge triplets from individual sentences or documents, missing a fusion process to combine the knowledge in a global KG. This work introduces Graphusion, a zero-shot KGC framework from free text. It contains three steps: in Step 1, we extract a list of seed entities using topic modeling to guide the final KG includes the most relevant entities; in Step 2, we conduct candidate triplet extraction using LLMs; in Step 3, we design the novel fusion module that provides a global view of the extracted knowledge, incorporating entity merging, conflict resolution, and novel triplet discovery. Results show that Graphusion achieves scores of 2.92 and 2.37 out of 3 for entity extraction and relation recognition, respectively. Moreover, we showcase how Graphusion could be applied to the Natural Language Processing (NLP) domain and validate it in an educational scenario. Specifically, we introduce TutorQA, a new expert-verified benchmark for QA, comprising six tasks and a total of 1,200 QA
+## 1 INTRODUCTION
 
-*WWW '25, NLP4KGC, April 28-May 2, 2025, Sydney, NSW, Australia*© 2025 Copyright held by the owner/author(s). Publication rights licensed to ACM. ACM ISBN TBD <https://doi.org/TBD>
+The emergence of large language models (LLMs) [[5]](#ref-5), [[47]](#ref-47) has transformed natural language processing, allowing machines to understand and generate text that closely resembles human communication [[73]](#ref-73). These models, trained on extensive datasets, excel in various applications [[69]](#ref-69), including chatbots and content creation. However, despite their capabilities, LLMs encounter significant challenges [[77]](#ref-77) when tasked with retrieving specific information from extensive collections of data. This often results in incomplete or imprecise answers, particularly when users seek detailed insights [[21]](#ref-21), [[64]](#ref-64). Despite the increasing capabilities of LLMs, deploying them with private data and ensuring the authenticity of generated text remain significant challenges. Fine-tuning LLMs for specific domains and managing private data incur high costs, especially when base models are frequently updated, requiring repeated fine-tuning. Additionally, LLMs cannot inherently verify the truthfulness of their outputs, necessitating the extraction of third-party facts to support their claims. To mitigate these limitations [[8]](#ref-8), researchers have developed Retrieval-Augmented Generation (RAG) [[31]](#ref-31), a hybrid approach that combines LLMs with external information retrieval systems. RAG addresses these issues by enabling LLMs to retrieve and reference external data, enhancing both the accuracy and authenticity of generated responses [[58]](#ref-58).
 
-pairs. Using the Graphusion-constructed KG, we achieve a significant improvement on the benchmark, for example, a 9.2% accuracy improvement on sub-graph completion.
+Nevertheless, RAG is not a universal solution [[6]](#ref-6). One of its fundamental shortcomings arises when the information needed is scattered across a vast knowledge base, creating challenges in retrieving comprehensive answers. This issue is particularly pronounced in large databases characterized by low information density, high redundancy, and dispersed information [[12]](#ref-12). Additionally, traditional RAG systems often struggle to discern and leverage the relationships between different pieces of information. From the perspective of authenticity, relying solely on the top-1 or top-3 results based on similarity metrics in vector databases is often insufficient [[18]](#ref-18). Multiple supporting facts are required to ensure the reliability of retrieved information. While vector databases excel at retrieving semantically similar items, they lack mechanisms to ensure diversified proximity, which is crucial for capturing complex relationships. Complex relationships, such as multi-hop connections or indirect associations between entities, cannot be adequately represented by simple similarity metrics[[75]](#ref-75). This limitation underscores the need for more sophisticated retrieval methods, such as meta-path-based approaches, which can uncover intricate relational pathways and provide a richer context for LLMs [[40]](#ref-40).
 
-## CCS Concepts
+To address these challenges, there is a pressing need for innovative storage and retrieval methods that can harness the strengths of vector databases while overcoming their limitations. Traditional approaches that integrate LLMs with knowledge graphs (LLM-KG)
 
-• Information systems → Language models; Extraction, transformation and loading; Database utilities and tools.
+This work is licensed under the Creative Commons BY-NC-ND 4.0 International License. Visit <https://creativecommons.org/licenses/by-nc-nd/4.0/> to view a copy of this license. For any use beyond those covered by this license, obtain permission by emailing [info@vldb.org.](mailto:info@vldb.org) Copyright is held by the owner/author(s). Publication rights licensed to the VLDB Endowment.
 
-## Keywords
+Proceedings of the VLDB Endowment, Vol. XX, No. X ISSN 2150-8097. [doi:XX.XX/XXX.XX](https://doi.org/XX.XX/XXX.XX)
 
-Retrieval Augmented Generation, Knowledge Graphs, Question-Answering
+leverage the structured nature of graphs to provide contextual relationships and factual grounding, improving the accuracy and coherence of generated responses. However, these systems face significant limitations. LLMs often struggle to process structured graph data effectively, leading to incomplete or fragmented answers [[34]](#ref-34), [[60]](#ref-60). Additionally, traditional knowledge graphs are static and may not capture the dynamic nature of real-world knowledge, while their integration with LLMs typically requires extensive finetuning and domain-specific adaptation, which is computationally expensive [[41]](#ref-41). These challenges highlight the need for a more flexible and scalable approach that bridges the gap between structured and unstructured data.
 
-### ACM Reference Format:
+This paper introduces the Pseudo-Knowledge Graph (PKG), an innovative framework that enhances the processing of large-scale information by addressing challenges related to complex data relationships. Building on the RAG paradigm, PKG integrates knowledge graphs, meta-path retrieval, and natural language text preservation to create a robust and context-aware retrieval system. At its core, PKG stores structured representations of entities and their relationships while preserving the original text chunks, enabling LLMs to process and interpret information effectively, overcoming their limitations with purely structured data. PKG employs advanced retrieval techniques, including vector-based retrieval for semantic similarity and meta-path retrieval for uncovering complex, multi-hop relationships (e.g., "author-paper-conference" or "disease-symptom-treatment"). These methods allow PKG to identify semantically relevant information and explore intricate relational pathways, fostering a deeper understanding of context and connections. By seamlessly integrating structured and unstructured data, PKG excels in scenarios requiring multi-hop reasoning and contextual awareness, such as scientific research, legal analysis, and healthcare. This approach improves the accuracy and relevance of generated answers, empowering users to navigate complex knowledge bases effectively and make more informed decisions.
 
-Rui Yang, Boming Yang, Xinjie Zhao, Fan Gao, Aosong Feng, Sixun Ouyang, Moritz Blum, Tianwei She, Yuang Jiang, Freddy Lecue, Jinghui Lu, and Irene Li. 2025. Graphusion: A RAG Framework for Scientific Knowledge Graph Construction with a Global Perspective. In*Proceedings of (WWW '25, NLP4KGC).*ACM, New York, NY, USA, [21](#page-20-0) pages.<https://doi.org/TBD>
+To assess the effectiveness of our method, we employed several widely used large language models to generate a diverse array of questions based on two benchmarks: Open Compass and MultiHop-RAG. This approach allowed us to thoroughly examine the performance of our framework across different scenarios and contexts. The contributions of this work can be summarized as follows:
 
-### Introduction
+* We present a framework for constructing and retrieving knowledge in the form of Pseudo-Knowledge Graph (PKG). This framework enables language models to accurately retrieve relevant information from a vast array of discrete knowledge.
+* We integrate multiple retrieval techniques into the PKG search, including regular expression matching, vector retrieval, relation-based retrieval, and meta-path retrieval, yielding strong results in information retrieval.
+* We conducted extensive evaluations based on the Open Compass and MultiHop-RAG benchmarks across multiple commonly used models, demonstrating the superior performance of the PKG framework in handling large volumes of information and complex relationships in the knowledge base.
 
-Retrieval-Augmented Generation (RAG) [\[19\]](#page-8-0) combines the advantages of retrieval methods and generative models, which improves the accuracy and relevance of generated content [\[42\]](#page-9-0). For instance, given a free-text corpus and a query involving two related entities, RAG can retrieve relevant information and infer their relation. Therefore, RAG can be used to enhance the performance of various knowledge-intensive tasks [\[9,](#page-8-1) [41,](#page-9-1) [44\]](#page-9-2). However, the need for more structured and comprehensive knowledge integration has highlighted the importance of adopting Knowledge Graphs (KGs). KGs provide structured and interconnected representations of information, offering richer context and reasoning capabilities that further enhance retrieval-augmented methods in complex applications. [\[5,](#page-8-2) [21,](#page-8-3) [30\]](#page-8-4)
+## 2 RELATED WORK
 
-Permission to make digital or hard copies of all or part of this work for personal or classroom use is granted without fee provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice and the full citation on the first page. Copyrights for components of this work owned by others than the author(s) must be honored. Abstracting with credit is permitted. To copy otherwise, or republish, to post on servers or to redistribute to lists, requires prior specific permission and/or a fee. Request permissions from permissions@acm.org.
+## 2.1 Retrieval Augmented Generation
 
-WWW '25, NLP4KGC, April 28-May 2, 2025, Sydney, NSW, Australia Rui Yang, Boming Yang, Xinjie Zhao, Fan Gao and et al.
+Shortly after the introduction of pre-trained language models [[13]](#ref-13), Large Language Models (LLMs) [[5]](#ref-5) have significantly advanced natural language processing, excelling in tasks like translation and summarization [[9]](#ref-9), [[81]](#ref-81). However, they often struggle with factual accuracy, generating outdated or incorrect information due to reliance on learned patterns. To address these challenges, the Retrieval-Augmented Generation (RAG) framework [[31]](#ref-31) is introduced. RAG enhances the generative capabilities of LLMs by incorporating a retrieval mechanism that accesses relevant information from external knowledge bases [[32]](#ref-32). This two-step process retrieves relevant documents based on the input query and uses them to inform response generation. By integrating retrieval and generation, RAG enhances factual accuracy and enriches content with current, contextually relevant information [[27]](#ref-27).
 
-<span id="page-1-0"></span>![](_page_1_Figure_2.jpeg)
-<!-- Image Description: The image is a flowchart illustrating a research methodology for reading comprehension. It depicts the progression from a free-text corpus to a merged knowledge graph ("Graphusion"), integrating seed concepts, handling duplicate entities, and employing community aggregation. Boxes represent processing steps, while graphs visualize knowledge graph evolution. The figure highlights the authors' approach ("Graphusion") within a broader context of existing methods (Local Graph-RAG) and foundational NLP concepts. -->
+RAG has shown promising results in applications like question-answering and conversational agents, setting a new standard for combining retrieval and generative techniques. The integration of vector databases with RAG holds significant potential for improving the efficiency and effectiveness of information retrieval alongside LLMs [[52]](#ref-52).
 
-### Figure 1: Comparison of Zero-shot LLM, RAG framework, and our Graphusion framework on applying LLMs for KGC.
+## 2.2 Knowledge Graph
 
-Especially in the scientific domain, KGs play a crucial role when precise extraction and modeling of entities and their relations are required. The accurate selection of entities with appropriate granularity, along with precise modeling of their relations, is key to capturing the complex structure and semantics inherent in scientific knowledge [\[15,](#page-8-5) [20\]](#page-8-6).
+Before the advent of LLMs, Knowledge Graphs (KGs) [[16]](#ref-16) were a preferred choice for information retrieval [[49]](#ref-49) and smart Q&A [[76]](#ref-76), [[85]](#ref-85). KGs are structured representations of knowledge, capturing relationships between entities in a graph format. They consist of nodes (entities) and edges (relations), organizing information in a machine-readable and human-understandable way. This framework integrates diverse data sources, representing complex relationships and concepts within a unified structure, often enriched with metadata for enhanced contextual understanding.
 
-Existing knowledge graph construction (KGC) methods predominantly adopt a localized perspective [\[4,](#page-8-7) [6,](#page-8-8) [35\]](#page-8-9), focusing on extracting triplets at the sentence or paragraph level. While this approach works well for shallow knowledge—such as (people, belong\_to, organization)—it falls short in scientific domains, where a global view is essential for identifying complex, multi-layered relations between entities. Localized methods often fail to capture the comprehensive and interconnected nature of knowledge, leading to limited accuracy and completeness when triplets are derived from isolated text segments, which is particularly crucial for scientific KGs. The recent success of GraphRAG [\[8\]](#page-8-10) highlights the value of leveraging a global KG for query-based summarization with the help of large language models (LLMs) [\[1\]](#page-8-11). However, despite offering enhanced contextual understanding, building and maintaining large-scale graph structures with hierarchical clustering significantly increases computational cost and complexity compared to simpler retrieval methods, limiting its application in resource-constrained environments or real-time systems requiring low-latency responses. Moreover, its effectiveness in scientific KGC, particularly when high entity granularity is required, remains unclear.
+KGs have diverse applications [[22]](#ref-22), [[85]](#ref-85). In search engines, they improve relevance by providing contextual information about entities. In natural language processing, they enhance question-answering systems by linking queries to relevant knowledge. KGs also aid recommendation systems by understanding user preferences. Industries like healthcare, finance, and e-commerce use KGs for data integration and decision support, driving innovation and efficiency across various domains.
 
-We illustrate the necessity of balancing the performance-efficiency trade-off in building the large-scale KG tailored to a user prompt in Fig. [1.](#page-1-0) A user poses a specific question from the NLP domain, requiring a learning path from the entity word distributions to the entity reading comprehension. Ideally, the model should understand the relations between these entities and effectively map out the learning path. Zero-shot LLMs might provide somewhat relevant answers but tend to be too general, as shown in the figure, offering broad entities like Basic NLP Foundations or
+## 2.3 Interaction between Language Models and Knowledge Graphs
 
-introducing confusing, inaccurately specific entities (e.g., Corpora and Datasets). While some RAG-based methods for building KGs focus primarily on relation extraction from limited sources via retrieval, this often results in numerous disconnected KGs or sub-graphs, we marked this method as Local Graph-RAG. We argue that a global understanding of domain knowledge is crucial and may be challenging for typical existing RAG frameworks. For instance, determining the relation between hierarchical attention network and reading comprehension may be difficult, as these entities might not appear within the same document. The model needs to extract and synthesize information from two (or more) documents to recognize that the relation is Used\_for. GraphRAG addresses this challenge hierarchically by linking entities to gather information on a global scale. However, despite the method's high cost, it remains unclear how relation conflicts are managed. Moreover, we observe that some entities, such as models, may be overly broad and therefore not useful for users.
+Integrating language models with knowledge graphs is crucial for advancing natural language processing [[41]](#ref-41), [[42]](#ref-42). Language models are adept at understanding and generating human-like text, offering flexibility and contextual awareness [[21]](#ref-21), [[29]](#ref-29). In contrast, knowledge graphs provide structured information, capturing relationships and facts to ensure accuracy and coherence.
 
-Recognizing these limitations, we propose a cost-efficient KGC approach to incorporate the global perspective and improve RAG performance on downstream question-answering (QA) tasks. Fig. [1](#page-1-0) illustrates the differences between zero-shot LLMs and Local Graph-RAG, GraphRAG and our model. While Local Graph-RAG primarily focuses on knowledge extraction from a disconnected point of view, GraphRAG is able to summarize the information from a global view. However, our approach, Graphusion, incorporates a knowledge fusion step to integrate local knowledge into a global context directly. The core fusion step performs global merging and resolution across multiple local sub-graphs to form one large connected KG. Specifically, we leverage LLMs not only for extraction but also for critical knowledge integration, marking the first initiative to utilize LLMs for such a comprehensive merging process. Moreover, we generate a seed entity list to guide the entity extraction with better granularity. We demonstrate Graphusion's capability in knowledge graph construction and link prediction. Our results show that Graphusion achieves scores of 2.92 and 2.37 out of 3 for entity extraction and relation recognition, respectively. Furthermore, we show that a simplified link prediction prompt outperforms supervised learning baselines, achieving a 3% higher F1 score. Then, to further show the power of the constructed KG, we showcase how it could be applied to the NLP domain, and most importantly, we validate it in an educational scenario with complex QA tasks. [1](#page-1-1)
+This synergy allows language models to help build knowledge graphs by identifying entities and relationships in unstructured text [[34]](#ref-34), [[78]](#ref-78). Conversely, knowledge graphs enhance language models by incorporating structured knowledge into training and inference [[2]](#ref-2), [[56]](#ref-56), improving text accuracy and reasoning capabilities.
 
-### Related Work
+![The overall framework of our PKG approach. We enhance LLMs by integrating diverse methods for building and retrieving PKG.](_page_2_Figure_0.jpeg)
+### Figure 1: The overall framework of our PKG approach. We enhance LLMs by integrating diverse methods for building and retrieving PKG.
 
-Knowledge Graph Construction KGC aims to create a structured representation of knowledge in the form of a KG. A KG can be created from various sources, such as databases or texts. In our work, we focus on KGC from natural language resources. Research on KGs spans various domains, including medical, legal, and more [\[2,](#page-8-12) [16,](#page-8-13) [18,](#page-8-14) [22,](#page-8-15) [38\]](#page-8-16). Typically, KGC from text involves several methods such as entity extraction and link prediction [\[27,](#page-8-17) [33\]](#page-8-18), with a significant focus on supervised learning. Recently, LLMs have been utilized in KGC relying on their powerful zero-shot capabilities [\[6,](#page-8-8) [24,](#page-8-19) [45,](#page-9-3) [47\]](#page-9-4). Although relevant works propose pipelines for extracting knowledge, they often remain limited to localized views, such as extracting triplets from the sentence or paragraph level. In
+During pre-training, knowledge graph triples can be converted into text to help language models learn structured information, improving their understanding of factual knowledge [[80]](#ref-80). For example, models like ERNIE 3.0 [[62]](#ref-62) use tokenized triples to mask entities and relationships, promoting effective learning. During inference, language models retrieve real-time information from knowledge graphs, enabling precise and contextually relevant responses.
 
-<span id="page-1-1"></span><sup>1</sup> <https://github.com/IreneZihuiLi/Graphusion>
+Moreover, language models are essential for updating knowledge graphs by extracting new entities and relationships from recent data [[14]](#ref-14). This ongoing process ensures the graphs remain accurate and relevant. By detecting inconsistencies and suggesting updates, language models significantly enhance the quality of knowledge representation, improving the effectiveness of natural language processing applications.
 
-Graphusion WWW '25, NLP4KGC, April 28-May 2, 2025, Sydney, NSW, Australia
+## 3 METHODOLOGY
 
-<span id="page-2-0"></span>![](_page_2_Figure_2.jpeg)
-<!-- Image Description: This figure details a three-step knowledge graph construction process. Step 1 extracts seed entities from free text data using techniques like topic modeling and machine translation. Step 2 extracts candidate triples using machine translation to identify relationships (e.g., "used for," "hypernym of") between entities. Step 3 fuses these triples, merging entities, resolving conflicts, and inferring novel triples to create a comprehensive knowledge graph. The diagrams illustrate the data flow and relationships between entities and relations. -->
+In this section, we present the proposed Pseudo-Knowledge Graph (PKG)-based information retrieval system, which integrates PKG semantics and collaborative semantics to enhance the performance of large language models (LLMs). The overall framework of the proposed PKG approach is illustrated in Figure [1]](#ref-1).
 
-**Figure 2:** Graphusion framework illustration. Graphusion consists of 3 steps: S1 Seed Entity Generation, S2 Candidate Triplet Extraction and S3 Knowledge Graph Fusion.
+The PKG is a sophisticated RAG framework designed to tackle the challenges of processing vast amounts of information and managing intricate data relationships. PKG leverages the complementary strengths of knowledge graphs, LLMs, and meta-path retrieval to build a highly adaptable and context-sensitive retrieval system. Central to its design, PKG stores diverse representations of entities and their interconnections within a structured graph framework, while also retaining the original natural language text segments from which these elements are derived. This hybrid approach—combining structured graph data with unstructured text—ensures that LLMs can efficiently interpret and utilize the retrieved information, bypassing their typical difficulties with purely structured data formats. By preserving the richness of natural language, PKG enhances the LLMs' ability to generate accurate and contextually relevant responses, making it a powerful tool for navigating complex knowledge domains.
 
-contrast, our work focuses on shifting from a local perspective to a global one, aiming to generate a more comprehensive KG. Approaches such as GraphRAG [\[8\]](#page-8-10) which uses graph indexing and community detection to generate query-focused summaries, effectively answer global questions. However, GraphRAG focuses less on the detailed steps of graph construction, such as entity resolution and relation inference. In contrast, this work places greater emphasis on the process of global KGC, including entity merging, conflict resolution, and novel triplet discovery, thereby achieving a more comprehensive and consistent knowledge representation.
+## 3.1 Overview of the Approach
 
-Educational Question Answering This work also falls within the scope of applications for educational question answering. Modern NLP and Artificial Intelligence (AI) techniques have been applied to a wide range of applications, with education being a significant area. For instance, various tools have been developed focusing on writing assistance, language study, automatic grading, and quiz generation [\[10,](#page-8-20) [26,](#page-8-21) [34,](#page-8-22) [43,](#page-9-5) [46\]](#page-9-6). Moreover, in educational scenarios, providing responses to students still requires considerable effort, as the questions often demand a high degree of relevance to the study materials and strong domain knowledge. Consequently, many studies have concentrated on developing automatic QA models [\[13,](#page-8-23) [48\]](#page-9-7), which tackle a range of queries, from logistical to knowledge-based questions. In this work, we integrate a free-text constructed KG for various QA tasks in NLP education.
+As discussed in Section [1]](#ref-1), traditional RAG systems relying on vector databases struggle to effectively manage large volumes of complex information [[82]](#ref-82), which significantly limits the capabilities of LLMs when processing extensive knowledge bases. To address these limitations, we propose the Pseudo-Knowledge Graph (PKG) framework, a novel approach designed to enhance semantic understanding, relation extraction, and information retrieval efficiency. PKG achieves this by integrating structured knowledge representations with unstructured natural language text, enabling LLMs to process and interpret complex data more effectively. The framework consists of two core components:
 
-## Graphusion: Zero-shot Knowledge Graph Construction
+* The PKG Builder (Section [3.2]](#ref-3-2)) is an automated tool for constructing PKGs. It employs advanced techniques to identify entities and extract relationships from unstructured text, transforming raw data into a structured graph format. By combining traditional NLP algorithms (e.g., tokenization, dependency parsing) with state-of-the-art language model techniques, the PKG Builder ensures high accuracy and scalability in graph construction. This hybrid approach leverages the strengths of both rule-based methods and machine learning models, resulting in a more reliable and precise representation of knowledge compared to existing methods. The PKG Builder also preserves the original text chunks within the graph, enabling LLMs to process information in its natural language form, thereby overcoming their limitations in handling purely structured data.
+* The PKG Retriever (Section [3.3]](#ref-3-3)) facilitates efficient and flexible information retrieval from the constructed PKG. It supports a variety of retrieval methods, including keyword searches, semantic searches, and meta-path searches, enabling users to execute complex queries that leverage the relationships and attributes defined in the PKG. The PKG Retriever is designed with a user-centric interface, allowing users to filter results, visualize entity connections, and extract actionable insights. By combining these capabilities, the PKG Retriever enhances the decision-making process for LLMs, enabling them to generate more accurate and contextually relevant responses. The integration of metapath retrieval, in particular, allows for the exploration of complex, multi-hop relationships, which is critical for tasks requiring deep contextual understanding.
 
-We now introduce our Graphusion framework for constructing scientific KGs, shown in Fig. [2.](#page-2-0) Our approach addresses three key challenges in zero-shot KGC: 1) the input consists of free text rather than a predefined list of entities; 2) the relations encompass multiple types, and conflicts may exist among them; and 3) the output is not a single binary label but a list of triplets, making evaluation more challenging.
+In the following sections, we provide a detailed explanation of the methodology, including the construction of the PKG and the retrieval mechanisms that underpin its effectiveness.
 
-Problem Definition A is defined as a set of triplets = {(ℎ , , ) | ℎ , ∈ , ∈ , = 1, 2, . . . , }, where is the set of entities, is the set of possible relations, and is the total number of triplets in the . The task of zero-shot KGC involves taking a set of free text and generating a list of triplets (ℎ, , ) spanning a KG. Optionally, there is an expert-annotated KG, , as input, in order to provide existing knowledge. In our setting, the number of triplets of is much larger than . We select the domain to be NLP, so the entities are limited to NLP entities, with other entity types such as people, and organizations not being our focus. Referring to previous works [\[27\]](#page-8-17), we define 7 relations types: Prerequisite\_of, Used\_for, Compare, Conjunction, Hyponym\_of, Evaluate\_for and Part\_of. We will now describe the three steps of the pipeline in detail.
+## 3.2 PKG Builder
 
-## Step 1: Seed Entity Generation
+To construct the PKG, a key challenge is accurately extracting and representing entities and relationships from unstructured text. We adopt a hybrid approach that integrates traditional NLP algorithms with advanced language model techniques, enhancing entity recognition and relation extraction. This section outlines the PKG Builder's methodology, which consists of two main steps: (1) applying NLP algorithms to identify entities and relations, converting raw data into a structured format; and (2) refining the extraction process using language models. Additionally, we optimize storage
 
-Extracting domain-specific entities using LLMs under a zero-shot setting is highly challenging due to the absence of predefined entity lists. This process is not only resource-intensive but also tends to generate a large number of irrelevant entities, or entities with a bad granularity, thereby compromising the quality of extraction. To address these issues, we adopt a seed entity generation approach for efficiently extracting in-domain entities from free text [\[17\]](#page-8-24). Specifically, we utilize BERTopic [\[11\]](#page-8-25) for topic modeling to identify representative entities for each topic. These representative entities serve as seed entities, denoted as . The initialized seed entities ensure high relevance in entity extraction and provide certain precision for subsequent triplet extraction.
+![The extraction of entities and relations in PKG Builder. After transformation raw data into source text, We use two distinct approaches: traditional methods utilizing NLP approaches and modern techniques employing LLMs. Also, we employ LLMs to review and verify the information extracted using traditional NLP methods.](_page_3_Figure_0.jpeg)
 
-## Step 2: Candidate Triplet Extraction
+**Figure 2:** The extraction of entities and relations in PKG Builder. After transformation raw data into source text, We use two distinct approaches: traditional methods utilizing NLP approaches and modern techniques employing LLMs. Also, we employ LLMs to review and verify the information extracted using traditional NLP methods.
 
-These seed entities obtained from Step 1 would guide us to conduct entity extraction. In Step 2, we begin extracting candidate triplets from the free text. Each time, we input an entity ∈ ({query}) as the query entity and retrieve documents containing this entity ({context}) through information retrieval. Our goal is to extract any potential triplet that includes this query entity. To achieve this, we design a Chain-of-Thought (CoT) [\[39\]](#page-8-26) prompt. We first instruct the LLMs to extract in-domain entities, and then identify the possible relations between those entities and . Then, we ask LLMs to discover novel triplets, even if is not initially included. This approach ensures that the seed entities play a leading role in guiding the extraction of in-domain entities. Meanwhile, the candidate triplets will encompass novel entities. We design the Extraction Prompt to be the following:
+3.2.1 Entity and Relation Extraction with NLP methods. Entity and relation extraction is fundamental to PKG construction, involving the identification of entities (e.g., people, organizations, locations) and their relationships. To achieve high performance, we integrate multiple methods to automate this process.
 
-Given a context {context} and a query entity {query}, do the following:
+The extraction pipeline begins with text segmentation and compression. Text is broken into manageable units, such as sentences and phrases, using methods like sentence boundary detection and tokenization [[36]](#ref-36), [[39]](#ref-39). For compression, techniques like summarization and noise reduction are applied to remove redundant or irrelevant information, improving efficiency. Extractive summarization [[33]](#ref-33), [[83]](#ref-83) and stop-word removal [[48]](#ref-48), [[57]](#ref-57) streamline the text, laying the groundwork for accurate entity and relation extraction.
 
-- 1. Extract the query entity and in-domain entities from the context, which should be fine-grained...
-- 2. Determine the relations between the query entity and the extracted entities, in a triplet format: (<head entity>, <relation>, <tail entity >)... {Relation Definition}
-- 3. Please note some relations are strictly directional...
-- 4. You can also extract triplets from the extracted entities, and the query entity may not be necessary in the triplets.
+For entity extraction, we use traditional NLP methods, including handcrafted rules, regular expressions, and linguistic cues, which are precise in well-defined contexts but require domain-specific knowledge. We also employ models like Conditional Random Fields (CRFs) [[43]](#ref-43), [[44]](#ref-44) and Hidden Markov Models (HMMs) [[53]](#ref-53), [[55]](#ref-55), which incorporate features such as part-of-speech tags, capitalization, and contextual information.
 
-After processing all the queries from the seed entity list, we save all the candidate triplets. We denote this zero-shot constructed KG by the LLM as ZS − KG.
+For relation extraction, we use syntactic parsing, particularly dependency parsing, to analyze sentence structures and identify potential relationships. Rule-based patterns, defined using syntactic structures or specific phrases, are applied to detect relations. Additionally, machine learning models such as Support Vector Machines (SVMs) [[25]](#ref-25) and decision trees [[54]](#ref-54), [[74]](#ref-74) are employed to classify relationships, leveraging labeled datasets and features like word pairs and dependency paths [[72]](#ref-72). Statistical co-occurrence measures are also used to infer relationships based on the frequency of entity co-occurrences. This hybrid approach ensures robust and accurate entity and relation extraction.
 
-## Step 3: Knowledge Graph Fusion
+3.2.2 Entity and Relation Extraction with LLMs. To further enhance extraction, we incorporate LLMs, as outlined in Section [4.2]](#ref-4-2). Using a multipart prompt, we first identify entities, detailing their names, types, and descriptions, and then discern relationships between them, specifying source and target entities. The extracted data is consolidated into a list of delimited tuples. To tailor LLM performance to specific domains, we employ few-shot learning [[59]](#ref-59), [[71]](#ref-71), which is particularly effective in specialized fields like science, medicine, and law. The default prompt captures a broad range of entities but can be customized with domain-specific examples for improved precision.
 
-The triplets extracted in the previous step provide a local view rather than a global perspective of each query entity. Due to the limitations of context length, achieving a global view is challenging. Additionally, the relations extracted between two entities can be conflicting, diverse, or incorrect, such as (neural summarization methods, Used-for, abstractive summarization) and (neural summarization methods, Hyponym-of, abstractive summarization). To address the aforementioned challenge, we propose the fusion step. This approach helps reconcile conflicting relations, integrate diverse or incorrect relations effectively, and ultimately provides a global understanding of an entity pair. Specifically, for each query entity , we first query from ZS − KG, and obtain a sub-graph that contains :
+To ensure completeness and quality, we implement a multi-round gleaning process. The LLM first assesses whether all entities have been extracted, using a logit bias for binary decisions. If missing entities are detected, a continuation prompt triggers the LLM to recover them, ensuring high-quality extraction even for large text chunks. This iterative approach minimizes noise while maximizing data completeness.
 
-<span id="page-3-2"></span>LLM-KG = {(ℎ, , ) ∈ ZS-KG | ℎ = or = }.
+Additionally, LLMs are used to review and verify information extracted by traditional NLP methods. By combining insights from both approaches, we achieve a comprehensive and accurate final result. This includes capturing relevant claims associated with entities, such as subject, object, type, description, and temporal information, enhancing the depth and precision of the extracted data.
 
-Optionally, if there is an expert-annotated KG available, we will also query a sub-graph, marked as E − G. Moreover, we conduct a dynamic retrieval of again from the free text ({background}), to help LLMs to have a better understanding on how to resolve the conflicted triplets. This key fusion step focuses on three parts: 1) entity merging: merge semantically similar entities, i.e., NMT vs neural machine translation; 2) conflict resolution: for each entity pair, resolve any conflicts and choose the best one; and 3) novel triplet inference: propose new triplet from the background text. We utilize the following Fusion Prompt:
+By integrating LLMs with traditional NLP techniques, the PKG Builder achieves a robust and scalable solution for entity and relation extraction, tailored to the specific requirements of diverse domains.
 
-```text
-Please fuse two sub-knowledge graphs
-```text
+3.2.3 Storage of Entities and Relations. After extracting entities and relationships from text-based knowledge bases, effective storage is crucial for efficient querying. While traditional knowledge graphs [[14]](#ref-14), [[56]](#ref-56) excel in managing structured data and complex relationships [[30]](#ref-30), they often fall short in supporting LLMs, which perform better with natural language [[60]](#ref-60), [[79]](#ref-79). To address this, we develop an optimized storage structure that combines the strengths of graph databases and natural language text.
 
-about the entity: {entity}. Graph 1: {LLM-KG} Graph 2: {E-G}
+We use graph databases like Neo4j [[19]](#ref-19), [[35]](#ref-35) and OrientDB [[50]](#ref-50), [[67]](#ref-67) to store the PKG, as they efficiently handle complex relationships. Entities and their attributes are stored as nodes, and relationships
 
-- Rules for Fusing the Graphs:
-- 1. Union the entities and edges.
-- 2. If two entities are similar, or refer to the same entity, merge them into one entity, keeping the one that is meaningful or specific.
-- 3. Only one relation is allowed between two entities. If a conflict exists, read the ### Background to help you keep the correct relation...
-- 4. Once step 3 is done, consider every possible entity pair not covered in step 2. For example, take an entity from Graph 1, and match it with a entity from Graph 2. Then, please refer to ### Background to summarize new triplets.
+![Nodes and Their Properties. (a) illustrates the components of a basic node; (b) presents an example of two entity nodes extracted from a single text chunk node.](_page_4_Figure_0.jpeg)
 
-```text
+**Figure 3:** Nodes and Their Properties. (a) illustrates the components of a basic node; (b) presents an example of two entity nodes extracted from a single text chunk node.
 
-## Background:
+![The organization of text data within a PKG Storage System. Each entity node must be connected to at least one source text chunk node.](_page_4_Figure_2.jpeg)
 
-{background}
-```text
+**Figure 4:** The organization of text data within a PKG Storage System. Each entity node must be connected to at least one source text chunk node.
 
-{Relation Definition}
+are represented as edges. To enhance query speed and semantic analysis, we vectorize each node using techniques like Word2Vec [[11]](#ref-11), GloVe [[45]](#ref-45), or transformer-based models like BERT [[13]](#ref-13). These vectors capture the semantic meaning of nodes in a high-dimensional space, enabling fast similarity searches (e.g., cosine similarity) for efficient retrieval of related concepts or entities, as shown in Figure [3]](#ref-3).
 
-### Experiments on Knowledge Graph Construction
+A key innovation in our approach is the integration of in-graph text. Unlike traditional knowledge graphs that rely solely on structured data, we store the original segmented text chunks as nodes in the graph database, linking them to the corresponding entities (see Figure [4]](#ref-4)). This ensures that during queries, relevant natural language text passages can be provided to LLMs, leveraging their strength in processing unstructured text. For example, in legal document analysis, linking case law text segments to specific legal entities allows LLMs to interpret nuanced legal language more effectively. Similarly, in scientific research, associating text from research papers with scientific concepts enables precise retrieval and understanding of complex topics.
 
-In these experiments, we investigated the general capabilities of Graphusion for KGC.
+By combining graph databases, vectorization, and in-graph text, we create a robust storage system that leverages both structured and unstructured data. Graph databases handle complex relationships, vectorization enables fast semantic searches, and in-graph text enhances LLMs' ability to process natural language, ensuring accurate and context-rich responses. This hybrid approach addresses the limitations of traditional RAG and knowledge graph systems, making PKG a powerful tool for knowledge retrieval and reasoning.
 
-Dataset To conduct scientific KGC, we need a large-scale freetext corpus to serve as the knowledge source. We collect the proceedings papers from the ACL conference[2](#page-3-0) spanning 2017-2023, which includes a total of 4,605 valid papers. Considering that abstracts provide high-density, noise-free information and save computational resources, we perform topic modeling and KGC on the paper abstracts.
+In summary, The PKG Builder enhances the construction of PKG by integrating advanced language models with traditional NLP techniques. Entities and relations are identified using a combination of NLP methods and then refined through language models to ensure accuracy and completeness. The extracted data is stored in graph databases, optimized for efficient retrieval, and enhanced by vectorization techniques. This allows for seamless integration of structured and unstructured data, facilitating more effective querying and utilization by language models. The resulting system is scalable and flexible, supporting complex data interactions and retrieval across diverse domains, such as legal analysis, scientific research, and healthcare.
 
-Implementation We implement Graphusion on top of four settings with different LLMs: LLaMa3-70b[3](#page-3-1) , GPT-3.5, GPT-4 and GPT-4o. Additionally, we compare with multiple baselines, including zero-shot (GPT-4o zs) and RAG (GPT-4o RAG). We query what is the relation of a node pair as the prompt, and the zero-shot setting answers directly, while the RAG one answers with retrieved results from the same data with Graphusion.
+## 3.3 PKG Retriever
 
-Baseline We compare with a local graph model (GPT-4o Local), which equals to the Graphusion model without the fusion step (Step 3). Note that it is challenging to evaluate the entity quality, as a simple prompt will generate out-of-domain nodes, so we focus on comparing the relation quality. We also compare with the GraphRAG framework. Like Graphusion, we first tune the prompt with zeroshot and CoT settings for GraphRAG' entity/relation extraction. We define the relation types within the prompt. We also utilize GraphRAG's prompt auto-tuning ability to create community reports to adapt the generated knowledge graph to the NLP domain. The full manual promo tuning can be found in the Appendix. We then
+Given a user query, we can extract a wealth of information, including the query itself, its vector representation (capturing semantic information), the entities it contains, the relations required to answer it, and hypothetical answers. Leveraging this diverse information, we develop three retrieval methods to access the prepared PKG: regular expression matching, vector-based retrieval, and meta-path retrieval. Each method exploits distinct aspects of the query-derived information, enabling efficient and effective identification of the most relevant data. Regular expression matching is used for precise pattern-based searches, vector-based retrieval leverages semantic similarity for flexible matching, and meta-path retrieval uncovers complex relational pathways between entities. By combining these techniques, we ensure a comprehensive and adaptable retrieval process capable of handling queries of varying complexity and specificity. This multi-layered strategy enhances retrieval performance and ensures robustness across diverse query types. The overall framework of the PKG Retriever is illustrated in Figure [5]](#ref-5).
 
-<span id="page-3-0"></span><sup>2</sup> <https://aclanthology.org/venues/acl/>
+3.3.1 Regular Expression Retrieval. Regular expression retrieval is a straightforward yet effective method for extracting information from a predefined dataset or text corpus. It excels at handling queries involving specific entities or patterns by matching predefined string patterns within the PKG. For example, a regular expression can be designed to identify common date formats (e.g., "YYYY-MM-DD" or "DD/MM/YYYY.") in a document, enabling precise extraction of relevant information. This method is particularly useful in PKGs, where entities and their relationships are stored in a structured format, allowing for efficient pattern-based searches.
 
-<span id="page-3-1"></span><sup>3</sup> <https://llama.meta.com/llama3/>
+When a node is retrieved using a regular expression, it provides access to a cluster of interconnected nodes and their associated information. This capability is essential for tasks requiring contextual understanding, such as extracting event sequences from timelines or identifying relationships between entities. For instance,
 
-feed the collected abstracts into GraphRAG to build the indexing pipelines. Specifically, we employ GPT-4o as the base LLM. In the query phase, we ask GraphRAG the relation between the given entity pairs.
+![PKG Retriever. The retrieval process begins with a user query. Then, we get the query itself, entities inside the query, and hypothetical answers for retrieval. The retrieval methods are categorized into three types: Regular Expression Retrieval, which utilizes regular expressions to identify nodes and their relations; Vector Retrieval, which employs vector-based methods to find relevant nodes and their associated relations; and Meta-path Retrieval, which explores start nodes and their connections through specified meta-paths. The content in the light yellow boxes is what we can obtain from the PKG Retriever.](_page_5_Figure_0.jpeg)
 
-Evaluation Metrics The automatic evaluation of our scientific KGC approach is challenging, due to the lack of ground truth graphs matching our setting. Therefore, we conduct a human evaluation of the constructed KG. For each model, we randomly sample 100 triplets and ask experts to assess both*entity quality*and*relation quality*, providing ratings on a scale from 1 (bad) to 3 (good). Entity quality measures the relevance and specificity of the extracted entities, while relation quality evaluates the logical accuracy of the relation between entities. We provide the annotators with the following guidelines:
+**Figure 5:** PKG Retriever. The retrieval process begins with a user query. Then, we get the query itself, entities inside the query, and hypothetical answers for retrieval. The retrieval methods are categorized into three types: Regular Expression Retrieval, which utilizes regular expressions to identify nodes and their relations; Vector Retrieval, which employs vector-based methods to find relevant nodes and their associated relations; and Meta-path Retrieval, which explores start nodes and their connections through specified meta-paths. The content in the light yellow boxes is what we can obtain from the PKG Retriever.
 
-1. Entity Quality *Excellent (3 points)*: Both entities are highly relevant and specific to the domain. At an appropriate level of detail, neither too broad nor too specific. For example, an entity could be introduced by a lecture slide page, or a whole lecture, or possibly have a Wikipedia page. *Acceptable (2 points)*: Entity is somewhat relevant, or granularity is acceptable. *Poor (1 point)*: Entity is at an inappropriate level of detail, too broad or too specific.
+in a bibliographic PKG, regular expressions can retrieve nodes containing publication years within a specified range, facilitating the extraction of relevant articles or papers.
 
-2. Relation Quality *Correct (3 points)*: The relation logically and accurately describes the relation between the head and tail entities. *Somewhat Correct (2 points)*: The relation is acceptable but has minor inaccuracies or there might be another better or correct answer. *Incorrect (1 point)*: The relation does not logically describe the relation between the entities.
+While regular expression retrieval is powerful for structured data, it can be combined with other retrieval techniques (e.g., vectorbased or meta-path retrieval) to enhance its effectiveness, as discussed in Section [3.3.4]](#ref-3-3-4). In summary, regular expression retrieval provides a robust mechanism for accessing structured information through pattern recognition, serving as a foundational method for information retrieval in PKGs.
 
-Additionally, we calculate the Inter-Annotator Agreement (IAA) between the two experts using the Kappa score.
+3.3.2 Vector Retrieval. Vector retrieval is an advanced method for extracting information from the PKG by leveraging vector space models. Unlike regular expression retrieval, which relies on exact pattern matching, vector retrieval identifies semantically similar nodes by embedding entities and their contextual relationships into a high-dimensional vector space. This enables the retrieval of nodes that share semantic relevance with a query, even in the absence of exact textual matches. For example, a query for "machine learning" can retrieve nodes related to "artificial intelligence" or "neural networks" by calculating the similarity between their vector representations. This method is particularly effective for queries requiring semantic understanding and similarity-based matching.
 
-Results Tab. [1](#page-4-0) shows the ratings and the experts' consistency scores. Overall, the rating for entity surpasses relation, demonstrating the challenge of relation extraction. Among all the methods tested, Graphusion with GPT-4o achieves the highest performance in both entity and relation ratings. Notably, when the fusion step is omitted, performance drops significantly from 2.37 to 2.08, demonstrating the crucial role of the fusion step in enhancing relation quality within Graphusion. Notably, the performance of GraphRAG is suboptimal, partly due to modifications we made to better align it with our evaluation. Furthermore, our observations indicate that it often defaults to predicting a single relation type when uncertain (e.g., 40 Part\_Of relations out of 100 cases). Additionally, the high consistency score among the experts indicates the reliability of the expert evaluation.
+In addition to query vectors, the system can utilize vectors of hypothetical answers [[17]](#ref-17) to enhance retrieval capabilities. This approach identifies information closely related to potential answers, significantly expanding the scope of retrieved data. However, managing the resulting large volume of information poses a challenge, which we address in Section [3.3.4]](#ref-3-3-4).
 
-Case Study: Fusion In Fig [3,](#page-4-1) we present case studies from our Graphusion framework using GPT-4o. Our fusion step merges similar entities (neural MT and neural machine translation) and also resolves relational conflicts (Prerequisite\_of and Hyponym\_of). Additionally, it can infer novel triplets absent from the input. We highlight both positive and negative outputs. For instance, it correctly identifies the use of a technique for a task (hierarchical attention network, Used\_for, reading comprehension). However, it may output less accurate triplets in entity recognition, such as entities with poor granularity (annotated data, model generated summary) and identifying very far relations (word embedding being categorized as part of computer science).
+Vector retrieval also supports clustering and classification tasks within the PKG, enabling the grouping of similar nodes and the identification of patterns across the graph. For instance, in social media analysis, vector-based clustering can identify trending topics or clusters of related content, offering insights into user interests and emerging discussions. In scientific research, it can map relationships between research papers, revealing interdisciplinary
 
-Graphusion WWW '25, NLP4KGC, April 28-May 2, 2025, Sydney, NSW, Australia
+connections even in the absence of direct citations. This capability accelerates knowledge discovery and fosters collaboration across fields.
 
+In summary, vector retrieval enhances semantic understanding and enables the discovery of intricate connections between entities through high-dimensional vector representations. By incorporating vectors for queries, entities, and hypothetical answers, it provides a powerful mechanism for uncovering patterns and trends. While effective, the method requires careful management of retrieved data to ensure efficiency and relevance. Overall, vector retrieval significantly advances data analysis and insight generation across diverse domains.t is crucial. Ultimately, vector retrieval advances data analysis and insight generation across various fields.
 
-| Model | Entity | | Relation | |
-|--------------|-----------|-------|-----------|-------|
-| | Rating | Kappa | Rating | Kappa |
-| GPT-4o zs | - | - | 2.28±0.88 | 0.68 |
-| GPT-4o RAG | - | - | 2.28±0.87 | 0.66 |
-| GPT-4o Local | - | - | 2.08±0.86 | 0.59 |
-| GraphRAG | - | - | 2.09±0.70 | 0.56 |
-| Graphusion | | | | |
-| LLaMA | 2.83±0.47 | 0.63 | 1.82±0.81 | 0.51 |
-| GPT-3.5 | 2.90±0.38 | 0.48 | 2.14±0.83 | 0.67 |
-| GPT-4 | 2.84±0.50 | 0.68 | 2.36±0.81 | 0.65 |
-| GPT-4o | 2.92±0.32 | 0.65 | 2.37±0.82 | 0.67 |
+3.3.3 Meta-path Retrieval. In traditional KGs, meta-paths are a core feature that enables the exploration of relationships between entities through predefined paths. A meta-path is a sequence of nodes and edges in a knowledge graph that defines a specific relational pathway, allowing for the discovery of complex and multi-hop connections. One can get much more complex relations through meta-paths than normal methods. For example, a meta-path such as "professor-project-professor" can identify all professors who have collaborated with a specific professor through shared projects. This capability is unique to meta-path retrieval, as it uncovers deeper and more nuanced relationships than traditional methods like vectorbased search, which primarily focus on semantic similarity.
 
-![](_page_4_Figure_10.jpeg)
-<!-- Image Description: The image is a table caption announcing Table 1. The table (not shown) presents a rating of entity and relation quality, along with Inter-Annotator Agreement (IAA) scores from expert evaluations. The caption describes the table's contents and purpose, which is to present the results of an expert evaluation. -->
+However, integrating meta-paths of knowledge graphs with LLMs presents challenges [[10]](#ref-10). On one hand, the computational complexity of dynamically constructing and traversing meta-paths during query processing can lead to high latency, limiting their practical application. On the other hand, although large language models excel in processing natural language, there are still technical barriers to integrating them with knowledge graphs, especially when dealing with meta-paths.
 
-<span id="page-4-1"></span>![](_page_4_Figure_11.jpeg)
-<!-- Image Description: This image displays a flowchart showing the merging and resolution of concept triplets in a knowledge graph. Three sections ("Merging," "Resolution," "Novel Triplets") illustrate relationships between concepts (e.g., probabilistic grammar and regex generation, machine translation types). The "More Cases" section provides further examples of relationships, including those between summarization methods, neural networks, and NLP tasks, using various relationship types (Hyponym_of, Used-for, Is-a-Prerequisite-of, Compare, Conjunction, Part-of). The diagram visually represents the process of knowledge integration and refinement within the paper's methodology. -->
+To address these challenges, we propose an innovative retrieval method that reduces the complexity and computational cost of
 
-**Figure 3:** Case studies for Graphusion on the GPT-4o model: Correct parts are highlighted in green, resolved and merged parts in orange, and less accurate parts in purple.
+![Meta-path Retriever. When using meta-paths, we only care about the node chain but not the relations between them. After we obtain the node sequences, we can analyze the connections among different entities. (b) and (c) illustrate various meta-paths highlighting different relationships and interactions within subgraph (a).](_page_6_Figure_0.jpeg)
 
-### Experiments on Link Prediction
+**Figure 6:** Meta-path Retriever. When using meta-paths, we only care about the node chain but not the relations between them. After we obtain the node sequences, we can analyze the connections among different entities. (b) and (c) illustrate various meta-paths highlighting different relationships and interactions within subgraph (a).
 
-While the task of KGC is to generate a list of triplets, including entities and their corresponding relations, we also evaluate a subtask: focusing solely on Link Prediction (LP) for pre-defined entity pairs and a single relation type, =Prerequisite\_of. Specifically, given an entity pair (, ), the task is to determine if a relation exists between two given entities. For instance, to learn the entity of POS Tagging, one must first understand the Viterbi Algorithm. Initially, a predefined set of entities is given.
+meta-path search. Our approach involves pre-constructing metapaths of lengths less than a predefined value and storing them as attributes within the nodes of the PKG. This pre-processing step allows for efficient retrieval of relevant meta-paths during query execution. To further optimize the search process, we integrate a lightweight model that dynamically identifies the most relevant meta-paths for a given query. This model, which is computationally efficient, analyzes the query context and selects the appropriate meta-paths, enabling rapid multi-hop exploration without the need for extensive on-the-fly computation.
 
-We then design an LP Prompt to solve the task. The core part is to provide the domain name, the definition and description of the dependency relation to be predicted, and the query entities. Meanwhile, we explore whether additional information, such as entity definitions from Wikipedia and neighboring entities from training data (when
+For example, in a research collaboration network, meta-paths such as "project-paper-researcher" can be pre-stored within node attributes. When a query is issued, the system quickly identifies researchers relevant to specific projects by traversing these preconstructed paths. This approach not only reduces query latency but also enhances the system's ability to uncover intricate relationships that would otherwise require significant computational resources.
 
+By employing this method, we streamline the meta-path retrieval process, enabling efficient and scalable multi-hop exploration of relationships within the PKG. The pre-storage of meta-paths minimizes computational overhead, while the lightweight model ensures dynamic and context-aware path selection. This innovation significantly enhances the system's ability to handle complex queries, making it particularly valuable for applications requiring deep relational reasoning, such as academic collaboration analysis, social network exploration, and biomedical knowledge discovery.
 
-| Method | | NLP | CV | | BIO | | Overall | |
-|----------------------|--------|--------|--------|--------|--------|--------|---------|--------|
-| | Acc | F1 | Acc | F1 | Acc | F1 | Acc | F1 |
-| Supervised Baselines | | | | | | | | |
-| P2V[3] | 0.6369 | 0.5961 | 0.7642 | 0.7570 | 0.7200 | 0.7367 | 0.7070 | 0.6966 |
-| BERT[7] | 0.7088 | 0.6963 | 0.7572 | 0.7495 | 0.7067 | 0.7189 | 0.7242 | 0.7216 |
-| DeepWalk[31] | 0.6292 | 0.5860 | 0.7988 | 0.7910 | 0.7911 | 0.8079 | 0.7397 | 0.7283 |
-| Node2vec[12] | 0.6209 | 0.6181 | 0.8197 | 0.8172 | 0.7956 | 0.8060 | 0.7454 | 0.7471 |
-| Zero-shot (zs) | | | | | | | | |
-| LLaMA | 0.6058 | 0.6937 | 0.6092 | 0.6989 | 0.6261 | 0.6957 | 0.6137 | 0.6961 |
-| GPT-3.5 | 0.6123 | 0.7139 | 0.6667 | 0.7271 | 0.6696 | 0.6801 | 0.6495 | 0.7070 |
-| GPT-4 | 0.7639 | 0.7946 | 0.7391 | 0.7629 | 0.7348 | 0.7737 | 0.7459 | 0.7771 |
-| Zero-shot + RAG | | | | | | | | |
-| GPT-3.5 | 0.7587 | 0.7793 | 0.6828 | 0.7123 | 0.6870 | 0.7006 | 0.7095 | 0.7307 |
-| GPT-4 | 0.7755 | 0.7958 | 0.7230 | 0.7441 | 0.7174 | 0.7200 | 0.7386 | 0.7533 |
+In summary, our meta-path retrieval method addresses the limitations of traditional approaches by combining pre-constructed meta-paths with a lightweight, context-aware model. This approach not only improves retrieval efficiency but also opens new avenues for exploring complex data relationships, enabling more insightful analyses and applications across diverse domains.
 
-<span id="page-5-1"></span>**Table 2:** Link prediction results across all domains on the LectureBankCD test set: We present accuracy (Acc) and F1 scores. Bolded figures indicate the best performance in the zero-shot setting, while underlined scores represent the highest achievements in the supervised setting. We apply LLaMA2-70b for all for this task.
+### 3.3.4 Post Processing.
 
-| Dataset | Domain | Answer Type | With KG | Collection |
-|---------------------|--------------|---------------------------------|---------|-----------------|
-| CBT [14] | Open-Domain | Multiple Choice | No | Automated |
-| LectureBankCD [20] | NLP, CV, BIO | Binary | Yes | Expert-verified |
-| FairytaleQA [40] | Open-Domain | Open-ended | No | Expert-verified |
-| ChaTa [13] | CS | Open-ended | No | Students |
-| ExpertQA [28] | Science | Open-ended | No | Expert-verified |
-| SyllabusQA [29] | Multiple | Open-ended | No | Course syllabi |
-| TutorQA (this work) | NLP | Open-ended, Entity List, Binary | Yes | Expert-verified |
-| | | | | |
+After retrieving information using the aforementioned methods, the next step involves integrating and reranking the data to identify the most relevant information for the query. This post-processing phase is critical for ensuring the accuracy, coherence, and comprehensiveness of the final output.
 
-**Table 3:** Comparison with other similar benchmarks: Educational or general QA benchmarks.
+The integration process begins by merging results from the three retrieval methods: Regular Expression Retrieval, Vector Retrieval, and Meta-path Retrieval. Each method contributes unique strengths: Regular Expression Retrieval provides precise patternbased matches, Vector Retrieval enhances semantic similarity by identifying contextually related information, and Meta-path Retrieval uncovers complex relational pathways between entities. For example, in a research database query seeking collaborations between researchers on specific topics, Regular Expression Retrieval can identify exact matches of researcher names or keywords. Vector Retrieval can then expand the scope by finding semantically related topics, even when different terminology is used. Finally, Meta-path Retrieval can trace indirect collaborations through shared projects or co-authorship networks, revealing deeper connections that might otherwise remain hidden.
 
-available), would be beneficial. We provide detailed prompts in the Appendix.
+Once integrated, the re-ranking process [[51]](#ref-51), [[61]](#ref-61) prioritizes the results based on their relevance to the query. This involves scoring each piece of information using criteria such as frequency of occurrence, semantic relevance, and the strength of relationships identified through meta-paths. Additionally, we leverage the capabilities of large language models (LLMs) to evaluate the relevance and accuracy of the content. By employing LLMs, we can dynamically assess the quality of retrieved information and refine the ranking based on contextual understanding. Furthermore, LLMs can learn from historical query data, identifying patterns and improving the re-ranking process over time. This adaptive approach allows the system to predict which types of information are most likely to be relevant for similar queries in the future, enhancing retrieval performance.
 
-We conduct a comprehensive evaluation on a scientific benchmark, LectureBankCD [\[23\]](#page-8-34), which contains entity pairs and the prerequisite labels among three domains: NLP, computer vision (CV), and bioinformatics (BIO). There are 1551, 871 and 234 entity pairs, respectively. We follow the same setting and training/testing split provided by the authors [\[23\]](#page-8-34) and report the accuracy and F1 score, shown in Tab. [2.](#page-5-0) We compare supervised baselines, zeroshot link prediction, and zero-shot approaches using RAG models. Specifically, the RAG data predominantly consists of NLP-related content, which explains the lack of noticeable improvement in the CV and BIO domains when using RAG. Overall, the LLM method outperforms traditional supervised baselines, suggesting that LLMs have the potential to achieve higher quality in knowledge graph construction, particularly in relation prediction.
+In conclusion, the post-processing phase plays a pivotal role in refining the retrieved data, ensuring that the final output is both comprehensive and highly relevant to the query's requirements. By integrating multiple retrieval methods and leveraging LLMs for reranking, the system delivers precise and contextually appropriate results, enabling the generation of accurate and insightful responses to user queries.
 
-## TutorQA: A Scientific Knowledge Graph QA Benchmark
+## 4 EXPERIMENT
 
-We aim to evaluate the practical usefulness of the Graphusionconstructed KG from an educational perspective. In NLP classes, students often have specific questions that require answers grounded in NLP domain knowledge, rather than general or logistical queries
+In Section [4.1]](#ref-4-1), we provide a detailed description of the datasets utilized in our experiments. Section [4.2]](#ref-4-2) outlines the models employed and Section [4.3]](#ref-4-3) discusses the experimental settings. Section [4.4]](#ref-4-4) presents the overall performance evaluation, encompassing a variety of evaluation metrics. Section [4.5]](#ref-4-5) conducts an ablation study to analyze the contribution of individual components to the system's performance. Section [4.6]](#ref-4-6) offers further analysis, exploring the impact of model size and retrieval methods on the results. Finally, Section [4.7]](#ref-4-7) presents a case study, illustrating the practical application and effectiveness of our approach through specific examples.
 
-related to the course. To address this need, we introduce the TutorQA benchmark, a QA dataset designed for scientific KG QA.
+## 4.1 Datasets
 
-TutorQA consists of six categories, encompassing a total of 1,200 QA pairs that have been validated by human experts, simulating questions typically encountered in classes. These questions extend beyond simple syllabus inquiries, covering more complex and challenging topics that require KG reasoning, along with proficiency in text comprehension and question answering. We list some similar benchmarks in Tab [3.](#page-5-1) While numerous open-domain QA benchmarks exist, our focus has been primarily on those within the scientific domain and tailored for college-level education, aligning with our objective to compare with benchmarks that can emulate a learning scenario. Among those, TutorQA is distinguished by its diversity in answer types and features expert-verified questions, ensuring a high standard of quality and relevance.
+We selected Open Compass [[7]](#ref-7) and MultiHop-RAG [[65]](#ref-65), two datasets comprising approximately one million tokens—equivalent to the text of about ten novels—to represent the vast and diverse corpora encountered in real-world scenarios. Open Compass emphasizes user-driven interactions, providing a rich foundation for evaluating models' ability to handle conversational and context-aware tasks. In contrast, MultiHop-RAG focuses on structured, multi-hop reasoning, challenging models to synthesize information across multiple documents and perform complex inference. Together, these datasets offer complementary evaluation frameworks, enabling a comprehensive assessment of our proposed method across a wide range of contexts and tasks, from conversational understanding to advanced reasoning and information synthesis.
 
-TutorQA Tasks We design different difficulty levels of the questions and divide them into 6 tasks. We summarize the tasks and provide example data in Fig [4.](#page-6-0) More data statistics and information can be found in the supplementary materials.
+4.1.1 Open Compass. Open Compass is a specialized dataset designed to evaluate the performance of language models across a wide range of natural language processing (NLP) tasks. It includes diverse user-generated content, such as questions and responses, which reflect real-world interactions. This dataset is particularly valuable for assessing models' comprehension and generation capabilities in practical scenarios. Open Compass is structured to test various aspects of language understanding, including:
 
-*Task 1: Relation Judgment*The task is to assess whether a given triplet, which connects two entities with a relation, is accurate.
-*Task 2: Prerequisite Prediction*The task helps students by mapping out the key entities they need to learn first to understand a complex target topic.
+* MMLU (Massive Multitask Language Understanding) [[24]](#ref-24): Measures the model's ability to perform well across a broad spectrum of tasks, including humanities, STEM, and social sciences.
+* AGIEval (AI General Intelligence Evaluation) [[84]](#ref-84): Evaluates the model's performance on tasks that require general intelligence, such as logical reasoning and problem-solving.
+* NQ (Natural Questions) [[23]](#ref-23): Tests the model's ability to answer fact-based questions by retrieving relevant information from a large corpus.
+* CSQA (Commonsense Question Answering) [[63]](#ref-63): Assesses the model's ability to leverage commonsense knowledge to answer questions that require reasoning beyond explicit facts.
+* OpenBookQA [[3]](#ref-3): Evaluates the model's ability to answer questions by combining explicit knowledge with reasoning, simulating open-book exams.
+* NLI (Natural Language Inference) [[37]](#ref-37): Tests the model's ability to understand and infer relationships between sentences, such as entailment and contradiction.
 
-## <span id="page-6-0"></span>Task 1: Relation Judgment Question: In the field of Natural Language Processing, I have come across the concepts of Penn Treebank and first-order logic. Considering the relation of Hyponym-Of, which establishes a hierarchical relationship where one entity is a more specific version or subtype of another, would it be accurate to say that the concept "Penn Treebank" is a hyponym of "first-order logic"? Answer: No. Evaluation: Accuracy Task 2: Prerequisite Prediction Question: In the domain of Natural Language Processing, I want to learn about Meta-Learning, what concepts should I learn first? Answer: probabilities, optimization, machine learning resources, loss function Evaluation: Similarity Score Task 3: Path Searching Question: In the domain of Natural Language Processing, I know about the concept of optimization, now I want to learn about the concept of neural language modeling, what concept path should I follow? Answer: optimization, machine learning resources, semi-supervised learning, neural networks, neural language modeling Evaluation: Similarity Score Task 4: Subgraph Completion Question: Given the following triplets constituting a sub-graph, please infer the relationship between "story ending generation" and "natural language generation." Triplets: story ending generation - Is-a-Prerequisite-of - sentiment control; sentence generation - Is-a-Prerequisite-of - NLG; natural language generation - Conjunction - natural language understanding Relationships Types: Compare, Part-of,Hyponym-Of ... Answer: Hyponym-Of Evaluation: Accuracy Task 5: Clustering Question: Given the concept PCA, can you provide some similar concepts? Please provide some similar concepts. Answer: Canonical Correlation Analysis, matrix factorization, linear discriminant analysis, singular value decomposition; maximum likelihood estimation. Evaluation: Hit Rate Task 6: Idea Hamster Question: I already know about sentiment analysis, social media analysis, sentence simplification, text summarization, citation networks. In the domain of Natural Language Processing, what potential project can I work on? Give me a possible idea. Show me the title and project description. Answer: (open ended)
+* COPA (Choice of Plausible Alternatives) [[26]](#ref-26): Measures the model's ability to choose the most plausible outcome or cause in a given scenario, requiring causal reasoning.
 
-### Figure 4: TutorQA tasks: We present a sample data instance and the corresponding evaluation metric for each task. Note: Task 6 involves open-ended answers, which are evaluated through human assessment.
+By encompassing these diverse tasks, Open Compass provides a comprehensive evaluation framework for assessing the robustness and versatility of language models in real-world applications.
 
-*Task 3: Path Searching*This task helps students identify a sequence of intermediary entities needed to understand a new target entity by charting a path from the graph.
-*Task 4: Sub-graph Completion*The task involves expanding the KG by identifying hidden associations between entities in a subgraph.
-*Task 5: Similar Entities*The task requires identifying entities linked to a central idea to deepen understanding and enhance learning, aiding in the creation of interconnected curriculums.
-*Task 6: Idea Hamster*The task prompts participants to develop project proposals by applying learned entities to real-world contexts, providing examples and outcomes to fuel creativity.
+4.1.2 MultiHop-RAG. MultiHop-RAG is a benchmark dataset specifically designed for multi-hop reasoning tasks, requiring models to connect information across multiple documents to answer complex queries. It comprises an extensive collection of news articles published between September 2013 and December 2023, covering categories such as entertainment, business, sports, technology, health, and science. The dataset is structured to evaluate models' ability to synthesize information from disparate sources and generate coherent, contextually appropriate responses. Key features of MultiHop-RAG include:
 
-Scientific Knowledge Graph Question Answering To address TutorQA tasks, we first utilize the Graphusion framework to construct an NLP KG. Then we design a framework for the interaction between the LLM and the graph, which includes two steps: command query and answer generation. In the command query stage, an LLM independently generates commands to query the graph upon receiving the query, thereby retrieving relevant paths. During the answer generation phase, these paths are provided to the LLM as contextual prompts, enabling it to perform QA.
+* Inference Query: Requires the model to perform multi-hop reasoning by connecting information from different articles to deduce the correct answer. This tests the model's ability to integrate and reason over multiple pieces of information.
+* Temporal Query: Evaluates the model's ability to analyze and utilize temporal information within the retrieved data, such as identifying the chronological order of events or understanding time-sensitive contexts.
 
-Evaluation Metrics*Accuracy*We report the accuracy score for Task 1 and Task 4, as they are binary classification tasks.
-**Similarity score:** For Tasks 2 and 3, the references consist of a list of entities. Generally, LLMs demonstrate creativity by answering with novel entities, which are often composed of more contemporary and fresh words, even though they might not exactly match the words in the graph. Consequently, conventional evaluation metrics like keyword matching are unsuitable for these tasks. To address this, we propose the*similarity score*. This metric calculates the semantic
+MultiHop-RAG is particularly challenging due to its emphasis on multi-hop reasoning and temporal understanding, which are critical for tasks requiring deep contextual analysis and synthesis of information from multiple sources. The dataset's complexity makes it an ideal benchmark for evaluating advanced retrieval and reasoning capabilities in language models.
 
-similarity between the entities in the predicted list and the ground truth list . Specifically, as shown in Eq [1,](#page-3-2) for an entity from the predicted list, and an entity from the ground truth list, we calculate the cosine similarity between their embeddings achieved from pre-trained BERT model [\[7\]](#page-8-28). We then average these similarity scores to obtain the similarity score.
+## 4.2 Models
 
-$$
-Score = \frac{\sum_{m \in C_{pred}} \sum_{n \in C_{gold}} sim(m, n)}{|C_{pred}| \times |C_{gold}|} \tag{1}
-$$
+We adopt the following common Open-source LLMs as base models for comparison different settings in Section [4.3]](#ref-4-3):
 
-By averaging the similarity scores, the final score provides a comprehensive measure of the overall semantic alignment between the predicted and ground truth entities.
+* GPT [[46]](#ref-46) is a groundbreaking language model that uses a transformer architecture to generate coherent and contextually relevant text. We selecte GPT-2 for our work as it is the latest open-source model in the GPT family.
+* LLaMA [[68]](#ref-68) is a series of models designed for efficient language processing. Notably, LLaMA-2-7b excels in generating and understanding text, demonstrating high performance across various tasks.
+* Phi[[1]](#ref-1) introduces an innovative approach to language modeling by combining transformer architectures with novel neural network designs, enhancing both understanding and generation capabilities.
+* ChatGLM [[66]](#ref-66) is a conversational AI model optimized for interactive dialogue. Its sophisticated architecture improves context understanding and provides informative responses in real-time interactions.
+* Qwen [[4]](#ref-4) comprises a range of models with varying parameter sizes. In our experiments, we utilized different models from the Qwen2.5 family, including 0.5B, 1.5B, 3B, and 7B, to explore their performance across tasks.
 
-**Hit Rate:** For Task 5, we employ the classical Hit Rate metric, expressed as a percentage. This measure exemplifies the efficiency of LLM at retrieving and presenting relevant entities in its output as compared to a provided list of target entities.
-**Expert Evaluation:** In Task 6, where open-ended answers are generated without gold-standard responses, we resort to expert evaluation for comparative analysis between baseline results and our model. Despite available LLM-centric metrics like G-Eval [\[25\]](#page-8-35), the specific evaluation needs of this task warrant distinct criteria, particularly examining the persuasive and scientifically sound elements of generated project proposals. Four evaluation criteria, rated on a 1-5 scale, are employed:*Entity Relevancy*: the project's alignment with the query entities. *Entity Coverage*: the extent to which the project encompasses the query entities. *Project Convincity*: the persuasiveness and practical feasibility of the project. *Scientific Factuality*: the scientific accuracy of the information within the project.
+| Model | Setting | Open Compass | | | | | MultiHop-RAG | | | |
+|---|---|---|---|---|---|---|---|---|---|---|
+| | | MMLU | AGIEval | NQ | CSQA | OpenBookQA NLI | | COPA | Inference | Temporal |
+| GPT2 | LLM-Base | 27.3 | 20.5 | 3.6 | 60.2 | 73.0 | 20.3 | 67.0 | 15.3 | 5.6 |
+| | LLM-VDB | 50.3 | 22.3 | 18.7 | 65.3 | 85.2 | 20.3 | 68.0 | 63.2 | 21.3 |
+| | LLM-KG | 44.6 | 19.8 | 18.3 | 66.9 | 80.3 | 20.5 | 67.0 | 59.4 | 20.1 |
+| | LLM-PKG (Ours) | 52.7 | 20.6 | 19.5 | 70.1 | 86.6 | 20.3 | 68.0 | 70.4 | 22.5 |
+| LLaMA-2-7b | LLM-Base | 45.9 | 40.5 | 19.6 | 66.5 | 58.4 | 32.3 | 67.0 | 22.3 | 9.9 |
+| | LLM-VDB | 53.2 | 45.5 | 22.0 | 70.3 | 79.5 | 33.1 | 67.0 | 72.6 | 26.7 |
+| | LLM-KG | 50.4 | 42.3 | 22.2 | 69.5 | 72.3 | 32.6 | 67.0 | 75.8 | 23.2 |
+| | LLM-PKG (Ours) | 61.4 | 48.9 | 23.1 | 75.7 | 85.3 | 33.5 | 69.0 | 82.3 | 28.9 |
+| Phi3-1b | LLM-Base | 44.3 | 45.1 | 1.9 | 58.3 | 68.4 | 36.5 | 70.0 | 19.3 | 7.3 |
+| | LLM-VDB | 56.3 | 45.3 | 11.8 | 62.4 | 84.2 | 37.6 | 68.0 | 66.3 | 20.6 |
+| | LLM-KG | 48.6 | 45.5 | 9.7 | 62.1 | 79.3 | 37.3 | 70.0 | 65.2 | 18.9 |
+| | LLM-PKG (Ours) | 56.3 | 45.8 | 13.6 | 65.3 | 86.3 | 37.8 | 70.0 | 88.3 | 26.8 |
+| Qwen2.5-7b | LLM-Base | 57.8 | 40.5 | 14.2 | 67.5 | 84.4 | 54.9 | 88.0 | 20.5 | 11.8 |
+| | LLM-VDB | 58.2 | 42.6 | 17.8 | 78.3 | 90.3 | 61.3 | 90.0 | 70.1 | 32.3 |
+| | LLM-KG | 58.0 | 40.8 | 17.6 | 77.0 | 86.9 | 63.5 | 89.0 | 65.3 | 28.4 |
+| | LLM-PKG (Ours) | 65.8 | 47.3 | 20.3 | 78.6 | 92.2 | 66.4 | 91.0 | 90.0 | 35.3 |
+| ChatGLM3-6B | LLM-Base | 51.9 | 47.4 | 7.5 | 70.3 | 79.4 | 40.0 | 89.0 | 23.5 | 10.6 |
+| | LLM-VDB | 57.4 | 47.4 | 19.3 | 78.4 | 86.3 | 53.2 | 90.0 | 73.4 | 32.6 |
+| | LLM-KG | 50.8 | 47.0 | 19.8 | 76.3 | 86.0 | 55.6 | 90.0 | 75.6 | 31.1 |
+| | LLM-PKG (Ours) | 59.7 | 47.6 | 22.7 | 79.0 | 88.7 | 63.2 | 91.0 | 89.3 | 33.4 |
 
-Experimental Results Our analysis in Tab. [5](#page-7-0) compares the results based on Graphusion and two baselines, including GPT-4o
+**Table 1:** Performance comparison of different settings on various models across two datasets, using seven indicators for Open Compass and two for MultiHop-RAG. The best performances are indicated in bold font.
 
+## 4.3 Settings
 
-| Question | I already know about neural question answering, social media analysis, topic modeling, relation extraction, and word embedding variations.<br>In the domain of natural language processing, what potential project can I work on? Give me a possible idea. Show me the title and project<br>description. |
-|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| LLaMA | Title: Exploring the Impact of Emojis on Textual Emotions; Description: Emojis have become an integral part of online communicationThe |
-| | project will involve the following tasks: 1. Data Collection: We will collect a dataset of text messagesand their corresponding emotional labels |
-| | (positive, negative, neutral). 2. Data Preprocessing: We will preprocess the data by removing stop words |
-| GPT-4o | Title: Multi-faceted Analysis of Social Media Discussions on Climate Change; Description: This project aims to Utilizing neural question |
-| | answering, we can automatically address common inquiries people have about climate topics. Social media analysis will uncover trends, sentiment, |
-| | and influential users shaping the conversation. Topic modeling will identify underlying themes in these discussions |
-| Ours | Title: Enhanced Social Media Insights through Multilingual Aspect-Based Sentiment Analysis; Description:: This project aims to develop |
-| | a comprehensive system for analyzing social media data to extract and understand user sentiments across multiple languages. By leveraging |
-| | neural question answering, topic modeling, and relation extraction, the system will identify key aspects and sentiments from posts. Dependency |
-| | parsing and event extraction will help in understanding syntactic and event-based relations Word embedding variations and multilingual word |
-| | embeddings will ensure accurate sentiment analysis across languages |
+In our analysis, we aim to evaluate the performance and capabilities of various models under different retrieval conditions. Specifically, we investigate four distinct configurations, as follows:
 
-**Table 4:** Case study on TutorQA Task 6: LLaMA, GPT-4o, and our pipeline with constructed KG from Graphusion (part). We highlight the relevant entities, irrelevant entities, entity details and expanded relevant entities.
+4.3.1 LLM-Base (Only LLM). This approach employs a standard language model to address user queries without any additional context or retrieval mechanisms, which means that all the information in the answers comes entirely from the model itself.
 
+4.3.2 LLM-VDB (LLM with Vector Database RAG). In this setup, we enhance the language model's capabilities by integrating a retrievalaugmented generation (RAG) approach that utilizes a vector database [[28]](#ref-28) to provide relevant context for answering queries. In our setup, we use Elasticsearch [[15]](#ref-15) as the vector database for retrievalaugmented generation. After setting up an Elasticsearch cluster and indexing documents with vector embeddings, queries are processed by searching the vector space to find the most relevant context.
 
-| Setting | T1 | T2 | T3 | T4 | T5 |
-|-----------|-------|-------|-------|-------|-------|
-| GPT4o zs | 69.20 | 64.42 | 66.61 | 44.00 | 11.45 |
-| GPT4o RAG | 64.40 | 65.06 | 69.31 | 40.80 | 10.02 |
-| Ours | 92.00 | 80.29 | 77.85 | 50.00 | 15.65 |
+4.3.3 LLM-KG (LLM with traditional Knowledge Graph). A traditional KG is employed as the retriever. KGs represent information in a structured format, using nodes and edges to capture relationships between entities.In our setup, We use LightRAG [[20]](#ref-20) as the KG retriever. We need first construct a KGintegrate LightRAG with KG by setting up the model to query nodes and edges, retrieving relevant information to enhance the language model's responses. This involves configuring LightRAG to interact with your existing KG structure.
 
-(a) Evaluation on Tasks 1-5. T1, T4: accuracy; T2, T3: similarity score; T5: hit rate.
+4.3.4 LLM-PKG (LLM with Pseudo-Knowledge Graph). Here, we enhance the model by integrating a PKG, as detailed in Section [3]](#ref-3). This addition enables the system to access relevant data dynamically and enriches the response quality.
 
-| Model | | | Relevancy Coverage Convincity Factuality | |
-|-----------|------|------|------------------------------------------|------|
-| GPT4o zs | 4.75 | 4.84 | 4.38 | 4.63 |
-| GPT4o RAG | 4.73 | 4.71 | 4.58 | 4.71 |
-| Ours | 4.85 | 4.91 | 4.72 | 4.77 |
-| | | | | |
+## 4.4 Overall Performance
 
-(b) Expert evaluation on Task 6.
+We evaluate the proposed Pseudo-Knowledge Graph (PKG) framework against various baseline models using multiple metrics, with the overall results presented in Table [1]](#ref-1). The analysis reveals the following key insights:
 
-### Table 5: Results for TutorQA evaluations across various tasks.
+For the baseline method, the LLM models perform well on Exams (i.e., MMLU and AGIEval), and Reasoning (i.e., NLI and COPA), but not for Knowledge (i.e., NQ and CSQA) and Understanding (i.e., OpenBookQA). These models struggle with knowledge-based tasks, which demand a deeper comprehension of scientific facts and the ability to connect disparate pieces of information. This discrepancy arises because LLMs tend to perform well with materials similar to their training data. When encountering unfamiliar information, their understanding is limited. By incorporating RAG, LLMs can access external knowledge sources, which enhances their performance on knowledge-based tasks. This access allows them to pull in relevant information from vast databases, improving their ability to answer fact-based questions. Similarly, integrating KGs with LLMs provides a significant boost. KGs offer structured information and complex relationships between data points, which not only enrich the knowledge base but also improve reasoning and understanding capabilities. LLMs with KGs outperform those with
 
-zero-shot (zs) and GPT-4o with RAG (RAG). Our method with the Graphusion constructed KG shows significant improvements across Tasks 1 to 6 over the baselines. Specifically, Task 6 is evaluated by two NLP experts, with a Kappa score of 0.67, which suggests substantial agreement. The results indicate that our pipeline exhibits a marginally superior performance, particularly in the expert evaluation of *Convincity*and*Factuality*. This suggests that our method might be better at generating content that is not only factually accurate but also presents it in a more persuasive way to the reader. Compared to the base RAG framework, the Graphusion-generated KGs lead to better performance, particularly in Task 4 and 5, where a global understanding is essential. This improvement highlights the critical role of our core fusion step in addressing complex QA.
+RAG in these areas because KGs provide a richer context and a more nuanced understanding of how different pieces of information interrelate, thereby enhancing the model's ability to interpret and reason through complex scenarios. However, due to the LLMs' limited ability to understand structured data, KGs do not perform as well as vector database-based RAG for tasks that do not require strong logical reasoning.
 
-Case Study: Task 6 (Expanded relevant entities in the answer) To further understand how KGs could help in advanced educational scenarios, we present a case study on Task 6 in Tab. [4.](#page-7-1) The posed question incorporates five entities (highlighted in blue), with the task being to formulate a feasible project proposal. Although LLaMA offers a substantial project description, its content and relevance to the highlighted entities (marked in orange) are somewhat lacking. In contrast, GPT-4o not only references the queried entities but also provides detailed insights (highlighted in purple) on their potential utility within the project, such as the role of neural question
+Our proposed PKG maintains the best performance on most dataset metrics and shows significant improvements compared to the baseline methods. This superior performance can be attributed to three factors: i) We provide LLMs with a rich information through PKG, leveraging diverse retrieval methods. This diversity results in a wider variety of information types and higher quality data, enhancing the model's ability to understand and generate accurate responses. ii) By retaining original text chunks within the PKG, LLMs can bypass the complexities of processing structured data. This enables the models to better comprehend and interpret the knowledge, as they can work with familiar unstructured text formats. iii) We utilize meta-paths to perform more complex relationship analyses, which significantly enhances our method's performance in understanding and reasoning tasks. This capability allows the model to discern intricate patterns and connections within the data, leading to superior results in these challenging areas.
 
-answering. Lastly, with Graphusion constructed KG, the model provides a more comprehensive solution, elaborating on the entities and introducing additional ones (highlighted in lavender) that come from the recovered graph, like dependency parsing and event extraction, while initially addressing the queried entities.
+## 4.5 Ablation Study
 
-### Extension on Japanese Medical Data
+| Model | Setting | Open Compass | | | |
+|---|---|---|---|---|---|
+| | | CSQA | OpenBookQA | | |
+| | LLM | 20.5 | 11.8 | | |
+| | + NLP EX | 75.2 | 83.4 | | |
+| Qwen2.5-7b | + LLM EX | 77.5 | 86.7 | | |
+| | + ING TEXT | 78.6 | 92.2 | | |
 
-In our exploration of extending Graphusion to Japanese medical data, we utilized a dataset comprising approximately 0.1 billion tokens collected from Japanese drug instructions through data crawling [\[32\]](#page-8-36). Example triplets generated by Graphusion include: (バラ シクロビル錠500mg, 抑制される, 発疹) ((Valacyclovir Tablets 500mg, suppressed, rash)), (ゾビラックス錠400, 作用機序,ウイ ルスDNAの複製を阻害することによりウイルスの増殖を抑 える) ((Zovirax Tablets 400, mechanism of action, inhibits the replication of viral DNA to suppress the proliferation of the virus)). We randomly selected several case studies and found that the generated triplets were reasonable, demonstrating that Graphusion exhibits good generalizability. However, conducting a comprehensive evaluation is challenging due to the significant human effort required; therefore, we leave this evaluation for future work.
+**Table 2:** Ablation study of various Building and Storage methods in PKG Builder. We show the results on CSQA and OpenbookQA in Open Compass dataset.
 
-### Conclusion
+4.5.1 Building and Storage. Our proposed PKG Builder consists of various components, including: i) traditional NLP-based Extraction (NLP EX): this method utilizes established natural language processing techniques such as tokenization and rule-based named entity recognition; ii) LLM-based Extraction (LLM EX): this approach leverages LLMs like GPT to interpret and extract information, allowing for more nuanced and flexible extraction of information from complex and unstructured text; and iii) In-graph text chunks (ING TEXT): by embedding text segments directly within the PKG, we preserve the complete information from the original text and this helps LLMs better understanding the knowledge. To assess the effectiveness of each component, we perform an ablation study using the CSQA and OpenBookQA datasets on Qwen2.5-7b. These datasets are chosen for its complexity and rich knowledge content, allowing us to analyze the contribution of each part thoroughly.
 
-In this work, we proposed the Graphusion to construct scientific KGs from free text using LLMs. Through three key steps: seed entity generation, candidate triplet extraction, and KG Fusion, Graphusion builds KGs from a global perspective, addressing the limitations of traditional KGC methods. Additionally, we introduced the new benchmark dataset TutorQA, which encompasses 1,200 expertverified QA pairs across six tasks. TutorQA is specifically designed for KG-based QA in the NLP educational scenario. We developed an automated pipeline that leveraged the Graphusion-constructed KG, significantly enhancing the performance on TutorQA compared to pure LLM baselines.
+The results, as shown in Table [2]](#ref-2), demonstrate that both traditional NLP and LLM methods significantly enhance the performance of the PKG. Particularly noteworthy is the impact of embedding in-graph text chunks. This approach preserves the full context of
 
-### References
+the original information, enabling language models to understand knowledge across various scenarios more effectively. By maintaining the integrity of the source material, these in-graph text chunks enable deeper insights and more accurate interpretations. All components of the PKG Builder contribute to constructing a robust PKG, offering significant potential for future retrieval tasks.
 
-- <span id="page-8-11"></span>[1] Josh Achiam, Steven Adler, Sandhini Agarwal, Lama Ahmad, Ilge Akkaya, Florencia Leoni Aleman, Diogo Almeida, Janko Altenschmidt, Sam Altman, Shyamal Anadkat, et al. 2023. Gpt-4 technical report. *arXiv preprint arXiv:2303.08774*(2023).
-- <span id="page-8-12"></span>[2] Kian Ahrabian, Xinwei Du, Richard Delwin Myloth, Arun Baalaaji Sankar Ananthan, and Jay Pujara. 2023. PubGraph: A Large-Scale Scientific Knowledge Graph.*arXiv preprint arXiv:2302.02231*(2023).
-- <span id="page-8-27"></span>[3] Mikel Artetxe, Gorka Labaka, and Eneko Agirre. 2018. Unsupervised Statistical Machine Translation. In*Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing*. Association for Computational Linguistics, Brussels, Belgium.
-- <span id="page-8-7"></span>[4] Jinheon Baek, Alham Fikri Aji, and Amir Saffari. 2023. Knowledge-Augmented Language Model Prompting for Zero-Shot Knowledge Graph Question Answering. *ArXiv*abs/2306.04136 (2023). [https://api.semanticscholar.org/CorpusID:](https://api.semanticscholar.org/CorpusID:259095910) [259095910](https://api.semanticscholar.org/CorpusID:259095910)
-- <span id="page-8-2"></span>[5] Antoine Bosselut, Hannah Rashkin, Maarten Sap, Chaitanya Malaviya, Asli Celikyilmaz, and Yejin Choi. 2019. COMET: Commonsense Transformers for Automatic Knowledge Graph Construction. In*Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics*, Anna Korhonen, David Traum, and Lluís Màrquez (Eds.). Association for Computational Linguistics, Florence, Italy, 4762–4779.<https://doi.org/10.18653/v1/P19-1470>
-- <span id="page-8-8"></span>[6] Salvatore M. Carta, Alessandro Giuliani, Lee Cecilia piano, Alessandro Sebastian Podda, Livio Pompianu, and Sandro Gabriele Tiddia. 2023. Iterative Zero-Shot LLM Prompting for Knowledge Graph Construction. *ArXiv*abs/2307.01128 (2023).<https://api.semanticscholar.org/CorpusID:259316469>
-- <span id="page-8-28"></span>[7] Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. 2019. BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding. In*North American Chapter of the Association for Computational Linguistics*. <https://api.semanticscholar.org/CorpusID:52967399>
-- <span id="page-8-10"></span>[8] Darren Edge, Ha Trinh, Newman Cheng, Joshua Bradley, Alex Chao, Apurva Mody, Steven Truitt, and Jonathan Larson. 2024. From Local to Global: A Graph RAG Approach to Query-Focused Summarization. *ArXiv*abs/2404.16130 (2024). <https://api.semanticscholar.org/CorpusID:269363075>
-- <span id="page-8-1"></span>[9] Fan Gao, Hang Jiang, Rui Yang, Qingcheng Zeng, Jinghui Lu, Moritz Blum, Tianwei She, Yuang Jiang, and Irene Li. 2024. Evaluating large language models on wikipedia-style survey generation. In*Findings of the Association for Computational Linguistics ACL 2024*. 5405–5418.
-- <span id="page-8-20"></span>[10] Cristian D. González-Carrillo, Felipe Restrepo-Calle, Jhon Jairo Ramírez-Echeverry, and Fabio A. González. 2021. Automatic Grading Tool for Jupyter Notebooks in Artificial Intelligence Courses. *Sustainability*(2021). [https:](https://api.semanticscholar.org/CorpusID:243477284) [//api.semanticscholar.org/CorpusID:243477284](https://api.semanticscholar.org/CorpusID:243477284)
-- <span id="page-8-25"></span>[11] Maarten R. Grootendorst. 2022. BERTopic: Neural topic modeling with a class-based TF-IDF procedure.*ArXiv*abs/2203.05794 (2022). [https://api.](https://api.semanticscholar.org/CorpusID:247411231) [semanticscholar.org/CorpusID:247411231](https://api.semanticscholar.org/CorpusID:247411231)
-- <span id="page-8-30"></span>[12] Aditya Grover and Jure Leskovec. 2016. node2vec: Scalable feature learning for networks. In*Proceedings of the 22nd ACM SIGKDD international conference on Knowledge discovery and data mining*. 855–864.
-- <span id="page-8-23"></span>[13] Yann Hicke, Anmol Agarwal, Qianou Ma, and Paul Denny. 2023. ChaTA: Towards an Intelligent Question-Answer Teaching Assistant using Open-Source LLMs. *ArXiv*abs/2311.02775 (2023). [https://api.semanticscholar.org/CorpusID:](https://api.semanticscholar.org/CorpusID:265033489) [265033489](https://api.semanticscholar.org/CorpusID:265033489)
-- <span id="page-8-31"></span>[14] Felix Hill, Antoine Bordes, Sumit Chopra, and Jason Weston. 2015. The Goldilocks Principle: Reading Children's Books with Explicit Memory Representations.*CoRR*abs/1511.02301 (2015). [https://api.semanticscholar.org/CorpusID:](https://api.semanticscholar.org/CorpusID:14915449) [14915449](https://api.semanticscholar.org/CorpusID:14915449)
-- <span id="page-8-5"></span>[15] Pengcheng Jiang, Cao Xiao, Adam Richard Cross, and Jimeng Sun. 2023. Graph-Care: Enhancing Healthcare Predictions with Personalized Knowledge Graphs. In*The Twelfth International Conference on Learning Representations*.
-- <span id="page-8-13"></span>[16] Aparna Kalla, R Shailesh, S. Preetha, Snehal Chandra, and Sudeepa Roy. 2023. Scientific Knowledge Graph Creation and Analysis. *2023 IEEE 8th International Conference for Convergence in Technology (I2CT)*(2023), 1–5. [https://api.](https://api.semanticscholar.org/CorpusID:258870236) [semanticscholar.org/CorpusID:258870236](https://api.semanticscholar.org/CorpusID:258870236)
-- <span id="page-8-24"></span>[17] Yuhe Ke, Rui Yang, and Nan Liu. 2024. Comparing Open-Access Database and Traditional Intensive Care Studies Using Machine Learning: Bibliometric Analysis Study.*Journal of Medical Internet Research*26 (2024), e48330.
-- <span id="page-8-14"></span>[18] Anh Le-Tuan, Carlos Franzreb, Sonja Schimmler, and Manfred Hauswirth. 2022. Towards Building Live Open Scientific Knowledge Graphs.*Companion Proceedings of the Web Conference 2022*(2022). [https://api.semanticscholar.org/](https://api.semanticscholar.org/CorpusID:248347985) [CorpusID:248347985](https://api.semanticscholar.org/CorpusID:248347985)
-- <span id="page-8-0"></span>[19] Patrick Lewis, Ethan Perez, Aleksandara Piktus, Fabio Petroni, Vladimir Karpukhin, Naman Goyal, Heinrich Kuttler, Mike Lewis, Wen tau Yih, Tim Rocktäschel, Sebastian Riedel, and Douwe Kiela. 2020. Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks.*ArXiv*abs/2005.11401 (2020). <https://api.semanticscholar.org/CorpusID:218869575>
-- <span id="page-8-6"></span>[20] Irene Li, Vanessa Yan, Tianxiao Li, Rihao Qu, and Dragomir R. Radev. 2021. Unsupervised Cross-Domain Prerequisite Chain Learning using Variational Graph
+| | | MultiHop-RAG | | | |
+|---|---|---|---|---|---|
+| Model | Setting | Inference | Temporal | | |
+| | LLM | 20.5 | 10.6 | | |
+| | + REG RE | 60.4 | 25.3 | | |
+| Qwen2.5-7b | + VEC RE | 75.1 | 31.7 | | |
+| | + META-PATH RE | 90.0 | 35.3 | | |
 
-Autoencoders. In*Annual Meeting of the Association for Computational Linguistics*. <https://api.semanticscholar.org/CorpusID:234334083>
+**Table 3:** Ablation study of various Retrieval methods in PKG Retriever. We show the results on Inference and Temporal in MultiHopRAG dataset.
 
-- <span id="page-8-3"></span>[21] Irene Li and Boming Yang. 2023. NNKGC: Improving Knowledge Graph Completion with Node Neighborhoods. In *Proceedings of the Workshop on Deep Learning for Knowledge Graphs (DL4KG 2023) co-located with the 21th International Semantic Web Conference (ISWC 2023), Athens, November 6-10, 2023 (CEUR Workshop Proceedings, Vol. 3559)*, Mehwish Alam and Michael Cochez (Eds.). CEUR-WS.org.<https://ceur-ws.org/Vol-3559/paper-6.pdf>
-- <span id="page-8-15"></span>[22] Irene Z Li, Alexander R. Fabbri, Swapnil Hingmire, and Dragomir R. Radev. 2020. R-VGAE: Relational-variational Graph Autoencoder for Unsupervised Prerequisite Chain Learning. *ArXiv*abs/2004.10610 (2020). [https://api.semanticscholar.](https://api.semanticscholar.org/CorpusID:216056469) [org/CorpusID:216056469](https://api.semanticscholar.org/CorpusID:216056469)
-- <span id="page-8-34"></span>[23] Irene Z Li, Vanessa Yan, and Dragomir R. Radev. 2021. Efficient Variational Graph Autoencoders for Unsupervised Cross-domain Prerequisite Chains.*ArXiv*abs/2109.08722 (2021).<https://api.semanticscholar.org/CorpusID:237571655>
-- <span id="page-8-19"></span>[24] Qian Li, Zhuo Chen, Cheng Ji, Shiqi Jiang, and Jianxin Li. 2024. LLM-based Multi-Level Knowledge Generation for Few-shot Knowledge Graph Completion.*Proceedings of the Thirty-ThirdInternational Joint Conference on Artificial Intelligence*(2024).<https://api.semanticscholar.org/CorpusID:271494703>
-- <span id="page-8-35"></span>[25] Yang Liu, Dan Iter, Yichong Xu, Shuo Wang, Ruochen Xu, and Chenguang Zhu. 2023. G-Eval: NLG Evaluation using GPT-4 with Better Human Alignment. In*Conference on Empirical Methods in Natural Language Processing*. [https:](https://api.semanticscholar.org/CorpusID:257804696) [//api.semanticscholar.org/CorpusID:257804696](https://api.semanticscholar.org/CorpusID:257804696)
-- <span id="page-8-21"></span>[26] Qingyu Lu, Baopu Qiu, Liang Ding, Liping Xie, and Dacheng Tao. 2023. Error Analysis Prompting Enables Human-Like Translation Evaluation in Large Language Models: A Case Study on ChatGPT. *ArXiv*abs/2303.13809 (2023). <https://api.semanticscholar.org/CorpusID:257756967>
-- <span id="page-8-17"></span>[27] Yi Luan, Luheng He, Mari Ostendorf, and Hannaneh Hajishirzi. 2018. Multi-Task Identification of Entities, Relations, and Coreference for Scientific Knowledge Graph Construction.*ArXiv*abs/1808.09602 (2018). [https://api.semanticscholar.](https://api.semanticscholar.org/CorpusID:52118895) [org/CorpusID:52118895](https://api.semanticscholar.org/CorpusID:52118895)
-- <span id="page-8-32"></span>[28] Chaitanya Malaviya, Subin Lee, Sihao Chen, Elizabeth Sieber, Mark Yatskar, and Dan Roth. 2023. ExpertQA: Expert-Curated Questions and Attributed Answers.*ArXiv*abs/2309.07852 (2023). [https://api.semanticscholar.org/CorpusID:](https://api.semanticscholar.org/CorpusID:261823130) [261823130](https://api.semanticscholar.org/CorpusID:261823130)
-- <span id="page-8-33"></span>[29] Andrew Lan Nigel Fernandez, Alexander Scarlatos. 2024. SyllabusQA: A Course Logistics Question Answering Dataset.*ArXiv*abs/2403.14666 (2024). [https:](https://api.semanticscholar.org/CorpusID:268667283) [//api.semanticscholar.org/CorpusID:268667283](https://api.semanticscholar.org/CorpusID:268667283)
-- <span id="page-8-4"></span>[30] Shirui Pan, Linhao Luo, Yufei Wang, Chen Chen, Jiapu Wang, and Xindong Wu. 2024. Unifying Large Language Models and Knowledge Graphs: A Roadmap.*IEEE Trans. Knowl. Data Eng.*36, 7 (2024), 3580–3599. [https://doi.org/10.1109/](https://doi.org/10.1109/TKDE.2024.3352100) [TKDE.2024.3352100](https://doi.org/10.1109/TKDE.2024.3352100)
-- <span id="page-8-29"></span>[31] Bryan Perozzi, Rami Al-Rfou, and Steven Skiena. 2014. DeepWalk: Online Learning of Social Representations. In*Proceedings of the 20th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining*(New York, New York, USA)*(KDD '14)*. ACM, New York, NY, USA, 701–710. [https:](https://doi.org/10.1145/2623330.2623732) [//doi.org/10.1145/2623330.2623732](https://doi.org/10.1145/2623330.2623732)
-- <span id="page-8-36"></span>[32] Pengcheng Qiu, Chaoyi Wu, Xiaoman Zhang, Weixiong Lin, Haicheng Wang, Ya Zhang, Yanfeng Wang, and Weidi Xie. 2024. Towards building multilingual language model for medicine. *Nature Communications*15, 1 (2024), 8384.
-- <span id="page-8-18"></span>[33] Justin T. Reese, Deepak R. Unni, Tiffany J. Callahan, Luca Cappelletti, Vida Ravanmehr, Seth Carbon, Tommaso Fontana, Hannah Blau, Nicolas Matentzoglu, Nomi L. Harris, Monica C. Munoz-Torres, Peter N. Robinson, marcin p. joachimiak, and Chris J. Mungall. 2020. KG-COVID-19: A Framework to Produce Customized Knowledge Graphs for COVID-19 Response.*Patterns*2 (2020). <https://api.semanticscholar.org/CorpusID:221191594>
-- <span id="page-8-22"></span>[34] Dominic Seyler, Mohamed Yahya, and Klaus Berberich. 2015. Generating Quiz Questions from Knowledge Graphs.*Proceedings of the 24th International Conference on World Wide Web*(2015). [https://api.semanticscholar.org/CorpusID:](https://api.semanticscholar.org/CorpusID:7522972) [7522972](https://api.semanticscholar.org/CorpusID:7522972)
-- <span id="page-8-9"></span>[35] Jiawei Sheng, Shu Guo, Zhenyu Chen, Juwei Yue, Lihong Wang, and Tingwen Liu. 2022. Challenging the Assumption of Structure-based embeddings in Fewand Zero-shot Knowledge Graph Completion. In*International Conference on Language Resources and Evaluation*. [https://api.semanticscholar.org/CorpusID:](https://api.semanticscholar.org/CorpusID:252376765) [252376765](https://api.semanticscholar.org/CorpusID:252376765)
-- <span id="page-8-37"></span>[36] Deshraj Yadav Taranjeet Singh. 2023. Embedchain: The Open Source RAG Framework. [https://github.com/embedchain/embedchain.](https://github.com/embedchain/embedchain)
-- <span id="page-8-38"></span>[37] Hugo Touvron, Louis Martin, Kevin Stone, Peter Albert, Amjad Almahairi, Yasmine Babaei, Nikolay Bashlykov, Soumya Batra, Prajjwal Bhargava, Shruti Bhosale, et al. 2023. Llama 2: Open foundation and fine-tuned chat models. *arXiv preprint arXiv:2307.09288*(2023).
-- <span id="page-8-16"></span>[38] Denny Vrandeciˇ c and Markus Krötzsch. 2014. Wikidata: a free collaborative ´ knowledgebase.*Commun. ACM*57, 10 (sep 2014), 78–85. [https://doi.org/10.](https://doi.org/10.1145/2629489) [1145/2629489](https://doi.org/10.1145/2629489)
-- <span id="page-8-26"></span>[39] Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Ed Huai hsin Chi, F. Xia, Quoc Le, and Denny Zhou. 2022. Chain of Thought Prompting Elicits Reasoning in Large Language Models.*ArXiv*abs/2201.11903 (2022). <https://api.semanticscholar.org/CorpusID:246411621>
+### 4.5.2 Retrieval Methods.
 
-- <span id="page-9-8"></span>[40] Ying Xu, Dakuo Wang, Mo Yu, Daniel Ritchie, Bingsheng Yao, Tongshuang Sherry Wu, Zheng Zhang, Toby Jia-Jun Li, Nora Bradford, Branda Sun, Tran Bao Hoang, Yisi Sang, Yufang Hou, Xiaojuan Ma, Diyi Yang, Nanyun Peng, Zhou Yu, and Mark Warschauer. 2022. Fantastic Questions and Where to Find Them: FairytaleQA – An Authentic Dataset for Narrative Comprehension. In*Annual Meeting of the Association for Computational Linguistics*. <https://api.semanticscholar.org/CorpusID:247762948>
-- <span id="page-9-1"></span>[41] Rui Yang, Haoran Liu, Edison Marrese-Taylor, Qingcheng Zeng, Yuhe Ke, Wanxin Li, Lechao Cheng, Qingyu Chen, James Caverlee, Yutaka Matsuo, and Irene Li. 2024. KG-Rank: Enhancing Large Language Models for Medical QA with Knowledge Graphs and Ranking Techniques. In *Proceedings of the 23rd Workshop on Biomedical Natural Language Processing*, Dina Demner-Fushman, Sophia Ananiadou, Makoto Miwa, Kirk Roberts, and Junichi Tsujii (Eds.). Association for Computational Linguistics, Bangkok, Thailand, 155–166. [https://doi.org/10.](https://doi.org/10.18653/v1/2024.bionlp-1.13) [18653/v1/2024.bionlp-1.13](https://doi.org/10.18653/v1/2024.bionlp-1.13)
-- <span id="page-9-0"></span>[42] Rui Yang, Yilin Ning, Emilia Keppo, Mingxuan Liu, Chuan Hong, Danielle S Bitterman, Jasmine Chiat Ling Ong, Daniel Shu Wei Ting, and Nan Liu. 2024. Retrieval-Augmented Generation for Generative Artificial Intelligence in Medicine. *arXiv preprint arXiv:2406.12449*(2024).
-- <span id="page-9-5"></span>[43] Rui Yang, Ting Fang Tan, Wei Lu, Arun James Thirunavukarasu, Daniel Shu Wei Ting, and Nan Liu. 2023. Large language models in health care: Development, applications, and challenges.*Health Care Science*2, 4 (2023), 255–263.
-- <span id="page-9-2"></span>[44] Rui Yang, Qingcheng Zeng, Keen You, Yujie Qiao, Lucas Huang, Chia-Chun Hsieh, Benjamin Rosand, Jeremy Goldwasser, Amisha Dave, Tiarnan Keenan, et al. 2024. Ascle—A Python Natural Language Processing Toolkit for Medical Text Generation: Development and Evaluation Study.*Journal of Medical Internet Research*26 (2024), e60601.
-- <span id="page-9-3"></span>[45] Yichi Zhang, Zhuo Chen, Wen Zhang, and Hua zeng Chen. 2023. Making Large Language Models Perform Better in Knowledge Graph Completion.*ArXiv*abs/2310.06671 (2023).<https://api.semanticscholar.org/CorpusID:263830580>
-- <span id="page-9-6"></span>[46] Zheng Zhang, Jie Gao, Ranjodh Singh Dhaliwal, and Toby Jia-Jun Li. 2023. VISAR: A Human-AI Argumentative Writing Assistant with Visual Programming and Rapid Draft Prototyping.*Proceedings of the 36th Annual ACM Symposium on User Interface Software and Technology*(2023). [https://api.semanticscholar.](https://api.semanticscholar.org/CorpusID:258179241) [org/CorpusID:258179241](https://api.semanticscholar.org/CorpusID:258179241)
-- <span id="page-9-4"></span>[47] Yuqi Zhu, Xiaohan Wang, Jing Chen, Shuofei Qiao, Yixin Ou, Yunzhi Yao, Shumin Deng, Huajun Chen, and Ningyu Zhang. 2023. LLMs for Knowledge Graph Construction and Reasoning: Recent Capabilities and Future Opportunities.*ArXiv*abs/2305.13168 (2023).<https://api.semanticscholar.org/CorpusID:258833039>
-- <span id="page-9-7"></span>[48] Brian Zylich, Adam Viola, Brokk Toggerson, Lara Al-Hariri, and Andrew S. Lan. 2020. Exploring Automated Question Answering Methods for Teaching Assistance.*Artificial Intelligence in Education*12163 (2020), 610 – 622. [https:](https://api.semanticscholar.org/CorpusID:220364751) [//api.semanticscholar.org/CorpusID:220364751](https://api.semanticscholar.org/CorpusID:220364751)
+In addition to the building of PKG, we also examine the proposed retrieval methods, including: i) Regular Expression Retrieval (REG RE): this method uses patterns matching to search and retrieve specific information from PKG; ii) Vector Retrieval (VEC RE): by converting text into high-dimensional vectors using techniques like embeddings, this approach allows for semantic search, enabling retrieval based on the meaning rather than exact match; iii) Meta-path Retrieval (META-PATH RE): this technique involves navigating through the meta-paths in PKG to retrieve information, leveraging the relationships between entities. To validate the effectiveness of each retrieval method, we conduct an ablation study on the MultiHop-RAG dataset with Qwen2.5- 7b to analyze the contribution of each part. The MultiHop-RAG dataset is chosen because it presents a significant challenge for retrieval technology. It requires not only finding relevant texts but also understanding and reflecting the relations between them. This complexity makes it an ideal test for advanced retrieval systems.
 
-### Zero-shot Link Prediction Prompts
+The results, as shown in Table [3]](#ref-3), demonstrate that the basic retrieval method, regular matching, provides external world knowledge to the LLMs in addition to their inherent weights. This expanded knowledge significantly enhances the LLMs' performance as tasks require extensive information. However, for inference, regular expression retrieval does not perform effectively. In contrast, vector retrieval and meta-path retrieval show superior performance in most situations. Vector retrieval excels because it offers semantic information by capturing the meaning and context of words and phrases, allowing LLMs to understand and process nuanced language patterns. This method leverages embeddings to match queries with relevant data points, enhancing the model's ability to draw connections and infer meanings based on the semantic similarities of the data. On the other hand, meta-path retrieval provides a structured way to represent relations between entities, which is crucial for reasoning tasks. By outlining relational paths, this method helps LLMs understand complex interactions and dependencies, enabling more accurate inference and deduction. This approach is particularly beneficial for tasks that require understanding the underlying structure of information and drawing logical conclusions from interconnected data points.
 
-*LP Prompt.*We have two {domain} related entities: A: {entity\_1} and B: {entity\_2}.
+Overall, while regular matching serves as a foundational method for expanding knowledge, the combination of vector retrieval and meta-path retrieval offers a more sophisticated and effective approach for enhancing LLMs' reasoning capabilities. Together, these three retrieval methods form a comprehensive PKG retrieval system.
 
-Do you think learning {entity\_1} will help in understanding {entity\_2}?
+## 4.6 Further Analysis
 
-Hints:
+![Performance comparison of different retriever settings on Multihop-RAG dataset. The left panel shows inference performance, while the right panel illustrates temporal performance across various configurations (Qwen2.5-0.5B, Qwen2.5-1.5B, Qwen2.5-3B, and Qwen2.5-7B).](_page_10_Figure_2.jpeg)
 
-- 1. Answer YES or NO only.
-- 2. This is a directional relation, which means if the answer is "YES", (B, A) is false, but (A, B) is true.
+**Figure 7:** Performance comparison of different retriever settings on Multihop-RAG dataset. The left panel shows inference performance, while the right panel illustrates temporal performance across various configurations (Qwen2.5-0.5B, Qwen2.5-1.5B, Qwen2.5-3B, and Qwen2.5-7B).
 
-3. Your answer will be used to create a knowledge graph.
+After conducting ablation experiments, we aimed to explore the impact of PKG on models of varying sizes. Building on the ablation tests in Section [4.5.2]](#ref-4-5-2) we evaluated the PKG system on different sizes of the Qwen model, specifically 0.5B, 1.5B, 3B, and 7B parameters. We assessed these models' performance on the expanded MultiHop-RAG dataset, with the results illustrated in Figure [7]](#ref-7).
 
-{Additional Information}
+The results indicate that when relying solely on the LLM itself, larger models outperform smaller ones due to their greater number of parameters, which encapsulate more information and reasoning capabilities. However, when retrieval results are introduced, the performance of all models improves. Notably, smaller models experience significant enhancement, allowing them to narrow the gap with larger models. This demonstrates the effectiveness of retrieval in augmenting model capabilities, particularly for those with fewer parameters. Among the different retrieval systems, PKG performs the best, surpassing both vector-based knowledge bases and traditional KGs.
 
-### *LP Prompt With Chain-of-Thought.*We have two {domain} related entities: A: {entity\_1} and B: {entity\_2}.
+## 4.7 Case Study
 
-Assess if learning {entity\_1} is a prerequisite for understanding {entity\_2}.
+LLMs have been shown to be good evaluators of natural language generation, achieving state-of-the-art or competitive results compared against human judgements [[70]](#ref-70). In this section, we will explore different retrieval systems based on a given question, as shown in Table [4]](#ref-4). We provide different kinds of retrievers with a large knowledge base, containing information needed to answer the question and others irrelevant to the question. We want to see if the retrieval system can get the information accurately and precisely from the knowledge base and process them for LLMs to use. Table [4]](#ref-4) shows an example of LLM-generated assessment.
 
-Employ the Chain of Thought to detail your reasoning before giving a final answer.
+For LLM itself, it can provide general insights based on its training data. It identifies broad categories of emerging biotechnologies, such as CRISPR and synthetic biology, which have been relevant for years. However, the response may include information that is outdated or speculative, leading to hallucinations. It lacks specificity and does not reflect the most current developments from 2024. LLM with Vector Database RAG uses retrieval to supplement the LLM's responses with more recent and specific data. It identifies precise technologies like the PrimeRoot System and PASTE Technology. While it provides accurate information, it may still miss broader context or additional relevant advancements, focusing narrowly on certain technologies. LLM with KG Integrates a KG allows for a structured and interconnected understanding of the topic. This approach can highlight relationships between technologies and their potential impacts but may still lack depth in explaining each technology's specific mechanisms and applications, potentially leading to less comprehensive answers. The LLM with PKG approach combines the strengths of retrieval methods and knowledge graphs to offer detailed and structured insights. It covers a wide range of technologies and their applications, providing a comprehensive overview. This method excels because it integrates recent, specific data with structured knowledge, using natural language and node-relation chains through meta-paths. As a result, it delivers well-rounded and accurate answers.
 
-- # Identify the Domain and entities: Clearly define A and B within their domain. Understand the specific content and scope of each entity.
-- # Analyze the Directional Relationship: Determine if knowledge of entity A is essential before one can fully grasp entity B. This involves considering if A provides foundational knowledge or skills required for understanding B.
-- # Evaluate Dependency: Assess whether B is dependent on A in such a way that without understanding A, one cannot understand B.
-- # Draw a Conclusion: Based on your analysis, decide if understanding A is a necessary prerequisite for understanding B.
-- # Provide a Clear Answer: After detailed reasoning, conclude with a distinct answer : <result>YES</result> if understanding A is a prerequisite for understanding B, or <result>NO</result> if it is not.
+After obtaining the retrieval results and generating the answers, we will use GPT-4o [[38]](#ref-38) to assess the quality of the answers generated by language models using these results. The evaluation criteria will include:
 
-### *Extraction Prompt.*### Instruction: You are a domain expert in natural language processing, and now you are building a knowledge graph in this domain.
+* Accuracy: The correctness of the information provided in the answer.
+* Coherence: The logical flow and clarity of the answer.
+* Comprehensiveness: Whether the answer covers as many aspects of the question as necessary.
 
-Given a context (### Content), and a query entity (### entity), do the following:
+By applying these evaluation criteria, we demonstrate the effectiveness of different retrieval systems in supporting high-quality answer generation. The LLM-PKG approach (Answer 4) outperforms other methods across all metrics. In terms of accuracy, it clearly identifies specific biotechnologies, such as the PrimeRoot system, PASTE, and dCas9-SSAP, and provides detailed explanations of their mechanisms and potential impacts on agriculture. This contrasts with LLM-Base (Answer 1), which discusses unrelated biotechnologies, and LLM-VDB (Answer 2) and LLM-KG (Answer 3), which focus on general scientific advancements rather than specifically addressing emerging agricultural technologies.
 
-- 1. Extract the query entity and in-domain entities from the context, which should be fine-grained: could be introduced by a lecture slide page, or a whole lecture, or possibly to have a Wikipedia page.
-- 2. Determine the relations between the query entity and the extracted entities, in a triplet format: (<head entity>, <relation>, <tail entity>). The relation should be functional, aiding learners in understanding the knowledge. The query entity can be the head entity or tail entity.
+In terms of coherence, LLM-PKG delivers a logically structured response with clear headings and concise explanations, making it easy to follow. In contrast, LLM-Base lacks coherence due to its disjointed discussion of unrelated topics, while LLM-VDB and LLM-KG fail to directly address the original question, resulting in a fragmented flow.
 
-We define 7 types of the relations:
+Finally, in terms of comprehensiveness, LLM-PKG stands out by outlining multiple emerging biotechnologies, explaining their applications in agriculture, and including details on both genetic modification and advanced imaging techniques. While LLM-VDB and LLM-KG provide more detailed information than LLM-Base, they still lack the broader context and organizational clarity of LLM-PKG.
 
-- a) Compare: Represents a relation between two or more entities where a comparison is being made. For example, "A is larger than B" or "X is more efficient than Y."
-- b) Part-of: Denotes a relation where one entity is a constituent or component of another. For instance, "Wheel is a part of a Car."
-- c) Conjunction: Indicates a logical or semantic relation where two or more entities are connected to form a group or composite idea. For example, "Salt and Pepper."
-- d) Evaluate-for: Represents an evaluative relation where one entity is assessed in the context of another. For example, "A tool is evaluated for its effectiveness."
-- e) Is-a-Prerequisite-of: This dual-purpose relation implies that one entity is either a characteristic of another or a required precursor for another. For instance, "The ability to code is a prerequisite of software development."
-- f) Used-for: Denotes a functional relation where one entity is utilized in accomplishing or facilitating the other. For example, "A hammer is used for driving nails."
-- g) Hyponym-Of: Establishes a hierarchical relation where one entity is a more specific version or subtype of another. For instance, "A Sedan is a hyponym of a Car."
-- 3. Please note some relations are strictly directional. For example, "A tool is evaluated for B" indicates (A, Evaluate-for, B), NOT (B, Evaluate-for, A). Among the seven relation types, only "a) Compare" and "c) Conjunction" are not direction-sensitive.
-- 4. You can also extract triplets from the extracted entities, and the query entity may not be necessary in the triplets.
-- 5. Your answer should ONLY contain a list of triplets, each triplet is in this format: (entity, relation, entity). For example: "(entity, relation, entity) (entity, relation, entity)." No numbering and other explanations are needed.
-- 6. If ### Content is empty, output None.
-*Fusion Prompt.*### Instruction: You are a knowledge graph builder. Now please fuse two sub-knowledge graphs about the entity "{entity}".
+| Question | In the scientific journals published in 2024, what are some emerging biotechnologies that are<br>considered likely to significantly change agricultural practices? |
+|---|---|
+| Answer 1 (LLM-Base) | It's difficult to provide information about specific journal articles or publications from 2024. However, I can<br>give you an overview of emerging biotechnologies that could potentially impact agricultural practices. Some<br>potential biotechnologies that may influence agricultural practices include: Gene editing technologies such<br>as CRISPR/Cas9[]Synthetic biology[]Microbiome engineering[]Precision agriculture technolo<br>gies[] |
+| Answer 2 (LLM-VDB) | Based on the article from the scientific journals published in 2024, there are several emerging biotechnologies<br>that are likely to significantly change agricultural practices: PrimeRoot System for Precise DNA Inser<br>tion[]PASTE Technology for Genome Insertion[]dCas9-SSAP for Genomic Knock-in[] These<br>technologies have the potential to greatly impact agricultural practices by enabling precise genetic modifica<br>tions in plants, which can lead to crops with improved resistance to diseases, enhanced nutritional profiles,<br>and better adaptability to environmental conditions. The ability to insert large DNA sequences accurately and<br>efficiently is a significant advancement in the field of plant biotechnology and could lead to the development<br>of new crop varieties that are more productive and resilient. |
+| Answer 3 (LLM-KG) | In the scientific journals published in 2024, some emerging biotechnologies that are considered likely to<br>significantly change agricultural practices include: Large DNA Insertion Technologies[]Drag-and-Drop<br>Genome Insertion[]dCas9-based Gene Editing for Cleavage-Free Genomic Knock-In[]Cell Atlas<br>Mapping[]Super-Resolution Microscopy[]3D Printing of Nanomaterials[] These biotechnologies<br>hold the potential to revolutionize agricultural practices by enabling precise genetic modifications in crops,<br>enhancing our understanding of cellular processes, and providing new tools for materials design and imaging<br>techniques. |
+| Answer 4 (LLM-PKG) | In 2024, several emerging biotechnologies have been highlighted in scientific journals for their potential to<br>significantly transform agricultural practices. These technologies focus on precise genetic modifications and<br>advanced imaging techniques, which can enhance crop traits and improve our understanding of cellular pro<br>cesses. Here's an integrated overview: Large DNA Insertion Technologies[]CRISPR-Directed Integrases<br>(PASTE)[]dCas9-based Gene Editing (dCas9-SSAP)[]Cell Atlas Mapping[]Super-Resolution Mi<br>croscopy[] These biotechnologies offer groundbreaking methods for modifying plant genomes with precision<br>and efficiency. They hold the potential to develop crops with enhanced disease resistance, improved nutritional<br>content, and better environmental adaptability, ultimately leading to significant advancements in agricultural<br>productivity and food security. |
 
-Graph 1: {LLM-KG} Graph 2: {E-G}
+**Table 4:** Example question for the biotechnologies article dataset, with generated answers from LLM-Base, LLM-VDB, LLM-KG and LLM-KG as shown in Section [4.3]](#ref-4-3).
 
-Rules for Fusing the Graphs: 1. Union the entities and edges.
+## 5 CONCLUSION AND FUTURE WORK
 
-- 2. If two entities are similar, or refer to the same entity, merge them into one entity, keeping he one that is meaningful or specific. For example, "lstm" versus "long short-term memory", please keep "long short-term memory".
-- 3. Only one relation is allowed between two entities. If there is a conflict, read the "### Background" to help you keep the correct relation. knowledge to keep the correct one. For example, (ROUGE, Evaluate-for, question answering model) and (ROUGE,Used-for , question answering model) are considered to be conflicts.
-- 4. Once step 3 is done, consider every possible entity pair not covered in step 2. For example, take an entity from Graph 1, and match it from Graph 2. Then, please refer to "### Background" to summarize new triplets.
+In this paper, we introduce the Pseudo-Knowledge Graph (PKG), a Retrieval-Augmented Generation (RAG) framework designed to address the limitations of traditional RAG systems, particularly in managing complex relationships within large-scale knowledge bases. PKG integrates both structured data (knowledge graphs) and unstructured data (in-graph text chunks) to enhance the retrieval capabilities of large language models (LLMs). By preserving natural language text within the graph structure, PKG enables LLMs to process and interpret retrieved information more effectively, overcoming their inherent limitations in handling purely structured data. To seamlessly integrate PKG with LLMs, we develop a suite of advanced retrieval methods, including regular expression retrieval, graph-based vector retrieval, and meta-path retrieval. These methods collectively improve both the semantic understanding and efficiency of information retrieval, ensuring that the retrieved results align closely with the LLM's comprehension and contextual awareness. Extensive experiments across multiple datasets and frameworks demonstrate that PKG outperforms several competitive
 
-Hint: the relation types and their definition. You can use it to do Step 3. We define 7 types of the relations:
+baseline models and mainstream RAG approaches, particularly in tasks requiring complex reasoning and multi-hop retrieval.
 
-- a) Compare: Represents a relation between two or more entities where a comparison is being made. For example, "A is larger than B" or "X is more efficient than Y."
-- b) Part-of: Denotes a relation where one entity is a constituent or component of another. For instance, "Wheel is a part of a Car."
-- c) Conjunction: Indicates a logical or semantic relation where two or more entities are connected to form a group or composite idea. For example, "Salt and Pepper."
-- d) Evaluate-for: Represents an evaluative relation where one entity is assessed in the context of another. For example, "A tool is evaluated for its effectiveness."
-- e) Is-a-Prerequisite-of: This dual-purpose relation implies that one entity is either a characteristic of another or a required precursor for another. For instance, "The ability to code is a prerequisite of software development."
-- f) Used-for: Denotes a functional relation where one entity is utilized in accomplishing or facilitating the other. For example, "A hammer is used for driving nails."
-- g) Hyponym-Of: Establishes a hierarchical relation where one entity is a more specific version or subtype of another. For instance, "A Sedan is a hyponym of a Car."
+Looking ahead, we plan to extend PKG in several directions to further enhance its capabilities and applicability:
 
-### Background: {background}
+* Multi-Turn Conversations: We aim to adapt PKG to support multi-turn conversational interactions, enabling more dynamic and context-aware dialogues with users. This will involve developing mechanisms to maintain context across multiple queries and responses.
+* Scalability and Efficiency: As knowledge bases continue to grow, we will focus on optimizing PKG's scalability and computational efficiency, particularly for real-time applications and large-scale deployments.
+* Interactive Knowledge Exploration: We envision extending PKG to support interactive knowledge exploration, allowing users to navigate complex knowledge graphs intuitively and extract insights through natural language queries.
 
-### Output Instruction:
+By pursuing these directions, we aim to further advance the capabilities of PKG, making it a versatile and powerful tool for enhancing LLMs in both general and domain-specific applications.
 
-Output the new merged data by listing the triplets. Your answer should ONLY contain triplets in this format: (entity, relation, entity). No other explanations or numbering are needed. Only triplets, no intermediate results.
+## REFERENCES
 
-```text
-Link Prediction with Doc.
-We have two {domain} related entities: A: {entity_1} and B: {entity_2}.
-Do you think learning {entity_1} will help in understanding {entity_2}?
-Hints:
-1. Answer YES or NO only.
-2. This is a directional relation, which means if the answer is "YES", (B, A) is
-false, but (A, B) is true.
-3. Your answer will be used to create a knowledge graph.
-And here are related contents to help:
-{related documents concatenation}
-Link Prediction with Con.
-We have two {domain} related entities: A: {entity_1} and B: {entity_2}.
-Do you think learning {entity_1} will help in understanding {entity_2}?
-Hints:
-1. Answer YES or NO only.
-2. This is a directional relation, which means if the answer is "YES", (B, A) is
-false, but (A, B) is true.
-3. Your answer will be used to create a knowledge graph.
-And here are related contents to help:
-We know that {entity_1} is a prerequisite of the following entities:
-{1-hop successors of entity_1 from training data};
-The following entities are the prerequisites of {entity_1}:
-{1-hop predecessors of entity_1 from training data}.
-We know that {entity_2} is a prerequisite of the following entities:
-{1-hop successors of entity_2 from training data};
-The following entities are the prerequisites of {entity_2}:
-{1-hop predecessors of entity_2 from training data}.
-Link Prediction with Wiki.
-We have two {domain} related entities: A: {entity_1} and B: {entity_2}.
-Do you think learning {entity_1} will help in understanding {entity_2}?
-Hints:
-1. Answer YES or NO only.
-2. This is a directional relation, which means if the answer is "YES", (B, A) is
-false, but (A, B) is true.
-3. Your answer will be used to create a knowledge graph.
-And here are related contents to help:
-{Wikipedia introductory paragraph of {entity_1}}
-{Wikipedia introductory paragraph of {entity_2}}
-```text
+* <a id="ref-1"></a>[1] Marah Abdin, Jyoti Aneja, Hany Awadalla, et al. 2024. Phi-3 technical report: A highly capable language model locally on your phone. arXiv:2404.14219 [cs.CL]
+* <a id="ref-2"></a>[2] Hasan Abu-Rasheed, Christian Weber, and Madjid Fathi. 2024. Knowledge Graphs as Context Sources for LLM-Based Explanations of Learning Recommendations. In IEEE Global Engineering Education Conference (EDUCON). IEEE, Kos Island, Greece, 1–5.
+* <a id="ref-3"></a>[3] Tareq Yaser Samih Alkhaldi. 2023. Studies on Question Answering in Open-Book and Closed-Book Settings. PhD dissertation. Kyoto University.
+* <a id="ref-4"></a>[4] Jinze Bai, Shuai Bai, Yunfei Chu, et al. 2023. Qwen technical report. arXiv:2309.16609 [cs.CL]
+* <a id="ref-5"></a>[5] Tom B. Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared Kaplan, Prafulla Dhariwal, Arvind Neelakantan, Pranav Shyam, Girish Sastry, Amanda Askell, Sandhini Agarwal, Ariel Herbert-Voss, Gretchen Krueger, Tom Henighan, Rewon Child, Aditya Ramesh, Daniel M. Ziegler, Jeffrey Wu, Clemens Winter, Christopher Hesse, Mark Chen, Eric Sigler, Mateusz Litwin, Scott Gray, Benjamin Chess, Jack Clark, Christopher Berner, Sam McCandlish, Alec Radford, Ilya Sutskever, and Dario Amodei. 2020. Language models are few-shot learners. In Proceedings of the 34th Conference on Neural Information Processing Systems (NeurIPS) (Vancouver, BC, Canada). Curran Associates Inc., Red Hook, NY, USA, Article 159, 25 pages.
+* <a id="ref-6"></a>[6] Tilmann Bruckhaus. 2024. RAG Does Not Work for Enterprises. arXiv:2406.04369 [cs.SE]
+* <a id="ref-7"></a>[7] Paola A Buitrago and Nicholas A Nystrom. 2019. Open Compass: accelerating the adoption of AI in open research. In Proceedings of the Practice and Experience in Advanced Research Computing (PEARC) (Chicago, IL, USA). Association for Computing Machinery, New York, NY, USA, 1–9.
+* <a id="ref-8"></a>[8] Mikhail Burtsev, Martin Reeves, and Adam Job. 2023. The Working Limitations of Large Language Models. MIT Sloan Management Review 65, 1 (2023), 1–5.
+* <a id="ref-9"></a>[9] Yupeng Chang, Xu Wang, Jindong Wang, Yuan Wu, Linyi Yang, Kaijie Zhu, Hao Chen, Xiaoyuan Yi, Cunxiang Wang, Yidong Wang, Wei Ye, Yue Zhang, Yi Chang, Philip S. Yu, Qiang Yang, and Xing Xie. 2024. A survey on evaluation of large language models. ACM Transactions on Intelligent Systems and Technology (TIST) 15, 3 (2024), 1–45.
+* <a id="ref-10"></a>[10] Jiaoyan Chen, Yuxia Geng, Zhuo Chen, Jeff Z Pan, Yuan He, Wen Zhang, Ian Horrocks, and Huajun Chen. 2023. Zero-shot and few-shot learning with knowledge graphs: A comprehensive survey. Proc. IEEE 111, 6 (2023), 653–685.
+* <a id="ref-11"></a>[11] Kenneth Ward Church. 2017. Word2Vec. Natural Language Engineering 23, 1 (2017), 155–162.
+* <a id="ref-12"></a>[12] Florin Cuconasu, Giovanni Trappolini, Federico Siciliano, Simone Filice, Cesare Campagnano, Yoelle Maarek, Nicola Tonellotto, and Fabrizio Silvestri. 2024. The power of noise: Redefining retrieval for RAG systems. In Proceedings of the 47th International ACM SIGIR Conference on Research and Development in Information Retrieval (Washington DC, USA). Association for Computing Machinery, New York, NY, USA, 719–729.
+* <a id="ref-13"></a>[13] Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. 2019. BERT: Pre-training of deep bidirectional transformers for language understanding. In Proceedings of 17th Annual Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (NAACL-HLT). Association for Computational Linguistics, Minneapolis, Minnesota, 4171– 4186.
+* <a id="ref-14"></a>[14] Darren Edge, Ha Trinh, Newman Cheng, Joshua Bradley, Alex Chao, Apurva Mody, Steven Truitt, and Jonathan Larson. 2024. From local to global: A graph RAG approach to query-focused summarization. arXiv:2404.16130 [cs.CL]
+* <a id="ref-15"></a>[15] BV Elasticsearch. 2018. Elasticsearch. software], version 6, 1 (2018).
+* <a id="ref-16"></a>[16] Dieter Fensel, Umutcan Şimşek, Kevin Angele, Elwin Huaman, Elias Kärle, Oleksandra Panasiuk, Ioan Toma, Jürgen Umbrich, and Alexander Wahler. 2020. Introduction: What Is a Knowledge Graph? In Knowledge Graphs: Methodology, Tools and Selected Use Cases. Springer International Publishing, Cham, 1–10.
+* <a id="ref-17"></a>[17] Luyu Gao, Xueguang Ma, Jimmy Lin, and Jamie Callan. 2022. Precise zero-shot dense retrieval without relevance labels. arXiv:2212.10496 [cs.IR]
+* <a id="ref-18"></a>[18] Luyu Gao, Xueguang Ma, Jimmy Lin, and Jamie Callan. 2023. Precise zeroshot dense retrieval without relevance labels. In Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers). 1762–1777.
+* <a id="ref-19"></a>[19] José Guia, Valéria Gonçalves Soares, and Jorge Bernardino. 2017. Graph Databases: Neo4j Analysis. In International Conference on Enterprise Information Systems (ICEIS). 351–356.
+* <a id="ref-20"></a>[20] Zirui Guo, Lianghao Xia, Yanhua Yu, Tu Ao, and Chao Huang. 2024. LightRAG: Simple and Fast Retrieval-Augmented Generation. arXiv:2410.05779 [cs.IR]
+* <a id="ref-21"></a>[21] Muhammad Usman Hadi, Rizwan Qureshi, Abbas Shah, Muhammad Irfan, Anas Zafar, Muhammad Bilal Shaikh, Naveed Akhtar, Jia Wu, Seyedali Mirjalili, et al. 2023. A survey on large language models: Applications, challenges, limitations, and practical usage. TechRxiv:23589741.
+* <a id="ref-22"></a>[22] Xuejie Hao, Zheng Ji, Xiuhong Li, Lizeyan Yin, Lu Liu, Meiying Sun, Qiang Liu, and Rongjin Yang. 2021. Construction and application of a knowledge graph. Remote Sensing 13, 13 (2021), 2511.
 
-### *GraphRAG's Prompt Tuning for Entity/Relationship Extraction.*-Goal-
+* <a id="ref-23"></a>[23] Md Arid Hasan, Maram Hasanain, Fatema Ahmad, Sahinur Rahman Laskar, Sunaya Upadhyay, Vrunda N Sukhadia, Mucahid Kutlu, Shammur Absar Chowdhury, and Firoj Alam. 2024. NativQA: Multilingual culturally-aligned natural query for LLMs. arXiv:2407.09823 [cs.CL]
+* <a id="ref-24"></a>[24] Dan Hendrycks, Collin Burns, Steven Basart, Andy Zou, Mantas Mazeika, Dawn Song, and Jacob Steinhardt. 2021. Measuring Massive Multitask Language Understanding. In Proceedings of the International Conference on Learning Representations (ICLR). http://openreview.net, Vienna, Austria, 27.
+* <a id="ref-25"></a>[25] Gumwon Hong. 2005. Relation extraction using support vector machine. In Proceedings of the Second International Joint Conference on Natural Language Processing (IJCNLP). 366–377.
+* <a id="ref-26"></a>[26] Haoxu Huang, Fanqi Lin, Yingdong Hu, Shengjie Wang, and Yang Gao. 2024. CoPa: General robotic manipulation through spatial constraints of parts with foundation models. arXiv:2403.08248 [cs.RO]
+* <a id="ref-27"></a>[27] Zhengbao Jiang, Frank Xu, Luyu Gao, Zhiqing Sun, Qian Liu, Jane Dwivedi-Yu, Yiming Yang, Jamie Callan, and Graham Neubig. 2023. Active Retrieval Augmented Generation. In Proceedings of the Conference on Empirical Methods in Natural Language Processing (EMNLP). Association for Computational Linguistics, Singapore, 7969–7992.
+* <a id="ref-28"></a>[28] Zhi Jing, Yongye Su, and Yikun Han. 2024. When Large Language Models Meet Vector Databases: A Survey. arXiv:2402.01763 [cs.DB]
+* <a id="ref-29"></a>[29] Jean Kaddour, Joshua Harris, Maximilian Mozes, Herbie Bradley, Roberta Raileanu, and Robert McHardy. 2023. Challenges and applications of large language models. arXiv:2307.10169 [cs.CL]
+* <a id="ref-30"></a>[30] Mayank Kejriwal. 2022. Knowledge graphs: A practical review of the research landscape. Information 13, 4 (2022), 161.
+* <a id="ref-31"></a>[31] Patrick Lewis, Ethan Perez, Aleksandra Piktus, Fabio Petroni, Vladimir Karpukhin, Naman Goyal, Heinrich Küttler, Mike Lewis, Wen-tau Yih, Tim Rocktäschel, Sebastian Riedel, and Douwe Kiela. 2020. Retrieval-augmented generation for knowledge-intensive NLP tasks. Advances in Neural Information Processing Systems (NeurIPS) 33 (2020), 9459–9474.
+* <a id="ref-32"></a>[32] Huayang Li, Yixuan Su, Deng Cai, Yan Wang, and Lemao Liu. 2022. A survey on retrieval-augmented text generation. arXiv:2202.01110 [cs.CL]
+* <a id="ref-33"></a>[33] Yang Liu. 2019. Fine-tune BERT for extractive summarization. arXiv:1903.10318 [cs.CL]
+* <a id="ref-34"></a>[34] Lars-Peter Meyer, Claus Stadler, Johannes Frey, Norman Radtke, Kurt Junghanns, Roy Meissner, Gordian Dziwis, Kirill Bulert, and Michael Martin. 2023. LLMassisted knowledge graph engineering: Experiments with ChatGPT. In Working Conference on Artificial Intelligence Development for a Resilient and Sustainable Tomorrow (AI Tomorrow). 103–115.
+* <a id="ref-35"></a>[35] Justin J Miller. 2013. Graph database applications and concepts with Neo4j. Proceedings of the Southern Association for Information Systems Conference (SAIS) 2324, 36 (2013), 141–147.
+* <a id="ref-36"></a>[36] Benjamin Minixhofer, Jonas Pfeiffer, and Ivan Vulić. 2023. Where's the Point? Self-Supervised Multilingual Punctuation-Agnostic Sentence Segmentation. In Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (ACL). Association for Computational Linguistics, Toronto, Canada, 7215–7235.
+* <a id="ref-37"></a>[37] Yixin Nie, Adina Williams, Emily Dinan, Mohit Bansal, Jason Weston, and Douwe Kiela. 2020. Adversarial NLI: A New Benchmark for Natural Language Understanding. In Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics (ACL). Association for Computational Linguistics, Online, 4885–4901.
+* <a id="ref-38"></a>[38] OpenAI. 2024. GPT-4 technical report. arXiv:2303.08774 [cs.CL]
+* <a id="ref-39"></a>[39] David D Palmer. 2000. Tokenisation and sentence segmentation. Handbook of Natural Language Processing (2000), 11–35.
+* <a id="ref-40"></a>[40] James Jie Pan, Jianguo Wang, and Guoliang Li. 2024. Vector Database Management Techniques and Systems. In Companion of the International Conference on Management of Data (SIGMOD) (Santiago AA, Chile). Association for Computing Machinery, New York, NY, USA, 597–604.
+* <a id="ref-41"></a>[41] Jeff Z. Pan, Simon Razniewski, Jan-Christoph Kalo, Sneha Singhania, Jiaoyan Chen, Stefan Dietze, Hajira Jabeen, Janna Omeliyanenko, Wen Zhang, Matteo Lissandrini, Russa Biswas, Gerard de Melo, Angela Bonifati, Edlira Vakaj, Mauro Dragoni, and Damien Graux. 2023. Large language models and knowledge graphs: Opportunities and challenges. arXiv:2308.06374 [cs.AI]
+* <a id="ref-42"></a>[42] Shirui Pan, Linhao Luo, Yufei Wang, Chen Chen, Jiapu Wang, and Xindong Wu. 2024. Unifying Large Language Models and Knowledge Graphs: A Roadmap. IEEE Transactions on Knowledge and Data Engineering (TKDE) 36, 7 (2024), 3580–3599.
+* <a id="ref-43"></a>[43] Nita Patil, Ajay Patil, and BV Pawar. 2020. Named entity recognition using conditional random fields. Procedia Computer Science 167 (2020), 1181–1188.
+* <a id="ref-44"></a>[44] Fuchun Peng and Andrew McCallum. 2006. Information extraction from research papers using conditional random fields. Information Processing & Management 42, 4 (2006), 963–979.
+* <a id="ref-45"></a>[45] Jeffrey Pennington, Richard Socher, and Christopher D Manning. 2014. GloVe: Global vectors for word representation. In Proceedings of the Conference on Empirical Methods in Natural Language Processing (EMNLP). Association for Computational Linguistics, Doha, Qatar, 1532–1543.
+* <a id="ref-46"></a>[46] Alec Radford, Karthik Narasimhan, Tim Salimans, and Ilya Sutskever. 2018. Improving language understanding by generative pre-training. [https://openai.](https://openai.com/index/language-unsupervised/)
 
-Given a text document that is potentially relevant to this activity, first identify all the entities needed from the text in order to capture the information and ideas in the text. Next, introduce each relation concept by defining the relation, and then report all relationships among the identified entities according to the predefined relations. These predefined relations and seed entities include:
+Yuxin Yang, Haoyang Wu, Tao Wang, Jia Yang, Hao Ma, and Guojie Luo
 
-### -Relation Concepts and Definitions-:
+[com/index/language-unsupervised/](https://openai.com/index/language-unsupervised/)
 
-- a) Compare: Represents a relation between two or more entities where a comparison is being made. For example, "A is larger than B" or "X is more efficient than Y."
-- b) Part-of: Denotes a relation where one entity is a constituent or component of another. For instance, "Wheel is a part of a Car."
-- c) Conjunction: Indicates a logical or semantic relation where two or more entities are connected to form a group or composite idea. For example, "Salt and Pepper."
-- d) Evaluate-for: Represents an evaluative relation where one entity is assessed in the context of another. For example, "A tool is evaluated for its effectiveness."
-- e) Is-a-Prerequisite-of: This dual-purpose relation implies that one entity is either a characteristic of another or a required precursor for another. For instance, "The ability to code is a prerequisite of software development."
-- f) Used-for: Denotes a functional relation where one entity is utilized in accomplishing or facilitating the other. For example, "A hammer is used for driving nails."
-- g) Hyponym-of: Establishes a hierarchical relation where one entity is a more specific version or subtype of another. For instance, "A Sedan is a hyponym of a Car."
+* <a id="ref-47"></a>[47] Alec Radford, Jeff Wu, Rewon Child, David Luan, Dario Amodei, and Ilya Sutskever. 2019. Language models are unsupervised multitask learners. OpenAI blog 1, 8 (2019), 9.
+* <a id="ref-48"></a>[48] Jaideepsinh K Raulji and Jatinderkumar R Saini. 2016. Stop-word removal algorithm and its implementation for Sanskrit language. International Journal of Computer Applications (IJCA) 150, 2 (2016), 15–17.
+* <a id="ref-49"></a>[49] Ridho Reinanda, Edgar Meij, and Maarten de Rijke. 2020. Knowledge graphs: An information retrieval perspective. Foundations and Trends® in Information Retrieval 14, 4 (2020), 289–444.
+* <a id="ref-50"></a>[50] Daniel Ritter, Luigi Dell'Aquila, Andrii Lomakin, and Emanuele Tagliaferri. 2021. OrientDB: A NoSQL, Open Source MMDMS. In Proceedings of the The British International Conference on Databases (BICOD). CEUR Workshop Proceedings, London, United Kingdom, 10–19.
+* <a id="ref-51"></a>[51] Devendra Sachan, Mike Lewis, Mandar Joshi, Armen Aghajanyan, Wen-tau Yih, Joelle Pineau, and Luke Zettlemoyer. 2022. Improving Passage Retrieval with Zero-Shot Question Generation. In Proceedings of the Conference on Empirical Methods in Natural Language Processing (EMNLP). Association for Computational Linguistics, Abu Dhabi, United Arab Emirates, 3781–3797.
+* <a id="ref-52"></a>[52] Alireza Salemi and Hamed Zamani. 2024. Evaluating retrieval quality in retrievalaugmented generation. In Proceedings of the 47th International ACM SIGIR Conference on Research and Development in Information Retrieval (Washington DC, USA). Association for Computing Machinery, New York, NY, USA, 2395–2400.
+* <a id="ref-53"></a>[53] Sunita Sarawagi and William W Cohen. 2004. Semi-Markov conditional random fields for information extraction. In Advances in Neural Information Processing Systems (NIPS), Vol. 17. MIT Press, Cambridge, MA, USA, 1185–1192.
+* <a id="ref-54"></a>[54] Makoto Sato and Hiroshi Tsukimoto. 2001. Rule extraction from neural networks via decision tree induction. In Proceedings of the International Joint Conference on Neural Networks (IJCNN), Vol. 3. 1870–1875.
+* <a id="ref-55"></a>[55] Tobias Scheffer, Christian Decomain, and Stefan Wrobel. 2001. Active hidden Markov models for information extraction. In International Symposium on Intelligent Data Analysis (IDA). 309–318.
+* <a id="ref-56"></a>[56] Dong Shu, Tianle Chen, Mingyu Jin, Yiting Zhang, Mengnan Du, and Yongfeng Zhang. 2024. Knowledge Graph Large Language Model (KG-LLM) for Link Prediction. arXiv:2403.07311 [cs.CL]
+* <a id="ref-57"></a>[57] Catarina Silva and Bernardete Ribeiro. 2003. The importance of stop word removal on recall values in text categorization. In Proceedings of the International Joint Conference on Neural Networks (IJCNN), Vol. 3. IEEE, Portland, OR, USA, 1661–1666.
+* <a id="ref-58"></a>[58] Shamane Siriwardhana, Rivindu Weerasekera, Elliott Wen, Tharindu Kaluarachchi, Rajib Rana, and Suranga Nanayakkara. 2023. Improving the domain adaptation of retrieval augmented generation (RAG) models for open domain question answering. Transactions of the Association for Computational Linguistics (TACL) 11 (2023), 1–17.
+* <a id="ref-59"></a>[59] Yisheng Song, Ting Wang, Puyu Cai, Subrota K Mondal, and Jyoti Prakash Sahoo. 2023. A comprehensive survey of few-shot learning: Evolution, applications, challenges, and opportunities. ACM Computing Surveys (CSUR) 55, 13s (2023), 1–40.
+* <a id="ref-60"></a>[60] Yuan Sui, Mengyu Zhou, Mingjie Zhou, Shi Han, and Dongmei Zhang. 2024. Table meets LLM: Can large language models understand structured table data? a benchmark and empirical study. In Proceedings of the 17th ACM International Conference on Web Search and Data Mining (WSDM) (Merida, Mexico). Association for Computing Machinery, New York, NY, USA, 645–654.
+* <a id="ref-61"></a>[61] Weiwei Sun, Lingyong Yan, Xinyu Ma, Shuaiqiang Wang, Pengjie Ren, Zhumin Chen, Dawei Yin, and Zhaochun Ren. 2023. Is ChatGPT Good at Search? Investigating Large Language Models as Re-Ranking Agents. In Proceedings of the Conference on Empirical Methods in Natural Language Processing (EMNLP). Association for Computational Linguistics, Singapore, 14918–14937.
+* <a id="ref-62"></a>[62] Yu Sun, Shuohuan Wang, Shikun Feng, et al. 2021. ERNIE 3.0: Large-scale knowledge enhanced pre-training for language understanding and generation. arXiv:2107.02137 [cs.CL]
+* <a id="ref-63"></a>[63] Alon Talmor, Jonathan Herzig, Nicholas Lourie, and Jonathan Berant. 2019. CommonsenseQA: A Question Answering Challenge Targeting Commonsense Knowledge. In Proceedings of the Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (NAACL-HLT). Association for Computational Linguistics, Minneapolis, Minnesota, 4149– 4158.
+* <a id="ref-64"></a>[64] Alex Tamkin, Miles Brundage, Jack Clark, and Deep Ganguli. 2021. Understanding the capabilities, limitations, and societal impact of large language models. arXiv:2102.02503 [cs.CL]
+* <a id="ref-65"></a>[65] Yixuan Tang and Yi Yang. 2024. MultiHop-RAG: Benchmarking retrievalaugmented generation for multi-hop queries. arXiv:2401.15391 [cs.CL]
 
--Steps-
-
-1. Identify all entities: For each identified entity, extract the following information: - entity\_name: Name of the entity,
-
-- Format each entity as ("entity"{tuple\_delimiter}<entity\_name>)
-- 2. Identify all relations: From the entities identified in step 1, determine the relation between each pair of entities based on the predefined relation concepts (Compare, Part-of , Conjunction, Evaluate-for, Is-a-Prerequisite-of, Used-for, and Hyponym-of). For each pair of related entities:
-- source\_entity: Name of the source entity as identified in step 1
-- target\_entity: Name of the target entity as identified in step 1
-- relationship\_type: Select the appropriate relation from the predefined relations
-- relationship\_strength: a numeric score indicating strength of the relationship between the source entity and target entity
-- Format each relationship as ("relationship"{tuple\_delimiter}<source\_entity>{tuple\_delimiter}< target\_entity>{tuple\_delimiter}<relationship\_type>{tuple\_delimiter}<relationship\_strength >)
-- Return output: Provide the list of all entities and relationships identified in steps 1 and 2. Use {record\_delimiter} as the list delimiter. When finished, output { completion\_delimiter}.
-
-```text
-
-### ################
-
--Real Data-:
-
-### ################
-
-text: {input_text}
-
-### ################
-
-output:
-```text
-
-### Graphusion Case Study: Entity Extraction
-
-To demonstrate the importance of the seed entity list from Step 1, we examine a selection of random entities extracted by both GraphRAG and Graphusion, as shown in Tab. [6.](#page-15-0) All results are based on the GPT-4o backbone. GraphRAG sometimes extracts overly general terms, such as <span id="page-15-0"></span>WWW '25, NLP4KGC, April 28-May 2, 2025, Sydney, NSW, Australia Rui Yang, Boming Yang, Xinjie Zhao, Fan Gao and et al.
-
-| GraphRAG | Graphusion | | |
-|------------------------------|-------------------------|--|--|
-| mixture-of-experts technique | code-switching tasks | | |
-| mbart | NAS-BERT | | |
-| benchmark | linear indexed grammars | | |
-| multilingual alignment | analyzing data | | |
-| diffusionbert | semantic parsing | | |
-| proposed method | bias-variance | | |
-| methodology | few-shot learning | | |
-
-**Table 6:** Entity comparison: Random samples from GraphRAG and Graphusion.
-
-benchmark and methodology, which occur frequently in the corpus. In subsequent experiments, we will further illustrate how GraphRAG tends to extract entities with unsuitable granularity.
-
-### Experimental Setup
-
-In our experimental setup, we employed Hugging Face's LLaMA-2-70b-chat-hf[4](#page-15-1) and LLaMA-3-70b-chat-hf[5](#page-15-2) for LLaMA2 and LLaMA3 on a cluster equipped with 8 NVIDIA A100 GPUs. For GPT-3.5 and GPT-4, we used OpenAI's gpt-3.5-turbo, gpt-4-1106-preview, and gpt-4o APIs, respectively, each configured with a temperature setting of zero. The RAG models are implemented using Embedchain [\[36\]](#page-8-37). To solve TutorQA tasks, we implemented our pipeline using LangChain[6](#page-15-3) . The total budget spent on this project, including the cost of the GPT API service, is approximately 500 USD.
-
-### Additional Corpora Description
-
-TutorialBank We obtained the most recent version of TutorialBank from the authors, which consists of 15,583 manually curated resources. This collection includes papers, blog posts, textbook chapters, and other online resources. Each resource is accompanied by metadata and a publicly accessible URL. We downloaded the resources from these URLs and performed free text extraction. Given the varied data formats such as PDF, PPTX, and HTML, we encountered some challenges during text extraction. To ensure text quality, we filtered out sentences shorter than 25 words. Ultimately, this process yielded 559,217 sentences suitable for RAG and finetuning experiments.
-
-NLP-Papers We downloaded conference papers from EMNLP, ACL, and NAACL spanning the years 2021 to 2023. Following this, we utilized Grobid [\(https://github.com/kermitt2/grobid\)](https://github.com/kermitt2/grobid) for text extraction, resulting in a collection of 4,787 documents with clean text.
-
-### Ablation Study
-
-<span id="page-15-4"></span>Prompting Strategies In Tab. [7,](#page-15-4) we explore the impact of different prompting strategies for entity graph recovery, comparing CoT and zero-shot prompts across both NLP and CV domains. The results indicate the introduction of CoT is not improving. We further find that CoT Prompting more frequently results in negative predictions. This finding serves as a drawback for our study, as it somewhat suppresses the performance of our system. This observation highlights the need to balance the impact of CoT on the rigor and complexity of predictions, especially in the context of graph recovery.
-
-| Model | | NLP | | CV |
-|-----------------------|------------------|------------------|------------------|------------------|
-| | Acc | F1 | Acc | F1 |
-| GPT-4 zs<br>GPT-4 CoT | 0.7639<br>0.7342 | 0.7946<br>0.6537 | 0.7391<br>0.6122 | 0.7629<br>0.4159 |
-
-**Table 7:** Comparison of zero-shot and CoT prompts with GPT-4: Results on NLP and CV.
-
-Finetuning We further explore the impact of finetuning on additional datasets, with results detailed in Table [8.](#page-16-0) Specifically, we utilize LLaMA2-70b [\[37\]](#page-8-38), finetuning it on two previously mentioned datasets: TutorialBank and NLP-Papers. Both the zero-shot LLaMA and the finetuned models are employed to generate answers. As these answers are binary (YES or NO), we can calculate both the accuracy and F1 score for evaluation. However, the results indicate that finetuning does not yield positive outcomes. This can be attributed to two potential factors: 1) the poor quality of data, and 2) limited effectiveness in aiding the graph recovery task. We leave this part as the future work.
-
-<span id="page-15-1"></span><sup>4</sup> <https://huggingface.co/meta-LLaMA>
-
-<span id="page-15-2"></span><sup>5</sup> <https://huggingface.co/meta-LLaMA/Meta-LLaMA-3-70B>
-
-<span id="page-15-3"></span><sup>6</sup> <https://www.langchain.com/>
-
-| Dataset | Acc | F1 | |
-|--------------|--------|--------|--|
-| LLaMA2-70b | 0.6058 | 0.6937 | |
-| TutorialBank | 0.4739 | 0.0764 | |
-| NLP Papers | 0.5435 | 0.6363 | |
-
-**Table 8:** Comparison of the effect of finetuning: Results on NLP domain.
-
-## <span id="page-16-0"></span>Ablation Study: RAG Data for Link Prediction
-
-<span id="page-16-1"></span>We explore the potential of external data in enhancing entity graph recovery. This is achieved by expanding the {Additional Information} part in the LP Prompt. We utilize LLaMa as the Base model, focusing on the NLP domain. We introduce three distinct settings: Doc.: In-domain lecture slides data as free-text; Con.: Adding one-hop neighboring entities from the training set as additional information related to the query entities. Wiki.: Incorporating the introductory paragraph of the Wikipedia page of each query entity. As illustrated in Fig [5,](#page-16-1) our findings indicate that incorporating LectureBankCD documents (Doc.) significantly diminishes performance. This decline can be attributed to the introduction of noise and excessively lengthy content, which proves challenging for the LLM to process effectively. Conversely, the inclusion of neighboring entities (Con.) markedly enhances the base model's performance. However, it relies on training data, rendering it incompatible with our primary focus on the zero-shot setting. Incorporating Wikipedia content also yields improvements and outperforms the use of LectureBankCD, likely due to higher text quality.
-
-![](_page_16_Figure_6.jpeg)
-<!-- Image Description: The image presents a bar chart comparing the accuracy (Acc) and F1-score (F1) of four different models: Base, Doc., Con., and Wiki. The chart shows model performance metrics; higher values indicate better performance. The legend clarifies the color coding for each model. The purpose is to visually compare the effectiveness of the four models in the task described within the paper. -->
-
-**Figure 5:** Link Prediction Ablation Study: Comparison of models with external data.
-
-## TutorQA
-
-### Benchmark Details
-
-<span id="page-16-2"></span>We show the data analysis in Tab. [9.](#page-16-2)
-
-| Task | Question Token | | | entity Count | | | Number |
-|------|----------------|-----|-------|--------------|-----|------|--------|
-| | Max | Min | Mean | Max | Min | Mean | |
-| T1 | 77 | 61 | 68.00 | - | - | - | 250 |
-| T2 | 27 | 22 | 23.48 | 7 | 1 | 1.79 | 250 |
-| T3 | 40 | 34 | 36.66 | 8 | 2 | 3.36 | 250 |
-| T4 | 88 | 76 | 83.00 | - | - | - | 250 |
-| T5 | 21 | 18 | 19.26 | 8 | 1 | 4.76 | 100 |
-| T6 | 54 | 42 | 48.62 | - | - | - | 100 |
-
-**Table 9:** TutorQA data statistics comparison: The answers in T1 are only "True" or "False", and the answers in T4 are relations, while the answers in T6 are free text with open-ended answers.
-
-### GraphRAG Results
-
-We extend the results in Tab. [5](#page-7-0) by adding GraphRAG as a baseline, the full version of the evaluation is shown in Tab. [10.](#page-17-0) Based on the established indexing pipelines in knowledge graph construction, we utilize GraphRAG's query engine with the local search method to directly ask the questions in TutorQA. Notably, the performance of GraphRAG appears less satisfactory, which may be due to an evaluation approach that is not well-suited for GraphRAG's results. For example, in Task 5, GraphRAG produces concepts with very broad or specific terms with a bad granularity, such as*predict sentiment, emotion cause pair extraction, emotional support conversation*. This observation holds across other tasks, where achieving higher scores requires a more granular concept list. This indicates the critical importance of Step 1, which involves generating a well-defined seed concept, in the Graphusion pipeline.
-
-| Setting | T1 | T2 | T3 | T4 | T5 |
-|-----------|-------|-------|-------|-------|-------|
-| GPT4o zs | 69.20 | 64.42 | 66.61 | 44.00 | 11.45 |
-| GPT4o RAG | 64.40 | 65.06 | 69.31 | 40.80 | 10.02 |
-| GraphRAG | 60.40 | 64.19 | 67.45 | 42.00 | 8.96 |
-| Ours | 92.00 | 80.29 | 77.85 | 50.00 | 15.65 |
-
-<span id="page-17-0"></span>(a) Evaluation on Tasks 1-5. T1, T4: accuracy; T2, T3: similarity score; T5: hit rate.
-
-| Model | Relevancy | | Coverage Convincity Factuality | |
-|-----------|-----------|------|--------------------------------|------|
-| GPT4o zs | 4.75 | 4.84 | 4.38 | 4.63 |
-| GPT4o RAG | 4.73 | 4.71 | 4.58 | 4.71 |
-| GraphRAG | 3.94 | 4.08 | 4.13 | 4.45 |
-| Ours | 4.85 | 4.91 | 4.72 | 4.77 |
-
-(b) Expert evaluation on Task 6.
-
-![](_page_17_Figure_6.jpeg)
-<!-- Image Description: The image is a title for Table 10 of an academic paper. It indicates that the table presents results from TutorQA evaluations across various tasks. No visual data is shown in the image itself; the table's content (presumably numerical results) is not displayed. The title's purpose is to clearly label the table and inform the reader of its contents. -->
-
-![](_page_17_Figure_7.jpeg)
-<!-- Image Description: This bar chart compares the performance of "Graphusion" and "Zero-shot" methods on two tasks (Task 2 and Task 3). The y-axis represents a performance metric (likely error or loss), with lower values indicating better performance. The chart shows that the Zero-shot method significantly outperforms Graphusion on both tasks. The numerical values above each bar represent the specific performance scores. -->
-
-**Figure 6:** Entity counts in Task 2 and Task 3.
-
-### <span id="page-17-1"></span>Task 2 and Task 3: case study
-
-Entity counts As depicted in Fig [6,](#page-17-1) we evaluate the average number of entities created by GPT-4o zs and our Graphusion framework in the responses for Task 2 and Task 3, in which both tasks require the model to give a list of reasonable entities. The results show that without the enhancement of KG retrieved information, GPT-4o tends to mention more entities in the generated response (Task 2: 11.04, Task 3: 11.54), which might be irrelevant or broad.
-
-| Question [Task2] | In the field of Natural Language Processing, I want to learn about multilingual model. What entities should I learn<br>first? |
-|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| GPT-4o | Tokenization, Embeddings, Transfer Learning, Cross-lingual Transfer, Zero-shot Learning, Multilingual Cor |
-| Ours | pora, Language Modeling, Fine-tuning, Evaluation Metrics, Pretrained Models<br>language models, machine translation, cross-lingual embeddings, transfer learning, tokenization, fine-tuning |
-| Question [Task3] | In the field of Natural Language Processing, I know about natural language processing intro, now I want to learn<br>about t-sne. What entity path should I follow? |
-| GPT-4o | natural language processing, dimensionality reduction, t-SNE, perplexity, high-dimensional data, data visualiza<br>tion, machine learning |
-| Ours | natural language processing intro, vector representations, t-sne |
-| | |
-
-**Table 11:** Case study on TutorQA Task 2 and Task 3: GPT-4o, and GPT-4o-Graphusion.
-
-### Knowledge Graph Construction Analysis
-
-Average Rating We compare expert ratings on the Graphusion KGC results produced by four models: LLaMA, GPT-3.5, GPT-4, and GPT-4o. Fig. [7](#page-18-0) and [8](#page-18-1) display the average ratings for entity quality and relation quality, respectively, grouped by relation type. Most types achieve an average rating of around 3 (full score) in entity quality, indicating that the extracted triplets contain good in-domain entities. In contrast, the ratings for relation quality are slightly lower. GPT-4 and GPT-4o perform better in relation prediction.
-
-<span id="page-18-0"></span>![](_page_18_Figure_2.jpeg)
-<!-- Image Description: Figure 7 presents two bar charts showing average human evaluation scores for entity quality. Each chart displays scores for four models (LLaMA, GPT-3, GPT-4, GPT-40) across seven relation types (Is-a-Prerequisite-of, Used-for, etc.). The charts visually compare the performance of different language models in identifying and classifying relationships within an entity subgraph. Scores range from 0.0 to 3.0, suggesting a rating scale. The purpose is to demonstrate the relative quality of entity relationship identification by different models. -->
-
-**Figure 8:** Relation quality rating by human evaluation, grouped by relation type.
-
-<span id="page-18-1"></span>Relation Type Distribution We then compare the Graphusion results for each relation type across the four selected base LLMs, as shown in Fig. [9.](#page-19-0) All models tend to predict Prerequisite\_of and Used\_For relations. The results from LLaMA show relatively even distributions across relation types, whereas the results from the GPT family do not.
-
-Word cloud Visualization Finally, in Fig. [10,](#page-20-1) we present a word cloud visualization of the entities extracted by Graphusion, comparing the four base LLMs. High-frequency entities include word embedding, model, neural network, language model, and others.
-
-<span id="page-19-0"></span>WWW '25, NLP4KGC, April 28-May 2, 2025, Sydney, NSW, Australia Rui Yang, Boming Yang, Xinjie Zhao, Fan Gao and et al.
-
-![](_page_19_Figure_2.jpeg)
-<!-- Image Description: This image displays four pie charts, each representing the relative frequencies of different semantic relations (Is-a-Prerequisite-of, Part-of, Evaluate-for, Hyponym-Of, Used-for, Compare, Conjunction) identified in the outputs of four different large language models (LLaMA, GPT-3, GPT-4, and GPT-40). The charts visually compare the proportional use of these relations across the models, providing a quantitative analysis of their semantic reasoning capabilities. Larger slices indicate more frequent relation usage within each model's output. -->
-
-**Figure 9:** Relation type distribution.
-
-
-Graphusion WWW '25, NLP4KGC, April 28-May 2, 2025, Sydney, NSW, Australia
-
-<span id="page-20-1"></span>![](_page_20_Figure_2.jpeg)
-<!-- Image Description: The image displays two word clouds, one for LLAMA and one for GPT-4. Each cloud visualizes the frequency of keywords associated with each language model. Larger font sizes indicate higher frequency. The purpose is to provide a visual summary of the key concepts and technical aspects related to each model, highlighting their capabilities and research areas. -->
-
-![](_page_20_Figure_3.jpeg)
-<!-- Image Description: The image is a word cloud visualizing keywords associated with GPT-40. Larger font sizes indicate higher frequency. Key terms include "natural language," "language model," "neural network," "machine translation," and various natural language processing (NLP) tasks like text generation, question answering, and sentiment analysis. The word cloud summarizes the capabilities and applications of GPT-40 within the context of the paper. -->
-
-![](_page_20_Figure_4.jpeg)
-<!-- Image Description: This word cloud visualizes the key terms and concepts within a research paper on natural language processing (NLP). Larger font sizes indicate higher frequency. Core themes include "neural network," "machine translation," "language model," "word embedding," "question answering," and various NLP tasks like sentiment analysis and entity recognition. The image serves to quickly summarize the paper's scope and technical focus. -->
-
-**Figure 10:** Word cloud visualization for extracted entities.
-
-
-## TL;DR
-Research on graphusion: a rag framework for scientific knowledge graph construction with a global perspective providing insights for knowledge graph development and data integration.
-
-## Key Insights
-Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
-
-## Metadata Summary
-### Research Context
-- **Research Question**: 
-- **Methodology**: 
-- **Key Findings**: 
-
-### Analysis
-- **Limitations**: 
-- **Future Work**: 
+* <a id="ref-66"></a>[66] Team GLM. 2024. ChatGLM: A family of large language models from GLM-130B to GLM-4 all tools. arXiv:2406.12793 [cs.CL]
+* <a id="ref-67"></a>[67] Claudio Tesoriero. 2013. Getting started with OrientDB. Packt Publishing Birmingham, England.
+* <a id="ref-68"></a>[68] Hugo Touvron, Thibaut Lavril, Gautier Izacard, Xavier Martinet, Marie-Anne Lachaux, Timothée Lacroix, Baptiste Rozière, Naman Goyal, Eric Hambro, Faisal Azhar, Aurelien Rodriguez, Armand Joulin, Edouard Grave, and Guillaume Lample. 2023. LLaMA: Open and efficient foundation language models. arXiv:2302.13971 [cs.CL]
+* <a id="ref-69"></a>[69] Haifeng Wang, Jiwei Li, Hua Wu, Eduard Hovy, and Yu Sun. 2023. Pre-trained language models and their applications. Engineering 25 (2023), 51–65.
+* <a id="ref-70"></a>[70] Shuai Wang, Ekaterina Khramtsova, Shengyao Zhuang, and Guido Zuccon. 2024. FeB4RAG: Evaluating federated search in the context of retrieval augmented generation. In Proceedings of the 47th International ACM SIGIR Conference on Research and Development in Information Retrieval. Association for Computing Machinery, New York, NY, USA, 763–773.
+* <a id="ref-71"></a>[71] Yaqing Wang, Quanming Yao, James T Kwok, and Lionel M Ni. 2020. Generalizing from a few examples: A survey on few-shot learning. ACM Computing Surveys (CSUR) 53, 3 (2020), 1–34.
+* <a id="ref-72"></a>[72] Koki Washio and Tsuneaki Kato. 2018. Filling Missing Paths: Modeling Cooccurrences of Word Pairs and Dependency Paths for Recognizing Lexical Semantic Relations. In Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (NAACL-HLT). Association for Computational Linguistics, New Orleans, Louisiana, 1123–1133.
+* <a id="ref-73"></a>[73] Jason Wei, Yi Tay, Rishi Bommasani, Colin Raffel, Barret Zoph, Sebastian Borgeaud, Dani Yogatama, Maarten Bosma, Denny Zhou, Donald Metzler, Ed H. Chi, Tatsunori Hashimoto, Oriol Vinyals, Percy Liang, Jeff Dean, and William Fedus. 2022. Emergent Abilities of Large Language Models. Transactions on Machine Learning Research (TMLR) (2022).
+* <a id="ref-74"></a>[74] Qiang Yang, Jie Yin, Charles Ling, and Rong Pan. 2006. Extracting actionable knowledge from decision trees. IEEE Transactions on Knowledge and Data Engineering (TKDE) 19, 1 (2006), 43–56.
+* <a id="ref-75"></a>[75] Zhilin Yang, Peng Qi, Saizheng Zhang, Yoshua Bengio, William Cohen, Ruslan Salakhutdinov, and Christopher D. Manning. 2018. HotpotQA: A Dataset for Diverse, Explainable Multi-hop Question Answering. In Proceedings of the Conference on Empirical Methods in Natural Language Processing (EMNLP). 2369–2380.
+* <a id="ref-76"></a>[76] Michihiro Yasunaga, Hongyu Ren, Antoine Bosselut, Percy Liang, and Jure Leskovec. 2021. QA-GNN: Reasoning with Language Models and Knowledge Graphs for Question Answering. In Proceedings of the Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (NAACL-HLT). Association for Computational Linguistics, Online, 535–546.
+* <a id="ref-77"></a>[77] ChengXiang Zhai. 2008. Statistical language models for information retrieval a critical review. Foundations and Trends® in Information Retrieval 2, 3 (2008), 137–213.
+* <a id="ref-78"></a>[78] Bowen Zhang and Harold Soh. 2024. Extract, Define, Canonicalize: An LLM-based Framework for Knowledge Graph Construction. In Proceedings of the Conference on Empirical Methods in Natural Language Processing (EMNLP). Association for Computational Linguistics, Miami, Florida, USA, 9820–9836.
+* <a id="ref-79"></a>[79] Meihui Zhang, Zhaoxuan Ji, Zhaojing Luo, Yuncheng Wu, and Chengliang Chai. 2024. Applications and challenges for large language models: From data management perspective. In IEEE 40th International Conference on Data Engineering (ICDE). IEEE, Utrecht, Netherlands, 5530–5541.
+* <a id="ref-80"></a>[80] Mingtao Zhang, Guoli Yang, Yi Liu, Jing Shi, and Xiaoying Bai. 2024. Knowledge graph accuracy evaluation: an LLM-enhanced embedding approach. International Journal of Data Science and Analytics (JDSA) (2024), 1–15.
+* <a id="ref-81"></a>[81] Wayne Xin Zhao, Kun Zhou, Junyi Li, Tianyi Tang, Xiaolei Wang, Yupeng Hou, Yingqian Min, Beichen Zhang, Junjie Zhang, Zican Dong, Yifan Du, Chen Yang, Yushuo Chen, Zhipeng Chen, Jinhao Jiang, Ruiyang Ren, Yifan Li, Xinyu Tang, Zikang Liu, Peiyu Liu, Jian-Yun Nie, and Ji-Rong Wen. 2024. A survey of large language models. arXiv:2303.18223 [cs.CL]
+* <a id="ref-82"></a>[82] Xinyang Zhao, Xuanhe Zhou, and Guoliang Li. 2024. Chat2Data: An Interactive Data Analysis System with RAG, Vector Databases and LLMs. Proc. VLDB Endow 17, 12 (2024), 4481–4484.
+* <a id="ref-83"></a>[83] Ming Zhong, Pengfei Liu, Yiran Chen, Danqing Wang, Xipeng Qiu, and Xuanjing Huang. 2020. Extractive Summarization as Text Matching. In Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics (ACL). Association for Computational Linguistics, Online, 6197–6208.
+* <a id="ref-84"></a>[84] Wanjun Zhong, Ruixiang Cui, Yiduo Guo, Yaobo Liang, Shuai Lu, Yanlin Wang, Amin Saied, Weizhu Chen, and Nan Duan. 2023. AGIEval: A human-centric benchmark for evaluating foundation models. arXiv:2304.06364 [cs.CL]
+* <a id="ref-85"></a>[85] Xiaohan Zou. 2020. A survey on application of knowledge graph. Journal of Physics: Conference Series 1487, 1 (2020), 012016.

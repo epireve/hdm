@@ -6,44 +6,13 @@ year: 2023
 doi: 10.1109/AERO55745.2023.10115875
 url: Available through IEEE Xplore
 relevancy: Low
-downloaded: 'Yes'
-tags:
-- SysML
-- systems engineering
-- aerospace
-- integration framework
-- MBSE
+downloaded: Yes
+tags: 
 tldr: Presents SysML-based framework for integrating tools and data in helicopter
-  fuel system development
-date_processed: '2025-07-02'
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: Zhao_2023_J._Phys.%3A_Conf._Ser._2472_012040
-keywords:
-- 1 problem description
-- 2 solution
-- API
-- EnergyPlus
-- SysCon
-- TCP
-- application programming interface
-- black-box
-- co-simulation
-- cog management
-- cross-feed
-- cyber-physical
-- e-mail
-- file-based
-- file-based exchange
-- fmi-based
-- fmi-based co
-- helicopter fuel system development
-- higher-level
-- human-model
-- internet protocol
-- low-level
-- matlab-simulink
-- mock-up
-- performance
+keywords: 
 standardization_date: 2025-07-10
 standardization_version: 1.0
 ---
@@ -58,16 +27,15 @@ View the [article online](https://doi.org/10.1088/1742-6596/2472/1/012040) for u
 
 ## You may also like
 
-- [A Unified SoS and System Architecture](https://iopscience.iop.org/article/10.1088/1742-6596/2755/1/012007) [Modeling Approach Based on Language](https://iopscience.iop.org/article/10.1088/1742-6596/2755/1/012007) [Transformation and Extension](https://iopscience.iop.org/article/10.1088/1742-6596/2755/1/012007) [Mechanisms](https://iopscience.iop.org/article/10.1088/1742-6596/2755/1/012007) -
-- Yuqiang Guo, Yingxu Li, Jun Zhao et al.
-- [An Automatic Test Case Generation](https://iopscience.iop.org/article/10.1088/1757-899X/563/5/052075) [Method based on SysML Activity Diagram](https://iopscience.iop.org/article/10.1088/1757-899X/563/5/052075) Yiqun Xu and Linbo Wu -
-- [Architecting commercial aircraft with a](https://iopscience.iop.org/article/10.1088/1742-6596/1827/1/012100) [Domain Specific Language extended from](https://iopscience.iop.org/article/10.1088/1742-6596/1827/1/012100) [SysML](https://iopscience.iop.org/article/10.1088/1742-6596/1827/1/012100) Haomin Li, Chao Zhan, Haomin Wu et al. -
+- [A Unified SoS and System Architecture Modeling Approach Based on Language Transformation and Extension Mechanisms](https://iopscience.iop.org/article/10.1088/1742-6596/2755/1/012007) - Yuqiang Guo, Yingxu Li, Jun Zhao et al.
+- [An Automatic Test Case Generation Method based on SysML Activity Diagram](https://iopscience.iop.org/article/10.1088/1757-899X/563/5/052075) Yiqun Xu and Linbo Wu -
+- [Architecting commercial aircraft with a Domain Specific Language extended from SysML](https://iopscience.iop.org/article/10.1088/1742-6596/1827/1/012100) Haomin Li, Chao Zhan, Haomin Wu et al. -
 
 This content was downloaded from IP address 202.184.125.66 on 30/06/2025 at 17:29
 
 ## A SysML-centric integration framework for helicopter fuel system development
 
-H Zhao1\*, W K Wu<sup>1</sup> , X M Hu<sup>1</sup> , Y Q Guo<sup>1</sup> , C Zhang<sup>1</sup> and G X Hao<sup>2</sup>
+H Zhao^1^\*, W K Wu^1^, X M Hu^1^, Y Q Guo^1^, C Zhang^1^ and G X Hao^2^
 
 1 China Helicopter Research and Development Institute, Jingdezhen 333000, China
 
@@ -85,32 +53,31 @@ SysML provides standardized approach for complex system integration; Model patte
 
 ## Introduction
 
-The Object Management Group (OMG) SysML has been widely accepted in systems engineering applications to support the analysis, specification, design, verification, and validation of complex systems [1][2]. As the conceptual digital reflection of physical systems, SysML models now not only describe system architecture, behaviors, and states but also can be executed to simulate the concept design. During the system development process, fidelity is a crucial factor, which may limit the potential value of SysML models. However, SysML can easily describe systems' functional operations and logical architectures, but is not easy to perform mathematical or physical performance calculations [3]. The engineers usually draw support from the commercial simulation software (such as AMESim, Matlab-Simulink, Dymola, etc.) to evaluate system behaviour, performance, physical characteristics [4][5][6].
+The Object Management Group (OMG) SysML has been widely accepted in systems engineering applications to support the analysis, specification, design, verification, and validation of complex systems [[1]](#ref-1)[[2]](#ref-2). As the conceptual digital reflection of physical systems, SysML models now not only describe system architecture, behaviors, and states but also can be executed to simulate the concept design. During the system development process, fidelity is a crucial factor, which may limit the potential value of SysML models. However, SysML can easily describe systems' functional operations and logical architectures, but is not easy to perform mathematical or physical performance calculations [[3]](#ref-3). The engineers usually draw support from the commercial simulation software (such as AMESim, Matlab-Simulink, Dymola, etc.) to evaluate system behaviour, performance, physical characteristics [[4]](#ref-4)[[5]](#ref-5)[[6]](#ref-6).
 
-In the past few years, the integration of analysis models with SysML models has been an area of continued interest. The goal is to bridge the gap between SysML Modeling and numerical simulation environments. A technology known as model/data exchange is required to maintain the consistency of the information among the different models. Sanford Friedenthal et al. proposed the system model as a framework for analysis and traceability [3]. He also introduced several model and data exchange standards, including XML (Extensible Markup Language), Open Services for Lifecycle Collaboration (OSLC), FMI standard, etc.
+In the past few years, the integration of analysis models with SysML models has been an area of continued interest. The goal is to bridge the gap between SysML Modeling and numerical simulation environments. A technology known as model/data exchange is required to maintain the consistency of the information among the different models. Sanford Friedenthal et al. proposed the system model as a framework for analysis and traceability [[3]](#ref-3). He also introduced several model and data exchange standards, including XML (Extensible Markup Language), Open Services for Lifecycle Collaboration (OSLC), FMI standard, etc.
 
 This paper introduces a SysML-centric integration framework for helicopter fuel system development during conceptual design phase. FMI-based co-simulation approach is adopted to
 
-Content from this work may be used under the terms of theCreative Commons Attribution 3.0 licence. Any further distribution of this work must maintain attribution to the author(s) and the title of the work, journal citation and DOI. Published under licence by IOP Publishing Ltd 1
+Content from this work may be used under the terms of the Creative Commons Attribution 3.0 licence. Any further distribution of this work must maintain attribution to the author(s) and the title of the work, journal citation and DOI. Published under licence by IOP Publishing Ltd 1
 
 | The 13th Asia Conference on Mechanical and Aerospace Engineering (ACMAE 2022) | | IOP Publishing |
-|-------------------------------------------------------------------------------|--------------------|-------------------------------------|
+|:------------------------------------------------------------------------------|:-------------------|:------------------------------------|
 | Journal of Physics: Conference Series | 2472 (2023) 012040 | doi:10.1088/1742-6596/2472/1/012040 |
 
 integrate the simulation model into the SysML modeling software in order to verify the MoPs (Measures of performance). Finally, we will give a brief conclusion and weigh up the relative merits of the model/data exchange approaches.
 
 ### SysML-centric integration framework
 
-An integration environment of system development should support the engineers to develop systems from concept design through the final verification and validation. It should be capable of integrating typical development tools, including SysML modeling tools, design tools, simulation and analysis tools, test tools, etc [7].
+An integration environment of system development should support the engineers to develop systems from concept design through the final verification and validation. It should be capable of integrating typical development tools, including SysML modeling tools, design tools, simulation and analysis tools, test tools, etc [[7]](#ref-7).
 
-In order to bring more fidelity to SysML models, it is suitable to designate the SysML models as a framework and integrate more accurate simulation models. The system model should be in the central position of the integration environment because the system model provides a consistent source of the system specification, design, analysis, and verification information while maintaining traceability and rationale for critical decisions [8]. Based on this principle, we employ the SysML-centric integration framework to integrate multi-disciplinary engineering models into the SysML modeling environment, executing numerical analysis by co-simulation, verifying requirements, and maintaining traceability. The input data (named as control orders) and the calculated results (named as signals) by simulation models are automatically exchanged between the SysML modeling tools and 3D virtual scene simulation software to show state changes of the systems.
+In order to bring more fidelity to SysML models, it is suitable to designate the SysML models as a framework and integrate more accurate simulation models. The system model should be in the central position of the integration environment because the system model provides a consistent source of the system specification, design, analysis, and verification information while maintaining traceability and rationale for critical decisions [[8]](#ref-8). Based on this principle, we employ the SysML-centric integration framework to integrate multi-disciplinary engineering models into the SysML modeling environment, executing numerical analysis by co-simulation, verifying requirements, and maintaining traceability. The input data (named as control orders) and the calculated results (named as signals) by simulation models are automatically exchanged between the SysML modeling tools and 3D virtual scene simulation software to show state changes of the systems.
 
-![](_page_2_Figure_5.jpeg)
-<!-- Image Description: The image depicts a system architecture diagram for helicopter simulation. It shows three interconnected models: a 3D visual model (Unity 3D), a SysML model (CATIA Magic, Rhapsody), and a simulation model (AMESim, Matlab, ANSYS). Data exchange occurs between these models via TCP/IP, UPD, FMI, XMI, and APIs. The simulation model is further decomposed into subsystems (avionics, electrical, main rotor, etc.). The diagram illustrates the integrated workflow and data flow among different simulation tools. -->
+![The image depicts a system architecture diagram for helicopter simulation. It shows three interconnected models: a 3D visual model (Unity 3D), a SysML model (CATIA Magic, Rhapsody), and a simulation model (AMESim, Matlab, ANSYS). Data exchange occurs between these models via TCP/IP, UPD, FMI, XMI, and APIs. The simulation model is further decomposed into subsystems (avionics, electrical, main rotor, etc.). The diagram illustrates the integrated workflow and data flow among different simulation tools.](_page_2_Figure_5.jpeg)
 
 Figure 1. SysML- centric integration framework.
 
-Model/data exchange in the SysML-centric integration framework can be achieved through several exchange mechanisms like file-based exchange, API (Application Program Interface)-based exchange, model transformations between SysML and Modelica, FMI-based co-simulation, etc. FMI is a widely accepted standard to support both model exchange and co-simulation of models expressed as Ordinary Differential Equations (ODEs) [9][10]. It also shows the benefits of reusing components and their relations as partial models to improve model consistency and traceability, as well as the integration of simulation to provide early evaluation of concepts [11][12]. FMI builds a standardized bridge to connect SysML tools and simulation tools, as well as the design and simulation process. It combines the advantages of these two different domains to provide a new way to develop complex cyberphysical systems more efficiently [13][14].
+Model/data exchange in the SysML-centric integration framework can be achieved through several exchange mechanisms like file-based exchange, API (Application Program Interface)-based exchange, model transformations between SysML and Modelica, FMI-based co-simulation, etc. FMI is a widely accepted standard to support both model exchange and co-simulation of models expressed as Ordinary Differential Equations (ODEs) [[9]](#ref-9)[[10]](#ref-10). It also shows the benefits of reusing components and their relations as partial models to improve model consistency and traceability, as well as the integration of simulation to provide early evaluation of concepts [[11]](#ref-11)[[12]](#ref-12). FMI builds a standardized bridge to connect SysML tools and simulation tools, as well as the design and simulation process. It combines the advantages of these two different domains to provide a new way to develop complex cyberphysical systems more efficiently [[13]](#ref-13)[[14]](#ref-14).
 
 ## Helicopter fuel system development
 
@@ -131,12 +98,11 @@ According to FAR part 29 Regulations, the main requirements for helicopter fuel 
 
 For helicopter fuel system, fuel supply pressure and flow, longitudinal and lateral CoGs are critical system parameters. The parameters above will be decomposed in SysML parametric diagrams.
 
-![](_page_3_Figure_14.jpeg)
-<!-- Image Description: The image is a schematic diagram of a fuel system. It shows a tank with a booster pump, check valve, and fuel supply line connected to an engine via a shut-off valve and pressure transducer. Various pressure differences (ΔPg1, ΔPg2, ΔPf, ΔPp) are labeled, along with heights (H1, H2) and the ambient pressure (Pa). The diagram illustrates the pressure components within the system, likely to support calculations or analysis presented in the paper. -->
+![The image is a schematic diagram of a fuel system. It shows a tank with a booster pump, check valve, and fuel supply line connected to an engine via a shut-off valve and pressure transducer. Various pressure differences (ΔPg1, ΔPg2, ΔPf, ΔPp) are labeled, along with heights (H1, H2) and the ambient pressure (Pa). The diagram illustrates the pressure components within the system, likely to support calculations or analysis presented in the paper.](_page_3_Figure_14.jpeg)
 
 Figure 2. Fuel supply system schematic diagram.
 
-Fuel supply pressure P<sup>E</sup> constitutes the first MoP of fuel system: MoP 1:
+Fuel supply pressure P^E^ constitutes the first MoP of fuel system: MoP 1:
 
 $$
 P_E = P_{a(h,T)} + \Delta P_{g1(\delta,\rho,H_1)} + \Delta P_{p(Q,T_f)} + \Delta P_{g2(\delta,\rho,H_2)} + \Delta P_{f(\varphi,H_2,Q,\rho,T_f)}
@@ -145,20 +111,20 @@ $$
 
 In which,
 
-- 1 2 <sup>2</sup> , 1 , , 2 , , ( , , , , ) , <sup>f</sup> and relevant ambient temperature T .
-- a h T , <sup>P</sup> represents the air pressure inside the fuel tanks. It's the function of flight altitude <sup>h</sup> <sup>1</sup> g H 1 , , <sup>P</sup> represents the pressure drop generated by fuel inside the fuel tanks. It's usually affected by flight acceleration factor , fuel density and fuel height inside the fuel tanks H1 . , p Q T<sup>f</sup> <sup>2</sup> g H 2 , , <sup>P</sup>
-- P represents the booster pump pressure which associates with the fuel flow rate Q and fuel temperature T<sup>f</sup> .
-- represents the pressure variation mainly caused by flight acceleration factor , fuel density and fuel supply line height H<sup>2</sup> .
-- 2 ( , , , , ) <sup>f</sup> Pf H Q T represents the fuel pressure loss due to flow resistance. Generally, it can be simply considered as the function of pipeline diameter , fuel supply line height H<sup>2</sup> , flow rate Q, fuel density , and fuel temperature T<sup>f</sup> . min E h <sup>P</sup> and E h <sup>P</sup> . min 1 2 <sup>2</sup> , 1 , , 2 , , max ( , , , , ) , <sup>f</sup>
+- P^a(h,T)^ represents the air pressure inside the fuel tanks. It's the function of flight altitude h and relevant ambient temperature T.
+- ΔP^g1(δ,ρ,H1)^ represents the pressure drop generated by fuel inside the fuel tanks. It's usually affected by flight acceleration factor δ, fuel density ρ and fuel height inside the fuel tanks H1.
+- ΔP^p(Q,Tf)^ represents the booster pump pressure which associates with the fuel flow rate Q and fuel temperature T^f^.
+- ΔP^g2(δ,ρ,H2)^ represents the pressure variation mainly caused by flight acceleration factor δ, fuel density ρ and fuel supply line height H^2^.
+- ΔP^f(φ,H2,Q,ρ,Tf)^ represents the fuel pressure loss due to flow resistance. Generally, it can be simply considered as the function of pipeline diameter φ, fuel supply line height H^2^, flow rate Q, fuel density ρ, and fuel temperature T^f^.
 
-According to the engine fuel consumption requirements, P<sup>E</sup> should situate at the pressure between max
+According to the engine fuel consumption requirements, P^E^ should situate at the pressure between P^E(h)min^ and P^E(h)max^.
 
 $$
 P_{E(h)_{\min}} \le P_{a(h,T)} + \Delta P_{g1(\delta,\rho,H_1)} + \Delta P_{p(Q,T_f)} - \Delta P_{g2(\delta,\rho,H_2)} - \Delta P_{f(\varphi,H_2,Q,\rho,T_f)} \le P_{E(h)\max}
 $$
 (2)
 
-Fuel supply flow F<sup>E</sup> is an induced value whose value mainly depends on the fuel demand under different engine operating conditions. According to the engine fuel consumption requirements, the maximum fuel flow supplied to the engine should be no less than the maximum flow rate in OEI (One Engine Inoperative) mode plus 15% value. Then the second MoP of fuel system should be: <sup>1</sup> <sup>1</sup>
+Fuel supply flow F^E^ is an induced value whose value mainly depends on the fuel demand under different engine operating conditions. According to the engine fuel consumption requirements, the maximum fuel flow supplied to the engine should be no less than the maximum flow rate in OEI (One Engine Inoperative) mode plus 15% value. Then the second MoP of fuel system should be:
 
 MoP 2:
 
@@ -182,7 +148,7 @@ $$
 
 In which,
 
-Q<sup>i</sup> represents the fuel quantity inside each fuel tank. The 13th Asia Conference on Mechanical and Aerospace Engineering (ACMAE 2022) Journal of Physics: Conference Series **2472** (2023) 012040 IOP Publishing doi:10.1088/1742-6596/2472/1/012040
+Q^i^ represents the fuel quantity inside each fuel tank. The 13th Asia Conference on Mechanical and Aerospace Engineering (ACMAE 2022) Journal of Physics: Conference Series **2472** (2023) 012040 IOP Publishing doi:10.1088/1742-6596/2472/1/012040
 
 n represents the total number of fuel tanks.
 
@@ -199,8 +165,7 @@ At the aircraft level, the stakeholders' concerns focus on:
 
 MoPs at fuel system level associated with the above stakeholders' needs are established to describe their value properties.
 
-![](_page_5_Figure_9.jpeg)
-<!-- Image Description: The image displays a system model, likely using a UML-like notation, depicting a fuel system's constraints. Rectangles represent components (e.g., "Fuel System," "CoG Management"), with internal attributes and constraints specified. Arrows indicate relationships, showing how constraints ("CoGX," "CoGY," etc.) refine or satisfy higher-level requirements. Numerical constraints on fuel flow and pressure are defined, along with geometrical constraints on the center of gravity (CoG). The diagram's purpose is to formally specify system requirements and relationships within the paper. -->
+![The image displays a system model, likely using a UML-like notation, depicting a fuel system's constraints. Rectangles represent components (e.g., "Fuel System," "CoG Management"), with internal attributes and constraints specified. Arrows indicate relationships, showing how constraints ("CoGX," "CoGY," etc.) refine or satisfy higher-level requirements. Numerical constraints on fuel flow and pressure are defined, along with geometrical constraints on the center of gravity (CoG). The diagram's purpose is to formally specify system requirements and relationships within the paper.](_page_5_Figure_9.jpeg)
 
 Figure 3. MoPs at fuel system level.
 
@@ -208,32 +173,27 @@ Figure 3. MoPs at fuel system level.
 
 Depending on the above analysis, the subsystem tree is defined using the Block Definition Diagram (BDD), and the interface between the subsystems is defined in the IBD. It includes the front and rear tank system, fuel tank venting system, LH (Left Hand) and RH (Right Hand) engine fuel supply system, fuel gauging system, LH and RH auxiliary fuel tank system.
 
-![](_page_6_Figure_1.jpeg)
-<!-- Image Description: The image displays two diagrams of a fuel system. The left shows a SysML model, a block diagram representing the system's components (fuel tanks, pumps, probes) and their connections. The right depicts a simplified schematic diagram showing the fuel tanks, pumps, sensors (flow sensors, pressure transducers), and valves (NRV, SOV) with fuel flow paths. The schematic clarifies the physical layout, complementing the more abstract SysML model. -->
+![The image displays two diagrams of a fuel system. The left shows a SysML model, a block diagram representing the system's components (fuel tanks, pumps, probes) and their connections. The right depicts a simplified schematic diagram showing the fuel tanks, pumps, sensors (flow sensors, pressure transducers), and valves (NRV, SOV) with fuel flow paths. The schematic clarifies the physical layout, complementing the more abstract SysML model.](_page_6_Figure_1.jpeg)
 
 Figure 4. From IBD to schematic diagram.
 
 3.2.3. Physical architecture modeling. In the solution domain, the physical architecture model of fuel system inherits from the architecture during the white box phase. In many cases, engineers usually employ commercial simulation software like AMESim, Matlab-Simulink, Flowmaster, etc. to conduct numerical analysis. AMESim software is used to build the fuel system simulation model according to the physical architecture mentioned above. Fuel pressure and flow supplied to the engines and the longitudinal and lateral CoGs of fuel are obtained as outputs of the simulation model; the control orders of booster pumps ("on" and "off") and SOVs (Shut Off Valve) ("on" and "off") are obtained as the inputs.
 
-![](_page_6_Figure_4.jpeg)
-<!-- Image Description: The image displays a simulation model of an aircraft's fuel system. A schematic diagram shows the fuel tanks, valves (SOV), and fuel flow pathways, connected to calculations for center of gravity (CoG). A 3D model of the fuel tanks is included, along with simulated gauges displaying airspeed, altitude, and CoG values in the longitudinal and lateral axes. The figure illustrates the model's structure and simulated outputs. -->
+![The image displays a simulation model of an aircraft's fuel system. A schematic diagram shows the fuel tanks, valves (SOV), and fuel flow pathways, connected to calculations for center of gravity (CoG). A 3D model of the fuel tanks is included, along with simulated gauges displaying airspeed, altitude, and CoG values in the longitudinal and lateral axes. The figure illustrates the model's structure and simulated outputs.](_page_6_Figure_4.jpeg)
 
-Figure 5. AMESim simulation model. Figure 6. AMESim Monitor
-
-panel.
+Figure 5. AMESim simulation model. Figure 6. AMESim Monitor panel.
 
 3.2.4. Co-simulation. FMI based co-simulation is then adopted to execute numerical analysis to verify the MoPs of helicopter fuel system proposed as requirements.
 
 Control orders of booster pumps and electric valves are defined as the inputs of the FMU (Functional Mock-Up), and the signals such as fuel supply pressure and flow, fuel quantity, and CoGs are considered as the output. AMESim software generates and wraps fuel system simulation models into an FMU (zipped file \*.fmu). It contains an XML description file and an implementation in source
 
 | The 13th Asia Conference on Mechanical and Aerospace Engineering (ACMAE 2022) | | IOP Publishing |
-|-------------------------------------------------------------------------------|--------------------|-------------------------------------|
+|:------------------------------------------------------------------------------|:-------------------|:------------------------------------|
 | Journal of Physics: Conference Series | 2472 (2023) 012040 | doi:10.1088/1742-6596/2472/1/012040 |
 
 codes or binary form, which executes the equations representing the fuel system behavior and performance. The FMU, as black-box blocks, is then imported into CATIAMagic software and connects to the corresponding parameters in IBD. A State Machine (STM) diagram is built to execute the co-simulation model and achieve the state switch through the control orders.
 
-![](_page_7_Figure_2.jpeg)
-<!-- Image Description: This image displays a schematic of a fuel system model. It shows three main components: a human-model interface (HMI) with fuel control panels for cross-feed and engine fuel feed, an FMU (Functional Mock-up Unit) SysML model illustrating input/output signals between the HMI and the fuel system, and a fuel system parameter display showing tank levels, fuel flow rates, and pressure. The diagram illustrates the interaction between the user interface and a simulated fuel system. -->
+![This image displays a schematic of a fuel system model. It shows three main components: a human-model interface (HMI) with fuel control panels for cross-feed and engine fuel feed, an FMU (Functional Mock-up Unit) SysML model illustrating input/output signals between the HMI and the fuel system, and a fuel system parameter display showing tank levels, fuel flow rates, and pressure. The diagram illustrates the interaction between the user interface and a simulated fuel system.](_page_7_Figure_2.jpeg)
 
 Figure 7. FMU interfaces definition.
 
@@ -241,8 +201,7 @@ The FMI approach provides a way to interconnect with SysML models for co-simulat
 
 Referring to the MoPs holder in the problem domain regarding engine fuel pressure and flow, longitudinal and lateral CoGs of fuel, the physical architecture model of the fuel system inherits the parameters of the MoPs holder and establishes a binding relationship with the fuel system requirements. The binding relationship between the acquisition parameters and the MoPs indicator is established in the parameter diagram.
 
-![](_page_7_Figure_6.jpeg)
-<!-- Image Description: The image displays a state machine diagram alongside simulation results. The state machine depicts a system's workflow, showing transitions between states (e.g., "CFO_Connected," "LED"). The simulation results section presents multiple time-series graphs showing fuel levels, engine flow/pressure, and control orders over time. This visualization likely demonstrates the system's behavior under various control inputs as simulated by the model represented in the state machine diagram. -->
+![The image displays a state machine diagram alongside simulation results. The state machine depicts a system's workflow, showing transitions between states (e.g., "CFO_Connected," "LED"). The simulation results section presents multiple time-series graphs showing fuel levels, engine flow/pressure, and control orders over time. This visualization likely demonstrates the system's behavior under various control inputs as simulated by the model represented in the state machine diagram.](_page_7_Figure_6.jpeg)
 
 ### Figure 8. State machine diagram. Figure 9. Monitoring panel.
 
@@ -251,39 +210,39 @@ Traditionally, the functions and performance of fuel system shall be traded off 
 FMI has built a bridge between SysML modeling tools and simulation tools, which allows building an executable system model with higher fidelity and less time cost. Besides, FMI-based co-simulation
 
 | The 13th Asia Conference on Mechanical and Aerospace Engineering (ACMAE 2022) | | IOP Publishing |
-|-------------------------------------------------------------------------------|--------------------|-------------------------------------|
+|:------------------------------------------------------------------------------|:-------------------|:------------------------------------|
 | Journal of Physics: Conference Series | 2472 (2023) 012040 | doi:10.1088/1742-6596/2472/1/012040 |
 
 enables engineers to reuse various physical simulation models established by commercial simulation software to the maximum.
 
 ### Conclusion
 
-Model/data exchange is a critical aspect of the SysML-centric integration framework. There are also some other integration ideas, such as exporting SysML block as FMU and integrating it into the simulation model [15]. However, the SysML-centric integration is proved to be a more reasonable approach for complex system analysis and traceability. It also shows the benefits of reusing multidomain model libraries and the potential for improved and expanded commercial and open-source tool support.
+Model/data exchange is a critical aspect of the SysML-centric integration framework. There are also some other integration ideas, such as exporting SysML block as FMU and integrating it into the simulation model [[15]](#ref-15). However, the SysML-centric integration is proved to be a more reasonable approach for complex system analysis and traceability. It also shows the benefits of reusing multidomain model libraries and the potential for improved and expanded commercial and open-source tool support.
 
-Other integrating approaches may also support model/data exchange in the SysML-centric integration framework. Compared with other model/data exchange approaches, FMI is a toolindependent standard for the exchange of dynamic models and for co-simulation. This approach also has its drawbacks. Data visualization of simulation results can only rely on SysML tools because FMU executes numerical analysis as a black box. In addition, it's not easy to debug simulation in case of error occurs. The engineer will have to turn to AMESim software for root causes and regenerate the FMU for new integration.
+Other integrating approaches may also support model/data exchange in the SysML-centric integration framework. Compared with other model/data exchange approaches, FMI is a tool-independent standard for the exchange of dynamic models and for co-simulation. This approach also has its drawbacks. Data visualization of simulation results can only rely on SysML tools because FMU executes numerical analysis as a black box. In addition, it's not easy to debug simulation in case of error occurs. The engineer will have to turn to AMESim software for root causes and regenerate the FMU for new integration.
 
 ### References
 
-- [1] Bassim C, Mahmoud N and Adil A 2019 SimulML: A DSML for simulating SysML models Journal of Computing Science and Engineering 13 17-31
-- [2] Holt J and Perry S 2008 SysML for Systems Engineering (London: IET)
-- [3] Friedenthal S, Moore A and Steiner R 2014 A Practical Guide to SysML: the Systems Modeling Language (San Francisco: Margan Kaufmann)
-- [4] Nathan R and Luiz C 2017 Modeling and simulation of a single engine aircraft fuel system Proc. of 15th Scandinavian Int. Conf. on Fluid Power (Linköping: Linköping University Electronic Press) pp 45-50
-- [5] Wang B, Ji H and Ye Z 2019 Simulation on fuel metering unit used for turboshaft engine model Int. Journal of Energy and Power Engineering 13 1-7
-- [6] Sohier H, Guermazi S, Yagoubi M, Lamothez P, Maddalonix A, Menegazzi P and Huang Y 2019 A tooled methodology for the system architect's needs in simulation with autonomous driving application 2019 IEEE Int. Systems Conf. (SysCon) pp 1-8
-- [7] Karban R, Dekens F G, Herzig S, Elaasar M, Jankevičius N 2016 Creating system engineering products with executable models in a model-based engineering environment Modeling, Systems Engineering, and Project Management for Astronomy VII 9911 96-111
-- [8] Roth T, Burns M 2018 A gateway to easily integrate simulation platforms for co-simulation of cyber-physical systems 2018 Workshop on Modeling and Simulation of Cyber-Physical Energy Systems (MSCPES) pp 1-6
-- [9] Nouidui T, Wetter M and Zuo W 2014 Functional mock-up unit for co-simulation import in EnergyPlus Journal of Building Performance Simulation 7 192-202
-- [10] Hugues J, Gauthier J M and Faudou R 2018 Integrating AADL and FMI to extend virtual integration capability Preprint arXiv/1802.05620
-- [11] Kruse B and Shea K 2016 Design library solution patterns in SysML for concept design and simulation Procedia CIRP 50 695-700
-- [12] Thomas E, Thomas O, Bianconi R, Crespo M and Daumas J 2015 Towards enhanced process and tools for aircraft systems assessments during very early design phase Proc. of the 11th Int. Modelica Conf. (Versailles: Linköping University Electronic Press) pp 831-843
-- [13] Wang B B and Baras J S 2013 Hybridsim: A modeling and co-simulation toolchain for cyberphysical systems Conference Proc.: 2013 IEEE/ACM 17th Int. Symposium on Distributed Simulation and Real Time Applications pp 33-40
-- [14] González C A, Varmazyar M, Nejati S, Briand L C and Isasi Y 2018 Enabling model testing of cyber-physical systems Proc. of the 21th ACM/IEEE Int. Conf. on Model Driven Engineering Languages and Systems pp176-186
+- <a id="ref-1"></a>[[1]](#ref-1) Bassim C, Mahmoud N and Adil A 2019 SimulML: A DSML for simulating SysML models *Journal of Computing Science and Engineering* **13** 17-31
+- <a id="ref-2"></a>[[2]](#ref-2) Holt J and Perry S 2008 *SysML for Systems Engineering* (London: IET)
+- <a id="ref-3"></a>[[3]](#ref-3) Friedenthal S, Moore A and Steiner R 2014 *A Practical Guide to SysML: the Systems Modeling Language* (San Francisco: Margan Kaufmann)
+- <a id="ref-4"></a>[[4]](#ref-4) Nathan R and Luiz C 2017 Modeling and simulation of a single engine aircraft fuel system *Proc. of 15th Scandinavian Int. Conf. on Fluid Power* (Linköping: Linköping University Electronic Press) pp 45-50
+- <a id="ref-5"></a>[[5]](#ref-5) Wang B, Ji H and Ye Z 2019 Simulation on fuel metering unit used for turboshaft engine model *Int. Journal of Energy and Power Engineering* **13** 1-7
+- <a id="ref-6"></a>[[6]](#ref-6) Sohier H, Guermazi S, Yagoubi M, Lamothez P, Maddalonix A, Menegazzi P and Huang Y 2019 A tooled methodology for the system architect's needs in simulation with autonomous driving application *2019 IEEE Int. Systems Conf. (SysCon)* pp 1-8
+- <a id="ref-7"></a>[[7]](#ref-7) Karban R, Dekens F G, Herzig S, Elaasar M, Jankevičius N 2016 Creating system engineering products with executable models in a model-based engineering environment *Modeling, Systems Engineering, and Project Management for Astronomy VII* **9911** 96-111
+- <a id="ref-8"></a>[[8]](#ref-8) Roth T, Burns M 2018 A gateway to easily integrate simulation platforms for co-simulation of cyber-physical systems *2018 Workshop on Modeling and Simulation of Cyber-Physical Energy Systems (MSCPES)* pp 1-6
+- <a id="ref-9"></a>[[9]](#ref-9) Nouidui T, Wetter M and Zuo W 2014 Functional mock-up unit for co-simulation import in EnergyPlus *Journal of Building Performance Simulation* **7** 192-202
+- <a id="ref-10"></a>[[10]](#ref-10) Hugues J, Gauthier J M and Faudou R 2018 Integrating AADL and FMI to extend virtual integration capability *Preprint arXiv/1802.05620*
+- <a id="ref-11"></a>[[11]](#ref-11) Kruse B and Shea K 2016 Design library solution patterns in SysML for concept design and simulation *Procedia CIRP* **50** 695-700
+- <a id="ref-12"></a>[[12]](#ref-12) Thomas E, Thomas O, Bianconi R, Crespo M and Daumas J 2015 Towards enhanced process and tools for aircraft systems assessments during very early design phase *Proc. of the 11th Int. Modelica Conf.* (Versailles: Linköping University Electronic Press) pp 831-843
+- <a id="ref-13"></a>[[13]](#ref-13) Wang B B and Baras J S 2013 Hybridsim: A modeling and co-simulation toolchain for cyberphysical systems *Conference Proc.: 2013 IEEE/ACM 17th Int. Symposium on Distributed Simulation and Real Time Applications* pp 33-40
+- <a id="ref-14"></a>[[14]](#ref-14) González C A, Varmazyar M, Nejati S, Briand L C and Isasi Y 2018 Enabling model testing of cyber-physical systems *Proc. of the 21th ACM/IEEE Int. Conf. on Model Driven Engineering Languages and Systems* pp176-186
 
 | The 13th Asia Conference on Mechanical and Aerospace Engineering (ACMAE 2022) | | IOP Publishing |
-|-------------------------------------------------------------------------------|--------------------|-------------------------------------|
+|:------------------------------------------------------------------------------|:-------------------|:------------------------------------|
 | Journal of Physics: Conference Series | 2472 (2023) 012040 | doi:10.1088/1742-6596/2472/1/012040 |
 
-[15] Feldman Y, Greenberg L, Palachi E 2014 Simulating rhapsody SysML blocks in hybrid models with FMI Proc. of the 10th Int. Modelica Conf. (Lund) (Linköping University Electronic Press) 096 pp 43-52
+- <a id="ref-15"></a>[[15]](#ref-15) Feldman Y, Greenberg L, Palachi E 2014 Simulating rhapsody SysML blocks in hybrid models with FMI *Proc. of the 10th Int. Modelica Conf.* (Lund) (Linköping University Electronic Press) 096 pp 43-52
 
 ## Metadata Summary
 ### Research Context

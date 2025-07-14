@@ -3,61 +3,24 @@ cite_key: tang_2023
 title: Human Body Digital Twin: A Master Plan
 authors: Chenyu Tang, Shuo Gao, Luigi G. Occhipinti
 year: 2023
-date_processed: '2025-07-02'
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: arxiv_2307.09225_Human_Body_Digital_Twin_A_Master_Plan
 standardization_date: 2025-07-10
 standardization_version: 1.0
-tags:
-- Biomedical
-- Cancer
-- Digital Health
-- Healthcare
-- IoT
-- Machine Learning
-- Privacy
-keywords:
-- LSTM
-- LeCun
-- RNN
-- SSL
-- abstract
-- accuracy
-- artificial intelligence
-- arxiv230709225v1 csai 18 jul 2023
-- black-box
-- brain-inspired
-- cardio-cerebrovascular
-- classification
-- clinical data
-- consensus
-- context-aware
-- contrastive learning
-- cost-aware
-- cost-effective
-- cross-section
-- cross-sectional
-- cross-sections
-- cutting-edge
-- data privacy
-- data-sharing
-- decision-making
-- deep learning
-- diagnosis
-- disease-corresponding
-- disease-free
-- encryption
+tags: 
+keywords: 
 ---
 
 # arXiv:2307.09225v1 [cs.AI] 18 Jul 2023
 
 ## Human Body Digital Twin: A Master Plan
 
-Chenyu Tang<sup>1</sup> , Shuo Gao<sup>2</sup> , and Luigi G. Occhipinti<sup>1</sup>
+Chenyu Tang^1^, Shuo Gao^2^, and Luigi G. Occhipinti^1^
 
-<sup>1</sup>Occhipintigroup, Cambridge Graphene Centre, Department of Engineering, University of Cambridge
+^1^Occhipintigroup, Cambridge Graphene Centre, Department of Engineering, University of Cambridge
 
-<sup>2</sup>School of Instrumentation Science and Optoelectronic Engineering, Beihang University
+^2^School of Instrumentation Science and Optoelectronic Engineering, Beihang University
 
 **Abstract:** The human body DT has the potential to revolutionize healthcare and wellness, but its responsible and effective implementation requires consideration of various factors. This article presents a comprehensive overview of the current status and future prospects of the human body DT and proposes a five-level roadmap for its development. The roadmap covers the development of various components, such as wearable devices, data collection, data analysis, and decision-making systems. The article also highlights the necessary support, security, cost, and ethical considerations that must be addressed in order to ensure responsible and effective implementation of the human body DT. The proposed roadmap provides a framework for guiding future development and offers a unique perspective on the future of the human body DT, facilitating new interdisciplinary research and innovative solutions in this rapidly evolving field.
 
@@ -71,14 +34,13 @@ Keywords: Human Body Digital Twin, Healthcare, Artificial Intelligence, Sensors.
 
 ## I. INTRODUCTION
 
-In future healthcare, cutting-edge biomedical technologies are investigated to deliver early prevention, accurate diagnoses, and precise treatment. Initial attempts to achieve this include early warning for neurodegenerative disease [1, 2], imaging diagnosis for cardio-cerebrovascular diseases [3, 4], and tumortargeting therapies [5, 6]. Further progress is hindered by human bodies'uncertainty, originating from but not limited to the complex correlations between organs, the unclear effects of the everyday environment on human bodies, and the heterogeneity of different individuals. For example, the elusive role of external and intrinsic environmental factors significantly hinders decoding the mechanism of amyotrophic lateral sclerosis (ALS) [7]; unidentified genetic, prenatal, maternal, and earlylife environmental factors cause difficulties in pinpointing susceptible asthma infants [8]. Therefore, novel approaches are expected to be able of decoding and overcoming human bodies' uncertainty. Among these, the idea of establishing and analyzing virtual representations of real entities is burgeoning, along with the exponential growth of computational capacity (as shown in Figure 1).
+In future healthcare, cutting-edge biomedical technologies are investigated to deliver early prevention, accurate diagnoses, and precise treatment. Initial attempts to achieve this include early warning for neurodegenerative disease [[1]](#ref-1), [[2]](#ref-2), imaging diagnosis for cardio-cerebrovascular diseases [[3]](#ref-3), [[4]](#ref-4), and tumor-targeting therapies [[5]](#ref-5), [[6]](#ref-6). Further progress is hindered by human bodies' uncertainty, originating from but not limited to the complex correlations between organs, the unclear effects of the everyday environment on human bodies, and the heterogeneity of different individuals. For example, the elusive role of external and intrinsic environmental factors significantly hinders decoding the mechanism of amyotrophic lateral sclerosis (ALS) [[7]](#ref-7); unidentified genetic, prenatal, maternal, and early-life environmental factors cause difficulties in pinpointing susceptible asthma infants [[8]](#ref-8). Therefore, novel approaches are expected to be able of decoding and overcoming human bodies' uncertainty. Among these, the idea of establishing and analyzing virtual representations of real entities is burgeoning, along with the exponential growth of computational capacity (as shown in Figure 1).
 
-In this context, digital twin (DT) technology, by deploying sensors to long-termly retrieve a tremendous amount of information required to decode the uncertainties of a target system, is now unleashing its strong power in determining and predicting the system's status under changing conditions. DTs have been successfully applied in diverse complex industrial scenarios, anticipating the possibility of addressing uncertainties of human bodies. In recent years many researchers have started to explore the human body DT [9-11]. Nevertheless, the lack of a unifying approach, especially a consensus on the
+In this context, digital twin (DT) technology, by deploying sensors to long-termly retrieve a tremendous amount of information required to decode the uncertainties of a target system, is now unleashing its strong power in determining and predicting the system's status under changing conditions. DTs have been successfully applied in diverse complex industrial scenarios, anticipating the possibility of addressing uncertainties of human bodies. In recent years many researchers have started to explore the human body DT [[9]](#ref-9)-[[11]](#ref-11). Nevertheless, the lack of a unifying approach, especially a consensus on the
 
-![](_page_0_Figure_10.jpeg)
-<!-- Image Description: The figure is a log-log plot showcasing the evolution of computing performance in petaFLOP days for various AI tasks (language, vision, games, speech, other) from 1985 to 2025. Data points represent key AI models, illustrating an exponential increase in performance exceeding Moore's Law (dashed line). Dashed and solid green lines highlight the accelerating growth rate post-2010, attributed to the increased use of GPUs. The plot effectively visualizes the rapid advancement in AI computational capabilities over time. -->
+![Computing performance evolution of the state-of-the-art AI models](_page_0_Figure_10.jpeg)
 
-Figure 1. Computing performance evolution of the state-of-the-art AI models [36].
+Figure 1. Computing performance evolution of the state-of-the-art AI models [[36]](#ref-36).
 
 future roadmap of the human body DT, limits the development and deployment of human body DTs for use in healthcare.
 
@@ -86,41 +48,39 @@ Based on the state-of-the-art works and our forecasts for technological developm
 
 ## II. FIVE-LEVEL ROADMAP AND RELATED METHODS OF THE HUMAN BODY DT
 
-The scarcity of human data, especially data annotated by clinicians, poses a significant challenge to the advancement of the digital health field [10]. The development of a human body DT model is no exception to this issue. However, recent breakthroughs in related technologies offer promising solutions. Specifically, innovations in nanotechnology have facilitated the design and fabrication of novel sensors that are more sensitive, adaptable, and comfortable, thereby enabling the collection of vast amounts of human data over extended periods [12, 13]. Moreover, the advent of advanced Self-supervised Learning (SSL) algorithms allows for the utilization of copious amounts
+The scarcity of human data, especially data annotated by clinicians, poses a significant challenge to the advancement of the digital health field [[10]](#ref-10). The development of a human body DT model is no exception to this issue. However, recent breakthroughs in related technologies offer promising solutions. Specifically, innovations in nanotechnology have facilitated the design and fabrication of novel sensors that are more sensitive, adaptable, and comfortable, thereby enabling the collection of vast amounts of human data over extended periods [[12]](#ref-12), [[13]](#ref-13). Moreover, the advent of advanced Self-supervised Learning (SSL) algorithms allows for the utilization of copious amounts
 
-![](_page_1_Figure_0.jpeg)
-<!-- Image Description: This flowchart illustrates a five-level modeling framework for human body mechanisms. It progresses from a cross-sectional model using current data (Level 1) to an explainable model (Level 5) incorporating AI, transparency, and human interpretability. Intermediate levels involve deductive, editable, and evolutionary modeling, incorporating data edits and external interactions. Equations depict loss functions and recurrent model structures. The diagram uses human figures to visually represent model progression and incorporates icons for nanotechnology and AI technologies as prerequisites. -->
+![The five-level roadmap for human body DT.](_page_1_Figure_0.jpeg)
 
 Figure 2. The five-level roadmap for human body DT.
 
-of unlabeled human data, a previously inconceivable accomplishment. SSL algorithms, combined with large-scale pretraining methods, have proven effective in fields like computer vision and natural language processing. AI models such as DALL·E 2 (which can complete intricate drawings based solely on descriptive sentences) [14] and ChatGPT (which can answer various complex questions, including coding and finance strategies) [15] pre-train on immense amounts of unlabeled data and fine-tune on small labeled datasets for diverse tasks. The capacity to leverage unlabeled data in this manner aligns well with the demands of human body healthcare and holds immense potential for addressing the issue of insufficient human data for the development of a robust human body DT model. Under the impetus of these technologies, human body DT technology is anticipated to progressively unveil the mysteries of the human body along the five-level modeling roadmap outlined below.
+of unlabeled human data, a previously inconceivable accomplishment. SSL algorithms, combined with large-scale pretraining methods, have proven effective in fields like computer vision and natural language processing. AI models such as DALL·E 2 (which can complete intricate drawings based solely on descriptive sentences) [[14]](#ref-14) and ChatGPT (which can answer various complex questions, including coding and finance strategies) [[15]](#ref-15) pre-train on immense amounts of unlabeled data and fine-tune on small labeled datasets for diverse tasks. The capacity to leverage unlabeled data in this manner aligns well with the demands of human body healthcare and holds immense potential for addressing the issue of insufficient human data for the development of a robust human body DT model. Under the impetus of these technologies, human body DT technology is anticipated to progressively unveil the mysteries of the human body along the five-level modeling roadmap outlined below.
 
-## *A. Level 1 - Cross-sectional Model:*In level 1, cross-sectional models are created for depicting the human body's digital portrait, by collecting data from the human body in a temporal cross-section to determine the realtime physical and biochemical states. Examples are locomotion classification [16] and metabolism monitoring [17]. The work in level 1 is an essential building block for the following levels.
+## *A. Level 1 - Cross-sectional Model:*In level 1, cross-sectional models are created for depicting the human body's digital portrait, by collecting data from the human body in a temporal cross-section to determine the real-time physical and biochemical states. Examples are locomotion classification [[16]](#ref-16) and metabolism monitoring [[17]](#ref-17). The work in level 1 is an essential building block for the following levels.
 
-Contrastive learning, as one of the most outstanding algorithms among SSL algorithms in recent years, utilizes the intrinsic relationships between data modalities as pseudo-labels to train models (for example, DALL·E 2 uses the pair relationships between the images and their captions) [18]. This idea can be applied to the human body, where various multi-modal sensor data of the human body also have diverse intrinsic relationships. For instance, when monitoring human motion, sensors deployed at different locations may produce various data, but they all correspond to the same action posture; when detecting neurodegenerative diseases, both movement sensors (such as accelerometers, EMG sensors, etc.) and biochemical sensors (for detecting disease-corresponding biomarkers, such as saliva sensors, sweat sensors, etc.) can produce specific outputs for the patient [19]. Although these outputs have distinct patterns, they all correspond to the same disease. These intrinsic relationships derived from the human body can be utilized as pseudo-labels to perform large-scale pre-training and train the Foundation Model (FM), which can extract crosssectional conditions of the human body, particularly encoders that extract human information from different data modalities. These FMs can even zero-shot (without any further supervised training) decipher the cross-sectional status of the human body. More significantly, they can serve as the cornerstone of human DT models and will continue to play a role in subsequent higher-level tasks.
+Contrastive learning, as one of the most outstanding algorithms among SSL algorithms in recent years, utilizes the intrinsic relationships between data modalities as pseudo-labels to train models (for example, DALL·E 2 uses the pair relationships between the images and their captions) [[18]](#ref-18). This idea can be applied to the human body, where various multi-modal sensor data of the human body also have diverse intrinsic relationships. For instance, when monitoring human motion, sensors deployed at different locations may produce various data, but they all correspond to the same action posture; when detecting neurodegenerative diseases, both movement sensors (such as accelerometers, EMG sensors, etc.) and biochemical sensors (for detecting disease-corresponding biomarkers, such as saliva sensors, sweat sensors, etc.) can produce specific outputs for the patient [[19]](#ref-19). Although these outputs have distinct patterns, they all correspond to the same disease. These intrinsic relationships derived from the human body can be utilized as pseudo-labels to perform large-scale pre-training and train the Foundation Model (FM), which can extract cross-sectional conditions of the human body, particularly encoders that extract human information from different data modalities. These FMs can even zero-shot (without any further supervised training) decipher the cross-sectional status of the human body. More significantly, they can serve as the cornerstone of human DT models and will continue to play a role in subsequent higher-level tasks.
 
-## *B. Level 2 - Deductive Model:*Level 2 models perform deductive reasoning on the future development of the human body based on the time-continuous cross-sectional model information. By integrating the data from past cross-sections and the current cross-section, deductive models can predict evolutionary trends in human health status and potential disease risks. Many level 2 models have been reported [20, 21]. Models at this level have an intrinsic limitation: the deductions are based only on existing crosssectional data, while the uncertain interventions on the human body and changes in the external world make it hard to yield an accurate long-term prediction. Hence, we need to develop higher-level models.
+## *B. Level 2 - Deductive Model:*Level 2 models perform deductive reasoning on the future development of the human body based on the time-continuous cross-sectional model information. By integrating the data from past cross-sections and the current cross-section, deductive models can predict evolutionary trends in human health status and potential disease risks. Many level 2 models have been reported [[20]](#ref-20), [[21]](#ref-21). Models at this level have an intrinsic limitation: the deductions are based only on existing cross-sectional data, while the uncertain interventions on the human body and changes in the external world make it hard to yield an accurate long-term prediction. Hence, we need to develop higher-level models.
 
-In establishing the Level 2 Model, numerous past crosssectional data can be encoded by pre-trained FMs through zero-shot or few-shot fine-tuning and fed into models for analyzing temporal states, including models based on network backbones such as RNN, LSTM, and Transformer [22]. This enables the creation of a model for predicting future states through inference.
+In establishing the Level 2 Model, numerous past cross-sectional data can be encoded by pre-trained FMs through zero-shot or few-shot fine-tuning and fed into models for analyzing temporal states, including models based on network backbones such as RNN, LSTM, and Transformer [[22]](#ref-22). This enables the creation of a model for predicting future states through inference.
 
-## *C. Level 3 - Editable Model:*In level 3, editable models, which can predict the impacts of edits (such as drug intervention, organ transplantation, gene editing, etc.) on human bodies, are created and utilized. Currently, many researchers are experimenting the edits on the human body to develop ways of curing or preventing diseases; however, unclear side effects cause the edits to be effective only in the short term [23, 24]. This level aims to leverage the pre-training data on cross-sections and perform few-shot inference based on limited edits (input data) to help cure some rare diseases and fatal illnesses.
+## *C. Level 3 - Editable Model:*In level 3, editable models, which can predict the impacts of edits (such as drug intervention, organ transplantation, gene editing, etc.) on human bodies, are created and utilized. Currently, many researchers are experimenting the edits on the human body to develop ways of curing or preventing diseases; however, unclear side effects cause the edits to be effective only in the short term [[23]](#ref-23), [[24]](#ref-24). This level aims to leverage the pre-training data on cross-sections and perform few-shot inference based on limited edits (input data) to help cure some rare diseases and fatal illnesses.
 
 For the Level 3 Model, the fundamental aspect is the integration of actual human edit data as new channels with the prior levels of the model. In comparison to cross-sectional data of the human body collected through routine health monitoring, the availability of body data post-edits (such as drug intake, surgeries, gene therapies, etc.) is limited. Utilizing pre-trained encoders from the previous levels and incorporating them with a small number of edit inputs is a promising approach to creating an editable model. Once the edit data is taken into account, the parameters of the cross-sectional data encoders can be fixed, leaving only the parameters of the encoder for the edits and the decoder to be trained. This reduces the number of parameters to be trained, effectively addressing the challenge posed by the limited quantity of edit data.
 
-## *D. Level 4 - Evolutionary Model:*Models in previous levels focus on interpretations and predictions of human bodies themselves with few considerations of influences of external factors playing significant roles in most if not all cases. However, the human body is by no means an isolated system. Interactions with the outside world, including solar exposure, diet intake, and interpersonal connections, can have subtle but determinant impacts on the human body [25-27]. In level 4, models can merge external factors into previous tasks to evolve and enhance its prediction accuracy, therefore named evolutionary. Quantifying these external factors and incrementally feeding them to the learning machine to update the DT model is the focus of level 4.
+## *D. Level 4 - Evolutionary Model:*Models in previous levels focus on interpretations and predictions of human bodies themselves with few considerations of influences of external factors playing significant roles in most if not all cases. However, the human body is by no means an isolated system. Interactions with the outside world, including solar exposure, diet intake, and interpersonal connections, can have subtle but determinant impacts on the human body [[25]](#ref-25)-[[27]](#ref-27). In level 4, models can merge external factors into previous tasks to evolve and enhance its prediction accuracy, therefore named evolutionary. Quantifying these external factors and incrementally feeding them to the learning machine to update the DT model is the focus of level 4.
 
 For the Level 4 Model, interactions between the human and the external environment are incorporated into the model. Unlike previous cross-sectional sensor data and edits, these interactions are no longer limited to a one-time input to the model. A single moment of interaction may have a minimal impact on human health, but when these interactions are accumulated over time, they can have a considerable influence on the individual's overall health. Therefore, the core task in establishing this level of the model is quantifying this accumulation and feeding it into the model as additional parameters. Some factors, such as respiration and light exposure, can be quantified well by ambient sensors, while more complex interactions, such as human social interactions, require the assistance of embedded sub-models to convert them into digitized inputs for the model.
 
-## *E. Level 5 - Explainable Model:*In the first 4 levels, although models could give good predictions and estimations in a black-box (or gray-box) manner, the lack of readability and absence of explainable input/output relations hardly provide the researchers with suitable tools to understand the process well enough to address the human body uncertainties. Therefore, in level 5, models will inform the researchers of the logical connections between observed phenomena and their outcomes. State-of-the-art research work just started to deploy explainable models relevant to this task. For example, researchers developed translatable systems based on medical imaging to explain the information contained in Computer Tomography (CT) scans or Magnetic Resonance Images (MRI) [28]. Current works in level 5 are still in their infancy and unlikely to provide real guidance to clinicians [29], while with the continuous development of human body DTs, models in level 5 may be integrated with suitable datasets to mine deep into actual features of the human body, as witnessed in the AI domain [30, 31], pushing the boundaries of future healthcare interventions.
+## *E. Level 5 - Explainable Model:*In the first 4 levels, although models could give good predictions and estimations in a black-box (or gray-box) manner, the lack of readability and absence of explainable input/output relations hardly provide the researchers with suitable tools to understand the process well enough to address the human body uncertainties. Therefore, in level 5, models will inform the researchers of the logical connections between observed phenomena and their outcomes. State-of-the-art research work just started to deploy explainable models relevant to this task. For example, researchers developed translatable systems based on medical imaging to explain the information contained in Computer Tomography (CT) scans or Magnetic Resonance Images (MRI) [[28]](#ref-28). Current works in level 5 are still in their infancy and unlikely to provide real guidance to clinicians [[29]](#ref-29), while with the continuous development of human body DTs, models in level 5 may be integrated with suitable datasets to mine deep into actual features of the human body, as witnessed in the AI domain [[30]](#ref-30), [[31]](#ref-31), pushing the boundaries of future healthcare interventions.
 
-The development of a Level 5 Model requires a deep understanding and explanation of the underlying mechanisms behind previous levels of the human body DT model. To achieve this, the use of advanced model interpretability techniques, such as saliency maps, activation maps, and model distillation, can provide valuable insights into the model's decision-making process [32]. The application of causal inference algorithms can further illuminate the relationships between inputs and outputs, allowing for a better understanding of the model's internal workings [33]. Additionally, incorporating modelagnostic interpretability methods, such as LIME and SHAP, can offer a comprehensive view of the model's behavior, enabling a thorough understanding of not only how, but also why the model arrived at its predictions [32]. By leveraging these cutting-edge techniques, the Level 5 Model serves as a tool for advancing our knowledge of the human body and enhancing the reliability and trustworthiness of human body DT models.
+The development of a Level 5 Model requires a deep understanding and explanation of the underlying mechanisms behind previous levels of the human body DT model. To achieve this, the use of advanced model interpretability techniques, such as saliency maps, activation maps, and model distillation, can provide valuable insights into the model's decision-making process [[32]](#ref-32). The application of causal inference algorithms can further illuminate the relationships between inputs and outputs, allowing for a better understanding of the model's internal workings [[33]](#ref-33). Additionally, incorporating model-agnostic interpretability methods, such as LIME and SHAP, can offer a comprehensive view of the model's behavior, enabling a thorough understanding of not only how, but also why the model arrived at its predictions [[32]](#ref-32). By leveraging these cutting-edge techniques, the Level 5 Model serves as a tool for advancing our knowledge of the human body and enhancing the reliability and trustworthiness of human body DT models.
 
 ## III. PROSPECTIVE APPLICATIONS OF THE HUMAN BODY DT
 
 The evolution of the human body DT technology has ushered in a new era in the realm of medicine. By generating virtual counterparts that replicate human anatomy and physiology, it offers a remarkable opportunity to comprehend and anticipate diverse physiological and pathological states in a highly individualized manner, as depicted in Figure 3.
 
-![](_page_3_Picture_3.jpeg)
-<!-- Image Description: The image displays a futuristic medical visualization. Two translucent, three-dimensional human body models stand facing each other. Each model is overlaid with a schematic highlighting internal organs and skeletal structure. Behind each figure is a transparent screen displaying interactive diagrams of various body systems and internal organs, potentially representing medical data analysis or a diagnostic interface. The purpose is likely to illustrate advancements in medical imaging and data analysis technology. -->
+![Conceptual figure of the future application of the human body digital twin technology.](_page_3_Picture_3.jpeg)
 
 Figure 3. Conceptual figure of the future application of the human body digital twin technology.
 
@@ -138,13 +98,13 @@ The development of the human body DT has the potential to revolutionize healthca
 
 ### *B. Security:*Another key consideration is the security of data collection, transmission, and storage. With sensitive personal health information being collected, it is crucial to ensure that the highest standards of data privacy and security are in place. This includes implementing secure systems for data storage, as well as protecting data transmission through encryption and secure networks. For instance, the National Health Service (NHS) in the UK has implemented various measures to protect the data safety of patients. These include strict compliance with data protection regulations such as the General Data Protection Regulation (GDPR) and the NHS Data Security and Protection Toolkit (DSPT). The NHS has also established secure networks and systems to store, process and transmit patient data, such as the NHSmail, which is a secure email service used by health and care organizations in England and Scotland. Additionally, the NHS has implemented strict access controls and authorization procedures to ensure that only authorized personnel can access sensitive patient information. The NHS has also established a national data opt-out system, which allows patients to control the use of their personal data for research and planning purposes. The NHS continues to invest in technology and resources to further strengthen the security of patient data.
 
-### *C. Cost:*The cost associated with implementing human body DT systems must also be considered. This includes the cost of sensors, storage devices, energy consumption, and sustainability. It is important to develop solutions that are cost-effective and scalable, in order to make this technology accessible to a wide range of individuals and healthcare organizations. To reduce the cost, many researchers are developing low-cost scalable sensors and self-powered devices based on energy harvesting technology [34, 35].
+### *C. Cost:*The cost associated with implementing human body DT systems must also be considered. This includes the cost of sensors, storage devices, energy consumption, and sustainability. It is important to develop solutions that are cost-effective and scalable, in order to make this technology accessible to a wide range of individuals and healthcare organizations. To reduce the cost, many researchers are developing low-cost scalable sensors and self-powered devices based on energy harvesting technology [[34]](#ref-34), [[35]](#ref-35).
 
 ### *D. Ethical Issues:*
 
 Finally, there are several ethical considerations that must be addressed when implementing human body DT. This includes ensuring that individuals' personal health information is protected, obtaining informed consent for data collection, and considering the potential for misuse or discrimination based on health data.
 
-Furthermore, the equitable access to human body DT technology should be considered. Ensuring that the benefits of this technology are available to all individuals, regardless of their socioeconomic background, is essential to prevent exacerbating existing health disparities. Strategies to promote equitable access could include government subsidies for lowincome individuals or the development of affordable, scalable solutions to make the technology more widely accessible.
+Furthermore, the equitable access to human body DT technology should be considered. Ensuring that the benefits of this technology are available to all individuals, regardless of their socioeconomic background, is essential to prevent exacerbating existing health disparities. Strategies to promote equitable access could include government subsidies for low-income individuals or the development of affordable, scalable solutions to make the technology more widely accessible.
 
 ### V. OUTLOOK
 
@@ -154,55 +114,54 @@ We, therefore, anticipate a broader impact in future healthcare and in other res
 
 ### REFERENCES
 
-- [1] Zhang, Jing. "Mining imaging and clinical data with machine learning approaches for the diagnosis and early detection of Parkinson's disease." npj Parkinson's Disease 8.1 (2022): 1- 15.
-- [2] Hampel, Harald, et al. "Designing the next-generation clinical care pathway for Alzheimer's disease." Nature Aging 2.8 (2022): 692-703.
-- [3] Alizadehsani, Roohallah, et al. "Machine learning-based coronary artery disease diagnosis: A comprehensive review." Computers in biology and medicine 111 (2019): 103346.
-- [4] Siontis, Konstantinos C., et al. "Artificial intelligence-enhanced electrocardiography in cardiovascular disease management." Nature Reviews Cardiology 18.7 (2021): 465-478.
-- [5] Golombek, Susanne K., et al. "Tumor targeting via EPR: Strategies to enhance patient responses." Advanced drug delivery reviews 130 (2018): 17-38.
-- [6] He, Jiuyang, et al. "Tumor targeting strategies of smart fluorescent nanoparticles and their applications in cancer diagnosis and treatment." Advanced Materials 31.40 (2019): 1902409.
-- [7] Taylor, J. Paul, Robert H. Brown, and Don W. Cleveland. "Decoding ALS: from genes to mechanism." Nature 539.7628 (2016): 197-206.
-- [8] Holgate, S., Wenzel, S., Postma, D. et al. Asthma. Nat Rev Dis Primers 1, 15025 (2015).
-- [9] Elayan, Haya, Moayad Aloqaily, and Mohsen Guizani. "Digital twin for intelligent context-aware IoT healthcare systems." IEEE Internet of Things Journal 8.23 (2021): 16749- 16757.
-- [10] Acosta, Julian N., et al. "Multimodal biomedical AI." Nature Medicine ´ 28.9 (2022): 1773- 1784.
-- [11] Coorey, Genevieve, et al. "The health digital twin to tackle cardiovascular disease—a review of an emerging interdisciplinary field." NPJ digital medicine 5.1 (2022): 1- 12.
-- [12] Wang, Yang, et al. "Implantable intracortical microelectrodes: reviewing the present with a focus on the future." Microsystems & Nanoengineering 9.1 (2023): 7.
-- [13] Gao, Fupeng, et al. "Wearable and flexible electrochemical sensors for sweat analysis: a review." Microsystems & Nanoengineering 9.1 (2023): 1.
-- [14] Ramesh, Aditya, et al. "Hierarchical text-conditional image generation with clip latents." arXiv preprint [arXiv:2204.06125](http://arxiv.org/abs/2204.06125) (2022).
-- [15] Ouyang, Long, et al. "Training language models to follow instructions with human feedback." arXiv preprint [arXiv:2203.02155](http://arxiv.org/abs/2203.02155) (2022).
-- [16] Tang, Chenyu, et al. "WMNN: Wearables-Based Multi-Column Neural Network for Human Activity Recognition." IEEE Journal of Biomedical and Health Informatics 27.1 (2022): 339-350.
-- [17] Wang, Minqiang, et al. "A wearable electrochemical biosensor for the monitoring of metabolites and nutrients." Nature Biomedical Engineering (2022): 1- 11.
-- [18] Radford, Alec, et al. "Learning transferable visual models from natural language supervision." International conference on machine learning. PMLR, 2021.
-- [19] Cicirelli, Grazia, et al. "Human gait analysis in neurodegenerative diseases: a review." IEEE Journal of Biomedical and Health Informatics 26.1 (2021): 229-242.
-- [20] Jiang, Yuming, et al. "Predicting peritoneal recurrence and disease-free survival from CT images in gastric cancer with multitask deep learning: a retrospective study." The Lancet Digital Health 4.5 (2022): e340-e350.
-- [21] Erion, Gabriel, et al. "A cost-aware framework for the development ofAI models for healthcare applications." Nature Biomedical Engineering (2022): 1- 15.
-- [22] Vaswani, Ashish, et al. "Attention is all you need." Advances in neural information processing systems 30 (2017).
-- [23] Montgomery, Robert A., et al. "Results of two cases of pig-to-human kidney xenotransplantation." New England Journal of Medicine 386.20 (2022): 1889- 1898.
-
-- [24] Mills, A., et al. "A modular spring-loaded actuator for mechanical activation of membrane proteins." Nature communications 13.1 (2022): 1- 10.
-- [25] Parikh, Shivang, et al. "Food-seeking behavior is triggered by skin ultraviolet exposure in males." Nature metabolism (2022): 1- 18.
-- [26] Yoo, Woongjae, et al. "High-fat diet–induced colonocyte dysfunction escalates microbiota- derived trimethylamine N-oxide." Science 373.6556 (2021): 813-818.
-- [27] Lee, Christopher R., Alon Chen, and Kay M. Tye. "The neural circuitry of social homeostasis: Consequences of acute versus chronic social isolation." Cell 184.6 (2021): 1500- 1516.
-- [28] Shad, Rohan, et al. "Designing clinically translatable artificial intelligence systems for high- dimensional medical imaging." Nature Machine Intelligence 3.11 (2021): 929-935.
-- [29] Ghassemi, Marzyeh, Luke Oakden-Rayner, and Andrew L. Beam. "The false hope of current approaches to explainable artificial intelligence in health care." The Lancet Digital Health 3.11 (2021): e745-e750.
-- [30] Wei, Jason, et al. "Emergent abilities of large language models." arXiv preprint [arXiv:2206.07682](http://arxiv.org/abs/2206.07682) (2022).
-- [31] LeCun, Yann. "A Path Towards Autonomous Machine Intelligence Version 0.9. 2, 2022-06- 27." (2022).
-- [32] Stiglic, Gregor, et al. "Interpretability of machine learning-based prediction models in healthcare." Wiley Interdisciplinary Reviews: Data Mining and Knowledge Discovery 10.5 (2020): e1379.
-- [33] Prosperi, Mattia, et al. "Causal inference and counterfactual prediction in machine learning for actionable healthcare." Nature Machine Intelligence 2.7 (2020): 369-375.
-- [34] Prattis, Ioannis, et al. "Graphene for biosensing applications in pointof-care testing." Trends in Biotechnology 39.10 (2021): 1065-1077.
-- [35] Li, Shuo, et al. "Humidity-sensitive chemoelectric flexible sensors based on metal-air redox reaction for health management." Nature Communications 13.1 (2022): 5416.
-- [36] Mehonic, Adnan, and Anthony J. Kenyon. "Brain-inspired computing needs a master plan." Nature 604.7905 (2022): 255-260.
+- <a id="ref-1"></a>[[1]](#ref-1) Zhang, Jing. "Mining imaging and clinical data with machine learning approaches for the diagnosis and early detection of Parkinson's disease." npj Parkinson's Disease 8.1 (2022): 1- 15.
+- <a id="ref-2"></a>[[2]](#ref-2) Hampel, Harald, et al. "Designing the next-generation clinical care pathway for Alzheimer's disease." Nature Aging 2.8 (2022): 692-703.
+- <a id="ref-3"></a>[[3]](#ref-3) Alizadehsani, Roohallah, et al. "Machine learning-based coronary artery disease diagnosis: A comprehensive review." Computers in biology and medicine 111 (2019): 103346.
+- <a id="ref-4"></a>[[4]](#ref-4) Siontis, Konstantinos C., et al. "Artificial intelligence-enhanced electrocardiography in cardiovascular disease management." Nature Reviews Cardiology 18.7 (2021): 465-478.
+- <a id="ref-5"></a>[[5]](#ref-5) Golombek, Susanne K., et al. "Tumor targeting via EPR: Strategies to enhance patient responses." Advanced drug delivery reviews 130 (2018): 17-38.
+- <a id="ref-6"></a>[[6]](#ref-6) He, Jiuyang, et al. "Tumor targeting strategies of smart fluorescent nanoparticles and their applications in cancer diagnosis and treatment." Advanced Materials 31.40 (2019): 1902409.
+- <a id="ref-7"></a>[[7]](#ref-7) Taylor, J. Paul, Robert H. Brown, and Don W. Cleveland. "Decoding ALS: from genes to mechanism." Nature 539.7628 (2016): 197-206.
+- <a id="ref-8"></a>[[8]](#ref-8) Holgate, S., Wenzel, S., Postma, D. et al. Asthma. Nat Rev Dis Primers 1, 15025 (2015).
+- <a id="ref-9"></a>[[9]](#ref-9) Elayan, Haya, Moayad Aloqaily, and Mohsen Guizani. "Digital twin for intelligent context-aware IoT healthcare systems." IEEE Internet of Things Journal 8.23 (2021): 16749- 16757.
+- <a id="ref-10"></a>[[10]](#ref-10) Acosta, Julian N., et al. "Multimodal biomedical AI." Nature Medicine ´ 28.9 (2022): 1773- 1784.
+- <a id="ref-11"></a>[[11]](#ref-11) Coorey, Genevieve, et al. "The health digital twin to tackle cardiovascular disease—a review of an emerging interdisciplinary field." NPJ digital medicine 5.1 (2022): 1- 12.
+- <a id="ref-12"></a>[[12]](#ref-12) Wang, Yang, et al. "Implantable intracortical microelectrodes: reviewing the present with a focus on the future." Microsystems & Nanoengineering 9.1 (2023): 7.
+- <a id="ref-13"></a>[[13]](#ref-13) Gao, Fupeng, et al. "Wearable and flexible electrochemical sensors for sweat analysis: a review." Microsystems & Nanoengineering 9.1 (2023): 1.
+- <a id="ref-14"></a>[[14]](#ref-14) Ramesh, Aditya, et al. "Hierarchical text-conditional image generation with clip latents." arXiv preprint [arXiv:2204.06125](http://arxiv.org/abs/2204.06125) (2022).
+- <a id="ref-15"></a>[[15]](#ref-15) Ouyang, Long, et al. "Training language models to follow instructions with human feedback." arXiv preprint [arXiv:2203.02155](http://arxiv.org/abs/2203.02155) (2022).
+- <a id="ref-16"></a>[[16]](#ref-16) Tang, Chenyu, et al. "WMNN: Wearables-Based Multi-Column Neural Network for Human Activity Recognition." IEEE Journal of Biomedical and Health Informatics 27.1 (2022): 339-350.
+- <a id="ref-17"></a>[[17]](#ref-17) Wang, Minqiang, et al. "A wearable electrochemical biosensor for the monitoring of metabolites and nutrients." Nature Biomedical Engineering (2022): 1- 11.
+- <a id="ref-18"></a>[[18]](#ref-18) Radford, Alec, et al. "Learning transferable visual models from natural language supervision." International conference on machine learning. PMLR, 2021.
+- <a id="ref-19"></a>[[19]](#ref-19) Cicirelli, Grazia, et al. "Human gait analysis in neurodegenerative diseases: a review." IEEE Journal of Biomedical and Health Informatics 26.1 (2021): 229-242.
+- <a id="ref-20"></a>[[20]](#ref-20) Jiang, Yuming, et al. "Predicting peritoneal recurrence and disease-free survival from CT images in gastric cancer with multitask deep learning: a retrospective study." The Lancet Digital Health 4.5 (2022): e340-e350.
+- <a id="ref-21"></a>[[21]](#ref-21) Erion, Gabriel, et al. "A cost-aware framework for the development of AI models for healthcare applications." Nature Biomedical Engineering (2022): 1- 15.
+- <a id="ref-22"></a>[[22]](#ref-22) Vaswani, Ashish, et al. "Attention is all you need." Advances in neural information processing systems 30 (2017).
+- <a id="ref-23"></a>[[23]](#ref-23) Montgomery, Robert A., et al. "Results of two cases of pig-to-human kidney xenotransplantation." New England Journal of Medicine 386.20 (2022): 1889- 1898.
+- <a id="ref-24"></a>[[24]](#ref-24) Mills, A., et al. "A modular spring-loaded actuator for mechanical activation of membrane proteins." Nature communications 13.1 (2022): 1- 10.
+- <a id="ref-25"></a>[[25]](#ref-25) Parikh, Shivang, et al. "Food-seeking behavior is triggered by skin ultraviolet exposure in males." Nature metabolism (2022): 1- 18.
+- <a id="ref-26"></a>[[26]](#ref-26) Yoo, Woongjae, et al. "High-fat diet–induced colonocyte dysfunction escalates microbiota- derived trimethylamine N-oxide." Science 373.6556 (2021): 813-818.
+- <a id="ref-27"></a>[[27]](#ref-27) Lee, Christopher R., Alon Chen, and Kay M. Tye. "The neural circuitry of social homeostasis: Consequences of acute versus chronic social isolation." Cell 184.6 (2021): 1500- 1516.
+- <a id="ref-28"></a>[[28]](#ref-28) Shad, Rohan, et al. "Designing clinically translatable artificial intelligence systems for high- dimensional medical imaging." Nature Machine Intelligence 3.11 (2021): 929-935.
+- <a id="ref-29"></a>[[29]](#ref-29) Ghassemi, Marzyeh, Luke Oakden-Rayner, and Andrew L. Beam. "The false hope of current approaches to explainable artificial intelligence in health care." The Lancet Digital Health 3.11 (2021): e745-e750.
+- <a id="ref-30"></a>[[30]](#ref-30) Wei, Jason, et al. "Emergent abilities of large language models." arXiv preprint [arXiv:2206.07682](http://arxiv.org/abs/2206.07682) (2022).
+- <a id="ref-31"></a>[[31]](#ref-31) LeCun, Yann. "A Path Towards Autonomous Machine Intelligence Version 0.9. 2, 2022-06- 27." (2022).
+- <a id="ref-32"></a>[[32]](#ref-32) Stiglic, Gregor, et al. "Interpretability of machine learning-based prediction models in healthcare." Wiley Interdisciplinary Reviews: Data Mining and Knowledge Discovery 10.5 (2020): e1379.
+- <a id="ref-33"></a>[[33]](#ref-33) Prosperi, Mattia, et al. "Causal inference and counterfactual prediction in machine learning for actionable healthcare." Nature Machine Intelligence 2.7 (2020): 369-375.
+- <a id="ref-34"></a>[[34]](#ref-34) Prattis, Ioannis, et al. "Graphene for biosensing applications in point-of-care testing." Trends in Biotechnology 39.10 (2021): 1065-1077.
+- <a id="ref-35"></a>[[35]](#ref-35) Li, Shuo, et al. "Humidity-sensitive chemoelectric flexible sensors based on metal-air redox reaction for health management." Nature Communications 13.1 (2022): 5416.
+- <a id="ref-36"></a>[[36]](#ref-36) Mehonic, Adnan, and Anthony J. Kenyon. "Brain-inspired computing needs a master plan." Nature 604.7905 (2022): 255-260.
 
 ## Metadata Summary
 ### Research Context
-- **Research Question**: 
-- **Methodology**: 
-- **Key Findings**: 
-- **Primary Outcomes**: 
+- **Research Question**:
+- **Methodology**:
+- **Key Findings**:
+- **Primary Outcomes**:
 
 ### Analysis
-- **Limitations**: 
-- **Research Gaps**: 
-- **Future Work**: 
-- **Conclusion**: 
+- **Limitations**:
+- **Research Gaps**:
+- **Future Work**:
+- **Conclusion**:
 
 ### Implementation Notes

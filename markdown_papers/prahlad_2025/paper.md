@@ -6,49 +6,13 @@ year: 2025
 doi: arXiv:2505.09945
 url: https://arxiv.org/html/2505.09945v1
 relevancy: High
-downloaded: 'No'
-tags:
-- LLM Personalization
-- Retrieval Augmented Generation
-- Knowledge Graphs
-- On-Device AI
-- Private Data Protection
+downloaded: No
+tags: 
 tldr: Novel approach to personalizing LLMs using knowledge graphs and retrieval augmented
-  generation specifically targeting on-device applications with private data protection
-date_processed: '2025-07-02'
+date_processed: 2025-07-02
 phase2_processed: true
 original_folder: arxiv_2505.09945_Personalizing_Large_Language_Models_using_Retrieval_Augmented_Generation_and_Knowledge_Graph
-keywords:
-- ' retrieval pipeline'
-- 1 introduction
-- 2 proposed approach
-- 3 dataset generation
-- 5 conclusion
-- BERT
-- GPT
-- GitHub
-- HuggingFace
-- LangChain
-- NLP
-- SpaCy
-- WhatsApp
-- accuracy
-- acm reference format
-- application-specific
-- artificial intelligence
-- asu-kim
-- bert
-- bert-networks
-- bidirectional encoder representations from transformers
-- catch - up with friends
-- ccs concepts
-- chat-hf
-- chin-yew
-- cloud-based
-- cloud-based llm
-- cloud-based llms
-- cloud-based state
-- conversation-calendar
+keywords: 
 standardization_date: 2025-07-10
 standardization_version: 1.0
 ---
@@ -71,7 +35,7 @@ Achieves significant performance improvements with 35.15% increase in ROUGE-1, 6
 
 ### CCS Concepts
 
-• Computing methodologies → Natural language generation; Discourse, dialogue and pragmatics; Information extraction.
+* Computing methodologies → Natural language generation; Discourse, dialogue and pragmatics; Information extraction.
 
 ### Keywords
 
@@ -79,11 +43,11 @@ Personalization, Large language model, Knowledge graph, Retrieval augmented gene
 
 ### ACM Reference Format:
 
-Deeksha Prahlad, Chanhee Lee, Dongha Kim, and Hokeun Kim. 2025. Personalizing Large Language Models using Retrieval Augmented Generation and Knowledge Graph. In Companion Proceedings of the ACM Web Conference 2025 (WWW Companion '25), April 28-May 2, 2025, Sydney, NSW, Australia. ACM, New York, NY, USA, [5](#page-4-0) pages.<https://doi.org/10.1145/3701716.3715473>
+Deeksha Prahlad, Chanhee Lee, Dongha Kim, and Hokeun Kim. 2025. Personalizing Large Language Models using Retrieval Augmented Generation and Knowledge Graph. In Companion Proceedings of the ACM Web Conference 2025 (WWW Companion '25), April 28-May 2, 2025, Sydney, NSW, Australia. ACM, New York, NY, USA, [[5]](#ref-5) pages. <https://doi.org/10.1145/3701716.3715473>
 
 ### 1 Introduction
 
-Large language models (LLMs) are gaining popularity in various applications for text classification, text summarization, question answering, and sentiment analysis. Large models like GPT-4 [\[1\]](#page-4-1) have demonstrated their prowess in analyzing and generating code over
+Large language models (LLMs) are gaining popularity in various applications for text classification, text summarization, question answering, and sentiment analysis. Large models like GPT-4 [[1]](#ref-1) have demonstrated their prowess in analyzing and generating code over
 
 [This work is licensed under a Creative Commons Attribution 4.0 International License.](https://creativecommons.org/licenses/by/4.0) WWW Companion '25, Sydney, NSW, Australia © 2025 Copyright held by the owner/author(s). ACM ISBN 979-8-4007-1331-6/25/04 <https://doi.org/10.1145/3701716.3715473>
 
@@ -91,69 +55,68 @@ Dongha Kim Arizona State University Tempe, AZ, United States dongha@asu.edu
 
 Hokeun Kim Arizona State University Tempe, AZ, United States hokeun@asu.edu
 
-standard tasks. However, because these models lack new domainspecific knowledge, they suffer from hallucinations [\[10,](#page-4-2) [14,](#page-4-3) [21\]](#page-4-4). Leveraging retrieval augmented generation (RAG) to minimize hallucinations has set a standard benchmark for domain-specific question-answer applications [\[17\]](#page-4-5). RAG increases the reliability of LLM results [\[6,](#page-4-6) [13\]](#page-4-7) by introducing accurate data sources, which also eliminates factual errors.
+standard tasks. However, because these models lack new domainspecific knowledge, they suffer from hallucinations [[10]](#ref-10), [[14]](#ref-14), [[21]](#ref-21). Leveraging retrieval augmented generation (RAG) to minimize hallucinations has set a standard benchmark for domain-specific question-answer applications [[17]](#ref-17). RAG increases the reliability of LLM results [[6]](#ref-6), [[13]](#ref-13) by introducing accurate data sources, which also eliminates factual errors.
 
-Knowledge graphs (KGs) [\[12\]](#page-4-8), by definition, are based on graph databases, where the nodes represent entities of interest, and the edges represent the relations between the nodes. Prominent opensource KGs include Wikidata [\[26\]](#page-4-9), Freebase [\[5\]](#page-4-10), and DBpedia [\[3\]](#page-4-11). The structure of the knowledge graph is designed to evolve, which makes it possible to have the latest information. KGs can be created using databases and graph databases [\[7\]](#page-4-12) such as neo4j, ArangoDB, OrientDB, and Infinite Graph. Query languages that are used to query KGs [\[2\]](#page-4-13) include SPARQL, CYPHER, and Gremlin.
+Knowledge graphs (KGs) [[12]](#ref-12), by definition, are based on graph databases, where the nodes represent entities of interest, and the edges represent the relations between the nodes. Prominent opensource KGs include Wikidata [[26]](#ref-26), Freebase [[5]](#ref-5), and DBpedia [[3]](#ref-3). The structure of the knowledge graph is designed to evolve, which makes it possible to have the latest information. KGs can be created using databases and graph databases [[7]](#ref-7) such as neo4j, ArangoDB, OrientDB, and Infinite Graph. Query languages that are used to query KGs [[2]](#ref-2) include SPARQL, CYPHER, and Gremlin.
 
-Various studies have integrated KGs with LLMs to enhance the accuracy of LLM-generated responses. KGs provide factual knowledge to address LLMs' drawbacks, such as hallucinations and one notable approach addressing these drawbacks of LLMs and KGs is Pan et al. [\[19\]](#page-4-14). Yang et al. [\[28\]](#page-4-15) enhance LLMs with KGs to overcome LLMs' limitations in recalling facts while generating contents.
+Various studies have integrated KGs with LLMs to enhance the accuracy of LLM-generated responses. KGs provide factual knowledge to address LLMs' drawbacks, such as hallucinations and one notable approach addressing these drawbacks of LLMs and KGs is Pan et al. [[19]](#ref-19). Yang et al. [[28]](#ref-28) enhance LLMs with KGs to overcome LLMs' limitations in recalling facts while generating contents.
 
-A growing body of research focuses on the exciting potential of LLM personalization, paving the way for its diverse and personalized applications. Baek et al. [\[4\]](#page-4-16) propose augmenting relevant context to LLMs using users' interaction histories targeting web search scenarios where LLMs are used as search engines, also exploring KGs to store data; still it is based on web information, incurring data privacy issues. Shen el al. [\[24\]](#page-4-17) propose personalized multimodal generation (PMG) of LLMs by converting user behaviors to language models to understand user preferences. Qin et al. [\[22\]](#page-4-18) have implemented a framework for selecting the most representative online data through a quality metric system for on-device LLM personalization. Lee et al. [\[16\]](#page-4-19) sketch out ideas for the on-device RAG for personalization using KGs without concrete design.
+A growing body of research focuses on the exciting potential of LLM personalization, paving the way for its diverse and personalized applications. Baek et al. [[4]](#ref-4) propose augmenting relevant context to LLMs using users' interaction histories targeting web search scenarios where LLMs are used as search engines, also exploring KGs to store data; still it is based on web information, incurring data privacy issues. Shen el al. [[24]](#ref-24) propose personalized multimodal generation (PMG) of LLMs by converting user behaviors to language models to understand user preferences. Qin et al. [[22]](#ref-22) have implemented a framework for selecting the most representative online data through a quality metric system for on-device LLM personalization. Lee et al. [[16]](#ref-16) sketch out ideas for the on-device RAG for personalization using KGs without concrete design.
 
-In this paper, we propose a personalization approach for LLMs using RAG and KGs. Our approach focuses on using smaller models to achieve efficient results, which can be further deployed on personal devices such as smartphones. Our personalization approach targets the understanding and generation of personal results such as smart reply [\[15\]](#page-4-20). The on-device applications that store and contain user information like calendars, conversational chats, and emails can be structured into KGs, which are used for smart-response generation by the language models. Since KGs are dynamically updated, the LLMs will have a factually correct smart response to the queries. Multiple approaches optimize LLM model sizes and executions on edge-computing devices and smartphones. We also
+In this paper, we propose a personalization approach for LLMs using RAG and KGs. Our approach focuses on using smaller models to achieve efficient results, which can be further deployed on personal devices such as smartphones. Our personalization approach targets the understanding and generation of personal results such as smart reply [[15]](#ref-15). The on-device applications that store and contain user information like calendars, conversational chats, and emails can be structured into KGs, which are used for smart-response generation by the language models. Since KGs are dynamically updated, the LLMs will have a factually correct smart response to the queries. Multiple approaches optimize LLM model sizes and executions on edge-computing devices and smartphones. We also
 
 WWW Companion '25, April 28-May 2, 2025, Sydney, NSW, Australia Deeksha Prahlad, Chanhee Lee, Dongha Kim, & Hokeun Kim
 
-<span id="page-1-4"></span>![](_page_1_Figure_1.jpeg)
-<!-- Image Description: This flowchart depicts a comparative analysis of two question-answering systems. A baseline system (RAG+LLM) and a novel approach use ChatGPT40 to generate a dataset from calendar and conversation data. Both systems employ embedding models and prompt engineering. The key difference lies in the novel approach's integration of a knowledge graph, enhancing performance. The generated responses are evaluated using ROUGE and BLEU scores. -->
-
+![Overall workflow of the proposed approach](_page_1_Figure_1.jpeg)
 **Figure 1:** Overall workflow of the proposed approach
 
-make our source code[1](#page-1-0),[2](#page-1-1) and dataset[3](#page-1-2),[4](#page-1-3) publicly available for those who want to evaluate relevant personalization approaches.
+make our source code^1^,^2^ and dataset^3^,^4^ publicly available for those who want to evaluate relevant personalization approaches.
 
 Our proposed approach can improve the LLM inference latency while better protecting the privacy of sensitive user data locally stored on user devices, compared to the cloud-based LLMs. We acknowledge that some on-device applications already share or sync the local private data with the application-specific cloud servers, for example, Gmail with Google, Apple Calendar with iCloud, etc. We do not claim that our approach protects user privacy against such application-specific clouds. Rather, we prevent the sensitive user data from being combined and sent to the cloud-based LLM provider for personalization, which can put user privacy at greater risk because the LLM provider can see all combined user data.
 
 ### 2 Proposed Approach
 
-We propose to leverage the integration of LLMs and KGs during the inference stage and generate personalized responses. Personal sensitive information like conversational data or calendar data is stored in the form of a KG. We consider open-source models like Llama-2-Chat (7B, 13B, and 70B) [\[25\]](#page-4-21) for the evaluation in our approach, the reason being Llama 2-Chat is tailored for dialogue use cases. Due to their reduced parameter count and streamlined architecture, these models exhibit significantly accelerated training and inference speeds.
+We propose to leverage the integration of LLMs and KGs during the inference stage and generate personalized responses. Personal sensitive information like conversational data or calendar data is stored in the form of a KG. We consider open-source models like Llama-2-Chat (7B, 13B, and 70B) [[25]](#ref-25) for the evaluation in our approach, the reason being Llama 2-Chat is tailored for dialogue use cases. Due to their reduced parameter count and streamlined architecture, these models exhibit significantly accelerated training and inference speeds.
 
-Overall Workflow. Figure [1](#page-1-4) shows the overall workflow of our systematic approach to be detailed in this section. The overall workflow of this approach begins with dataset generation. Using prompt engineering, we generate unbiased data that includes calendar and conversational datasets. Additionally, we create questionand-golden-answer[5](#page-1-5) pairs as part of our dataset with the help of ChatGPT. We use our dataset as input for the baseline model. For our proposed approach, we build a KG based on the generated
+Overall Workflow. Figure [[1]](#ref-1) shows the overall workflow of our systematic approach to be detailed in this section. The overall workflow of this approach begins with dataset generation. Using prompt engineering, we generate unbiased data that includes calendar and conversational datasets. Additionally, we create questionand-golden-answer^5^ pairs as part of our dataset with the help of ChatGPT. We use our dataset as input for the baseline model. For our proposed approach, we build a KG based on the generated
 
-<span id="page-1-1"></span>2 Source code released as DOI:<https://doi.org/10.5281/zenodo.14873185>
+^2^ Source code released as DOI: <https://doi.org/10.5281/zenodo.14873185>
 
-
+![Knowledge graph for a sample of the calendar data from our dataset.](_page_1_Figure_2.jpeg)
 **Figure 2:** Knowledge graph for a sample of the calendar data from our dataset.
 
-dataset. Next, we utilize an embedding model to convert the input into embeddings that are essential for sequence matching during prompt-based response generation. We then fine-tune the prompts for the retrieval pipeline and response generation. Finally, we evaluate the answers generated by both our approach and the baseline using ROUGE [\[18\]](#page-4-22) and BLEU score metrics [\[20\]](#page-4-23).
+dataset. Next, we utilize an embedding model to convert the input into embeddings that are essential for sequence matching during prompt-based response generation. We then fine-tune the prompts for the retrieval pipeline and response generation. Finally, we evaluate the answers generated by both our approach and the baseline using ROUGE [[18]](#ref-18) and BLEU score metrics [[20]](#ref-20).
 
 Dataset Generation. We use the ChatGPT 4o model to generate a calendar dataset and conversational data that considers the details of information from the calendar to suit real-time conversations. The raw data generated from the model are created in JSON and text format for readability and easy understanding. The raw data is given to the RAG-based model as a context to the baseline model.
 
-Knowledge Graphs. The knowledge graph contains sources, targets, and edges represented as a set of triples. We first extract the triples from the generated calendar and conversation data, using the SpaCy library for relation extraction. This step parses the different parts of the English sentence and chooses the root verb as the edge, the subject words as the source, and the object words as the target, as seen in the Figure [2.](#page-1-6) We have used the Networkx [\[11\]](#page-4-24) Python library that is also used to create the visualization of the KG since it is used for network analysis. This dataset is given to the RAG-based model as a context to the model that forms our approach.
+Knowledge Graphs. The knowledge graph contains sources, targets, and edges represented as a set of triples. We first extract the triples from the generated calendar and conversation data, using the SpaCy library for relation extraction. This step parses the different parts of the English sentence and chooses the root verb as the edge, the subject words as the source, and the object words as the target, as seen in the Figure [[2]](#ref-2). We have used the Networkx [[11]](#ref-11) Python library that is also used to create the visualization of the KG since it is used for network analysis. This dataset is given to the RAG-based model as a context to the model that forms our approach.
 
-Response Generation. We convert our KG and generated data (calendar and conversation) into vector embeddings using a pretrained HuggingFace embedding model (sentence-transformers/ paraphrase-multilingual-MiniLM-L12-v2 [\[23\]](#page-4-25)). The program loads a pre-trained Llama-2-Chat models (7B[6](#page-1-7) , 13B[7](#page-1-8) , and 70B[8](#page-1-9) ), models from HuggingFace for text generation. We apply bitsandbytes[9](#page-1-10) quantization to optimize memory usage. The parameters like token limit, repetition penalty, and temperature are tweaked to achieve the best results. We use FAISS [\[8\]](#page-4-26) for vector store, which leverages document embeddings to enable efficient similarity-based retrieval of relevant documents.
+Response Generation. We convert our KG and generated data (calendar and conversation) into vector embeddings using a pretrained HuggingFace embedding model (sentence-transformers/ paraphrase-multilingual-MiniLM-L12-v2 [[23]](#ref-23)). The program loads a pre-trained Llama-2-Chat models (7B^6^ , 13B^7^ , and 70B^8^ ), models from HuggingFace for text generation. We apply bitsandbytes^9^ quantization to optimize memory usage. The parameters like token limit, repetition penalty, and temperature are tweaked to achieve the best results. We use FAISS [[8]](#ref-8) for vector store, which leverages document embeddings to enable efficient similarity-based retrieval of relevant documents.
 
-<span id="page-1-0"></span><sup>1</sup>GitHub repository:<https://github.com/asu-kim/personal-llm-kg>
+^1^ GitHub repository: <https://github.com/asu-kim/personal-llm-kg>
 
-<span id="page-1-3"></span><span id="page-1-2"></span><sup>3</sup>Hugging Face:<https://huggingface.co/datasets/asu-kim/conversation-calendar> <sup>4</sup>Dataset DOI:<https://doi.org/10.57967/hf/4500>
+^3^ Hugging Face: <https://huggingface.co/datasets/asu-kim/conversation-calendar>
+^4^ Dataset DOI: <https://doi.org/10.57967/hf/4500>
 
-<span id="page-1-5"></span><sup>5</sup>We provide a detailed explanation of the golden answer in Section [4.](#page-2-0)
+^5^ We provide a detailed explanation of the golden answer in Section [[4]](#ref-4).
 
-<span id="page-1-8"></span><span id="page-1-7"></span><sup>6</sup><https://huggingface.co/meta-llama/Llama-2-7b-chat-hf>
+^6^ <https://huggingface.co/meta-llama/Llama-2-7b-chat-hf>
 
-<sup>7</sup><https://huggingface.co/meta-llama/Llama-2-13b-chat-hf>
+^7^ <https://huggingface.co/meta-llama/Llama-2-13b-chat-hf>
 
-<span id="page-1-9"></span><sup>8</sup><https://huggingface.co/meta-llama/Llama-2-70b-chat-hf>
+^8^ <https://huggingface.co/meta-llama/Llama-2-70b-chat-hf>
 
-<span id="page-1-10"></span><sup>9</sup>https://huggingface.co/bitsandbytes
+^9^ <https://huggingface.co/bitsandbytes>
 
 Personalizing LLMs using Retrieval Augmented Generation and Knowledge Graph WWW Companion '25, April 28-May 2, 2025, Sydney, NSW, Australia
 
-• Prompt engineering: To guide the generation of responses, we define Prompt Templates to get a concise response. To achieve the best results from each model, we experimented with different prompts by varying the types of sentences and words used. The prompt template used is:
+* Prompt engineering: To guide the generation of responses, we define Prompt Templates to get a concise response. To achieve the best results from each model, we experimented with different prompts by varying the types of sentences and words used. The prompt template used is:
 
 Retrieve the answer from the knowledge graph <context> and generate a concise response to the <query>
 
-### • Retrieval Pipeline:
+### * Retrieval Pipeline:
 
-We use a RetrievalQA pipeline imported from LangChain[10](#page-2-1) , which is defined separately for the two compared approaches. We create two separate vector spaces for the baseline and our approach. For the baseline, we feed the generated calendar and conversation data directly to the embedding model [\[23\]](#page-4-25). For our approach, we feed the KG to the embedding model. The retriever fetches the top-k most relevant documents based on similarity to the query. Based on the query and context obtained from the similarity search we obtain a response from the Llama-2-Chat models.
+We use a RetrievalQA pipeline imported from LangChain^10^ , which is defined separately for the two compared approaches. We create two separate vector spaces for the baseline and our approach. For the baseline, we feed the generated calendar and conversation data directly to the embedding model [[23]](#ref-23). For our approach, we feed the KG to the embedding model. The retriever fetches the top-k most relevant documents based on similarity to the query. Based on the query and context obtained from the similarity search we obtain a response from the Llama-2-Chat models.
 
 Then, we compare the generated responses against the answers in the question-answer pairs to compute evaluation scores.
 
@@ -177,7 +140,7 @@ To create the question and golden answer pair for the evaluation of our method, 
 
 Generate a set of <number> questions with exact answers based on the conversation.
 
-Listing [1](#page-2-2) shows an example of calendar items from our dataset. Our dataset is publicly available at Hugging Face.[11](#page-2-3)
+Listing [[1]](#ref-1) shows an example of calendar items from our dataset. Our dataset is publicly available at Hugging Face.^11^
 
 Listing 1: Example calendar data in JSON format.
 
@@ -191,34 +154,29 @@ Listing 1: Example calendar data in JSON format.
 { " event ": " Family Dinner " , " date ":
 "2024 -01 -20" , " time ": "18:00 - 20:00" }
 ]}
-```text
+```
 
-## <span id="page-2-0"></span>4 Evaluation
+## <a id="ref-4"></a>4 Evaluation
 
 Our evaluation focuses on how well the model can use the information from the knowledge graph (KG) and generate responses. The evaluation metrics include ROUGE (precision, recall, and F1 score), BLEU score, and execution time, ensuring a comprehensive comparison between the baseline and the proposed approach. The evaluation also compares the execution time for each query. In the upcoming sections, we present our experimental setup, dataset, baseline, and experimental results.
 
-Baseline. The traditional RAG [\[17\]](#page-4-5) achieved state-of-the-art performance in various information retrieval and question-answering tasks [\[9\]](#page-4-27) [\[27\]](#page-4-28). We evaluate our model by choosing the RAG architecture as a baseline model because it fetches the relevant documents and generates accurate responses. The RAG implementation is imported from LangChain, and it is integrated with our dataset.
+Baseline. The traditional RAG [[17]](#ref-17) achieved state-of-the-art performance in various information retrieval and question-answering tasks [[9]](#ref-9) [[27]](#ref-27). We evaluate our model by choosing the RAG architecture as a baseline model because it fetches the relevant documents and generates accurate responses. The RAG implementation is imported from LangChain, and it is integrated with our dataset.
 
 Experimental Setup. We conduct experiments on a workstation with an Intel i9 processor and an NVIDIA RTX A6000 GPU. For the embedding model, we utilize the sentence transformer paraphrasemultilingual-MiniLM-L12-v2. The pre-trained model deployed for inference is available in the Hugging Face repository. GPU performance and memory utilization are monitored using NVIDIA-SMI, with the environment configured to use CUDA Version 12.4.
 
 Evaluation Criteria. We use the golden answer as the ground truth for evaluation, which is generated during the dataset creation stage without any human bias. The responses from our approach and the baseline are evaluated against golden answers. The ROUGE score is used as an evaluation metric for unigram, bigram, and
 
-<span id="page-2-1"></span><sup>10</sup><https://www.langchain.com/>
+^10^ <https://www.langchain.com/>
 
-<span id="page-2-3"></span><sup>11</sup><https://huggingface.co/datasets/asu-kim/conversation-calendar>
+^11^ <https://huggingface.co/datasets/asu-kim/conversation-calendar>
 
 WWW Companion '25, April 28-May 2, 2025, Sydney, NSW, Australia Deeksha Prahlad, Chanhee Lee, Dongha Kim, & Hokeun Kim
 
-<span id="page-3-0"></span>![](_page_3_Figure_2.jpeg)
-<!-- Image Description: This figure presents three bar charts comparing baseline and a proposed approach's performance on ROUGE-1, ROUGE-2, and ROUGE-L metrics. Each chart represents a different model size (7B, 13B, and 70B parameters). The bars show the ROUGE scores, a metric for evaluating text summarization quality, with higher scores indicating better performance. The figure demonstrates the improved performance of the "Our Approach" over the "Baseline" across all model sizes and metrics. -->
-
+![Experimental results comparing three types of ROUGE metric scores (ROUGE-1, ROUGE-2, and ROUGE-L) of three Llama-2-Chat models (7B, 13B, and 70B) between the baseline and our approach.](_page_3_Figure_2.jpeg)
 **Figure 3:** Experimental results comparing three types of ROUGE metric scores (ROUGE-1, ROUGE-2, and ROUGE-L) of three Llama-2-Chat models (7B, 13B, and 70B) between the baseline and our approach.
 
-<span id="page-3-1"></span>![](_page_3_Figure_4.jpeg)
-<!-- Image Description: The bar chart compares the BLEU scores of a baseline approach and a new approach for three different language models (7B, 13B, 70B parameters). The new approach consistently outperforms the baseline, achieving higher BLEU scores across all model sizes. The chart visually demonstrates the effectiveness of the proposed method in improving machine translation quality, as measured by BLEU scores. -->
-
+![The bar chart compares the BLEU scores of a baseline approach and a new approach for three different language models (7B, 13B, 70B parameters). The new approach consistently outperforms the baseline, achieving higher BLEU scores across all model sizes. The chart visually demonstrates the effectiveness of the proposed method in improving machine translation quality, as measured by BLEU scores.](_page_3_Figure_4.jpeg)
 **Figure 4:** Experimental results comparing BLEU scores of Llama-2-Chat models (7B, 13B, and 70B) between the baseline and our approach.
-
 
 | Question 8 - Query: |
 |----------------------------------------------------------------|
@@ -242,7 +200,6 @@ longest sequence matching. The BLEU score measures the n-gram similarity between
 
 Experimental Results. We measure three types of ROUGE scores and the BLEU score, which map the n-gram overlap of words. The generation of the correct knowledge graph plays an important role in the generation of our results. During the query process, the model can easily find similar words without losing its way, and
 
-
 | | | Execution time (seconds) | | | | | |
 |--------------|------------|--------------------------|--------------|--|--|--|--|
 | LLM Model | Parameters | Baseline | Our Approach | | | | |
@@ -252,15 +209,15 @@ Experimental Results. We measure three types of ROUGE scores and the BLEU score,
 
 **Table 2:** Execution times of different Llama-2-Chat models under the baseline and our approach.
 
-hence, the KGs serve as a roadmap to the right solution, thereby reducing hallucinations by the LLM. Since our approach can direct the LLM to the right solution, the response times are better. Here are graphs showing experimental results using ROUGE scores and BLEU scores on the baseline vs. our approach. Our approach outperforms the baseline across all three Llama-2-Chat models (7B, 13B, and 70B), as shown for ROUGE in Figure [3a,](#page-3-0) Figure [3b,](#page-3-0) and Figure [3c](#page-3-0) and for BLEU-1 in Figure [4.](#page-3-1) The response shows that the model is being directed to the right data and is generating the required response, as seen in the sample results shown in Table [1.](#page-3-2)
+hence, the KGs serve as a roadmap to the right solution, thereby reducing hallucinations by the LLM. Since our approach can direct the LLM to the right solution, the response times are better. Here are graphs showing experimental results using ROUGE scores and BLEU scores on the baseline vs. our approach. Our approach outperforms the baseline across all three Llama-2-Chat models (7B, 13B, and 70B), as shown for ROUGE in Figure [[3a]](#ref-3), Figure [[3b]](#ref-3), and Figure [[3c]](#ref-3) and for BLEU-1 in Figure [[4]](#ref-4). The response shows that the model is being directed to the right data and is generating the required response, as seen in the sample results shown in Table [[1]](#ref-1).
 
-Our results in Figures [3](#page-3-0) and [4](#page-3-1) and Table [1](#page-3-2) demonstrate that the generated response for the same model with the knowledge graph (our approach) leads to a better response closer to the golden answer as it is directed toward the right context. Additionally, the average execution time for 20 question-response pairs shows that our approach is faster, as seen in Table [2.](#page-3-3)
+Our results in Figures [[3]](#ref-3) and [[4]](#ref-4) and Table [[1]](#ref-1) demonstrate that the generated response for the same model with the knowledge graph (our approach) leads to a better response closer to the golden answer as it is directed toward the right context. Additionally, the average execution time for 20 question-response pairs shows that our approach is faster, as seen in Table [[2]](#ref-2).
 
-Our approach achieves significant improvements across all evaluation metrics. We observe from Table [3](#page-4-29) that our approach outperforms the baseline in precision, recall, and F1 scores of ROUGE-1 (unigram), ROUGE-2 (bigram), ROUGE-L (longest sequence overlap). We observed an average increase of 35.15% in ROUGE-1, 65.57% in ROUGE-2, and 35.82% in ROUGE-L scores. For BLEU-1, the average increase was 61.11%. Additionally, the execution time showed an overall reduction of 8.931%. These improvements indicate that our approach enhances text generation quality and increases lexical overlap with the golden answer.
+Our approach achieves significant improvements across all evaluation metrics. We observe from Table [[3]](#ref-3) that our approach outperforms the baseline in precision, recall, and F1 scores of ROUGE-1 (unigram), ROUGE-2 (bigram), ROUGE-L (longest sequence overlap). We observed an average increase of 35.15% in ROUGE-1, 65.57% in ROUGE-2, and 35.82% in ROUGE-L scores. For BLEU-1, the average increase was 61.11%. Additionally, the execution time showed an overall reduction of 8.931%. These improvements indicate that our approach enhances text generation quality and increases lexical overlap with the golden answer.
 
 ## 5 Conclusion
 
-In summary, utilizing KGs enables enhanced adaptation for specific domains, guaranteeing the model produces responses customized to the particular context (e.g., calendar dataset). Our approach can <span id="page-4-29"></span><span id="page-4-0"></span>Personalizing LLMs using Retrieval Augmented Generation and Knowledge Graph WWW Companion '25, April 28-May 2, 2025, Sydney, NSW, Australia
+In summary, utilizing KGs enables enhanced adaptation for specific domains, guaranteeing the model produces responses customized to the particular context (e.g., calendar dataset). Our approach can Personalizing LLMs using Retrieval Augmented Generation and Knowledge Graph WWW Companion '25, April 28-May 2, 2025, Sydney, NSW, Australia
 
 | | | | | ROUGE-2 | | | ROUGE-L | | |
 |--------------|-----------|--------|-------|-----------|--------|-------|-----------|--------|-------|
@@ -283,47 +240,47 @@ This work was supported in part by the NSF I/UCRC for Intelligent, Distributed, 
 
 ### References
 
-- <span id="page-4-1"></span>[1] Josh Achiam et al. 2023. Gpt-4 technical report. arXiv preprint arXiv:2303.08774 (2023).
-- <span id="page-4-13"></span>[2] Renzo Angles, Marcelo Arenas, Pablo Barceló, Aidan Hogan, Juan Reutter, and Domagoj Vrgoč. 2017. Foundations of modern query languages for graph databases. ACM Computing Surveys (CSUR) 50, 5 (2017), 1–40.
-- <span id="page-4-11"></span>[3] Sören Auer, Christian Bizer, Georgi Kobilarov, Jens Lehmann, Richard Cyganiak, and Zachary Ives. 2007. Dbpedia: A nucleus for a web of open data. In international semantic web conference. Springer, 722–735.
-- <span id="page-4-16"></span>[4] Jinheon Baek, Nirupama Chandrasekaran, Silviu Cucerzan, Allen Herring, and Sujay Kumar Jauhar. 2024. Knowledge-augmented large language models for personalized contextual query suggestion. In Proceedings of the ACM on Web Conference 2024. 3355–3366.
-- <span id="page-4-10"></span>[5] Kurt Bollacker, Colin Evans, Praveen Paritosh, Tim Sturge, and Jamie Taylor. 2008. Freebase: a collaboratively created graph database for structuring human knowledge (SIGMOD '08). 1247–1250.
-- <span id="page-4-6"></span>[6] Sebastian Borgeaud, Arthur Mensch, Jordan Hoffmann, Trevor Cai, Eliza Rutherford, Katie Millican, George Bm Van Den Driessche, Jean-Baptiste Lespiau, Bogdan Damoc, Aidan Clark, et al. 2022. Improving language models by retrieving from trillions of tokens. In International conference on machine learning. PMLR, 2206–2240.
-- <span id="page-4-12"></span>[7] Anupam Das et al. 2020. Issues and Concepts of Graph Database and a Comparative Analysis on list of Graph Database tools. In 2020 International Conference on Computer Communication and Informatics (ICCCI). IEEE, 1–6.
-- <span id="page-4-26"></span>[8] Matthijs Douze, Alexandr Guzhva, Chengqi Deng, Jeff Johnson, Gergely Szilvasy, Pierre-Emmanuel Mazaré, Maria Lomeli, Lucas Hosseini, and Hervé Jégou. 2024. The faiss library. arXiv preprint arXiv:2401.08281 (2024).
-- <span id="page-4-27"></span>[9] Wenqi Fan, Yujuan Ding, Liangbo Ning, Shijie Wang, Hengyun Li, Dawei Yin, Tat-Seng Chua, and Qing Li. 2024. A survey on RAG meeting LLMs: Towards retrieval-augmented large language models. In Proceedings of the 30th ACM SIGKDD Conference on Knowledge Discovery and Data Mining. 6491–6501.
-- <span id="page-4-2"></span>[10] Boris Galitsky, Anton Chernyavskiy, and Dmitry Ilvovsky. 2024. Truth-o-meter: Handling multiple inconsistent sources repairing LLM hallucinations. In Proceedings of the 47th International ACM SIGIR Conference on Research and Development in Information Retrieval. 2817–2821.
-- <span id="page-4-24"></span>[11] Aric Hagberg, Pieter J Swart, and Daniel A Schult. 2008. Exploring network structure, dynamics, and function using NetworkX. Technical Report. Los Alamos National Laboratory (LANL), Los Alamos, NM (United States).
-- <span id="page-4-8"></span>[12] Aidan Hogan et al. 2021. Knowledge Graphs. ACM Comput. Surv. 54, 4, Article 71 (July 2021), 37 pages.
-- <span id="page-4-7"></span>[13] Zhibo Hu et al. 2024. Prompt perturbation in retrieval-augmented generation based large language models. In Proceedings of the 30th ACM SIGKDD Conference on Knowledge Discovery and Data Mining. 1119–1130.
-- <span id="page-4-3"></span>[14] Ziwei Ji, Tiezheng Yu, Yan Xu, Nayeon Lee, Etsuko Ishii, and Pascale Fung. 2023. Towards mitigating LLM hallucination via self reflection. In Findings of the Association for Computational Linguistics: EMNLP 2023. 1827–1843.
-- <span id="page-4-20"></span>[15] Anjuli Kannan, Karol Kurach, Sujith Ravi, Tobias Kaufmann, Andrew Tomkins, Balint Miklos, Greg Corrado, Laszlo Lukacs, Marina Ganea, Peter Young, et al. 2016. Smart reply: Automated response suggestion for email. In Proceedings of the 22nd ACM SIGKDD international conference on knowledge discovery and data mining. 955–964.
-- <span id="page-4-19"></span>[16] Chanhee Lee, Deeksha Prahlad, Dongha Kim, and Hokeun Kim. 2024. Work-in-Progress: On-device Retrieval Augmented Generation with Knowledge Graphs for Personalized Large Language Models. In 2024 International Conference on Embedded Software (EMSOFT). IEEE, 1–1.
-- <span id="page-4-5"></span>[17] Patrick Lewis, Ethan Perez, Aleksandra Piktus, Fabio Petroni, Vladimir Karpukhin, Naman Goyal, Heinrich Küttler, Mike Lewis, Wen-tau Yih, Tim Rocktäschel, et al. 2020. Retrieval-augmented generation for knowledge-intensive NLP tasks. In Proceedings of the 34th International Conference on Neural Information Processing Systems (NIPS '20). Article 793.
-- <span id="page-4-22"></span>[18] Chin-Yew Lin. 2004. ROUGE: A package for automatic evaluation of summaries. In Text summarization branches out. 74–81.
-- <span id="page-4-14"></span>[19] Shirui Pan, Linhao Luo, Yufei Wang, Chen Chen, Jiapu Wang, and Xindong Wu. 2024. Unifying large language models and knowledge graphs: A roadmap. IEEE Transactions on Knowledge and Data Engineering (2024).
-- <span id="page-4-23"></span>[20] Kishore Papineni, Salim Roukos, Todd Ward, and Wei-Jing Zhu. 2002. BLEU: a method for automatic evaluation of machine translation. In Proceedings of the 40th annual meeting of the Association for Computational Linguistics. 311–318.
-- <span id="page-4-4"></span>[21] Gabrijela Perković, Antun Drobnjak, and Ivica Botički. 2024. Hallucinations in llms: Understanding and addressing challenges. In 2024 47th MIPRO ICT and Electronics Convention (MIPRO). IEEE, 2084–2088.
-- <span id="page-4-18"></span>[22] Ruiyang Qin, Jun Xia, Zhenge Jia, Meng Jiang, Ahmed Abbasi, Peipei Zhou, Jingtong Hu, and Yiyu Shi. 2024. Enabling on-device large language model personalization with self-supervised data selection and synthesis. In Proceedings of the 61st ACM/IEEE Design Automation Conference. 1–6.
-- <span id="page-4-25"></span>[23] Nils Reimers and Iryna Gurevych. 2019. Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks. arXiv preprint arXiv:1908.10084 (2019).
-- <span id="page-4-17"></span>[24] Xiaoteng Shen, Rui Zhang, Xiaoyan Zhao, Jieming Zhu, and Xi Xiao. 2024. PMG: Personalized Multimodal Generation with Large Language Models. In Proceedings of the ACM on Web Conference 2024. 3833–3843.
-- <span id="page-4-21"></span>[25] Hugo Touvron et al. 2023. Llama 2: Open foundation and fine-tuned chat models. arXiv preprint arXiv:2307.09288 (2023).
-- <span id="page-4-9"></span>[26] Denny Vrandečić and Markus Krötzsch. 2014. Wikidata: a free collaborative knowledgebase. Commun. ACM 57, 10 (Sept. 2014), 78–85. [https://doi.org/10.](https://doi.org/10.1145/2629489) [1145/2629489](https://doi.org/10.1145/2629489)
-- <span id="page-4-28"></span>[27] Zhentao Xu, Mark Jerome Cruz, Matthew Guevara, Tie Wang, Manasi Deshpande, Xiaofeng Wang, and Zheng Li. 2024. Retrieval-augmented generation with knowledge graphs for customer service question answering. In Proceedings of the 47th Int'l ACM SIGIR Conf. on Research and Development in Information Retrieval. 2905–2909.
-- <span id="page-4-15"></span>[28] Linyao Yang, Hongyang Chen, Zhao Li, Xiao Ding, and Xindong Wu. 2024. Give us the facts: Enhancing large language models with knowledge graphs for factaware language modeling. IEEE Transactions on Knowledge and Data Engineering (2024).
+* <a id="ref-1"></a>[1] Josh Achiam et al. 2023. Gpt-4 technical report. arXiv preprint arXiv:2303.08774 (2023).
+* <a id="ref-2"></a>[2] Renzo Angles, Marcelo Arenas, Pablo Barceló, Aidan Hogan, Juan Reutter, and Domagoj Vrgoč. 2017. Foundations of modern query languages for graph databases. ACM Computing Surveys (CSUR) 50, 5 (2017), 1–40.
+* <a id="ref-3"></a>[3] Sören Auer, Christian Bizer, Georgi Kobilarov, Jens Lehmann, Richard Cyganiak, and Zachary Ives. 2007. Dbpedia: A nucleus for a web of open data. In international semantic web conference. Springer, 722–735.
+* <a id="ref-4"></a>[4] Jinheon Baek, Nirupama Chandrasekaran, Silviu Cucerzan, Allen Herring, and Sujay Kumar Jauhar. 2024. Knowledge-augmented large language models for personalized contextual query suggestion. In Proceedings of the ACM on Web Conference 2024. 3355–3366.
+* <a id="ref-5"></a>[5] Kurt Bollacker, Colin Evans, Praveen Paritosh, Tim Sturge, and Jamie Taylor. 2008. Freebase: a collaboratively created graph database for structuring human knowledge (SIGMOD '08). 1247–1250.
+* <a id="ref-6"></a>[6] Sebastian Borgeaud, Arthur Mensch, Jordan Hoffmann, Trevor Cai, Eliza Rutherford, Katie Millican, George Bm Van Den Driessche, Jean-Baptiste Lespiau, Bogdan Damoc, Aidan Clark, et al. 2022. Improving language models by retrieving from trillions of tokens. In International conference on machine learning. PMLR, 2206–2240.
+* <a id="ref-7"></a>[7] Anupam Das et al. 2020. Issues and Concepts of Graph Database and a Comparative Analysis on list of Graph Database tools. In 2020 International Conference on Computer Communication and Informatics (ICCCI). IEEE, 1–6.
+* <a id="ref-8"></a>[8] Matthijs Douze, Alexandr Guzhva, Chengqi Deng, Jeff Johnson, Gergely Szilvasy, Pierre-Emmanuel Mazaré, Maria Lomeli, Lucas Hosseini, and Hervé Jégou. 2024. The faiss library. arXiv preprint arXiv:2401.08281 (2024).
+* <a id="ref-9"></a>[9] Wenqi Fan, Yujuan Ding, Liangbo Ning, Shijie Wang, Hengyun Li, Dawei Yin, Tat-Seng Chua, and Qing Li. 2024. A survey on RAG meeting LLMs: Towards retrieval-augmented large language models. In Proceedings of the 30th ACM SIGKDD Conference on Knowledge Discovery and Data Mining. 6491–6501.
+* <a id="ref-10"></a>[10] Boris Galitsky, Anton Chernyavskiy, and Dmitry Ilvovsky. 2024. Truth-o-meter: Handling multiple inconsistent sources repairing LLM hallucinations. In Proceedings of the 47th International ACM SIGIR Conference on Research and Development in Information Retrieval. 2817–2821.
+* <a id="ref-11"></a>[11] Aric Hagberg, Pieter J Swart, and Daniel A Schult. 2008. Exploring network structure, dynamics, and function using NetworkX. Technical Report. Los Alamos National Laboratory (LANL), Los Alamos, NM (United States).
+* <a id="ref-12"></a>[12] Aidan Hogan et al. 2021. Knowledge Graphs. ACM Comput. Surv. 54, 4, Article 71 (July 2021), 37 pages.
+* <a id="ref-13"></a>[13] Zhibo Hu et al. 2024. Prompt perturbation in retrieval-augmented generation based large language models. In Proceedings of the 30th ACM SIGKDD Conference on Knowledge Discovery and Data Mining. 1119–1130.
+* <a id="ref-14"></a>[14] Ziwei Ji, Tiezheng Yu, Yan Xu, Nayeon Lee, Etsuko Ishii, and Pascale Fung. 2023. Towards mitigating LLM hallucination via self reflection. In Findings of the Association for Computational Linguistics: EMNLP 2023. 1827–1843.
+* <a id="ref-15"></a>[15] Anjuli Kannan, Karol Kurach, Sujith Ravi, Tobias Kaufmann, Andrew Tomkins, Balint Miklos, Greg Corrado, Laszlo Lukacs, Marina Ganea, Peter Young, et al. 2016. Smart reply: Automated response suggestion for email. In Proceedings of the 22nd ACM SIGKDD international conference on knowledge discovery and data mining. 955–964.
+* <a id="ref-16"></a>[16] Chanhee Lee, Deeksha Prahlad, Dongha Kim, and Hokeun Kim. 2024. Work-in-Progress: On-device Retrieval Augmented Generation with Knowledge Graphs for Personalized Large Language Models. In 2024 International Conference on Embedded Software (EMSOFT). IEEE, 1–1.
+* <a id="ref-17"></a>[17] Patrick Lewis, Ethan Perez, Aleksandra Piktus, Fabio Petroni, Vladimir Karpukhin, Naman Goyal, Heinrich Küttler, Mike Lewis, Wen-tau Yih, Tim Rocktäschel, et al. 2020. Retrieval-augmented generation for knowledge-intensive NLP tasks. In Proceedings of the 34th International Conference on Neural Information Processing Systems (NIPS '20). Article 793.
+* <a id="ref-18"></a>[18] Chin-Yew Lin. 2004. ROUGE: A package for automatic evaluation of summaries. In Text summarization branches out. 74–81.
+* <a id="ref-19"></a>[19] Shirui Pan, Linhao Luo, Yufei Wang, Chen Chen, Jiapu Wang, and Xindong Wu. 2024. Unifying large language models and knowledge graphs: A roadmap. IEEE Transactions on Knowledge and Data Engineering (2024).
+* <a id="ref-20"></a>[20] Kishore Papineni, Salim Roukos, Todd Ward, and Wei-Jing Zhu. 2002. BLEU: a method for automatic evaluation of machine translation. In Proceedings of the 40th annual meeting of the Association for Computational Linguistics. 311–318.
+* <a id="ref-21"></a>[21] Gabrijela Perković, Antun Drobnjak, and Ivica Botički. 2024. Hallucinations in llms: Understanding and addressing challenges. In 2024 47th MIPRO ICT and Electronics Convention (MIPRO). IEEE, 2084–2088.
+* <a id="ref-22"></a>[22] Ruiyang Qin, Jun Xia, Zhenge Jia, Meng Jiang, Ahmed Abbasi, Peipei Zhou, Jingtong Hu, and Yiyu Shi. 2024. Enabling on-device large language model personalization with self-supervised data selection and synthesis. In Proceedings of the 61st ACM/IEEE Design Automation Conference. 1–6.
+* <a id="ref-23"></a>[23] Nils Reimers and Iryna Gurevych. 2019. Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks. arXiv preprint arXiv:1908.10084 (2019).
+* <a id="ref-24"></a>[24] Xiaoteng Shen, Rui Zhang, Xiaoyan Zhao, Jieming Zhu, and Xi Xiao. 2024. PMG: Personalized Multimodal Generation with Large Language Models. In Proceedings of the ACM on Web Conference 2024. 3833–3843.
+* <a id="ref-25"></a>[25] Hugo Touvron et al. 2023. Llama 2: Open foundation and fine-tuned chat models. arXiv preprint arXiv:2307.09288 (2023).
+* <a id="ref-26"></a>[26] Denny Vrandečić and Markus Krötzsch. 2014. Wikidata: a free collaborative knowledgebase. Commun. ACM 57, 10 (Sept. 2014), 78–85. <https://doi.org/10.1145/2629489>
+* <a id="ref-27"></a>[27] Zhentao Xu, Mark Jerome Cruz, Matthew Guevara, Tie Wang, Manasi Deshpande, Xiaofeng Wang, and Zheng Li. 2024. Retrieval-augmented generation with knowledge graphs for customer service question answering. In Proceedings of the 47th Int'l ACM SIGIR Conf. on Research and Development in Information Retrieval. 2905–2909.
+* <a id="ref-28"></a>[28] Linyao Yang, Hongyang Chen, Zhao Li, Xiao Ding, and Xindong Wu. 2024. Give us the facts: Enhancing large language models with knowledge graphs for factaware language modeling. IEEE Transactions on Knowledge and Data Engineering (2024).
 
 ## Metadata Summary
 ### Research Context
-- **Research Question**: How can retrieval augmented generation and knowledge graphs be combined to personalize large language models for on-device applications while protecting sensitive personal data?
-- **Methodology**: Personalized dataset generation using ChatGPT; knowledge graph creation from calendar and conversation data; embedding models for vector representation conversion; Llama-2-Chat model utilization for response generation; comprehensive evaluation across multiple metrics
-- **Key Findings**: Improved response accuracy across all evaluation metrics; average increases of 35.15% in ROUGE-1, 65.57% in ROUGE-2, 35.82% in ROUGE-L, 61.11% in BLEU-1; achieved 8.931% reduction in execution time; successful on-device LLM personalization
-- **Primary Outcomes**: On-device LLM personalization framework; knowledge graph-based personal information management; retrieval augmented generation system; private data protection mechanism through local processing
+* **Research Question**: How can retrieval augmented generation and knowledge graphs be combined to personalize large language models for on-device applications while protecting sensitive personal data?
+* **Methodology**: Personalized dataset generation using ChatGPT; knowledge graph creation from calendar and conversation data; embedding models for vector representation conversion; Llama-2-Chat model utilization for response generation; comprehensive evaluation across multiple metrics
+* **Key Findings**: Improved response accuracy across all evaluation metrics; average increases of 35.15% in ROUGE-1, 65.57% in ROUGE-2, 35.82% in ROUGE-L, 61.11% in BLEU-1; achieved 8.931% reduction in execution time; successful on-device LLM personalization
+* **Primary Outcomes**: On-device LLM personalization framework; knowledge graph-based personal information management; retrieval augmented generation system; private data protection mechanism through local processing
 
 ### Analysis
-- **Limitations**: Currently focused on calendar data applications; requires generating custom datasets for domain adaptation; privacy protection limited to preventing data combination rather than comprehensive privacy preservation
-- **Research Gaps**: Limited scope to calendar data personalization; challenges in comprehensive privacy preservation; need for custom dataset generation for different domains
-- **Future Work**: Expand to additional personal data types beyond calendar information; develop comprehensive privacy preservation mechanisms; investigate automated dataset generation for diverse domains
-- **Conclusion**: Enables domain-specific LLM adaptation with on-device deployment supporting continuously updating knowledge while reducing risks of cloud-based sensitive data transmission
+* **Limitations**: Currently focused on calendar data applications; requires generating custom datasets for domain adaptation; privacy protection limited to preventing data combination rather than comprehensive privacy preservation
+* **Research Gaps**: Limited scope to calendar data personalization; challenges in comprehensive privacy preservation; need for custom dataset generation for different domains
+* **Future Work**: Expand to additional personal data types beyond calendar information; develop comprehensive privacy preservation mechanisms; investigate automated dataset generation for diverse domains
+* **Conclusion**: Enables domain-specific LLM adaptation with on-device deployment supporting continuously updating knowledge while reducing risks of cloud-based sensitive data transmission
 
 ### Implementation Notes
 Provides innovative framework for on-device LLM personalization using knowledge graphs essential for HDM systems requiring private data protection and continuous personal knowledge updates

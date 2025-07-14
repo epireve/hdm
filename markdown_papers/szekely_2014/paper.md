@@ -1,34 +1,17 @@
+---
 cite_key: szekely_2014
-title: Building and Using a Knowledge Graph to Combat Human Trafficking
-authors: Pedro Szekely, Craig A. Knoblock, Jason Slepicka, Andrew Philpot, Amandeep Singh, Chengye Yin, Dipsy Kapoor, Prem Natarajan, Daniel Marcu, Kevin Knight, David Stallard, Subessware S. Karunamoorthy, Rajagopal Bojanapalli, Steven Minton, Brian Amanatullah, Todd Hughes, Mike Tamayo, David Flynt, Rachel Artiss, Fu Chang, Tao Chen, Gerald Hiebel, Lidia Ferreira
-year: 2014
-doi: 10.1007/s00778-008-0098-x
-date_processed: '2025-07-02'
-phase2_processed: true
-original_folder: szekely15-iswc
-images_total: 4
-images_kept: 3
-images_removed: 1
-tags:
-- Data Integration
-- Knowledge Graph
-- Machine Learning
-- Natural Language Processing
-- Semantic Web
-keywords:
-- knowledge graph
-- shih-fu
 ---
 
 # Building and Using a Knowledge Graph to Combat Human Trafficking
 
-Pedro Szekely<sup>1</sup> , Craig A. Knoblock<sup>1</sup> , Jason Slepicka<sup>1</sup> , Andrew Philpot<sup>1</sup> , Amandeep Singh<sup>1</sup> , Chengye Yin<sup>1</sup> , Dipsy Kapoor<sup>1</sup> , Prem Natarajan<sup>1</sup> , Daniel Marcu<sup>1</sup> , Kevin Knight<sup>1</sup> , David Stallard<sup>1</sup> , Subessware S. Karunamoorthy<sup>1</sup> , Rajagopal Bojanapalli<sup>1</sup> , Steven Minton<sup>2</sup> , Brian Amanatullah<sup>2</sup> , Todd Hughes<sup>3</sup> , Mike Tamayo<sup>3</sup> , David Flynt<sup>3</sup> , Rachel Artiss<sup>3</sup> , Shih-Fu Chang<sup>4</sup> , Tao Chen<sup>4</sup> , Gerald Hiebel<sup>5</sup> , and Lidia Ferreira<sup>6</sup>
+Pedro Szekely^1^, Craig A. Knoblock^1^, Jason Slepicka^1^, Andrew Philpot^1^, Amandeep Singh^1^, Chengye Yin^1^, Dipsy Kapoor^1^, Prem Natarajan^1^, Daniel Marcu^1^, Kevin Knight^1^, David Stallard^1^, Subessware S. Karunamoorthy^1^, Rajagopal Bojanapalli^1^, Steven Minton^2^, Brian Amanatullah^2^, Todd Hughes^3^, Mike Tamayo^3^, David Flynt^3^, Rachel Artiss^3^, Shih-Fu Chang^4^, Tao Chen^4^, Gerald Hiebel^5^, and Lidia Ferreira^6^
 
-<sup>1</sup> University of Southern California, Information Sciences Institute, Marina del Rey, CA, USA 2
-
-InferLink Corporation, El Segundo, CA, USA <sup>3</sup> Next Century Corporation, Columbia, MD, USA
-
-<sup>4</sup> Columbia University, New York, USA <sup>5</sup> Universitt Innsbruck, Austria <sup>6</sup> Universidade Federal de Minas Gerais, Brazil
+^1^ University of Southern California, Information Sciences Institute, Marina del Rey, CA, USA
+^2^ InferLink Corporation, El Segundo, CA, USA
+^3^ Next Century Corporation, Columbia, MD, USA
+^4^ Columbia University, New York, USA
+^5^ Universitt Innsbruck, Austria
+^6^ Universidade Federal de Minas Gerais, Brazil
 
 Abstract. There is a huge amount of data spread across the web and stored in databases that we can use to build knowledge graphs. However, exploiting this data to build knowledge graphs is difficult due to the heterogeneity of the sources, scale of the amount of data, and noise in the data. In this paper we present an approach to building knowledge graphs by exploiting semantic technologies to reconcile the data continuously crawled from diverse sources, to scale to billions of triples extracted from the crawled content, and to support interactive queries on the data. We applied our approach, implemented in the DIG system, to the problem of combating human trafficking and deployed it to six law enforcement agencies and several non-governmental organizations to assist them with finding traffickers and helping victims.
 
@@ -37,18 +20,18 @@ Keywords: linked data, knowledge graphs, entity linkage, data integration, infor
 ## TL;DR
 Research on building and using a knowledge graph to combat human trafficking providing insights for knowledge graph development and data integration.
 
-## Key Insights  
+## Key Insights
 Contributes to the broader understanding of knowledge graph technologies and data management practices relevant to PKG system development.
 
 ## 1 Introduction
 
-Human trafficking is a form of modern slavery where people profit from the control and exploitation of others, forcing them to engage in commercial sex or to provide services against their will. The statistics of the problem are shocking. In 2014 the International Labor Organization on The Economics of Forced Labour<sup>7</sup> reported that \$99 billion came from commercial sexual exploitation. Polaris<sup>8</sup> reports that in the United States 100,000 children are estimated to be involved
+Human trafficking is a form of modern slavery where people profit from the control and exploitation of others, forcing them to engage in commercial sex or to provide services against their will. The statistics of the problem are shocking. In 2014 the International Labor Organization on The Economics of Forced Labour^7^ reported that $99 billion came from commercial sexual exploitation. Polaris^8^ reports that in the United States 100,000 children are estimated to be involved
 
-<sup>7</sup> http://bit.ly/1oa2cR3
+^7^ http://bit.ly/1oa2cR3
 
-<sup>8</sup> http://www.polarisproject.org/index.php
+^8^ http://www.polarisproject.org/index.php
 
-in the sex trade each year, and that the total number of victims is likely much larger when estimates of both adults and minors as well as sex trafficking and labor trafficking are aggregated. Estimates indicate that traffickers control an average of six victims and derive \$150,000 from each victim per year. The sex trafficking industry is estimated to spend about \$30 million in online advertising each year. These advertisements appear in hundreds of web sites that advertise escort services, massage parlors, etc. The total number of such advertisements is unknown, but our database of escort ads crawled from the most popular sites contains over 50 million ads.
+in the sex trade each year, and that the total number of victims is likely much larger when estimates of both adults and minors as well as sex trafficking and labor trafficking are aggregated. Estimates indicate that traffickers control an average of six victims and derive $150,000 from each victim per year. The sex trafficking industry is estimated to spend about $30 million in online advertising each year. These advertisements appear in hundreds of web sites that advertise escort services, massage parlors, etc. The total number of such advertisements is unknown, but our database of escort ads crawled from the most popular sites contains over 50 million ads.
 
 The objective of our work is to create generic technology to enable rapid construction of knowledge graphs for specific domains together with query, visualization and analysis capabilities that enable end-users to solve complex problems. The challenge is to exploit all available sources, including web pages, document collections, databases, delimited text files, structured data such as XML or JSON, images, and videos. This paper describes the technologies and their application to build a large knowledge graph for the human trafficking domain. We focus on the role of Semantic Web techniques to address the technical challenges, and we describe the challenges in using Semantic Web techniques given the scale of the data, the performance requirements of the application, and the social challenges of working within a large consortium of developers unfamiliar with Semantic Web technologies.
 
@@ -62,6 +45,9 @@ The phone number is obfuscated, using unicode characters and letters to code the
 
 Building and Using a Knowledge Graph to Combat Human Trafficking 3
 
+![Example page with an index of escort ads](_page_3_Figure_0.jpeg)
+<!-- Image Description: The image is a graph illustrating relationships between online advertisements (Ad1, Ad2, Ad3). Nodes represent ads, locations (Miami, Orlando, Sacramento), names (Kitty, Yuyu), phone numbers, emails, and images. Edges, colored green and red, show connections; green indicates attributes associated with ads, while red represents text (0.9 similarity) and image (0.8 similarity) comparisons between ads. The graph visually depicts the similarity and connections between seemingly unrelated advertisements based on shared attributes. -->
+
 Figure 1. Example page with an index of escort ads
 
 In addition to escort ads, we use reference datasets such as Geonames, which provides geographic location information, and phone exchange databases, which provide information about the locations where phone numbers are registered.
@@ -73,9 +59,6 @@ The main objective of our work is to construct a high quality knowledge graph an
 Building a knowledge graph to effectively support these types of scenarios requires addressing a number of challenges:
 
 No agreement on APIs or schemas: Our team is part of a large consortium of over 15 organizations funded to develop "domain-specific search and indexing" technology and applying it to address the human trafficking challenge. Different organizations focus on different aspects of the problem, crawling, extraction, knowledge-graph creation, query, analytics and visualization. Needless to say, it
-
-![](_page_3_Figure_0.jpeg)
-<!-- Image Description: The image is a graph illustrating relationships between online advertisements (Ad1, Ad2, Ad3). Nodes represent ads, locations (Miami, Orlando, Sacramento), names (Kitty, Yuyu), phone numbers, emails, and images. Edges, colored green and red, show connections; green indicates attributes associated with ads, while red represents text (0.9 similarity) and image (0.8 similarity) comparisons between ads. The graph visually depicts the similarity and connections between seemingly unrelated advertisements based on shared attributes. -->
 
 Figure 2. Example knowledge graph
 
@@ -97,7 +80,7 @@ In this section we describe our overall approach to building knowledge graphs. W
 
 Data acquisition requires finding relevant pages and extracting the required information from those pages. DIG uses Apache Nutch (nutch.apache.org) to support crawling at scale. Nutch offers a RESTful configuration interface that makes it easy to specify the URL patterns to be crawled, to monitor crawling
 
-![](_page_4_Figure_8.jpeg)
+![Architecture for building a knowledge graph](_page_4_Figure_8.jpeg)
 <!-- Image Description: This flowchart illustrates a knowledge graph construction pipeline. It depicts data acquisition (crawling and extraction), mapping to ontologies (schema.org and geonames), entity linking and similarity checks, knowledge graph deployment to ElasticSearch and a Graph DB, and finally, query and visualization. Nodes and edges represent the data transformations at each stage. The final output is a visualized query result from the knowledge graph. -->
 
 Figure 3. Architecture for building a knowledge graph
@@ -108,7 +91,7 @@ After crawling, the next step is to extract features from the harvested data to 
 
 The DIG semi-structured page extractor, called the landmark extractor, identifies elements in a page using landmarks defined with regular expressions. DIG provides a learning component that automatically infers rules for the landmark extractor from examples. To train an extractor, the data scientist provides a collection of pages and corresponding extractions (e.g., name, phone number and location from a set of pages that all come from the same site). Using a handful of examples, the learning component automatically creates a landmark extractor that extracts data from similar pages.
 
-To support extraction from text, DIG offers a capability to enable data scientists to easily train extractors specialized to an application domain. In the human trafficking domain we need to extract data elements such as eye-color, hair type and color, and ethnicity from the escort advertisements. To train a new extractor for a text corpus, a data scientist highlights the desired data elements in a small number of sample sentences or short paragraphs selected from the corpus. For example, in the sentence "Perfect Green eyes Long curly black hair Im a Irish, Armenian and Filipino", the data scientists highlights "Green eyes" and "Long curly black hair". After the data scientist designates a text corpus and defines the examples, DIG automatically constructs thousands of tasks to acquire additional annotations using the Amazon Mechanical Turk crowd sourcing platform (www.mturk.com). The output of the Mechanical Turk tasks feeds a Conditional Random Field [6] that learns an extractor from the annotations provided.
+To support extraction from text, DIG offers a capability to enable data scientists to easily train extractors specialized to an application domain. In the human trafficking domain we need to extract data elements such as eye-color, hair type and color, and ethnicity from the escort advertisements. To train a new extractor for a text corpus, a data scientist highlights the desired data elements in a small number of sample sentences or short paragraphs selected from the corpus. For example, in the sentence "Perfect Green eyes Long curly black hair Im a Irish, Armenian and Filipino", the data scientists highlights "Green eyes" and "Long curly black hair". After the data scientist designates a text corpus and defines the examples, DIG automatically constructs thousands of tasks to acquire additional annotations using the Amazon Mechanical Turk crowd sourcing platform (www.mturk.com). The output of the Mechanical Turk tasks feeds a Conditional Random Field [[6]](#ref-6) that learns an extractor from the annotations provided.
 
 ### 2 DIG Ontology
 
@@ -129,7 +112,7 @@ featureValue a owl:DatatypeProperty ;
 rdfs:domain Feature .
 featureObject a owl:ObjectProperty ;
 rdfs:domain Feature .
-```text
+```
 
 An instance of FeatureCollection represents the collection of edges associated with a node in the graph; hasFeatureCollection associates such an instance with a node in the graph. An instance of Feature represents an edge in the graph. The featureValue represents the value of the Feature as a literal and corresponds to what normally would be a data property in an ontology. When the value of a Feature can also be represented as a structured object, featureObject represents the value of the feature as an RDF object. For each type of edge in the graph, the ontology also includes a property as illustrated in the following example for phone numbers:
 
@@ -137,7 +120,7 @@ An instance of FeatureCollection represents the collection of edges associated w
 phonenumber_feature a owl:ObjectProperty ;
 rdfs:domain FeatureCollection ;
 rdfs:range Feature .
-```text
+```
 
 The main benefit of our ontology is that all the information about a node or an edge in the graph can be conveniently accessed using property paths without the need to do separate queries to retrieve metadata or provenance. Consider the following examples:
 
@@ -148,9 +131,9 @@ The main benefit of our ontology is that all the information about a node or an 
 4. hasFeatureCollection / phonenumber_feature / featureObject / countryCode
 5. hasFeatureCollection / phonenumber_feature / prov:wasDerivedFrom
 6. hasFeatureCollection / phonenumber_feature / prov:wasAttributedTo
-```text
+```
 
-![](_page_7_Figure_1.jpeg)
+![Screenshot of Karma showing data extracted from escort ads and the associated model of this source for phone numbers](_page_7_Figure_1.jpeg)
 <!-- Image Description: The image displays a graph-based visualization of data from a JSON file ("ads-sample.json"). Nodes represent entities (e.g., WebPage, PhoneNumber, FeatureCollection) and edges represent relationships (e.g., `wasDerivedFrom`, `hasFeatureCollection`). Below the graph, a table shows data instances linked to the nodes, with bar charts indicating data counts for specific URIs. The figure illustrates the data structure and relationships within the JSON file, likely to demonstrate the application of a knowledge representation or data integration method. -->
 
 Figure 4. Screenshot of Karma showing data extracted from escort ads and the associated model of this source for phone numbers
@@ -161,19 +144,19 @@ The first property path returns the Feature objects that hold the phone values a
 
 The data extraction processes produce a variety of data in different formats. The next step towards construction of a knowledge graph is to convert all the extracted data as well as auxiliary structured sources to the DIG ontology. The data conversion process consists of two parts. We first define a mapping from the source schema to the ontology, and then we execute the mapping to convert the data into JSON-LD, a Linked Data representation in JSON.
 
-To convert the data, we build on our previous work on Karma [5, 10, 11], which provides a semi-automatic approach to defining mappings from a data source to an ontology. Figure 4 is a screenshot of Karma showing the mapping of phone numbers extracted from escort ads to the DIG ontology. The challenge in using Karma for this task was creating a representation of the data that could be efficiently queried and converting the data into this representation at a massive scale. In the remainder of this section, we first describe how Karma is used to clean and model the data and then we describe the new capabilities to support creating large-scale knowledge graphs.
+To convert the data, we build on our previous work on Karma [[5]](#ref-5), [[10]](#ref-10), [[11]](#ref-11), which provides a semi-automatic approach to defining mappings from a data source to an ontology. Figure 4 is a screenshot of Karma showing the mapping of phone numbers extracted from escort ads to the DIG ontology. The challenge in using Karma for this task was creating a representation of the data that could be efficiently queried and converting the data into this representation at a massive scale. In the remainder of this section, we first describe how Karma is used to clean and model the data and then we describe the new capabilities to support creating large-scale knowledge graphs.
 
-Karma provides an integrated environment to clean data while mapping it to an ontology. The user interface for cleaning the data is similar to a spreadsheet in that users can define new attributes as functions of existing attributes. Karma uses Python as its formula language enabling users to define arbitrary data transformations succinctly. For example, the first column in Figure 4 (crawl uri) defines the URI for a page as the SHA1 hash<sup>9</sup> of the concatenation of the url and the timestamp attributes of the source. All other columns in the figure are also defined using Python scripts. Note that the phone clean1 column contains a normalized representation of the phone numbers.
+Karma provides an integrated environment to clean data while mapping it to an ontology. The user interface for cleaning the data is similar to a spreadsheet in that users can define new attributes as functions of existing attributes. Karma uses Python as its formula language enabling users to define arbitrary data transformations succinctly. For example, the first column in Figure 4 (crawl uri) defines the URI for a page as the SHA1 hash^9^ of the concatenation of the url and the timestamp attributes of the source. All other columns in the figure are also defined using Python scripts. Note that the phone clean1 column contains a normalized representation of the phone numbers.
 
 The graph in the figure defines the mapping of the source to the DIG ontology as a model of the source in terms of the classes and properties defined in the ontology. In the model shown in the figure, the dark ovals represent classes and the links labeled with gray rectangles represent properties. The links between classes are object properties and the links between a class and an attribute of the source denote either data properties or specify that an attribute contains the URI for an instance of a class. The model shows that a WebPage has a FeatureCollection, which has a phonenumber feature. The phone Feature has a featureValue that points to the phone clean1 attribute and a featureObject property that points to a structured representation of the phone. Properties such as wasDerivedFrom and wasGeneratedBy record provenance. The URIs are important because several sources contain extractions from the same web pages, and the URIs are used to merge the converted data. For example, the FeatureCollection of each web page has a unique URI so that when the URI is reused in models the corresponding features are added to the same FeatureCollection.
 
-One of Karma's unique capabilities is that it learns to define the mappings from sources to an ontology. Each time a user maps an attribute of a source to a class in the ontology, Karma uses the values of the attribute to learn the mapping [8]. When users define relationships between classes, Karma also learns so that later, when a user models a new source, Karma can automatically suggest the properties and classes to model the new source. For the human trafficking application we constructed 21 models with very similar structures. The learning component coupled with the easy-to-use graphical interface makes it possible to define a model of the complexity shown in Figure 4 in about 30 minutes. Karma proved to be effective to address the data heterogeneity challenge.
+One of Karma's unique capabilities is that it learns to define the mappings from sources to an ontology. Each time a user maps an attribute of a source to a class in the ontology, Karma uses the values of the attribute to learn the mapping [[8]](#ref-8). When users define relationships between classes, Karma also learns so that later, when a user models a new source, Karma can automatically suggest the properties and classes to model the new source. For the human trafficking application we constructed 21 models with very similar structures. The learning component coupled with the easy-to-use graphical interface makes it possible to define a model of the complexity shown in Figure 4 in about 30 minutes. Karma proved to be effective to address the data heterogeneity challenge.
 
 By default, Karma generates n-triples for every record and every node and link in a model. This serialization of RDF can be loaded in any RDF triple store. However, many of the big data tools, such as ElasticSearch (www.elastic.co), cannot read triples and require data about objects to be represented in JSON documents. We extended Karma to also generate JSON-LD and to allow developers to customize the organization of the JSON-LD documents. For example, if a developer specifies a root such as WebPage1 in Figure 4, Karma will generate the JSON-LD shown in Table 1 for the first row of the source (URIs omitted for brevity).
 
 The JSON-LD document is organized according to the structure of the model. Developers can customize the generation of the JSON-LD documents by specifying constraints to stop expansion at specified nodes (e.g., do not expand the
 
-<sup>9</sup> https://en.wikipedia.org/wiki/SHA-1
+^9^ https://en.wikipedia.org/wiki/SHA-1
 
 Table 1. Example JSON-LD generated by Karma
 
@@ -194,7 +177,7 @@ Table 1. Example JSON-LD generated by Karma
 "endedAtTime": "2014-04-02T17:55:23" },
 "wasDerivedFrom": "http://dig.isi.edu/ht/data/page/5C27...",
 "featureValue": "6626713052" }}}
-```text
+```
 
 Activity1 object) and constraints to include or exclude specific properties. If the developer does not specify any constraints, Karma uses all nodes connected to the root, breaking cycles arbitrarily. The approach is flexible, allowing developers to specify how much information around the root should be included in the JSON-LD documents. Furthermore, developers can generate JSON-LD documents organized around different roots. For example, developers can produce JSON-LD documents organized around phone numbers, and these would contain all web pages referring to a given phone number.
 
@@ -202,9 +185,9 @@ In addition to extending Karma to support JSON-LD, we also modified Karma so tha
 
 ### 4 Computing Similarity
 
-The next step in the processing is to identify potential links between similar data items. Due to the size of the datasets, this is a challenging problem. DIG provides capabilities to compute similarity for images and for text data. DIG's image similarity capability uses DeepSentiBank, a deep convolutional neural networks approach [3]. The approach extracts over 2,000 features from each image and computes compact hash codes (only 256 bits per image) that can be used to retrieve similar images. An important benefit of such similarity sensitive hash codes is that there is no need to train the similarity algorithms with images in the domain of interest. In our human trafficking application we used this approach with a database of 20 million images. The system precomputes the compact hash codes, which requires about 40 hours on a single machine, and is then able to find identical and near duplicate images for a new image over the entire 20 million images in less than 2 seconds. For example, given a photo of a person, the system can find other photos of that person taken in similar settings (e.g., in the same room) or with similar clothing, even if the person is in a different pose.
+The next step in the processing is to identify potential links between similar data items. Due to the size of the datasets, this is a challenging problem. DIG provides capabilities to compute similarity for images and for text data. DIG's image similarity capability uses DeepSentiBank, a deep convolutional neural networks approach [[3]](#ref-3). The approach extracts over 2,000 features from each image and computes compact hash codes (only 256 bits per image) that can be used to retrieve similar images. An important benefit of such similarity sensitive hash codes is that there is no need to train the similarity algorithms with images in the domain of interest. In our human trafficking application we used this approach with a database of 20 million images. The system precomputes the compact hash codes, which requires about 40 hours on a single machine, and is then able to find identical and near duplicate images for a new image over the entire 20 million images in less than 2 seconds. For example, given a photo of a person, the system can find other photos of that person taken in similar settings (e.g., in the same room) or with similar clothing, even if the person is in a different pose.
 
-DIG uses Minhash/LSH algorithms [7] to compute similarity on text data, as these algorithms can scale to large datasets containing hundreds of millions of documents. These algorithms work by computing random hashing functions on the tokens of a document, and can find pairs of similar items in a large dataset in O(n ∗ log(n)) time. Minhash/LSH computes an approximation of Jaccard similarity, defined as the ratio of tokens two documents have in common over the combined number of tokens in the two documents. The text similarity can be precomputed offline, which requires 12 hours on a single machine, and as new documents are added the similarity is incrementally evaluated.
+DIG uses Minhash/LSH algorithms [[7]](#ref-7) to compute similarity on text data, as these algorithms can scale to large datasets containing hundreds of millions of documents. These algorithms work by computing random hashing functions on the tokens of a document, and can find pairs of similar items in a large dataset in O(n * log(n)) time. Minhash/LSH computes an approximation of Jaccard similarity, defined as the ratio of tokens two documents have in common over the combined number of tokens in the two documents. The text similarity can be precomputed offline, which requires 12 hours on a single machine, and as new documents are added the similarity is incrementally evaluated.
 
 To use these algorithms, DIG constructs a document for each data record and then runs the Minhash/LSH algorithms over the associated documents. DIG provides a library of tokenization methods to compute the tokens that form the document associated with a data record. If a data record contains sentences or larger texts, then the document can be formed using the words in the document, or word n-grams (sequences of several words). If the data records contain small values such as names of people or geographic locations, then the document can be formed using character n-grams (sequences of several characters). These ngrams are useful because they allow the algorithm to find similar items when they use slightly different spellings for words.
 
@@ -220,7 +203,7 @@ to the appropriate entity in GeoNames (e.g., mapping the string "Los Angeles, CA
 
 To solve this variant of the entity resolution problem, a data scientist first uses Karma to map the reference dataset to the ontology being used. Then, the data scientist uses the similarity analysis discussed in the previous section to compute similarities between records in the reference dataset and other records in the knowledge base. The output of the similarity matching step is a small number of candidate entities for each entity mention in the knowledge base, typically less than 100. Next we define matching algorithms tuned to the entity type. Data scientists can define custom matching algorithms or use classifiers such as support vector machines (SVM) to define custom matching components to determine whether a mention should be matched with an entity. This matching step only needs to operate on the small number of similar candidates generated in the similarity matching, so this matching step can evaluate all candidates without affecting the overall scalability.
 
-The second variant of the entity resolution problem addresses the case when there is no reference set for the entities of interest. For example, there is no reference set for the individuals described in the ads. For these cases it is necessary to infer the set of entities from the ads. DIG represents each entity as a set of features (e.g., a person can be represented by the phone number, the photos, the locations mentioned, and so on). This first step creates entities for each of the individuals in the ads. The second step eliminates the redundant entities using a clustering approach similar to Swoosh [1].
+The second variant of the entity resolution problem addresses the case when there is no reference set for the entities of interest. For example, there is no reference set for the individuals described in the ads. For these cases it is necessary to infer the set of entities from the ads. DIG represents each entity as a set of features (e.g., a person can be represented by the phone number, the photos, the locations mentioned, and so on). This first step creates entities for each of the individuals in the ads. The second step eliminates the redundant entities using a clustering approach similar to Swoosh [[1]](#ref-1).
 
 ### 6 Generating the Graph
 
@@ -251,12 +234,12 @@ application as of July 2015, there are 60 million ads with roughly 162,000 new a
 The DIG data processing pipeline and the ElasticSearch index that supports the query interface runs on a cluster with 23 nodes (384GB of RAM, 16 cores). The processing pipeline is implemented using Oozie workflows (oozie.apache.org). The times to rebuild the knowledge graph from scratch on a 23 node cluster is 27 hours and 15 minutes. Data files do not need to be redeployed to HDFS for re-processing, so the time to rebuild the graph is under 19 hours, satisfying our requirement to be able to rebuild the knowledge graph in under 24 hours.
 
 | Feature | | Count Feature | | Count Feature | Count |
-|--------------|---------------------|------------------------|----------------|-----------------------------------|-----------|
+|---|---|---|---|---|---|
 | Payment | | 533,506 Gender | | 823,577 # Tattoos | 277,597 |
 | Email | | 1,212,299 Grooming | | 181,544 Username | 297,287 |
-| In/Out Call | | 92,564 Hair Color | | 760,312 Phone Number 46,410,902 | |
-| Age | | 33,668,863 Hair Length | | 626,333 Postal Address 49,446,945 | |
-| Person Build | | 1,071,288 Hair Type | | 614,043 Provider Name 52,925,078 | |
+| In/Out Call | | 92,564 Hair Color | | 760,312 Phone Number | 46,410,902 |
+| Age | | 33,668,863 Hair Length | | 626,333 Postal Address | 49,446,945 |
+| Person Build | | 1,071,288 Hair Type | | 614,043 Provider Name | 52,925,078 |
 | Bust | 602,235 Height | | 6,631,311 Rate | | 7,208,428 |
 | Cup Size | | 434,762 Hips Type | | 39,375 Website | 811,218 |
 | Ethnicity | 12,790,179 Zip Code | | | 101,749 Eye Color | 581,263 |
@@ -267,21 +250,21 @@ Table 2. Breakdown with number of each feature object in the datastore
 
 There is a variety of related work on building knowledge graphs. The Linked Open Data can be viewed as a large, heterogeneous knowledge graph. However, the data it contains has not been mapped to a single domain ontology, there is only limited linking, and the quality of the data is highly variable. Nevertheless, there are many useful and high quality sources that do form the basis of a knowledge graph, including DBpedia, Geonames, and the New York Times. These are heavily curated and carefully linked and provide coverage for very specific types of data. Each source in the Linked Open Data is created using different methods and tools and it results in a highly variable knowledge graph that requires considerable additional effort to use to build new applications.
 
-Several commercial efforts that are building knowledge graphs, including the Google Knowledge Graph<sup>10</sup> and the Microsoft Satori Knowledge Repository<sup>11</sup> . These graphs provide general knowledge about people places, organizations, and things with the purpose of improving search results. Since these systems are used to improve the search query results, the knowledge contained in these systems is general and spans many different domains. In contrast to the general Google and Microsoft knowledge graphs, our goal is to build comprehensive domain-specific graphs that can then be used for analysis in a specific domain.
+Several commercial efforts that are building knowledge graphs, including the Google Knowledge Graph^10^ and the Microsoft Satori Knowledge Repository^11^. These graphs provide general knowledge about people places, organizations, and things with the purpose of improving search results. Since these systems are used to improve the search query results, the knowledge contained in these systems is general and spans many different domains. In contrast to the general Google and Microsoft knowledge graphs, our goal is to build comprehensive domain-specific graphs that can then be used for analysis in a specific domain.
 
-The Linked Data Integration Framework (LDIF) [9] also focuses on building domain-specific knowledge graphs. Like DIG, it provides a data access module, a data translation module [2], and an identity resolution module [4]. LDIF also addresses scalability, processing data in a cluster using Hadoop. The most significant difference is that LDIF focuses on existing RDF and structured sources while DIG aggregates data from both structured and unstructured sources, including text documents, web pages, databases, and photographs. DIG also provides a highly extensible architecture for integrating new capabilities.
+The Linked Data Integration Framework (LDIF) [[9]](#ref-9) also focuses on building domain-specific knowledge graphs. Like DIG, it provides a data access module, a data translation module [[2]](#ref-2), and an identity resolution module [[4]](#ref-4). LDIF also addresses scalability, processing data in a cluster using Hadoop. The most significant difference is that LDIF focuses on existing RDF and structured sources while DIG aggregates data from both structured and unstructured sources, including text documents, web pages, databases, and photographs. DIG also provides a highly extensible architecture for integrating new capabilities.
 
 ## 6 Conclusion
 
-In this paper we described the DIG system<sup>12</sup> and discussed how it can be used to build a knowledge graph for combating human trafficking. The role of Semantic Web technologies is central to the success of the system. We represent all the data in a common ontology, define URIs for all entities, link to external Semantic Web resources (e.g. Geonames), and publish data in RDF using multiple serializations for different back-end databases. DIG is not limited to human trafficking and has already been applied in other problems domains including illicit weapons, counterfeit electronics, identifying patent trolls, and understanding research trends in both material science and autonomous systems.
+In this paper we described the DIG system^12^ and discussed how it can be used to build a knowledge graph for combating human trafficking. The role of Semantic Web technologies is central to the success of the system. We represent all the data in a common ontology, define URIs for all entities, link to external Semantic Web resources (e.g. Geonames), and publish data in RDF using multiple serializations for different back-end databases. DIG is not limited to human trafficking and has already been applied in other problems domains including illicit weapons, counterfeit electronics, identifying patent trolls, and understanding research trends in both material science and autonomous systems.
 
 In future work, we plan to refine the tools and technology to make it easier and faster to build new applications. We will also investigate techniques to lever-
 
-<sup>10</sup> https://en.wikipedia.org/wiki/Knowledge Graph
+^10^ https://en.wikipedia.org/wiki/Knowledge_Graph
 
-<sup>11</sup> https://blogs.bing.com/search/2013/03/21/understand-your-world-with-bing/
+^11^ https://blogs.bing.com/search/2013/03/21/understand-your-world-with-bing/
 
-<sup>12</sup> Available under an Apache Version 2 License (dig.isi.edu).
+^12^ Available under an Apache Version 2 License (dig.isi.edu).
 
 age ontological axioms to enable richer queries and facets in the user interface. For example, subclass relationships (e.g., Escort sub-class-of Person) could be used to produce facets that enable users to narrow results to specific subclasses of objects. This will require techniques to efficiently forward-chain the inferences and explicitly represent them in the knowledge graph.
 
@@ -289,24 +272,24 @@ Acknowledgements This research is supported in part by the Defense Advanced Rese
 
 ## References
 
-- 1. Benjelloun, O., Garcia-Molina, H., Menestrina, D., Su, Q., Whang, S.E., Widom, J.: Swoosh: A generic approach to entity resolution. The VLDB Journal 18(1), 255–276 (Jan 2009), http://dx.doi.org/10.1007/s00778-008-0098-x
-- 2. Bizer, C., Schultz, A.: The r2r framework: Publishing and discovering mappings on the web. In: Workshop on Consuming Open Linked Data (COLD) (2010)
-- 3. Chen, T., Borth, D., Darrell, T., Chang, S.: Deepsentibank: Visual sentiment concept classification with deep convolutional neural networks. CoRR abs/1410.8586 (2014), http://arxiv.org/abs/1410.8586
-- 4. Jentzsch, A., Isele, R., Bizer, C.: Silk: Generating RDF links while publishing or consuming linked data. In: 9th International Semantic Web Conference (2010)
-- 5. Knoblock, C.A., Szekely, P., Ambite, J.L., , Goel, A., Gupta, S., Lerman, K., Muslea, M., Taheriyan, M., Mallick, P.: Semi-automatically mapping structured sources into the semantic web. In: Semantic Web: Research and Applications. pp. 375–390. Springer (2012)
-- 6. Lafferty, J., McCallum, A., Pereira, F.C.: Conditional random fields: Probabilistic models for segmenting and labeling sequence data. In: Proceedings of the 18th International Conference on Machine Learning (ICML) (2001)
-- 7. Leskovec, J., Rajaraman, A., Ullman, J.D.: Mining of massive datasets. Cambridge University Press (2014)
-- 8. Ramnandan, S., Mittal, A., Knoblock, C.A., Szekely, P.: Assigning semantic labels to data sources. In: Proceedings of the 12th ESWC (2015)
-- 9. Schultz, A., Matteini, A., Isele, R., Mendes, P.N., Bizer, C., Becker, C.: LDIF:A framework for large-scale linked data integration. In: 21st International World Wide Web Conference (WWW 2012), Developers Track (2012)
-- 10. Taheriyan, M., Knoblock, C.A., Szekely, P., Ambite, J.L.: A graph-based approach to learn semantic descriptions of data sources. In: Proceedings of the 12th International Semantic Web Conference (ISWC 2013) (2013)
-- 11. Taheriyan, M., Knoblock, C.A., Szekely, P., Ambite, J.L.: A Scalable Approach to Learn Semantic Models of Structured Sources. In: Proceedings of the 8th IEEE International Conference on Semantic Computing (ICSC 2014) (2014)
+- <a id="ref-1"></a>1. Benjelloun, O., Garcia-Molina, H., Menestrina, D., Su, Q., Whang, S.E., Widom, J.: Swoosh: A generic approach to entity resolution. The VLDB Journal 18(1), 255–276 (Jan 2009), http://dx.doi.org/10.1007/s00778-008-0098-x
+- <a id="ref-2"></a>2. Bizer, C., Schultz, A.: The r2r framework: Publishing and discovering mappings on the web. In: Workshop on Consuming Open Linked Data (COLD) (2010)
+- <a id="ref-3"></a>3. Chen, T., Borth, D., Darrell, T., Chang, S.: Deepsentibank: Visual sentiment concept classification with deep convolutional neural networks. CoRR abs/1410.8586 (2014), http://arxiv.org/abs/1410.8586
+- <a id="ref-4"></a>4. Jentzsch, A., Isele, R., Bizer, C.: Silk: Generating RDF links while publishing or consuming linked data. In: 9th International Semantic Web Conference (2010)
+- <a id="ref-5"></a>5. Knoblock, C.A., Szekely, P., Ambite, J.L., , Goel, A., Gupta, S., Lerman, K., Muslea, M., Taheriyan, M., Mallick, P.: Semi-automatically mapping structured sources into the semantic web. In: Semantic Web: Research and Applications. pp. 375–390. Springer (2012)
+- <a id="ref-6"></a>6. Lafferty, J., McCallum, A., Pereira, F.C.: Conditional random fields: Probabilistic models for segmenting and labeling sequence data. In: Proceedings of the 18th International Conference on Machine Learning (ICML) (2001)
+- <a id="ref-7"></a>7. Leskovec, J., Rajaraman, A., Ullman, J.D.: Mining of massive datasets. Cambridge University Press (2014)
+- <a id="ref-8"></a>8. Ramnandan, S., Mittal, A., Knoblock, C.A., Szekely, P.: Assigning semantic labels to data sources. In: Proceedings of the 12th ESWC (2015)
+- <a id="ref-9"></a>9. Schultz, A., Matteini, A., Isele, R., Mendes, P.N., Bizer, C., Becker, C.: LDIF:A framework for large-scale linked data integration. In: 21st International World Wide Web Conference (WWW 2012), Developers Track (2012)
+- <a id="ref-10"></a>10. Taheriyan, M., Knoblock, C.A., Szekely, P., Ambite, J.L.: A graph-based approach to learn semantic descriptions of data sources. In: Proceedings of the 12th International Semantic Web Conference (ISWC 2013) (2013)
+- <a id="ref-11"></a>11. Taheriyan, M., Knoblock, C.A., Szekely, P., Ambite, J.L.: A Scalable Approach to Learn Semantic Models of Structured Sources. In: Proceedings of the 8th IEEE International Conference on Semantic Computing (ICSC 2014) (2014)
 
 ## Metadata Summary
 ### Research Context
-- **Research Question**: 
-- **Methodology**: 
-- **Key Findings**: 
+- **Research Question**:
+- **Methodology**:
+- **Key Findings**:
 
 ### Analysis
-- **Limitations**: 
+- **Limitations**:
 - **Future Work**:

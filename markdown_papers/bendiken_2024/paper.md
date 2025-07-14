@@ -5,18 +5,7 @@ authors: Arto Bendiken
 year: 2024
 relevancy: Low
 relevancy_justification: Tangentially related to knowledge management or data systems
-tags:
-  - ai
-  - children
-  - healthcare
-  - knowledge_graph
-  - llm
-  - machine_learning
-  - ontology
-  - pediatric
-  - personal
-  - semantic
-  - temporal
+tags: 
 date_processed: 2025-07-02
 phase2_processed: true
 original_folder: arxiv_arxiv_2405.19877_KNOW_A_Real-World_Ontology_for_Knowledge_Capture_with_Large_Language_Models
@@ -33,12 +22,14 @@ Arto Bendiken Haltia, Inc. arto@haltia.ai
 
 We present KNOW–the Knowledge Navigator Ontology for the World–the first ontology designed to capture everyday knowledge to augment large language models (LLMs) in real-world generative AI use cases such as personal AI assistants. Our domain is human life, both its everyday concerns and its major milestones. We have limited the initial scope of the modeled concepts to only established human universals: spacetime (places, events) plus social (people, groups, organizations). The inclusion criteria for modeled concepts are pragmatic, beginning with universality and utility. We compare and contrast previous work such as Schema.org and Cyc–as well as attempts at a synthesis of knowledge graphs and language models–noting how LLMs already encode internally much of the commonsense tacit knowledge that took decades to capture in the Cyc project. We also make available code-generated software libraries for the 12 most popular programming languages, enabling the direct use of ontology concepts in software engineering. We emphasize simplicity and developer experience in promoting AI interoperability.
 
-*K*eywords Ontology · Real-world knowledge · Commonsense knowledge · Knowledge representation · Knowledge graphs · Code synthesis · Large language models · Neuro-symbolic AI
+*Keywords* Ontology · Real-world knowledge · Commonsense knowledge · Knowledge representation · Knowledge graphs · Code synthesis · Large language models · Neuro-symbolic AI
 
 ## TL;DR
+
 This paper introduces KNOW (Knowledge Navigator Ontology for the World), a new ontology designed to capture everyday knowledge for use in generative AI applications like personal assistants. The ontology focuses on human universals (spacetime and social concepts) and prioritizes pragmatic utility and developer experience over strict taxonomic correctness. The author argues that such an ontology is a crucial component for building practical and interoperable neuro-symbolic AI systems, where LLMs are augmented with explicit knowledge from a KG.
 
 ## Key Insights
+
 The key insight is the argument that for neuro-symbolic AI to become practical, a new kind of ontology is needed—one that is less concerned with perfect taxonomic correctness (like Cyc) and more focused on pragmatic, real-world utility and developer experience. The paper posits that LLMs can handle much of the "commonsense" knowledge, so the ontology should focus on structuring the most important, universal concepts of human life (spacetime and social relationships) in a way that is easy for both LLMs and software developers to use.
 
 ### 1 Introduction
@@ -55,44 +46,43 @@ These various problems can be mitigated or solved by a hybrid approach where the
 
 Conversely, large language models do already encode internally much of the commonsense tacit knowledge that in previous decades proved the most formidable challenge to symbolic approaches of knowledge representation and AI. Until recently, any toddler ultimately knew more about the nature and causal structure of our physical and social worlds
 
-than any computer. The ambition of the decades-long Cyc project [\[Lenat and Guha, 1989\]](#page-4-0) that sought to capture and encode all commonsense knowledge was amply matched by the interminability of the endeavor.
+than any computer. The ambition of the decades-long Cyc project [[Lenat and Guha, 1989]](#ref-1) that sought to capture and encode all commonsense knowledge was amply matched by the interminability of the endeavor.
 
-An LLM's "knowledge soup"–a large reservoir of loosely organized encyclopedic knowledge [\[Sowa, 1990\]](#page-4-1)–is quantitatively derived from statistical distributions in an LLM's pre-training dataset and after training is implicitly encoded in the billions of weights that constitute the model [\[Templeton et al., 2024\]](#page-4-2). As mentioned, it is not particularly introspectable nor is it even consistent, but it is nonetheless useful: it largely sidesteps the need to explicitly represent and encode truly basic tenets of the world, such as that the noon sky is blue, that the arrow of gravity points downwards, and that humans tend to live in families and build housing to seek shelter from the elements.
+An LLM's "knowledge soup"–a large reservoir of loosely organized encyclopedic knowledge [[Sowa, 1990]](#ref-2)–is quantitatively derived from statistical distributions in an LLM's pre-training dataset and after training is implicitly encoded in the billions of weights that constitute the model [[Templeton et al., 2024]](#ref-3). As mentioned, it is not particularly introspectable nor is it even consistent, but it is nonetheless useful: it largely sidesteps the need to explicitly represent and encode truly basic tenets of the world, such as that the noon sky is blue, that the arrow of gravity points downwards, and that humans tend to live in families and build housing to seek shelter from the elements.
 
 ### 3 The Neuro-Symbolic Synthesis
 
 In this way, neural networks in the form of LLMs provide the missing ingredient for a hybrid that realizes long-standing visions for symbolic AI beyond narrow expert system use cases. And conversely, the explicit knowledge representation in KGs complements and enables LLMs to transcend their limitations and ultimately be safely deployed in real-world use cases beyond technology demos.
 
-To realize the promise of this neuro-symbolic synthesis, however, the language model must understand the restricted vocabulary (that is, the set of symbols) used for knowledge representation. This is where the need for an ontology comes into play. The ontology restricts and guides knowledge capture [\[Çöplü et al., 2024\]](#page-4-3), defines and describes the semantics of what has been captured [\[Allemang and Sequeda, 2024\]](#page-4-4), and enables the LLM to give better, more precise responses.
+To realize the promise of this neuro-symbolic synthesis, however, the language model must understand the restricted vocabulary (that is, the set of symbols) used for knowledge representation. This is where the need for an ontology comes into play. The ontology restricts and guides knowledge capture [[Çöplü et al., 2024]](#ref-4), defines and describes the semantics of what has been captured [[Allemang and Sequeda, 2024]](#ref-5), and enables the LLM to give better, more precise responses.
 
 We present herein the first iteration of our ongoing effort to design a commonsense, everyday ontology suitable for real-world use cases for neuro-symbolic AI. We have appropriately titled our ontology KNOW, a backronym standing for Knowledge Navigator Ontology for the World. Our ontology is open source–indeed, it is placed into the public domain with no strings attached.
 
 ### 2 Domain and Scope
 
-Our domain is human life, both its everyday concerns and its major milestones. We have limited the initial scope of the ontology to only established human universals: spacetime (places, events) plus social (people, groups, organizations). Top-level classes are illustrated in Figure [1.](#page-2-0) We anticipate extending this scope in future work.
+Our domain is human life, both its everyday concerns and its major milestones. We have limited the initial scope of the ontology to only established human universals: spacetime (places, events) plus social (people, groups, organizations). Top-level classes are illustrated in Figure [1](#fig-1). We anticipate extending this scope in future work.
 
-Human universals "*comprise those features of culture, society, language, behavior, and psyche for which there are no known exception*" [\[Brown, 1991\]](#page-4-5). That is, human universals are common to all human societies ever studied. They include, for example, language, gossip, jokes, toys, tools, promises, symbolism, semantic categories, and logical notions.
+Human universals "*comprise those features of culture, society, language, behavior, and psyche for which there are no known exception*" [[Brown, 1991]](#ref-6). That is, human universals are common to all human societies ever studied. They include, for example, language, gossip, jokes, toys, tools, promises, symbolism, semantic categories, and logical notions.
 
 We as humans are embedded in spacetime. To understand and interact with the physical world in which we live, time and space are the fundamental concepts that provide the basic framework for navigating and orienting ourselves in the world as well as the dimensions in which all physical events occur. From spacetime, human universals, and language essentials, we derive the base concepts Place and Event.
 
 Examples of places common to all human societies include landmarks and places of worship. For contemporary developed societies, we also include airports, cafes, hospitals, hotels, and restaurants. Some examples of events for the same include birthdays, appointments, holidays, meetings, and parties.
 
-As highly social creatures, the stature of the social reality–people and relationships–that we inhabit is nearly that of spacetime. Indeed, people have been known to prioritize consensus social reality over objective physical reality in their understanding of the world and actions in it. In this social dimension, then, we include the base concepts of Person and Group, the latter denoting a group of people. Unlike a biologist's classification of a person as a human, hominid, anthropoid, primate, mammal, and vertebrate animal, we are here concerned only with commonsense understanding[1](#page-1-0) and omit these taxonomic superclasses–at least in this first formulation of the ontology.
+As highly social creatures, the stature of the social reality–people and relationships–that we inhabit is nearly that of spacetime. Indeed, people have been known to prioritize consensus social reality over objective physical reality in their understanding of the world and actions in it. In this social dimension, then, we include the base concepts of Person and Group, the latter denoting a group of people. Unlike a biologist's classification of a person as a human, hominid, anthropoid, primate, mammal, and vertebrate animal, we are here concerned only with commonsense understanding^1^ and omit these taxonomic superclasses–at least in this first formulation of the ontology.
 
 ## 3 Use Cases
 
 Our primary use cases revolve around everyday human concerns. For example, and in particular:
 
-<span id="page-1-0"></span><sup>1</sup> Indeed, the distinction here is perhaps most clearly illustrated by considering the question of animals: scientific taxa and evolutionary lineages aside, from an early age children tend to consider themselves as something categorically distinct from animals.
+^1^ Indeed, the distinction here is perhaps most clearly illustrated by considering the question of animals: scientific taxa and evolutionary lineages aside, from an early age children tend to consider themselves as something categorically distinct from animals.
 
-![](_page_2_Figure_0.jpeg)
-<!-- Image Description: This image is a hierarchical tree diagram illustrating a taxonomy of "Thing". It branches into four main categories: Person, Group, Place, and Event. Each category is further subdivided into more specific entities (e.g., Person branches into Family, Nationality, etc.; Place branches into Airport, Cafe, etc.; Event into Birthday, Meeting, etc.). The diagram likely serves to define and categorize data types within the scope of the paper, possibly for knowledge representation or information retrieval. -->
+![This image is a hierarchical tree diagram illustrating a taxonomy of "Thing". It branches into four main categories: Person, Group, Place, and Event. Each category is further subdivided into more specific entities (e.g., Person branches into Family, Nationality, etc.; Place branches into Airport, Cafe, etc.; Event into Birthday, Meeting, etc.). The diagram likely serves to define and categorize data types within the scope of the paper, possibly for knowledge representation or information retrieval.](_page_2_Figure_0.jpeg)
 
-<span id="page-2-0"></span>**Figure 1:** Top-level classes in the ontology (not comprehensive)
+**Figure 1:** Top-level classes in the ontology (not comprehensive)
 
 Social relationships and roles. Family, friends, acquaintances, coworkers, authority figures, and the various roles people play in society.
 
-Basic human needs. Shelter, heating, cooling, water, food, healthcare, safety, etc. [\[Gupta, 2008\]](#page-4-6)
+Basic human needs. Shelter, heating, cooling, water, food, healthcare, safety, etc. [[Gupta, 2008]](#ref-7)
 
 Emotions and mental states. Happiness, sadness, anger, fear, love, desire, beliefs, intentions, etc.
 
@@ -108,7 +98,7 @@ Large language models have proven capable code generation tools, and are deploye
 
 We have made available code-generated open-source software development kits (SDKs) for the 12 most popular programming languages, enabling the direct use of ontology concepts in software design and implementation. The
 
-initial set of programming languages comprises C, C++, C#[2](#page-3-0) , Dart, Go, Java[3](#page-3-1) , JavaScript, Python, Ruby, Rust, Swift, and TypeScript.
+initial set of programming languages comprises C, C++, C#^2^, Dart, Go, Java^3^, JavaScript, Python, Ruby, Rust, Swift, and TypeScript.
 
 Our primary objective for the SDKs is to be able to represent ontology concepts using the native composite data abstraction for each language. For example, we represent ontology classes as structures in C, Go, and Rust; and as classes in Dart, Java, Python, and Ruby.
 
@@ -124,9 +114,9 @@ We compare and contrast previous work including Schema.org and Cyc.
 
 ## 1 Schema.org
 
-The previous ontology nearest to our endeavor is undoubtedly Schema.org [\[Guha et al., 2016\]](#page-4-7), and we make sure to map our concepts (classes and properties) to corresponding Schema.org concepts where possible. Though there is inevitably some overlap, the two projects have different focuses and ultimately different audiences.
+The previous ontology nearest to our endeavor is undoubtedly Schema.org [[Guha et al., 2016]](#ref-8), and we make sure to map our concepts (classes and properties) to corresponding Schema.org concepts where possible. Though there is inevitably some overlap, the two projects have different focuses and ultimately different audiences.
 
-Whereas Schema.org grew out of microdata (structured data markup on web pages) and thus focuses on describing *things*such as creative works, KNOW is specifically designed for neuro-symbolic uses and focuses on describing*life*, beginning with social relationships.
+Whereas Schema.org grew out of microdata (structured data markup on web pages) and thus focuses on describing *things* such as creative works, KNOW is specifically designed for neuro-symbolic uses and focuses on describing *life*, beginning with social relationships.
 
 For example, during the first decade of the Schema.org initiative, it seems nobody has as yet needed to describe family relationships in greater detail than parent/child and sibling. KNOW, on the other hand, directly includes properties for father/mother, brother/sister, uncle/aunt, nephew/niece, and so on–materializing these most important personal relationships explicitly, without the need for graph traversal nor entailment at the point of lookup.
 
@@ -136,15 +126,15 @@ KNOW also differs in its insistence on modeling the world in a commonsense, ever
 
 In seeking to model commonsense knowledge, our most esteemed predecessor is the already mentioned Cyc project. The differences, though, are also clear. For one, we don't aspire to be an upper ontology; for another, the expressiveness of our ontology is merely the description logics of OWL, not the undecidable higher-order logic (HOL) used in Cyc.
 
-Our initiative also uses open source instead of proprietary licensing, and a public and collaborative development model instead of a closed and internal one. Our development cycle is iterative–acknowledging that worse is better [\[Gabriel, 1989\]](#page-4-8)–and driven by real-world use cases.
+Our initiative also uses open source instead of proprietary licensing, and a public and collaborative development model instead of a closed and internal one. Our development cycle is iterative–acknowledging that worse is better [[Gabriel, 1989]](#ref-9)–and driven by real-world use cases.
 
 ## 6 Availability and Usage
 
-The ontology is developed using an open-source ethos and a public, collaborative, and iterative development process at GitHub [\(github.com/KnowOntology\)](https://github.com/KnowOntology), with documentation and downloads made available on a dedicated website [\(know.dev\)](https://know.dev).
+The ontology is developed using an open-source ethos and a public, collaborative, and iterative development process at GitHub [(github.com/KnowOntology)](https://github.com/KnowOntology), with documentation and downloads made available on a dedicated website [(know.dev)](https://know.dev).
 
-<span id="page-3-0"></span><sup>2</sup>And other programming languages on the Microsoft .NET platform.
+^2^ And other programming languages on the Microsoft .NET platform.
 
-<span id="page-3-1"></span><sup>3</sup>And other programming languages on the Java Virtual Machine (JVM) platform.
+^3^ And other programming languages on the Java Virtual Machine (JVM) platform.
 
 ## 1 Base IRI and Prefix
 
@@ -154,7 +144,7 @@ The base IRI for the ontology is https://know.dev/, and our recommended prefix f
 
 ### 7 Conclusion
 
-We have outlined a first draft of KNOW, an ontology for capturing and representing everyday knowledge to augment LLMs in real-world generative AI use cases such as personal AI assistants, and explained how and where it fits into the emerging neuro-symbolic–or neuro-semantic, as it may be [\[Hermelen, 2024\]](#page-4-9)–synthesis.
+We have outlined a first draft of KNOW, an ontology for capturing and representing everyday knowledge to augment LLMs in real-world generative AI use cases such as personal AI assistants, and explained how and where it fits into the emerging neuro-symbolic–or neuro-semantic, as it may be [[Hermelen, 2024]](#ref-10)–synthesis.
 
 It is worth keeping in mind the starting point that most practitioners working with LLMs today are as yet unaware of knowledge graphs, semantic technology, or even the need for an ontology for knowledge capture. Practitioners' work generally proceeds, as it has for decades, based on ad-hoc properties conjured up on the spot when they were first needed, with little regard for stronger semantics or wider interoperability. This, though, will become increasingly untenable as an approach over the next several years.
 
@@ -166,28 +156,31 @@ We would like to thank Tolga Çöplü and Stephen Cobb for their review and cons
 
 ### References
 
-- <span id="page-4-4"></span>[Allemang and Sequeda, 2024] Allemang, D. and Sequeda, J. (2024). Increasing the LLM Accuracy for Question Answering: Ontologies to the Rescue! arXiv:2405.11706 [cs].
-- <span id="page-4-5"></span>[Brown, 1991] Brown, D. E. (1991). *Human universals*. Human universals. Temple University Press, Philadelphia, PA, US. Pages: x, 220.
-- <span id="page-4-8"></span>[Gabriel, 1989] Gabriel, R. P. (1989). Worse is better. <https://www.dreamsongs.com/WorseIsBetter.html>.
-- <span id="page-4-7"></span>[Guha et al., 2016] Guha, R. V., Brickley, D., and Macbeth, S. (2016). Schema.org: evolution of structured data on the web. *Communications of the ACM*, 59(2):44–51.
-- <span id="page-4-6"></span>[Gupta, 2008] Gupta, V. (2008). Six ways to die. [https://www.appropedia.org/Six\\_ways\\_to\\_die](https://www.appropedia.org/Six_ways_to_die).
-- <span id="page-4-9"></span>[Hermelen, 2024] Hermelen, F. v. (2024). Neuro-Symbolic is not Enough, We Need Neuro-\*Semantic\*. [https://www.](https://www.slideshare.net/slideshow/neuro-symbolic-is-not-enough-we-need-neuro-semantic/269377374) [slideshare.net/slideshow/neuro-symbolic-is-not-enough-we-need-neuro-semantic/269377374](https://www.slideshare.net/slideshow/neuro-symbolic-is-not-enough-we-need-neuro-semantic/269377374).
-- <span id="page-4-0"></span>[Lenat and Guha, 1989] Lenat, D. B. and Guha, R. V. (1989). *Building Large Knowledge-Based Systems; Representation and Inference in the Cyc Project*. Addison-Wesley Longman Publishing Co., Inc., USA, 1st edition.
-- <span id="page-4-1"></span>[Sowa, 1990] Sowa, J. F. (1990). Crystallizing Theories out of Knowledge Soup. *Intelligent Systems: State of the Art and Future Directions*, pages 456–487. Publisher: Ellis Horwood USA.
-- <span id="page-4-2"></span>[Templeton et al., 2024] Templeton, A., Conerly, T., Marcus, J., Lindsey, J., Bricken, T., Chen, B., Pearce, A., Citro, C., Ameisen, E., Jones, A., Cunningham, H., Turner, N. L., McDougall, C., MacDiarmid, M., Freeman, C. D., Sumers, T. R., Rees, E., Batson, J., Jermyn, A., Carter, S., Olah, C., and Henighan, T. (2024). Scaling Monosemanticity: Extracting Interpretable Features from Claude 3 Sonnet. *Transformer Circuits Thread*.
-- <span id="page-4-3"></span>[Çöplü et al., 2024] Çöplü, T., Bendiken, A., Skomorokhov, A., Bateiko, E., and Cobb, S. (2024). Prompt-Time Ontology-Driven Symbolic Knowledge Capture with Large Language Models. arXiv:2405.14012 [cs].
+- <a id="ref-5"></a>[Allemang and Sequeda, 2024] Allemang, D. and Sequeda, J. (2024). Increasing the LLM Accuracy for Question Answering: Ontologies to the Rescue! arXiv:2405.11706 [cs].
+- <a id="ref-6"></a>[Brown, 1991] Brown, D. E. (1991). *Human universals*. Human universals. Temple University Press, Philadelphia, PA, US. Pages: x, 220.
+- <a id="ref-9"></a>[Gabriel, 1989] Gabriel, R. P. (1989). Worse is better. <https://www.dreamsongs.com/WorseIsBetter.html>.
+- <a id="ref-8"></a>[Guha et al., 2016] Guha, R. V., Brickley, D., and Macbeth, S. (2016). Schema.org: evolution of structured data on the web. *Communications of the ACM*, 59(2):44–51.
+- <a id="ref-7"></a>[Gupta, 2008] Gupta, V. (2008). Six ways to die. [https://www.appropedia.org/Six\_ways\_to\_die](https://www.appropedia.org/Six_ways_to_die).
+- <a id="ref-10"></a>[Hermelen, 2024] Hermelen, F. v. (2024). Neuro-Symbolic is not Enough, We Need Neuro-*Semantic*. [https://www.slideshare.net/slideshow/neuro-symbolic-is-not-enough-we-need-neuro-semantic/269377374](https://www.slideshare.net/slideshow/neuro-symbolic-is-not-enough-we-need-neuro-semantic/269377374).
+- <a id="ref-1"></a>[Lenat and Guha, 1989] Lenat, D. B. and Guha, R. V. (1989). *Building Large Knowledge-Based Systems; Representation and Inference in the Cyc Project*. Addison-Wesley Longman Publishing Co., Inc., USA, 1st edition.
+- <a id="ref-2"></a>[Sowa, 1990] Sowa, J. F. (1990). Crystallizing Theories out of Knowledge Soup. *Intelligent Systems: State of the Art and Future Directions*, pages 456–487. Publisher: Ellis Horwood USA.
+- <a id="ref-3"></a>[Templeton et al., 2024] Templeton, A., Conerly, T., Marcus, J., Lindsey, J., Bricken, T., Chen, B., Pearce, A., Citro, C., Ameisen, E., Jones, A., Cunningham, H., Turner, N. L., McDougall, C., MacDiarmid, M., Freeman, C. D., Sumers, T. R., Rees, E., Batson, J., Jermyn, A., Carter, S., Olah, C., and Henighan, T. (2024). Scaling Monosemanticity: Extracting Interpretable Features from Claude 3 Sonnet. *Transformer Circuits Thread*.
+- <a id="ref-4"></a>[Çöplü et al., 2024] Çöplü, T., Bendiken, A., Skomorokhov, A., Bateiko, E., and Cobb, S. (2024). Prompt-Time Ontology-Driven Symbolic Knowledge Capture with Large Language Models. arXiv:2405.14012 [cs].
 
 ## Metadata Summary
+
 ### Research Context
+
 - **Research Question**: The paper presents a conceptual design for the KNOW ontology. The methodology is based on identifying human universals as the core concepts to model. The author compares this approach to existing ontologies like Schema.org and Cyc to highlight its unique design principles. The paper also describes the generation of software libraries for 12 programming languages to promote the ontology's adoption.
 - **Methodology**: The primary outcome is the KNOW ontology itself, presented as a public domain resource with accompanying software libraries. The paper establishes the design principles for this ontology, emphasizing pragmatism, focus on human universals, and developer experience.
 - **Key Findings**: The paper presents a first iteration of the ontology, and its scope is currently limited to spacetime and social concepts. It does not provide a detailed evaluation of the ontology's effectiveness in a real-world application. The practical challenges of populating and maintaining a KG based on this ontology are not deeply explored.
 - **Primary Outcomes**: The paper concludes that a pragmatic, developer-friendly ontology like KNOW is a necessary step to realize the potential of neuro-symbolic AI. It positions KNOW as a foundational layer for building interoperable AI systems where knowledge can be shared and reused.
 
 ### Analysis
+
 - **Limitations**: The paper identifies the need to extend the ontology's scope beyond the initial set of human universals. It also implicitly points to the challenge of encouraging widespread adoption of a new ontology in a field where ad-hoc schemas are common.
 - **Research Gaps**: The paper provides several valuable implementation insights. First, the focus on "human universals" is a good starting point for designing a personal knowledge schema. Second, the emphasis on developer experience, including providing SDKs in multiple languages, is a crucial factor for adoption. Third, the pragmatic approach to taxonomy (a flat class hierarchy) can simplify the modeling process. Finally, the idea of mapping to existing ontologies like Schema.org where possible is a good practice for interoperability.
-- **Future Work**: 
+- **Future Work**:
 - **Conclusion**: Future work will involve extending the scope of the ontology to cover more aspects of human life.
 
 ### Implementation Notes

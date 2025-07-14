@@ -1,63 +1,12 @@
+---
 cite_key: menschikov_2025
-title: PersonalAI: Towards digital twins in the graph form
-authors: Mikhail Menschikov, Dmitry Evseev, Ruslan Kostoev, Ilya Perepechkin, Ilnaz Salimov, Victoria Dochkina, Petr Anokhin, Evgeny Burnaev, Nikita Semenov
-year: 2025
-doi: 10.48550/arXiv.2506.17001
-url: https://arxiv.org/abs/2506.17001
-relevancy: High
-downloaded: 'Yes'
-tags:
-- Personal Digital Twins
-- Knowledge Graphs
-- LLM Personalization
-- Hyperedges
-- Temporal Modeling
-tldr: Novel framework for creating personal digital twins using knowledge graphs that
-  can be dynamically constructed and maintained by LLMs themselves.
-date_processed: '2025-07-02'
-phase2_processed: true
-original_folder: 2506.17001v1
-images_total: 2
-images_kept: 2
-images_removed: 0
-keywords:
-- 1 introduction
-- 2 related work
-- 3 methods
-- 4 experiment set-up
-- 5 evaluation
-- 6 experiments and results
-- 7 conclusion
-- 8 limitations
-- 9 future work
-- ArXiv
-- AriGraph
-- AriGraphbased
-- BERT
-- BeamSeach
-- BeamSearch
-- DeepSeek
-- ExactMatch
-- GraphReader
-- JudgeScore
-- ai-driven
-- artificial intelligence
-- aspect-based
-- aspect-based sentiment
-- bfs-shortest
-- bidirectional encoder representations from transformers
-- breadth-first
-- c llmprompts used within proposed qapipeline
-- characteristics of constructed knowledge graphs
-- comparison of qaconfigurations
-- configurations summary
 ---
 
 # PersonalAI: Towards digital twins in the graph form
 
-## Mikhail Menschikov<sup>1</sup> , Dmitry Evseev<sup>1</sup> , Ruslan Kostoev<sup>2</sup> , Ilya Perepechkin<sup>2</sup> , Ilnaz Salimov<sup>2</sup> , Victoria Dochkina<sup>2</sup> , Petr Anokhin<sup>3</sup> , Evgeny Burnaev<sup>1</sup> , Nikita Semenov<sup>1</sup>
+## Mikhail Menschikov^1^, Dmitry Evseev^1^, Ruslan Kostoev^2^, Ilya Perepechkin^2^, Ilnaz Salimov^2^, Victoria Dochkina^2^, Petr Anokhin^3^, Evgeny Burnaev^1^, Nikita Semenov^1^
 
-<sup>1</sup>Skoltech, Moscow, Russia <sup>2</sup>Public joint stock company "Sberbank of Russia" , Moscow, Russia <sup>3</sup> AIRI, Moscow, Russia
+^1^Skoltech, Moscow, Russia ^2^Public joint stock company "Sberbank of Russia", Moscow, Russia ^3^AIRI, Moscow, Russia
 
 ### Abstract
 
@@ -66,7 +15,7 @@ The challenge of personalizing language models, specifically the ability to acco
 ## TL;DR
 Novel framework for creating personal digital twins using knowledge graphs that
 
-## Key Insights  
+## Key Insights
 Utilizes external memory as knowledge graphs constructed and updated by LLM itself; introduces combined graph with standard and hyperedges; incorporates temporal dependencies in dialogue systems.
 
 ## 1 Introduction
@@ -75,7 +24,7 @@ The rapid advancements in large language models (LLMs) have catalyzed interest i
 
 To address these limitations, our study explores the potential of knowledge graphs as a superior alternative to traditional RAG strategies. Knowledge graphs offer a structured representation of information that facilitates more effective and personalized use of LLMs. These graphs, constructed and updated automatically by the LLM, inherently support contextual data extraction algorithms, surpassing RAG in performance by retaining arbitrary textual information and enabling targeted extraction of relevant data. This atomic representation of knowledge allows for efficient filtering of irrelevant content and offers a universal format adaptable to various tasks. Moreover, the graph format enables rapid search, addition, and deletion of knowledge, thereby eliminating the need for extensive restructuring of accumulated data during updates.
 
-Our proposed question answering system, built upon the innovative AriGraph (Anokhin et al. 2024) method, exemplifies the confluence of long-term planning and memory within LLM agents through knowledge graph construction. The AriGraph architecture was initially developed for textbased gaming environments, such as TextWorld, and involves a sequence of processes: formulating triplets from current observations, removing outdated semantic knowledge, adding new triplets alongside episodic nodes, and extracting relevant triplets and memories using graph connections and embedding proximity. We adapted the AriGraph methodology to our system, utilizing the DiaASQ (Li et al. 2023) dataset, wherein we constructed graphs with standard, hyper and episodic edges from dialogues to serve as a substantive base for answering questions.
+Our proposed question answering system, built upon the innovative AriGraph [[1]](#ref-1) method, exemplifies the confluence of long-term planning and memory within LLM agents through knowledge graph construction. The AriGraph architecture was initially developed for textbased gaming environments, such as TextWorld, and involves a sequence of processes: formulating triplets from current observations, removing outdated semantic knowledge, adding new triplets alongside episodic nodes, and extracting relevant triplets and memories using graph connections and embedding proximity. We adapted the AriGraph methodology to our system, utilizing the DiaASQ [[13]](#ref-13) dataset, wherein we constructed graphs with standard, hyper and episodic edges from dialogues to serve as a substantive base for answering questions.
 
 In summary, our main contributions are threefold:
 
@@ -87,15 +36,15 @@ This work establishes a robust framework for personalized response generation in
 
 ## 2 Related Work
 
-In recent years, there has been significant progress in the domain of open-domain question answering (QA) and personalization of language models. Methods like using Wikipedia as a comprehensive knowledge source (Chen et al. 2017) have integrated machine reading at scale to combine document retrieval with machine comprehension of text. Approaches such as using dense representations for passage retrieval (Karpukhin et al. 2020) have challenged traditional sparse methods like TF-IDF and BM25, proving effective when ample training data exists.
+In recent years, there has been significant progress in the domain of open-domain question answering (QA) and personalization of language models. Methods like using Wikipedia as a comprehensive knowledge source [[2]](#ref-2) have integrated machine reading at scale to combine document retrieval with machine comprehension of text. Approaches such as using dense representations for passage retrieval [[7]](#ref-7) have challenged traditional sparse methods like TF-IDF and BM25, proving effective when ample training data exists.
 
-The evolution of dense retrievers has been noteworthy, with the deployment of contrastive learning in unsupervised settings showing promise across various scenarios, surpassing traditional methods such as BM25 (Robertson, Zaragoza et al. 2009) (Contriever (Izacard et al. 2021)). Meanwhile, pre-trained language models with non-parametric memory access have been suggested for knowledge-intensive tasks, exemplified by retrieval-augmented generation (RAG) models, which combine parametric and non-parametric memories for enhanced QA performance (Lewis et al. 2021).
+The evolution of dense retrievers has been noteworthy, with the deployment of contrastive learning in unsupervised settings showing promise across various scenarios, surpassing traditional methods such as BM25 [[16]](#ref-16) (Contriever [[6]](#ref-6)). Meanwhile, pre-trained language models with non-parametric memory access have been suggested for knowledge-intensive tasks, exemplified by retrieval-augmented generation (RAG) models, which combine parametric and non-parametric memories for enhanced QA performance [[12]](#ref-12).
 
-Recent developments like ART have introduced unsupervised dense retrieval models, effectively eliminating the dependency on labeled training data while achieving state-ofthe-art results (Sachan et al. 2023). In the realm of knowledge graphs, frameworks like GraphReader (Li et al. 2024) utilize reasoning elements to construct and extract information, emphasizing long-context problem-solving capabilities.
+Recent developments like ART have introduced unsupervised dense retrieval models, effectively eliminating the dependency on labeled training data while achieving state-ofthe-art results [[17]](#ref-17). In the realm of knowledge graphs, frameworks like GraphReader [[14]](#ref-14) utilize reasoning elements to construct and extract information, emphasizing long-context problem-solving capabilities.
 
-For personalized models, AriGraph (Anokhin et al. 2024) has presented a solution incorporating episodic memories and long-term planning through knowledge graphs (AriGraph). Similarly, HippoRAG (Gutierrez et al. ´ 2024) leverages personalized algorithms to enhance QA tasks by constructing semantic graphs, offering significant improvements over traditional extraction techniques. MemWalker (Chen et al. 2023) and PEARL (Sarthi et al. 2024) have explored challenges related to context length, proposing models that effectively navigate and integrate information from extensive documents.
+For personalized models, AriGraph [[1]](#ref-1) has presented a solution incorporating episodic memories and long-term planning through knowledge graphs (AriGraph). Similarly, HippoRAG [[5]](#ref-5) leverages personalized algorithms to enhance QA tasks by constructing semantic graphs, offering significant improvements over traditional extraction techniques. MemWalker [[3]](#ref-3) and PEARL [[18]](#ref-18) have explored challenges related to context length, proposing models that effectively navigate and integrate information from extensive documents.
 
-Additionally, ReadAgent (Lee et al. 2024) has addressed the constraint of handling long-text contexts by organizing content into memory episodes, while KGP (Wang et al. 2023) has introduced Knowledge Graph Prompting, optimizing multi-document QA by building knowledge graphs for improved context formulation.
+Additionally, ReadAgent [[8]](#ref-8) has addressed the constraint of handling long-text contexts by organizing content into memory episodes, while KGP [[20]](#ref-20) has introduced Knowledge Graph Prompting, optimizing multi-document QA by building knowledge graphs for improved context formulation.
 
 These advancements underscore a consistent focus on enhancing the comprehension, retrieval, and personalization capabilities of language models, paving the way for more refined systems such as PersonalAI, which utilizes knowledge graphs to offer personalized and contextually rich interactions.
 
@@ -120,8 +69,7 @@ Finally, the entire source text is also incorporated into the graph as a hyperco
 
 The search for outdated information in the graph is carried out as follows. First, the set of entities appearing in the newly extracted triplets and thesis statements is compared with existing nodes in the graph to identify matches. If matches are found, they become the initial set of nodes for
 
-![](_page_2_Figure_0.jpeg)
-<!-- Image Description: This image is a knowledge graph representing facts about the Mona Lisa. Rectangles represent entities (e.g., "Leonardo da Vinci," "Mona Lisa," "poplar wood") and edges represent relationships (e.g., "creator," "painted on," "is a"). The graph visually organizes information about the painting's creator, creation date (1503-1519), materials (poplar wood, oil paint), and classification as an oil painting. It serves to illustrate the interconnected data points concerning the Mona Lisa. -->
+![image description](_page_2_Figure_0.jpeg)
 
 **Figure 1:** Example of graph, built from text using our method, with simple (green), hyper (yellow) and episodic (blue) nodes
 
@@ -139,14 +87,13 @@ This pipeline architecture is motivated by the following considerations: (1) To 
 
 The principal function of the constructed knowledge graph within our proposed system is to facilitate the precise extraction of information necessary for addressing specific queries. This task involves a delicate balance between relevance and completeness. Relevance ensures that all retrieved information directly pertains to the query, while completeness guarantees the inclusion of all necessary data, potentially accompanied by some extraneous information. Thus, optimizing this balance is crucial for efficient knowledge extraction.
 
-![](_page_3_Figure_0.jpeg)
-<!-- Image Description: The image is a flowchart illustrating a question-answering system. A question is input, parsed by a Query LLM Parser, compared to knowledge using a Knowledge Comparator, and fed to a Graph Triplets Retriever. Retrieved triplets are filtered, then used by a QA LLM Generator to produce an answer. The numbered boxes represent processing steps, while arrows indicate data flow. -->
+![image description](_page_3_Figure_0.jpeg)
 
 **Figure 2:** searching pipeline for generating answers to the questions based on constructed knowledge graph
 
 To achieve this, we have developed and implemented sophisticated retrieval algorithms capable of modulating the trade-off between completeness and relevance based on customizable parameter settings. These algorithms are an integral part of the question-answering pipeline, traversing the graph to collate information imperative for generating accurate responses.
 
-A\*. One of the primary methods employed for graph traversal is the A\* algorithm, renowned for its capacity to determine shortest paths between entities within the graph. Within the question-answering pipeline, this algorithm identifies and preserves triples encountered along these shortest paths, removing any duplicates based on content. Our hypothesis posits that the requisite information for constructing correct answers resides within these triples. For the traversal, the graph is unweighted and undirected, employing a constant value as the distance metric between adjacent vertices. We explored three heuristics for the h-metric to enhance pathfinding efficiency:
+A*. One of the primary methods employed for graph traversal is the A* algorithm, renowned for its capacity to determine shortest paths between entities within the graph. Within the question-answering pipeline, this algorithm identifies and preserves triples encountered along these shortest paths, removing any duplicates based on content. Our hypothesis posits that the requisite information for constructing correct answers resides within these triples. For the traversal, the graph is unweighted and undirected, employing a constant value as the distance metric between adjacent vertices. We explored three heuristics for the h-metric to enhance pathfinding efficiency:
 
 - 1. Inner Product (ip): Utilizes the dot-product of embeddings between the current and goal vertices.
 - 2. Weighted with Shortest Path: Multiplies the length of the shortest path, identified via Breadth First Search (BFS), by the inner product metric.
@@ -173,7 +120,7 @@ BeamSearch. From a given node, N (hyperparameter) paths are constructed, that ar
 
 in two sets of paths: (1) ended–paths that ended before reaching the specified depth limit and (2) continuous– paths that reached the specified depth limit. Each such path has an estimate of its overall relevance. If ended first–value is specified, then: ended–paths will be sorted in descending order by relevance and the first max paths–paths will be selected. If there are fewer ended–paths than max paths–value, then continuous– paths will be sorted by relevance and the first N missing paths will be selected from them. If continuous first– value is specified, then paths will be selected in the same way as ended first–value, only first sorting/selection by continuous–paths, and then by ended–paths. If mixed– value is specified, then ended– and continuous–paths will be combined into one list, sorted in descending order by relevance, and the first N max paths–paths will be selected from the resulting list.
 
-Mixed algorithm. The mixed algorithm amalgamates the A\*, WaterCircles and BeamSearch strategies, facilitating improved extraction efficacy. This fusion ensures that triplets unextracted by WaterCircles (for example) may still be retrieved by BeamSearch, and vice versa. The ultimate list of triplets, which proceeds to the LLM for answer generation, represents a union of outputs from combinations of A\*–, WaterCircles– and BeamSearch—algorithms.
+Mixed algorithm. The mixed algorithm amalgamates the A*, WaterCircles and BeamSearch strategies, facilitating improved extraction efficacy. This fusion ensures that triplets unextracted by WaterCircles (for example) may still be retrieved by BeamSearch, and vice versa. The ultimate list of triplets, which proceeds to the LLM for answer generation, represents a union of outputs from combinations of A*–, WaterCircles– and BeamSearch—algorithms.
 
 Through these diverse algorithms, this study underscores the advances in extracting relevant data from knowledge graphs, underpinning the robust architecture necessary for personalizing responses within language model frameworks.
 
@@ -181,7 +128,7 @@ Through these diverse algorithms, this study underscores the advances in extract
 
 ## Datasets
 
-Proposed retrieval algorithms are evaluated on dialog DiaASQ–dataset (Li et al. 2023). It consists of users dialogs from a Chinese forum about characteristics of various mobile devices. Also dataset provide structured statements that contain the key meaning of the existing dialogs. Based on these "true statements", a set of questions was procedurally generated, which are used as a sample to evaluate the quality of the proposed algorithms. According to their properties, the questions are divided into ten types:
+Proposed retrieval algorithms are evaluated on dialog DiaASQ–dataset [[13]](#ref-13). It consists of users dialogs from a Chinese forum about characteristics of various mobile devices. Also dataset provide structured statements that contain the key meaning of the existing dialogs. Based on these "true statements", a set of questions was procedurally generated, which are used as a sample to evaluate the quality of the proposed algorithms. According to their properties, the questions are divided into ten types:
 
 - 1. Compare questions a questions about to compare two devices by a given characteristic. Example: "Which device is better in battery life: Apple or k30u?".
 - 2. Device sentiment a questions about the user's opinion on a given device at a given point in time. Example: "Kayla has a positive, negative or neutral opinion about the video of 10PRO on 25.11.2020?".
@@ -209,13 +156,13 @@ More details about preprocessing methods and numerical characteristics of result
 
 ### Models
 
-For graph construction (Memorize–pipeline) and information search (QA–pipeline) a series of 7B/8B and largesize (≫ 14B) models is selected to compare its performance capabilities in solving such tasks: Qwen2.5 7B, DeepSeek R1 7B, Llama3.1 8B, GPT4o–min and DeepSeek V3. To produce vector representations (embeddings) of processing text–data (in natural language) multilingual E5large–model (Wang et al. 2024) from the Hugging Face repository <sup>1</sup> is used.
+For graph construction (Memorize–pipeline) and information search (QA–pipeline) a series of 7B/8B and largesize (≫ 14B) models is selected to compare its performance capabilities in solving such tasks: Qwen2.5 7B, DeepSeek R1 7B, Llama3.1 8B, GPT4o–min and DeepSeek V3. To produce vector representations (embeddings) of processing text–data (in natural language) multilingual E5large–model [[19]](#ref-19) from the Hugging Face repository ^1^ is used.
 
 ### Retrieval Algorithms
 
-As retrieval algorithms evaluation is conducted for A\*, WaterCIrcles (WC) and BeamSeach (BS) as well as their combinations: "WC + BS", "A\* + BS", "A\* + WC". The values of hyperparameters for base algorithms were fixed:
+As retrieval algorithms evaluation is conducted for A*, WaterCIrcles (WC) and BeamSeach (BS) as well as their combinations: "WC + BS", "A* + BS", "A* + WC". The values of hyperparameters for base algorithms were fixed:
 
-- A\*: h metric name ip; max depth 10; max passed nodes – 150.
+- A*: h metric name ip; max depth 10; max passed nodes – 150.
 - WaterCircles: strict filter True; hyper num 15; episodic num – 15; chain triplets num – 25; other triplets num – 6; do text pruning – False.
 - BeamSearch: max depth 5; max paths 10; same path intersection by node – False; diff paths intersection by node – False; diff paths intersection by rel – False; mean alpha – 0.75; final sorting mode – mixed.
 
@@ -229,9 +176,9 @@ Each QA–configuration was evaluated on 100 question/answer pairs from the DiaA
 
 ## 5 Evaluation
 
-Traditional statistical evaluation metrics such as *BLEU*(Papineni et al. 2002),*ROUGE*(Lin 2004), and*Meteor Universal*(Denkowski and Lavie 2014) struggle to distinguish syntactically similar but semantically distinct texts. While semantic methods like*BERTScore*(Zhang et al. 2019) were introduced to address these limitations, our experiments reveal that BERTScore lacks sufficient differentiability, often failing to capture nuanced distinctions between correct and incorrect answers. Therefore, we adopt the*LLM as a judge*(Zheng et al. 2023) framework and choose Qwen2.5 7B. The judge evaluates QA pairs using a structured prompt containing the question, ground truth and model answer. It labels 1 for correct answers and 0 for incorrect ones, and we use accuracy as our main metric. Corresponding LLM-prompts and details are provided in Appendix D.
+Traditional statistical evaluation metrics such as *BLEU* [[15]](#ref-15), *ROUGE* [[11]](#ref-11), and *Meteor Universal* [[4]](#ref-4) struggle to distinguish syntactically similar but semantically distinct texts. While semantic methods like *BERTScore* [[21]](#ref-21) were introduced to address these limitations, our experiments reveal that BERTScore lacks sufficient differentiability, often failing to capture nuanced distinctions between correct and incorrect answers. Therefore, we adopt the *LLM as a judge* [[22]](#ref-22) framework and choose Qwen2.5 7B. The judge evaluates QA pairs using a structured prompt containing the question, ground truth and model answer. It labels 1 for correct answers and 0 for incorrect ones, and we use accuracy as our main metric. Corresponding LLM-prompts and details are provided in Appendix D.
 
-Also, for comparison of proposed QA–pipeline with existing RAG– and GrapRAG–methods the*ExactMatch* metric is calculated with ignore case and ignore punctuation hyperparameters set to True.
+Also, for comparison of proposed QA–pipeline with existing RAG– and GrapRAG–methods the *ExactMatch* metric is calculated with ignore case and ignore punctuation hyperparameters set to True.
 
 ## 6 Experiments and Results
 
@@ -246,7 +193,7 @@ Based on the obtained values, it is possible to model/estimate the characteristi
 From the Table 3 it can be seen that the lowest percentage of LLM response parsing errors is observed when using Qwen2.5 7B and Llama3.1 8B, and the highest percentage is observed with DeepSeek V3: DeepSeekR1 7B —- 0.29%; Qwen2.5 7B —- 0.02%; Llama3.1 8B —- 0.02%; GPT4o mini —- 9.87%; DeepSeekV3 —- 31.21%. At the same time, the highest number of thesis/object memories and corresponding hyper/simple relations extracted/stored in the graph with using of DeepSeekR1 7B and Qwen2.5 7B. In case of estimating the number of added thesis/object nodes while preserving one context (text–fragment of information) in the graph, the highest value is obtained when using Qwen2.5 7B: see Figure 1.
 
 | LLM | | Node | Relation | | | |
-|----------------|--------|--------|----------|--------|--|--|
+|---|---|---|---|---|---|---|
 | | thesis | object | hyper | simple | | |
 | DeepSeek R1 7B | 9 | 15 | 36 | 10 | | |
 | Qwen2.5 7B | 10 | 16 | 33 | 11 | | |
@@ -256,10 +203,10 @@ From the Table 3 it can be seen that the lowest percentage of LLM response parsi
 
 **Table 1:** The number of unique nodes/relations that are added to the knowledge graph when processing (using a given LLM model) and storing one episodic memory (episodic node)
 
-<sup>1</sup> https://huggingface.co/intfloat/multilingual-e5-small
+^1^ https://huggingface.co/intfloat/multilingual-e5-small
 
 | | Number of contexts | Nubmer of nodes | | | | Number of relations | | Average number of matching vertices (by type) | | | |
-|----------------|--------------------|-----------------|--------|--------|----------|---------------------|--------|-----------------------------------------------|---------------------|-------------------|-------------------|
+|---|---|---|---|---|---|---|---|---|---|---|---|
 | LLM | to store in graph | | | | | | | object–neighbours | thesis–neighbours | object–neighbours | object–neighbours |
 | | | episodic | thesis | object | episodic | hyper | simple | (to episodic–nodes) | (to episodic–nodes) | (to thesis–nodes) | (to object–nodes) |
 | | DiaASQ | | | | | | | | | | |
@@ -283,7 +230,7 @@ From the Table 3 it can be seen that the lowest percentage of LLM response parsi
 **Table 2:** Characteristics of the constructed knowledge graphs within conducted experiments
 
 | Number of contexts<br>LLM<br>to store in graph | | Number of nodes | | Number or relations | | Average number of adjacent vertices (by type) | | | | | |
-|------------------------------------------------|------|-----------------|--------|---------------------|-------------------|-----------------------------------------------|---------------------|---------------------|-------------------|-------------------|-------------------|
+|---|---|---|---|---|---|---|---|---|---|---|---|
 | | | episodic | | | episodic<br>hyper | | simple | object–neighbours | thesis–neighbours | object–neighbours | object–neighbours |
 | | | | thesis | object | | | (to episodic–nodes) | (to episodic–nodes) | (to thesis–nodes) | (to object–nodes) | |
 | DeepSeek R1 7B | | 4101 | 36677 | 60494 | 157808 | 148778 | 39927 | 29,18 | 9,30 | 4,04 | 1,69 |
@@ -308,10 +255,10 @@ the majority (≈74%) of configurations with the lowest quality value have a res
 
 Additionally, a comparative Table 6 was prepared to determine stable graph traversal algorithms.
 
-From Table 6 it is evident that in case of configurations with 8B–models and combined search (with A\*– and WaterCircles–algorithms) turned out to be more stable: there is no significant degradation of performance (maximum by
+From Table 6 it is evident that in case of configurations with 8B–models and combined search (with A*– and WaterCircles–algorithms) turned out to be more stable: there is no significant degradation of performance (maximum by
 
 | LLM /<br>Dataset | Qwen2,5 7B | DeepSeek R1 7B | Llama3.1 8B | GPT4o–mini | DeepSeek V3 | |
-|------------------|-----------------|----------------|--------------------|----------------------|----------------------|--|
+|---|---|---|---|---|---|---|
 | DiaASQ | 0,22 / BS / all | 0,12 / AS / E | 0,19 / BS / E | 0.5 / BS + WC / E | 0,47 / BS + WC / O | |
 | HotpotQA | 0,24 / BS / O | 0,19 / BS / O | 0,47 / BS / O | 0,77 / BS + WC / all | 0,76 / BS + WC / T | |
 | TriviaQA | 0,34 / BS / E | 0,27 / AS / E | 0,66 / BS + AS / E | – | 0,87 / BS + WC / all | |
@@ -320,7 +267,7 @@ From Table 6 it is evident that in case of configurations with 8B–models and c
 **Table 4:** Best QA configurations by JudgeScore within conducted experiments
 
 | Restrictions | 7B | | 8B | | Largesize | | |
-|----------------|---------------|--------------|---------------|--------------|---------------|--------------|--|
+|---|---|---|---|---|---|---|---|
 | on nodes–types | worse–configs | best–configs | worse–configs | best–configs | worse–configs | best–configs | |
 | E | 0,03 | 0,44 | 0,09 | 0,45 | 0,27 | 0,07 | |
 | T | 0,84 | 0,12 | 0,64 | 0,31 | 0,20 | 0,73 | |
@@ -329,7 +276,7 @@ From Table 6 it is evident that in case of configurations with 8B–models and c
 **Table 5:** Impact of various constraints imposed during knowledge graph traversal on the quality of QA pipeline: "worse–configs" —- distribution for low–quality configurations; "best–configs" —- distribution for high–quality configurations
 
 | Retrieval algorithm | | 7B | | | 8B | | Largesize | | |
-|---------------------|---------------|--------------|---------------|---------------|--------------|---------------|---------------|--------------|---------------|
+|---|---|---|---|---|---|---|---|---|---|
 | | worse–configs | best–configs | other–configs | worse–configs | best–configs | other–configs | worse–configs | best–configs | other–configs |
 | | (w restr) | (w restr) | (w/o restr) | (w restr) | (w restr) | (w/o restr) | (w restr) | (w restr) | (w/o restr) |
 | WC | – | – | 0,09 | – | – | 0,34 | – | – | 0,55 |
@@ -347,12 +294,12 @@ One of the important components of the implemented QA–pipeline is the "NoAnswe
 
 From Table 7 it is evident that in case of configura-
 
-tions with 7B–models the least "NoAnswer"–stubs are observed when using a combination of A\*– and WaterCircles– algorithms with a prohibition on traversing thesis nodes. For configurations with 8B–models the least "NoAnswer"–stubs are observed when using BeamSearch–algorithm with a prohibiyion on traversing episodic nodes. In turn, for largesize– models the least "NoAnswer"–stubs are observed when using a combination of BeamSeach– and WaterCircles– algorithms without imposing restrictions on traversing the graph. From this it can be concluded that these algorithms extract more useful information compared to other available ones.
+tions with 7B–models the least "NoAnswer"–stubs are observed when using a combination of A*– and WaterCircles– algorithms with a prohibition on traversing thesis nodes. For configurations with 8B–models the least "NoAnswer"–stubs are observed when using BeamSearch–algorithm with a prohibiyion on traversing episodic nodes. In turn, for largesize– models the least "NoAnswer"–stubs are observed when using a combination of BeamSeach– and WaterCircles– algorithms without imposing restrictions on traversing the graph. From this it can be concluded that these algorithms extract more useful information compared to other available ones.
 
 Comparison of existing RAG– and GraphRAG–methods with our proposed method on TriviaQA and HotpotQA datasets correspondingly can be observed in Table 8.
 
 | Retrieval Algorithm / | | AS | BS | WC + | BS + | AS + | Restrictions | all | E | T | O |
-|-----------------------|----|----|----|------|------|------|-----------------|-----|----|----|----|
+|---|---|---|---|---|---|---|---|---|---|---|---|
 | LLM-class | WC | | | BS | AS | WC | on graph search | | | | |
 | 7B | 31 | 44 | 26 | 29 | 31 | 25 | | 33 | 27 | 26 | 36 |
 | 8B | 51 | 49 | 43 | 51 | 73 | 49 | | 51 | 40 | 51 | 46 |
@@ -361,7 +308,7 @@ Comparison of existing RAG– and GraphRAG–methods with our proposed method on
 **Table 7:** The influence of the selected graph traversal algorithm and the imposed search restrictions on the percentage of generated NoAnswer stubs
 
 | Dataset | RAG–method | | | | | | | | | | |
-|----------|-----------------|------|-------|------------|---------|--------|-------|-------|--------|------------|--|
+|---|---|---|---|---|---|---|---|---|---|---|---|
 | | REALM | DPR | RAG | ColBERT–QA | FiD | EMDR2 | RETRO | Atlas | RePLUG | Our method | |
 | TriviaQA | 53,9 | 56,8 | 55,8 | 70,1 | 67,6 | 71,4 | 62,1 | 79,8 | 77,3 | 62,0 | |
 | | GraphRAG–method | | | | | | | | | | |
@@ -380,57 +327,56 @@ The following points can be emphasized as a disadvantages of the proposed/implem
 
 ## 9 Future work
 
-In future work, we aim to enhance the temporal dynamics of the knowledge graph by integrating a "memory time" parameter, allowing for more nuanced filtering of triplets based on temporal proximity and relationship types through advanced algorithms like BFS and A\*. This will enable the system to selectively emphasize certain relationship types or prioritize temporal closeness, thereby refining the precision of personalized responses. Additionally, exploring optimized triplet extraction techniques could further improve the efficiency and accuracy of information retrieval within the graph, extending the adaptability and universality of our approach. These enhancements promise to elevate the personalization capabilities of language models, fostering more sophisticated and contextually aware interactions.
+In future work, we aim to enhance the temporal dynamics of the knowledge graph by integrating a "memory time" parameter, allowing for more nuanced filtering of triplets based on temporal proximity and relationship types through advanced algorithms like BFS and A*. This will enable the system to selectively emphasize certain relationship types or prioritize temporal closeness, thereby refining the precision of personalized responses. Additionally, exploring optimized triplet extraction techniques could further improve the efficiency and accuracy of information retrieval within the graph, extending the adaptability and universality of our approach. These enhancements promise to elevate the personalization capabilities of language models, fostering more sophisticated and contextually aware interactions.
 
 ## References
 
-Anokhin, P.; Semenov, N.; Sorokin, A.; Evseev, D.; Burtsev, M.; and Burnaev, E. 2024. AriGraph: Learning Knowledge Graph World Models with Episodic Memory for LLM Agents. arXiv:2407.04363.
+<a id="ref-1"></a>1. Anokhin, P.; Semenov, N.; Sorokin, A.; Evseev, D.; Burtsev, M.; and Burnaev, E. 2024. AriGraph: Learning Knowledge Graph World Models with Episodic Memory for LLM Agents. arXiv:2407.04363.
 
-Chen, D.; Fisch, A.; Weston, J.; and Bordes, A. 2017. Reading Wikipedia to Answer Open-Domain Questions. In Barzilay, R.; and Kan, M.-Y., eds., *Proceedings of the 55th Annual Meeting of the Association for Computational Lin-* *guistics (Volume 1: Long Papers)*, 1870–1879. Vancouver, Canada: Association for Computational Linguistics.
+<a id="ref-2"></a>2. Chen, D.; Fisch, A.; Weston, J.; and Bordes, A. 2017. Reading Wikipedia to Answer Open-Domain Questions. In Barzilay, R.; and Kan, M.-Y., eds., *Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)*, 1870–1879. Vancouver, Canada: Association for Computational Linguistics.
 
-Chen, H.; Pasunuru, R.; Weston, J.; and Celikyilmaz, A. 2023. Walking Down the Memory Maze: Beyond Context Limit through Interactive Reading. arXiv:2310.05029.
+<a id="ref-3"></a>3. Chen, H.; Pasunuru, R.; Weston, J.; and Celikyilmaz, A. 2023. Walking Down the Memory Maze: Beyond Context Limit through Interactive Reading. arXiv:2310.05029.
 
-Denkowski, M.; and Lavie, A. 2014. Meteor universal: Language specific translation evaluation for any target language. In *Proceedings of the ninth workshop on statistical machine translation*, 376–380.
+<a id="ref-4"></a>4. Denkowski, M.; and Lavie, A. 2014. Meteor universal: Language specific translation evaluation for any target language. In *Proceedings of the ninth workshop on statistical machine translation*, 376–380.
 
-Gutierrez, B. J.; Shu, Y.; Gu, Y.; Yasunaga, M.; and Su, Y. ´ 2024. HippoRAG: Neurobiologically Inspired Long-Term Memory for Large Language Models. arXiv:2405.14831.
+<a id="ref-5"></a>5. Gutierrez, B. J.; Shu, Y.; Gu, Y.; Yasunaga, M.; and Su, Y. 2024. HippoRAG: Neurobiologically Inspired Long-Term Memory for Large Language Models. arXiv:2405.14831.
 
-Izacard, G.; Caron, M.; Hosseini, L.; Riedel, S.; Bojanowski, P.; Joulin, A.; and Grave, E. 2021. Unsupervised Dense Information Retrieval with Contrastive Learning.
+<a id="ref-6"></a>6. Izacard, G.; Caron, M.; Hosseini, L.; Riedel, S.; Bojanowski, P.; Joulin, A.; and Grave, E. 2021. Unsupervised Dense Information Retrieval with Contrastive Learning.
 
-Karpukhin, V.; Oguz, B.; Min, S.; Lewis, P.; Wu, L.; Edunov, S.; Chen, D.; and Yih, W.-t. 2020. Dense Passage Retrieval for Open-Domain Question Answering. In Webber, B.; Cohn, T.; He, Y.; and Liu, Y., eds., *Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)*, 6769–6781. Online: Association for Computational Linguistics.
+<a id="ref-7"></a>7. Karpukhin, V.; Oguz, B.; Min, S.; Lewis, P.; Wu, L.; Edunov, S.; Chen, D.; and Yih, W.-t. 2020. Dense Passage Retrieval for Open-Domain Question Answering. In Webber, B.; Cohn, T.; He, Y.; and Liu, Y., eds., *Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)*, 6769–6781. Online: Association for Computational Linguistics.
 
-Lee, K.-H.; Chen, X.; Furuta, H.; Canny, J.; and Fischer, I. 2024. A Human-Inspired Reading Agent with Gist Memory of Very Long Contexts. arXiv:2402.09727.
+<a id="ref-8"></a>8. Lee, K.-H.; Chen, X.; Furuta, H.; Canny, J.; and Fischer, I. 2024. A Human-Inspired Reading Agent with Gist Memory of Very Long Contexts. arXiv:2402.09727.
 
-Lewis, P.; Perez, E.; Piktus, A.; Petroni, F.; Karpukhin, V.; Goyal, N.; Kuttler, H.; Lewis, M.; tau Yih, W.; ¨ Rocktaschel, T.; Riedel, S.; and Kiela, D. 2021. Retrieval- ¨ Augmented Generation for Knowledge-Intensive NLP Tasks. arXiv:2005.11401.
+<a id="ref-11"></a>11. Lin, C.-Y. 2004. Rouge: A package for automatic evaluation of summaries. In *Text summarization branches out*, 74–81.
 
-Li, B.; Fei, H.; Li, F.; Wu, Y.; Zhang, J.; Wu, S.; Li, J.; Liu, Y.; Liao, L.; Chua, T.-S.; and Ji, D. 2023. DiaASQ : A Benchmark of Conversational Aspect-based Sentiment Quadruple Analysis. arXiv:2211.05705.
+<a id="ref-12"></a>12. Lewis, P.; Perez, E.; Piktus, A.; Petroni, F.; Karpukhin, V.; Goyal, N.; Kuttler, H.; Lewis, M.; tau Yih, W.; Rocktaschel, T.; Riedel, S.; and Kiela, D. 2021. Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks. arXiv:2005.11401.
 
-Li, S.; He, Y.; Guo, H.; Bu, X.; Bai, G.; Liu, J.; Liu, J.; Qu, X.; Li, Y.; Ouyang, W.; Su, W.; and Zheng, B. 2024. GraphReader: Building Graph-based Agent to Enhance Long-Context Abilities of Large Language Models. arXiv:2406.14550.
+<a id="ref-13"></a>13. Li, B.; Fei, H.; Li, F.; Wu, Y.; Zhang, J.; Wu, S.; Li, J.; Liu, Y.; Liao, L.; Chua, T.-S.; and Ji, D. 2023. DiaASQ : A Benchmark of Conversational Aspect-based Sentiment Quadruple Analysis. arXiv:2211.05705.
 
-Lin, C.-Y. 2004. Rouge: A package for automatic evaluation of summaries. In *Text summarization branches out*, 74–81.
+<a id="ref-14"></a>14. Li, S.; He, Y.; Guo, H.; Bu, X.; Bai, G.; Liu, J.; Liu, J.; Qu, X.; Li, Y.; Ouyang, W.; Su, W.; and Zheng, B. 2024. GraphReader: Building Graph-based Agent to Enhance Long-Context Abilities of Large Language Models. arXiv:2406.14550.
 
-Papineni, K.; Roukos, S.; Ward, T.; and Zhu, W.-J. 2002. Bleu: a method for automatic evaluation of machine translation. In *Proceedings of the 40th annual meeting of the Association for Computational Linguistics*, 311–318.
+<a id="ref-15"></a>15. Papineni, K.; Roukos, S.; Ward, T.; and Zhu, W.-J. 2002. Bleu: a method for automatic evaluation of machine translation. In *Proceedings of the 40th annual meeting of the Association for Computational Linguistics*, 311–318.
 
-Robertson, S.; Zaragoza, H.; et al. 2009. The probabilistic relevance framework: BM25 and beyond. *Foundations and Trends® in Information Retrieval*, 3(4): 333–389.
+<a id="ref-16"></a>16. Robertson, S.; Zaragoza, H.; et al. 2009. The probabilistic relevance framework: BM25 and beyond. *Foundations and Trends® in Information Retrieval*, 3(4): 333–389.
 
-Sachan, D. S.; Lewis, M.; Yogatama, D.; Zettlemoyer, L.; Pineau, J.; and Zaheer, M. 2023. Questions Are All You Need to Train a Dense Passage Retriever. *Transactions of the Association for Computational Linguistics*, 11: 600–616.
+<a id="ref-17"></a>17. Sachan, D. S.; Lewis, M.; Yogatama, D.; Zettlemoyer, L.; Pineau, J.; and Zaheer, M. 2023. Questions Are All You Need to Train a Dense Passage Retriever. *Transactions of the Association for Computational Linguistics*, 11: 600–616.
 
-Sarthi, P.; Abdullah, S.; Tuli, A.; Khanna, S.; Goldie, A.; and Manning, C. D. 2024. RAPTOR: Recursive Abstractive Processing for Tree-Organized Retrieval. arXiv:2401.18059.
+<a id="ref-18"></a>18. Sarthi, P.; Abdullah, S.; Tuli, A.; Khanna, S.; Goldie, A.; and Manning, C. D. 2024. RAPTOR: Recursive Abstractive Processing for Tree-Organized Retrieval. arXiv:2401.18059.
 
-Wang, L.; Yang, N.; Huang, X.; Jiao, B.; Yang, L.; Jiang, D.; Majumder, R.; and Wei, F. 2024. Text Embeddings by Weakly-Supervised Contrastive Pre-training. arXiv:2212.03533.
+<a id="ref-19"></a>19. Wang, L.; Yang, N.; Huang, X.; Jiao, B.; Yang, L.; Jiang, D.; Majumder, R.; and Wei, F. 2024. Text Embeddings by Weakly-Supervised Contrastive Pre-training. arXiv:2212.03533.
 
-Wang, Y.; Lipka, N.; Rossi, R. A.; Siu, A.; Zhang, R.; and Derr, T. 2023. Knowledge Graph Prompting for Multi-Document Question Answering. arXiv:2308.11730.
+<a id="ref-20"></a>20. Wang, Y.; Lipka, N.; Rossi, R. A.; Siu, A.; Zhang, R.; and Derr, T. 2023. Knowledge Graph Prompting for Multi-Document Question Answering. arXiv:2308.11730.
 
-Zhang, T.; Kishore, V.; Wu, F.; Weinberger, K. Q.; and Artzi, Y. 2019. BERTScore: Evaluating Text Generation with BERT. *ArXiv*, abs/1904.09675.
+<a id="ref-21"></a>21. Zhang, T.; Kishore, V.; Wu, F.; Weinberger, K. Q.; and Artzi, Y. 2019. BERTScore: Evaluating Text Generation with BERT. *ArXiv*, abs/1904.09675.
 
-Zheng, L.; Chiang, W.-L.; Sheng, Y.; Zhuang, S.; Wu, Z.; Zhuang, Y.; Lin, Z.; Li, Z.; Li, D.; Xing, E.; et al. 2023. Judging llm-as-a-judge with mt-bench and chatbot arena. *Advances in Neural Information Processing Systems*, 36: 46595–46623.
+<a id="ref-22"></a>22. Zheng, L.; Chiang, W.-L.; Sheng, Y.; Zhuang, S.; Wu, Z.; Zhuang, Y.; Lin, Z.; Li, Z.; Li, D.; Xing, E.; et al. 2023. Judging llm-as-a-judge with mt-bench and chatbot arena. *Advances in Neural Information Processing Systems*, 36: 46595–46623.
 
 ## A LLM–prompts used to build a knowledge graph within the Memorize–pipeline
 
 Tables 9 and 10 present the LLM–prompts used within the Memorize–pipeline to extract thesis and simple memories, respectively, from unstructured natural language text for storing in a knowledge graph.
 
 | Type | LLM–prompt |
-|-----------|------------|
-| | |
+|---|---|
 | System | |
 | User | |
 | Assistant | |
@@ -438,7 +384,7 @@ Tables 9 and 10 present the LLM–prompts used within the Memorize–pipeline to
 **Table 9:** LLM–prompts for extracting thesis memories (in the form of triplets) from natural language text
 
 | Type | LLM–prompt |
-|-----------|------------|
+|---|---|
 | System | |
 | User | |
 | Assistant | |
@@ -450,7 +396,7 @@ Tables 9 and 10 present the LLM–prompts used within the Memorize–pipeline to
 Tables 11 and 12 present the LLM–prompts used by Memorize–pipeline to identify stale thesis and simple memories, respectively, in the knowledge graph.
 
 | Type | LLM–prompt |
-|-----------|------------|
+|---|---|
 | | |
 | | |
 | | |
@@ -476,9 +422,7 @@ Tables 11 and 12 present the LLM–prompts used by Memorize–pipeline to identi
 | | |
 | | |
 | | |
-| | |
 | User | |
-| | |
 | | |
 | | |
 | | |
@@ -499,7 +443,7 @@ Tables 11 and 12 present the LLM–prompts used by Memorize–pipeline to identi
 | Assistant | - |
 
 | Type | LLM–prompt |
-|-------------------|------------|
+|---|---|
 | System | |
 | User<br>Assistant | - |
 | | |
@@ -509,7 +453,7 @@ Tables 11 and 12 present the LLM–prompts used by Memorize–pipeline to identi
 Table 13 presents LLM–prompts used in QA–pipeline at the second stage ("Query LLM Parser"–module) to extract key entities from the original user question. Table 14 presents the LLM–prompts used in QA–pipeline at the fourth stage ("QA LLM Generator"-module) to conditionally generate an answer to a user–question.
 
 | Type | LLM–prompt |
-|-----------|------------|
+|---|---|
 | System | |
 | User | |
 | Assistant | |
@@ -517,7 +461,7 @@ Table 13 presents LLM–prompts used in QA–pipeline at the second stage ("Quer
 **Table 13:** LLM–prompts for extracting key entities from natural language text
 
 | Type | LLM–prompt | | | | | | | |
-|-----------|------------|--|--|--|--|--|--|--|
+|---|---|---|---|---|---|---|---|---|
 | | | | | | | | | |
 | System | | | | | | | | |
 | User | | | | | | | | |
@@ -528,7 +472,7 @@ Table 13 presents LLM–prompts used in QA–pipeline at the second stage ("Quer
 To achieve reproducibility of the obtained results, the LLM-inference was performed using a deterministic generation strategy. The following hyperparameter were used/set: num predict – 2048; seed – 42; temperature – 0,0; top k – 1. We prompt Qwen2.5 7B from Ollama–repository to judge whether the proposed QA–pipeline outputs are correctly answering given questions. Used LLM–prompts can be observed in Table 15.
 
 | Type | LLM–prompt |
-|-----------|------------|
+|---|---|
 | System | |
 | User | |
 | Assistant | |
@@ -544,7 +488,7 @@ In the case of the original TriviaQA–set, its rc.wikipedia/validation–part w
 Thus, evaluation sets for quality assessment of the proposed/implemented Memorize– and QA–pipelines were obtained. The characteristics of the obtained subsets of HotpotQA–, TriviaQA– and DiaASQ–datasets can be found in Table 16.
 
 | Dataset | QA–pairs | | | | | | Relevant contexts | | | | |
-|----------|----------|------------------|--------|-------|-----------------|-------|-------------------|--------|-----------------|--------|--------|
+|---|---|---|---|---|---|---|---|---|---|---|---|
 | | Amount | Questions length | | | Answers length | | | Amount | Length | | |
 | | | (in characters) | | | (in characters) | | | | (in characters) | | |
 | | | median | mean | std | median | mean | std | | median | mean | std |

@@ -4,29 +4,14 @@ title: DHyper: A Recurrent Dual Hypergraph Neural Network for Event Prediction i
 authors: Xing Tang, Ling Chen, Hongyu Shi, Dandan Lyu
 year: 2024
 doi: 10.1145/3653015
-date_processed: '2025-07-02'
+date_processed: 2025-07-02
 phase2_processed: true
-original_folder: '3653015'
+original_folder: 3653015
 images_total: 9
 images_kept: 9
 images_removed: 0
-tags:
-- Blockchain
-- Knowledge Graph
-- Machine Learning
-- Personal Health
-- Privacy
-- Recommendation System
-- Semantic Web
-- Temporal
-keywords:
-- blockchain
-- high-order
-- knowledge graphs
-- neural network
-- neural networks
-- real-world
-- state-of-the-art
+tags: 
+keywords: 
 ---
 
 # DHyper: A Recurrent Dual Hypergraph Neural Network for Event Prediction in Temporal Knowledge Graphs
@@ -59,95 +44,96 @@ ACM 1046-8188/2024/04-ART129
 
 ### 1 INTRODUCTION
 
-A**temporal knowledge graph (TKG)** [\[22\]](#page-21-0) is a way of organizing the knowledge with temporal information, which represents the temporal knowledge as events in the form of quadruplet (*head entity, relation, tail entity, timestamp*). For example, for event (New Zealand, Express intent to cooperate, Greece, 2018/1/7), "New Zealand" and "Greece" refer to *head entity*and*tail entity*, respectively, "Express intent to cooperate" refers to *relation*, and "2018/1/7" refers to *timestamp*. TKGs have played crucial roles in various applications, e.g., recommendation [\[1,](#page-21-0) [2\]](#page-21-0), international relation prediction [\[33\]](#page-22-0), and social network analysis [\[48,](#page-22-0) [49\]](#page-22-0). With the rapid development of intelligent information technology, plenty of TKGs emerge, e.g., the **Global Database of Events, Language, and Tone (GDELT)**[\[13\]](#page-21-0) and the**Integrated Conflict Early Warning System (ICEWS)**[\[47\]](#page-22-0). Event prediction in TKGs is an important task that predicts future events according to historical events [\[16\]](#page-21-0). For example, based on the historical events between two countries, the event prediction task aims to predict the future relations between them. The task is challenging due to complex temporal characteristics and multiple relations.
+A **temporal knowledge graph (TKG)** [[22]](#ref-22) is a way of organizing the knowledge with temporal information, which represents the temporal knowledge as events in the form of quadruplet (*head entity, relation, tail entity, timestamp*). For example, for event (New Zealand, Express intent to cooperate, Greece, 2018/1/7), "New Zealand" and "Greece" refer to *head entity* and *tail entity*, respectively, "Express intent to cooperate" refers to *relation*, and "2018/1/7" refers to *timestamp*. TKGs have played crucial roles in various applications, e.g., recommendation [[1]](#ref-1), [[2]](#ref-2), international relation prediction [[33]](#ref-33), and social network analysis [[48]](#ref-48), [[49]](#ref-49). With the rapid development of intelligent information technology, plenty of TKGs emerge, e.g., the **Global Database of Events, Language, and Tone (GDELT)** [[13]](#ref-13) and the **Integrated Conflict Early Warning System (ICEWS)** [[47]](#ref-47). Event prediction in TKGs is an important task that predicts future events according to historical events [[16]](#ref-16). For example, based on the historical events between two countries, the event prediction task aims to predict the future relations between them. The task is challenging due to complex temporal characteristics and multiple relations.
 
-Early approaches focus on modeling timestamps by shallow encoders, e.g., the hyperplane projection and the fixed format encoding [\[4,](#page-21-0) [12\]](#page-21-0). Recently, encouraged by the success of**deep neural networks (DNNs)**, researchers have proposed a large amount of DNN based approaches that integrate **graph neural networks (GNNs)**with**recurrent neural networks (RNNs)**and their variants to model the graph structure information and the temporal dependency in TKGs, which show the state-of-the-art (SOTA) performance for the event prediction task [\[6,](#page-21-0) [10,](#page-21-0) [14,](#page-21-0) [15,](#page-21-0) [26\]](#page-22-0). In these approaches, graphs are constructed based on quadruplets, and GNNs are employed to capture the pairwise correlation between entities. The latest approaches attempt to develop derived structures, e.g., paths [\[19\]](#page-21-0), entity groups [\[21\]](#page-21-0), and communities [\[34\]](#page-22-0), to capture the latent pairwise correlation between entities that are distant and even unreachable.
+Early approaches focus on modeling timestamps by shallow encoders, e.g., the hyperplane projection and the fixed format encoding [[4]](#ref-4), [[12]](#ref-12). Recently, encouraged by the success of **deep neural networks (DNNs)**, researchers have proposed a large amount of DNN based approaches that integrate **graph neural networks (GNNs)** with **recurrent neural networks (RNNs)** and their variants to model the graph structure information and the temporal dependency in TKGs, which show the state-of-the-art (SOTA) performance for the event prediction task [[6]](#ref-6), [[10]](#ref-10), [[14]](#ref-14), [[15]](#ref-15), [[26]](#ref-26). In these approaches, graphs are constructed based on quadruplets, and GNNs are employed to capture the pairwise correlation between entities. The latest approaches attempt to develop derived structures, e.g., paths [[19]](#ref-19), entity groups [[21]](#ref-21), and communities [[34]](#ref-34), to capture the latent pairwise correlation between entities that are distant and even unreachable.
 
-Despite the promising results of introducing derived structures, these approaches still lack the capability to capture the high-order correlation among entities, i.e., the simultaneous correlation among triadic, tetradic, or multiple entities [\[25\]](#page-22-0). As illustrated in Figure [1,](#page-2-0) Japan, the United States, France, Canada, United Kingdom, Germany, and Italy, co-participate in the G7 summit, indicating a strong connection among these seven countries, i.e., the high-order correlation. However, existing approaches only construct graphs based on quadruplets, and model the pairwise correlation between entities by GNNs [\[3,](#page-21-0) [6,](#page-21-0) [10,](#page-21-0) [14,](#page-21-0) [15,](#page-21-0) [26\]](#page-22-0), which fail to capture the high-order correlation among entities.
+Despite the promising results of introducing derived structures, these approaches still lack the capability to capture the high-order correlation among entities, i.e., the simultaneous correlation among triadic, tetradic, or multiple entities [[25]](#ref-25). As illustrated in Figure [[1]](#fig-1), Japan, the United States, France, Canada, United Kingdom, Germany, and Italy, co-participate in the G7 summit, indicating a strong connection among these seven countries, i.e., the high-order correlation. However, existing approaches only construct graphs based on quadruplets, and model the pairwise correlation between entities by GNNs [[3]](#ref-3), [[6]](#ref-6), [[10]](#ref-10), [[14]](#ref-14), [[15]](#ref-15), [[26]](#ref-26), which fail to capture the high-order correlation among entities.
 
-In addition, there are correlations among relations in TKGs, and the correlations are also high order. For example, when military conflicts erupt,some countries provide military assistance to one side while condemning and criticizing the other. Subsequently, countries strengthen cooperation and exchanges to avoid risks, e.g., energy crisis and economic crisis. Obviously, these relations, i.e.,"military conflicts erupt," "provide military assistance," "condemn," "criticize," and "strengthen cooperation and exchanges," are highly correlated. Capturing the high-order correlation among relations can contribute to more accurate event prediction.
-**Hypergraph neural networks (HGNNs)**[\[8,](#page-21-0) [9\]](#page-21-0) are a kind of special GNNs, providing a powerful way to capture the high-order correlation among nodes by using a hyperedge to connect multiple nodes. HGNNs have achieved successful results in a wide range of areas, e.g., recommendation [\[5,](#page-21-0) [25,](#page-22-0) [27,](#page-22-0) [29,](#page-22-0) [35,](#page-22-0) [40,](#page-22-0) [42\]](#page-22-0), time series analysis [\[30,](#page-22-0) [31\]](#page-22-0), and social network analysis [\[17,](#page-21-0) [28\]](#page-22-0). However, it is not trivial to apply existing HGNNs to the event prediction task in TKGs, as they are usually based on pre-defined graph structures and only capture the high-order correlation among nodes, failing to capture the high-order correlation among relations.
+In addition, there are correlations among relations in TKGs, and the correlations are also high order. For example, when military conflicts erupt, some countries provide military assistance to one side while condemning and criticizing the other. Subsequently, countries strengthen cooperation and exchanges to avoid risks, e.g., energy crisis and economic crisis. Obviously, these relations, i.e., "military conflicts erupt," "provide military assistance," "condemn," "criticize," and "strengthen cooperation and exchanges," are highly correlated. Capturing the high-order correlation among relations can contribute to more accurate event prediction.
+**Hypergraph neural networks (HGNNs)** [[8]](#ref-8), [[9]](#ref-9) are a kind of special GNNs, providing a powerful way to capture the high-order correlation among nodes by using a hyperedge to connect multiple nodes. HGNNs have achieved successful results in a wide range of areas, e.g., recommendation [[5]](#ref-5), [[25]](#ref-25), [[27]](#ref-27), [[29]](#ref-29), [[35]](#ref-35), [[40]](#ref-40), [[42]](#ref-42), time series analysis [[30]](#ref-30), [[31]](#ref-31), and social network analysis [[17]](#ref-17), [[28]](#ref-28). However, it is not trivial to apply existing HGNNs to the event prediction task in TKGs, as they are usually based on pre-defined graph structures and only capture the high-order correlation among nodes, failing to capture the high-order correlation among relations.
 
-To address the aforementioned deficiencies, we propose**DHyper**, a recurrent **Dual Hypergraph**neural network for event prediction in TKGs. To the best of our knowledge, DHyper is the
+To address the aforementioned deficiencies, we propose **DHyper**, a recurrent **Dual Hypergraph** neural network for event prediction in TKGs. To the best of our knowledge, DHyper is the
 
-<span id="page-2-0"></span>![](_page_2_Figure_1.jpeg)
-<!-- Image Description: This Venn diagram displays the overlapping memberships of three international groups: G7, NATO, and the Belt and Road Initiative. National flags represent each member state, visually showing the intersections and unique memberships within each organization. The diagram's purpose is to illustrate the geopolitical relationships and shared affiliations among these nations. -->
+![The example of the high-order correlation among countries.](_page_2_Figure_1.jpeg){#fig-1}
 
 Figure 1. The example of the high-order correlation among countries.
 
 first work that incorporates the hypergraph modeling into TKGs, which simultaneously models the influences of both the high-order correlations among entities and among relations. The major contributions of our work are outlined as follows:
 
-- —We propose a**dual hypergraph learning module (DHL)**, which discoversthe high-order correlations among entities and among relations in a parameterized way. In addition, the prior dependency between relations and four primary tendencies is infused to impose constraints on relation representations.
-- —We introduce a **dual hypergraph message passing (DHMP)**network to perform the information aggregation and representation fusion on the entity hypergraph and the relation hypergraph, which can jointly model the influences of the high-order correlations among both entities and relations.
+- —We propose a **dual hypergraph learning module (DHL)**, which discovers the high-order correlations among entities and among relations in a parameterized way. In addition, the prior dependency between relations and four primary tendencies is infused to impose constraints on relation representations.
+- —We introduce a **dual hypergraph message passing (DHMP)** network to perform the information aggregation and representation fusion on the entity hypergraph and the relation hypergraph, which can jointly model the influences of the high-order correlations among both entities and relations.
 - —We evaluate the proposed method on six real-world datasets. Experimental results demonstrate that DHyper achieves the SOTA performance on the event prediction task, outperforming the best baseline by an average of 13.09%, 4.26%, 17.60%, and 18.03% in MRR, Hits@1, Hits@3, and Hits@10, respectively.
 
-The remainder of this article is structured as follows: Section 2 provides a review of existing methods associated with this work. The definitions of the associated terms and the formulation of the task are given in Section [3.](#page-4-0) The specifics of the proposed model are presented in Section [4.](#page-4-0) The experimental results and analyses are given in Section [5.](#page-9-0) Finally, we conclude the article and present future work in Section [6.](#page-19-0)
+The remainder of this article is structured as follows: Section 2 provides a review of existing methods associated with this work. The definitions of the associated terms and the formulation of the task are given in Section [[3]](#sec-3). The specifics of the proposed model are presented in Section [[4]](#sec-4). The experimental results and analyses are given in Section [[5]](#sec-5). Finally, we conclude the article and present future work in Section [[6]](#sec-6).
 
 ## 2 RELATED WORKS
 
-In thissection, we provide an overview of the related works, including event prediction approaches in TKG and HGNN related studies.
+In this section, we provide an overview of the related works, including event prediction approaches in TKG and HGNN related studies.
 
 ## 2.1 Event Prediction Approaches in TKGs
 
-Inspired by the success of DNNs in various areas, e.g., natural language processing [\[7\]](#page-21-0) and computer vision [\[20\]](#page-21-0), researchers have proposed massive DNN based approaches. In these approaches, GNNs are integrated with RNNs and their variants, e.g.,**Long Short-Term Memory (LSTM)**and**Gated Recurrent Units (GRUs)**, to model the graph structure information and the temporal dependency in TKGs [\[3,](#page-21-0) [6,](#page-21-0) [10,](#page-21-0) [14,](#page-21-0) [15,](#page-21-0) [26\]](#page-22-0). RE-NET [\[10\]](#page-21-0) models graph structure information and the temporal dependency by GNNs and RNNs and employs an autoregressive way to get the joint probability distribution of all events. Glean [\[6\]](#page-21-0) models the influences of neighbor entities and relations by CompGCN [\[24\]](#page-21-0) and captures the temporal dependency among representations by GRUs. Both TeMP [\[26\]](#page-22-0) and RE-GCN [\[14\]](#page-21-0) aggregate the message from neighbor entities by R-GCN [\[18\]](#page-21-0) and model the temporal dependency by customized GRUs. DACHA [\[3\]](#page-21-0) introduces a self-attentive encoder to encode historical relations and exploits a dual graph convolution network to aggregate the message from neighbor entities and historical relations. TiRGN [\[15\]](#page-21-0) introduces a multi-relation based GCN to capture graph structure information and develops a double recurrent mechanism to model the temporal dependency. In these approaches, graphs are constructed based on quadruplets, and GNNs are employed to capture the pairwise correlation between entities.
+Inspired by the success of DNNs in various areas, e.g., natural language processing [[7]](#ref-7) and computer vision [[20]](#ref-20), researchers have proposed massive DNN based approaches. In these approaches, GNNs are integrated with RNNs and their variants, e.g., **Long Short-Term Memory (LSTM)** and **Gated Recurrent Units (GRUs)**, to model the graph structure information and the temporal dependency in TKGs [[3]](#ref-3), [[6]](#ref-6), [[10]](#ref-10), [[14]](#ref-14), [[15]](#ref-15), [[26]](#ref-26). RE-NET [[10]](#ref-10) models graph structure information and the temporal dependency by GNNs and RNNs and employs an autoregressive way to get the joint probability distribution of all events. Glean [[6]](#ref-6) models the influences of neighbor entities and relations by CompGCN [[24]](#ref-24) and captures the temporal dependency among representations by GRUs. Both TeMP [[26]](#ref-26) and RE-GCN [[14]](#ref-14) aggregate the message from neighbor entities by R-GCN [[18]](#ref-18) and model the temporal dependency by customized GRUs. DACHA [[3]](#ref-3) introduces a self-attentive encoder to encode historical relations and exploits a dual graph convolution network to aggregate the message from neighbor entities and historical relations. TiRGN [[15]](#ref-15) introduces a multi-relation based GCN to capture graph structure information and develops a double recurrent mechanism to model the temporal dependency. In these approaches, graphs are constructed based on quadruplets, and GNNs are employed to capture the pairwise correlation between entities.
 
-More recently, several approaches seek to develop derived structures to model the influence of the latent pairwise correlation between entities that are far apart and even unreachable. TITer [\[19\]](#page-21-0) incorporatestemporal agent-based reinforcement learning [\[39\]](#page-22-0)to search paths between distant entities and obtains entity representations by the inductive mean. GTRL [\[21\]](#page-21-0)introduces entity groups to model the correlation between entities that are far apart and even unreachable. EvoExplore [\[34\]](#page-22-0) establishes dynamic communities to model the latent correlations between entities. In spite of the promising results of introducing derived structures, these approaches still lack the capability to capture the high-order correlation among entities. In addition, the high-order correlation among relations is ignored. Therefore, we propose DHyper that is the first work to incorporate the hypergraph modeling into TKGs, which can simultaneously model the high-order correlations among entities and among relations.
+More recently, several approaches seek to develop derived structures to model the influence of the latent pairwise correlation between entities that are far apart and even unreachable. TITer [[19]](#ref-19) incorporates temporal agent-based reinforcement learning [[39]](#ref-39) to search paths between distant entities and obtains entity representations by the inductive mean. GTRL [[21]](#ref-21) introduces entity groups to model the correlation between entities that are far apart and even unreachable. EvoExplore [[34]](#ref-34) establishes dynamic communities to model the latent correlations between entities. In spite of the promising results of introducing derived structures, these approaches still lack the capability to capture the high-order correlation among entities. In addition, the high-order correlation among relations is ignored. Therefore, we propose DHyper that is the first work to incorporate the hypergraph modeling into TKGs, which can simultaneously model the high-order correlations among entities and among relations.
 
 ## 2.2 HGNN Related Studies
 
-HGNNs are a kind of special GNNs, where each hyperedge can connect multiple nodes, providing a powerful way to capture the high-order correlation among nodes. HGNNs have achieved successful results in a wide range of areas, e.g., recommendation [\[5,](#page-21-0) [25,](#page-22-0) [27,](#page-22-0) [29,](#page-22-0) [35,](#page-22-0) [40,](#page-22-0) [42\]](#page-22-0), time series analysis [\[30,](#page-22-0) [31\]](#page-22-0), and social network analysis [\[17,](#page-21-0) [28\]](#page-22-0). MRH [\[5\]](#page-21-0) is the first model to introduce hypergraphs in music recommendation, which leverages hypergraphs to model the high-order relations among objects. HyperRec [\[25\]](#page-22-0) exploits hypergraphs to model the short-term item correlations for the next-item recommendation, which uses a hyperedge to connect multiple items. AADA [\[40\]](#page-22-0) exploits positive and negative hypergraphs to represent users' historical interactions for cold-start recommendation. HGC-RNN [\[30\]](#page-22-0) is a taxi demand prediction model, which employs hypergraphs to model the complicated structural correlations among sensors and uses RNNs to capture the temporal dependency among representations. LBSN2Vec++ [\[28\]](#page-22-0) is a heterogeneous hypergraph embedding model for location-based social networks, which constructs a hypergraph including both user-user edges (friendships) and user-time-POI-semantic hyperedges (check-ins), and learns user representations by a random-walk-with-stay sampling strategy. All the aforementioned methods are based on pre-defined hypergraph structures, which require plenty of manual design and domain knowledge.
+HGNNs are a kind of special GNNs, where each hyperedge can connect multiple nodes, providing a powerful way to capture the high-order correlation among nodes. HGNNs have achieved successful results in a wide range of areas, e.g., recommendation [[5]](#ref-5), [[25]](#ref-25), [[27]](#ref-27), [[29]](#ref-29), [[35]](#ref-35), [[40]](#ref-40), [[42]](#ref-42), time series analysis [[30]](#ref-30), [[31]](#ref-31), and social network analysis [[17]](#ref-17), [[28]](#ref-28). MRH [[5]](#ref-5) is the first model to introduce hypergraphs in music recommendation, which leverages hypergraphs to model the high-order relations among objects. HyperRec [[25]](#ref-25) exploits hypergraphs to model the short-term item correlations for the next-item recommendation, which uses a hyperedge to connect multiple items. AADA [[40]](#ref-40) exploits positive and negative hypergraphs to represent users' historical interactions for cold-start recommendation. HGC-RNN [[30]](#ref-30) is a taxi demand prediction model, which employs hypergraphs to model the complicated structural correlations among sensors and uses RNNs to capture the temporal dependency among representations. LBSN2Vec++ [[28]](#ref-28) is a heterogeneous hypergraph embedding model for location-based social networks, which constructs a hypergraph including both user-user edges (friendships) and user-time-POI-semantic hyperedges (check-ins), and learns user representations by a random-walk-with-stay sampling strategy. All the aforementioned methods are based on pre-defined hypergraph structures, which require plenty of manual design and domain knowledge.
 
-To handle this issue, HERALD [\[35\]](#page-22-0) introduces a hypergraph Laplacian adaptor to automatically adapt the hypergraph structure based on node representations and the pre-defined hypergraph Laplacian. MBHT [\[29\]](#page-22-0) constructs the itemwise semantic dependency hypergraph based on a metric learning module to model the high-order dependencies among items. HCCF [\[27\]](#page-22-0) captures the complex high-order dependencies among users by a parameterized hypergraph learning module. These studies show that discovering the high-order correlation among nodes by a learning <span id="page-4-0"></span>paradigm is effective. Inspired by this, we also propose to capture the high-order correlations among entities and among relations in a parameterized way.
+To handle this issue, HERALD [[35]](#ref-35) introduces a hypergraph Laplacian adaptor to automatically adapt the hypergraph structure based on node representations and the pre-defined hypergraph Laplacian. MBHT [[29]](#ref-29) constructs the itemwise semantic dependency hypergraph based on a metric learning module to model the high-order dependencies among items. HCCF [[27]](#ref-27) captures the complex high-order dependencies among users by a parameterized hypergraph learning module. These studies show that discovering the high-order correlation among nodes by a learning paradigm is effective. Inspired by this, we also propose to capture the high-order correlations among entities and among relations in a parameterized way.
 
-## 3 PRELIMINARIES
+## 3 PRELIMINARIES {#sec-3}
 
 In this section, we give the definitions of associated terms and formulate the problem.
 
-*Definition 1 (TKG).* A TKG can be formalized as a set of events, denoted as G = {(*s*,*r*, *o*, *τ* )|*s*, *o* ∈ E,*r*∈ R,*τ*∈ T }, where*s*, *r*, *o*, and *τ* denote head entity, relation, tail entity, and timestamp, respectively. E, R, and T denote the sets of entities, relations, and timestamps, respectively. G*<sup>t</sup>*is the set of events for timestep*t*.
+*Definition 1 (TKG).* A TKG can be formalized as a set of events, denoted as G = {(*s*,*r*, *o*, *τ* )|*s*, *o* ∈ E,*r*∈ R,*τ*∈ T }, where*s*, *r*, *o*, and *τ* denote head entity, relation, tail entity, and timestamp, respectively. E, R, and T denote the sets of entities, relations, and timestamps, respectively. G^t^ is the set of events for timestep*t*.
 
-*Definition 2 (Entity Graph).*The entity graph is denoted as*G*<sup>e</sup> = (*V*<sup>e</sup>,*E*e), where *V*<sup>e</sup> denotes the node set representing entities.*E*<sup>e</sup> denotes the edge set representing the relations between entities.
+*Definition 2 (Entity Graph).* The entity graph is denoted as *G*^e^ = (*V*^e^,*E*^e^), where *V*^e^ denotes the node set representing entities. *E*^e^ denotes the edge set representing the relations between entities.
 
-*Definition 3 (Relation Graph).*The relation graph is denoted as*G*<sup>r</sup> = (*V*<sup>r</sup> ,*E*<sup>r</sup> ), where *V*<sup>r</sup> denotes the node set representing relations.*E*<sup>r</sup> denotes the edge set, which is defined based on whether a pair of relations in *G*<sup>e</sup> share an entity.
+*Definition 3 (Relation Graph).* The relation graph is denoted as *G*^r^ = (*V*^r^ ,*E*^r^ ), where *V*^r^ denotes the node set representing relations. *E*^r^ denotes the edge set, which is defined based on whether a pair of relations in *G*^e^ share an entity.
 
-*Definition 4 (Entity Hypergraph).*The entity hypergraph is denoteas*G*eh = (*V*<sup>e</sup>,*E*eh, **I**eh), where*V*<sup>e</sup> denotes the node set, which is the same as that of*G*e. *E*eh denotes the hyperedge set. **I** eh ∈ R*<sup>N</sup>* <sup>e</sup>×*<sup>N</sup>*eh denotesthe incidence matrix representing the connection between nodes and hyperedges, where*N*<sup>e</sup> and *N*eh are the numbers of nodes and hyperedges of *G*eh, respectively.
+*Definition 4 (Entity Hypergraph).* The entity hypergraph is denoted as *G*^eh^ = (*V*^e^,*E*^eh^, **I**^eh^), where *V*^e^ denotes the node set, which is the same as that of *G*^e^. *E*^eh^ denotes the hyperedge set. **I**^eh^ ∈ R^N^e^×^N^eh^ denotes the incidence matrix representing the connection between nodes and hyperedges, where *N*^e^ and *N*^eh^ are the numbers of nodes and hyperedges of *G*^eh^, respectively.
 
-*Definition 5 (Relation Hypergraph).*The relation hypergraph is denoted as*G*rh = (*V*<sup>r</sup> ,*E*rh, **I** rh), where*V* <sup>r</sup> denotes the node set, which is the same as that of*G*<sup>r</sup> . *E*rh denotes the hyperedge set. **I** rh ∈ R*<sup>N</sup>* <sup>r</sup> <sup>×</sup>*<sup>N</sup>*rh denotesthe incidence matrix representing the connection between nodes and hyperedges, where*N*<sup>r</sup> and *N*rh are the numbers of nodes and hyperedges of *G*rh, respectively.
+*Definition 5 (Relation Hypergraph).* The relation hypergraph is denoted as *G*^rh^ = (*V*^r^ ,*E*^rh^, **I**^rh^), where *V*^r^ denotes the node set, which is the same as that of *G*^r^ . *E*^rh^ denotes the hyperedge set. **I**^rh^ ∈ R^N^r^×^N^rh^ denotes the incidence matrix representing the connection between nodes and hyperedges, where *N*^r^ and *N*^rh^ are the numbers of nodes and hyperedges of *G*^rh^, respectively.
 
-Problem 1 (Event Prediction Task). *Given head entity s and tail entity o, the event prediction task in TKGs aims to predict relations for timestep T , based on the set of historical events* G1:*<sup>T</sup>* <sup>−</sup>1*.*# 4 METHODOLOGY
+Problem 1 (Event Prediction Task). *Given head entity s and tail entity o, the event prediction task in TKGs aims to predict relations for timestep T , based on the set of historical events* G^1:^T^-1^.*
 
-As shown in Figure [2,](#page-5-0) DHyper is a recurrent dual hypergraph neural network. For a timestep, the residual gate combines the output of the previous timestep with the initial entity and relation representations to generate the input of the**dual hypergraph neural network (DHGNN)**. DHGNN includes DHL and DHMP. DHL discovers the high-order correlations among entities and among relations in a parameterized way to generate the entity hypergraph and the relation hypergraph, respectively. DHMP performs the information aggregation and representation fusion on dual hypergraphs to fully model the influences of both the high-order correlations among entities and among relations. The attentive temporal encoder captures the temporal dependency among the fused representations of all timesteps to output the integrated entity and relation representations, which are used for predicting events in the future.
+## 4 METHODOLOGY {#sec-4}
+
+As shown in Figure [[2]](#fig-2), DHyper is a recurrent dual hypergraph neural network. For a timestep, the residual gate combines the output of the previous timestep with the initial entity and relation representations to generate the input of the **dual hypergraph neural network (DHGNN)**. DHGNN includes DHL and DHMP. DHL discovers the high-order correlations among entities and among relations in a parameterized way to generate the entity hypergraph and the relation hypergraph, respectively. DHMP performs the information aggregation and representation fusion on dual hypergraphs to fully model the influences of both the high-order correlations among entities and among relations. The attentive temporal encoder captures the temporal dependency among the fused representations of all timesteps to output the integrated entity and relation representations, which are used for predicting events in the future.
 
 ## 4.1 DHGNN
 
 DHGNN is the key module of the proposed method DHyper that performs the dual hypergraph modeling by DHL and DHMP. DHL builds the entity graph and the relation graph based on historical events for each timestep. The high-order correlations among entities and among relations are discovered in a parameterized way by the entity and relation hypergraph mappers. In addition, the prior hypergraph mapper infuses the prior dependency between relations and four primary tendencies to impose constraints on relation representations. Note that the entity, relation, and prior
 
-<span id="page-5-0"></span>![](_page_5_Figure_1.jpeg)
-<!-- Image Description: This image depicts a Dual Hypergraph Message Passing Network (DHMP) architecture for temporal knowledge graph completion. It shows a dual hypergraph learning module (DHL) transforming entity and relation graphs into hypergraphs, processed by hypergraph neural networks (EHGNN and RHGNN). These results are fused, then iteratively passed through a DHGNN with residual gates and an attentive temporal encoder across multiple timesteps to generate predictions. Matrices represent feature representations at each step, illustrating the flow of information and processing within the model. -->
+![The framework of the proposed method DHyper.](_page_5_Figure_1.jpeg){#fig-2}
 
 Figure 2. The framework of the proposed method DHyper.
 
-hypergraph mappers are shared across all timesteps. DHMP performs the information aggregation and representation fusion on the entity hypergraph and the relation hypergraph. Specifically, the **entity hypergraph neural network (EHGNN)**and the**relation hypergraph neural network (RHGNN)**perform the information aggregation on the entity hypergraph and the relation hypergraph, respectively. The entity to relation fuser and the relation to entity fuser conduct the representation fusion on dual hyrgraphs.
-*4.1.1 DHL.*To utilize the crucial information from historical eventsto depict entities, the entity graph*G*<sup>e</sup> = (*V*<sup>e</sup>,*E*e) is constructed based on historical events for each timestep in the historical window [1 : *T*− 1]. The edge construction rule of*G*<sup>e</sup> is formulated as
+hypergraph mappers are shared across all timesteps. DHMP performs the information aggregation and representation fusion on the entity hypergraph and the relation hypergraph. Specifically, the **entity hypergraph neural network (EHGNN)** and the **relation hypergraph neural network (RHGNN)** perform the information aggregation on the entity hypergraph and the relation hypergraph, respectively. The entity to relation fuser and the relation to entity fuser conduct the representation fusion on dual hypergraphs.
+
+*4.1.1 DHL.* To utilize the crucial information from historical events to depict entities, the entity graph *G*^e^ = (*V*^e^,*E*^e^) is constructed based on historical events for each timestep in the historical window [1 : *T*− 1]. The edge construction rule of *G*^e^ is formulated as
 
 $$
 l_{i,j}^e = \begin{cases} 1 & \text{there is an event between entities } e_i \text{ and } e_j \\ 0 & \text{otherwise} \end{cases}
 $$
 (1)
 
-In addition to the correlation between entities, capturing the correlation between relations is also ofsignificance for more accurate event prediction. Specifically, the relation graph*G*<sup>r</sup> = (*V*<sup>r</sup> ,*E*<sup>r</sup> ) is constructed by regarding the relations of*G*<sup>e</sup> as nodes. The edge on*G*<sup>r</sup> is defined based on whether a pair of relations share an entity, which is formulated as
+In addition to the correlation between entities, capturing the correlation between relations is also of significance for more accurate event prediction. Specifically, the relation graph *G*^r^ = (*V*^r^ ,*E*^r^ ) is constructed by regarding the relations of *G*^e^ as nodes. The edge on *G*^r^ is defined based on whether a pair of relations share an entity, which is formulated as
 
 $$
 l_{i,j}^{\mathrm{r}} = \begin{cases} 1 & \text{relations } r_i \text{ and } r_j \text{ share an entity} \\ 0 & \text{otherwise} \end{cases}
 $$
 (2)
 
-At the beginning, each entity *e<sup>i</sup>*and relation*r<sup>i</sup>*are given with the random initial representations*ei*and*ri*, respectively.
+At the beginning, each entity *e*^i^ and relation *r*^i^ are given with the random initial representations *e*^i^ and *r*^i^, respectively.
 
-The latest HGNN related studies show that discovering the high-order correlation among nodes by a learning paradigm is beneficial for downstream tasks [\[27,](#page-22-0) [29,](#page-22-0) [35\]](#page-22-0). Inspired by this, we also propose to capture the high-order correlations among entities and among relations in a parameterized way. The entity hypergraph mapper is designed to capture the learnable dependencies between entities and entity hyperedges, formulated as**I** eh ∈ R*<sup>N</sup>* <sup>e</sup>×*<sup>N</sup>*eh , where*N*<sup>e</sup> and *N*eh are the numbers of entities and entity hyperedges of *G*eh, respectively. The relation hypergraph mapper is designed to capture the learnable dependencies between relations and relation hyperedges, formulated as **I** rl ∈ R*<sup>N</sup>* <sup>r</sup> ×*N*rl , where*N*<sup>r</sup> and *N*rl are the numbers of relations and learnable hyperedges of *G*rh, respectively. Note that the entity and relation hypergraph mappers make each entity or relation belong to multiple hyperedges with different probabilities and the total probability equals to 1.
+The latest HGNN related studies show that discovering the high-order correlation among nodes by a learning paradigm is beneficial for downstream tasks [[27]](#ref-27), [[29]](#ref-29), [[35]](#ref-35). Inspired by this, we also propose to capture the high-order correlations among entities and among relations in a parameterized way. The entity hypergraph mapper is designed to capture the learnable dependencies between entities and entity hyperedges, formulated as **I**^eh^ ∈ R^N^e^×^N^eh^ , where *N*^e^ and *N*^eh^ are the numbers of entities and entity hyperedges of *G*^eh^, respectively. The relation hypergraph mapper is designed to capture the learnable dependencies between relations and relation hyperedges, formulated as **I**^rl^ ∈ R^N^r^×^N^rl^ , where *N*^r^ and *N*^rl^ are the numbers of relations and learnable hyperedges of *G*^rh^, respectively. Note that the entity and relation hypergraph mappers make each entity or relation belong to multiple hyperedges with different probabilities and the total probability equals to 1.
 
-In realscenarios,relation semantics are generally organized underseveral primary tendenciesto support the correlation analysis. For example, in GDELT [\[13\]](#page-21-0) and ICEWS [\[47\]](#page-22-0), relation semantics are organized under four primary tendencies, i.e., verbal cooperation, material cooperation, verbal conflict, and material conflict. This prior dependency allows analyzing the correlation among relations at a higher level. The prior hypergraph mapper is designed to capture the prior dependency between relations and four primary tendencies, which makes the representations of relations belonging to the same tendency similar, formulated as **I** rp ∈ R*<sup>N</sup>* <sup>r</sup> ×*N*rp , where*N*<sup>r</sup> and *N*rp are the numbers of relations and prior hyperedges of *G*rh, respectively. Specifically, if relation *r<sup>i</sup>*is assigned with primary tendency*ϑ<sup>j</sup>*,**I**rp*<sup>i</sup>* ,*<sup>j</sup>* <sup>=</sup> 1, and <sup>0</sup> otherwise (*<sup>i</sup>*<sup>=</sup> <sup>1</sup>, <sup>2</sup>, . . . ,*<sup>N</sup>*<sup>r</sup> and *<sup>j</sup>*<sup>=</sup> <sup>1</sup>, <sup>2</sup>, . . . ,*<sup>N</sup>*rp). Note that *N*rp = 4 for GDELT [\[13\]](#page-21-0) and ICEWS [\[47\]](#page-22-0). We further concatenate incidence matrices **I**rpand**I**rl to generate the final relation hypergraph incidence matrix**I** rh ∈ R*<sup>N</sup>* <sup>r</sup> ×*N*rh , where*N*<sup>r</sup> and *N*rh are the numbers of relations and hyperedges of *G*rh, and *N*rh = *N*rp + *N*rl.
+In real scenarios, relation semantics are generally organized under several primary tendencies to support the correlation analysis. For example, in GDELT [[13]](#ref-13) and ICEWS [[47]](#ref-47), relation semantics are organized under four primary tendencies, i.e., verbal cooperation, material cooperation, verbal conflict, and material conflict. This prior dependency allows analyzing the correlation among relations at a higher level. The prior hypergraph mapper is designed to capture the prior dependency between relations and four primary tendencies, which makes the representations of relations belonging to the same tendency similar, formulated as **I**^rp^ ∈ R^N^r^×^N^rp^ , where *N*^r^ and *N*^rp^ are the numbers of relations and prior hyperedges of *G*^rh^, respectively. Specifically, if relation *r*^i^ is assigned with primary tendency *ϑ*^j^, **I**^rp^i^,^j^ = 1, and 0 otherwise (*i^ = 1, 2, . . . , *N*^r^ and *j^ = 1, 2, . . . , *N*^rp^). Note that *N*^rp^ = 4 for GDELT [[13]](#ref-13) and ICEWS [[47]](#ref-47). We further concatenate incidence matrices **I**^rp^ and **I**^rl^ to generate the final relation hypergraph incidence matrix **I**^rh^ ∈ R^N^r^×^N^rh^ , where *N*^r^ and *N*^rh^ are the numbers of relations and hyperedges of *G*^rh^, and *N*^rh^ = *N*^rp^ + *N*^rl^.
 
-Learning dense incidence matrices will enormously increase the model computation cost. To reduce the model parameters, we introduce a low-rank factorization strategy [\[29\]](#page-22-0) in learning dual hypergraph incidence matrices, formulated as
+Learning dense incidence matrices will enormously increase the model computation cost. To reduce the model parameters, we introduce a low-rank factorization strategy [[29]](#ref-29) in learning dual hypergraph incidence matrices, formulated as
 
 $$
 \mathbf{I}^{\text{eh}} = \mathbf{E}^{\text{e}} \mathbf{W}^{\text{eh}},\tag{3}
@@ -157,11 +143,13 @@ $$
 \mathbf{I}^{\text{rh}} = \mathbf{E}^{\text{r}} \mathbf{W}^{\text{rh}},\tag{4}
 $$
 
-where **W**eh and **W**rh are learnable parameters. **E**<sup>e</sup> ∈ R*<sup>N</sup>* <sup>e</sup>×*<sup>d</sup>*and**E**<sup>r</sup> ∈ R*<sup>N</sup>* <sup>r</sup> <sup>×</sup>*<sup>d</sup>*are entity and relation representation matrices, respectively.*d*is the dimension of representations.
+where **W**^eh^ and **W**^rh^ are learnable parameters. **E**^e^ ∈ R^N^e^×^d^ and **E**^r^ ∈ R^N^r^×^d^ are entity and relation representation matrices, respectively. *d* is the dimension of representations.
 
-To reduce the impact of noise and make the model robust, we introduce a sparse threshold strategy [\[36\]](#page-22-0) to make**I**eh and**I**rh sparse, which utilizes the sparsemax function [\[37\]](#page-22-0) to adaptively preserve the values above the threshold that is calculated based on**I**eh and**I**rh, and the other values are truncated to 0.
-*4.1.2 DHMP.*To model the influences of the high-order correlations among entities and among relations, respectively, we customize EHGNN and RHGNN to obtain entity representations and relation representations through two phases, i.e., entity or relation to hyperedge aggregation and hyperedge to entity or relation aggregation.
-**Entity or relation to hyperedge aggregation.**In this phase, entity or relation hyperedge representations are obtained by aggregating the representations of entities or relations that belong to the corresponding hyperedges, formulated as
+To reduce the impact of noise and make the model robust, we introduce a sparse threshold strategy [[36]](#ref-36) to make **I**^eh^ and **I**^rh^ sparse, which utilizes the sparsemax function [[37]](#ref-37) to adaptively preserve the values above the threshold that is calculated based on **I**^eh^ and **I**^rh^, and the other values are truncated to 0.
+
+*4.1.2 DHMP.* To model the influences of the high-order correlations among entities and among relations, respectively, we customize EHGNN and RHGNN to obtain entity representations and relation representations through two phases, i.e., entity or relation to hyperedge aggregation and hyperedge to entity or relation aggregation.
+
+**Entity or relation to hyperedge aggregation.** In this phase, entity or relation hyperedge representations are obtained by aggregating the representations of entities or relations that belong to the corresponding hyperedges, formulated as
 
 $$
 \Gamma_j^{\text{eh}} = \frac{1}{|V^{\text{e}}|} \sum_{e_i \in V^{\text{e}}} \Gamma_{i,j}^{\text{eh}} e_i,\tag{5}
@@ -171,8 +159,9 @@ $$
 \Gamma_j^{\text{rh}} = \frac{1}{|V^{\text{r}}|} \sum_{r_i \in V^{\text{r}}} \mathbf{I}_{i,j}^{\text{rh}} r_i \tag{6}
 $$
 
-<span id="page-7-0"></span>where**I**eh*<sup>i</sup>*,*<sup>j</sup>*and**<sup>I</sup>**rh*<sup>i</sup>*,*<sup>j</sup>*are the probabilities of assigning entity*<sup>e</sup><sup>i</sup>*to entity hyperedge <sup>Γ</sup>eh*<sup>j</sup>*and assigning relation*r<sup>i</sup>*to relation hyperedge Γrh*<sup>j</sup>*, respectively.*V*<sup>e</sup> and*V*<sup>r</sup> are the sets of entities and relations.
-**Hyperedge to entity or relation aggregation.**In this phase, the intermediate representations of entities or relations are obtained by aggregating all information from hyperedges that are associated with the corresponding entities or relations. To distinguish the influences of different hyperedges, we introduce the attentive aggregation operation, formulated as
+where **I**^eh^i^,^j^ and **I**^rh^i^,^j^ are the probabilities of assigning entity *e*^i^ to entity hyperedge Γ^eh^j^ and assigning relation *r*^i^ to relation hyperedge Γ^rh^j^, respectively. *V*^e^ and *V*^r^ are the sets of entities and relations.
+
+**Hyperedge to entity or relation aggregation.** In this phase, the intermediate representations of entities or relations are obtained by aggregating all information from hyperedges that are associated with the corresponding entities or relations. To distinguish the influences of different hyperedges, we introduce the attentive aggregation operation, formulated as
 
 $$
 \hat{\boldsymbol{e}}_i = \Phi^{\text{e}} \left( \frac{1}{|E^{\text{eh}}|} \sum_{\Gamma_j^{\text{eh}} \in E^{\text{eh}}} \alpha_{i,j}^{\text{eh}} \Gamma_j^{\text{eh}} \right) \tag{7}
@@ -182,7 +171,7 @@ $$
 \hat{\boldsymbol{r}}_{i} = \Phi^{\mathrm{r}} \left( \frac{1}{|E^{\mathrm{rh}}|} \sum_{\Gamma_{j}^{\mathrm{rh}} \in E^{\mathrm{rh}}} \alpha_{i,j}^{\mathrm{rh}} \Gamma_{j}^{\mathrm{rh}} \right) \tag{8}
 $$
 
-where Φ<sup>e</sup> and Φ<sup>r</sup> are the aggregation functions, implemented by the**multi-layer perceptron (MLP)**. *E*eh and *E*rh are the hyperedge sets of*G*eh and*G*rh,respectively. *α*eh *<sup>i</sup>*,*<sup>j</sup>*and*<sup>α</sup>*rh *<sup>i</sup>*,*<sup>j</sup>*are the attention weights, formulated as
+where Φ^e^ and Φ^r^ are the aggregation functions, implemented by the **multi-layer perceptron (MLP)**. *E*^eh^ and *E*^rh^ are the hyperedge sets of *G*^eh^ and *G*^rh^, respectively. *α*^eh^i^,^j^ and *α*^rh^i^,^j^ are the attention weights, formulated as
 
 $$
 \alpha_{i,j}^{\text{eh}} = \frac{\exp\left(q_{i,j}^{\text{eh}}\right)}{\sum_{j=1}^{N^{\text{eh}}} \exp\left(q_{i,j}^{\text{eh}}\right)}\tag{9}
@@ -191,7 +180,7 @@ $$
 $$
 q_{i,j}^{\text{eh}} = \varphi(\mathbf{W}_1 \Gamma_j^{\text{eh}} || \mathbf{W}_2 \boldsymbol{e}_i)
 $$
-\n(10)
+(10)
 
 $$
 \alpha_{i,j}^{\text{rh}} = \frac{\exp\left(q_{i,j}^{\text{rh}}\right)}{\sum_{j=1}^{N^{\text{rh}}}\exp\left(q_{i,j}^{\text{rh}}\right)}\tag{11}
@@ -201,7 +190,7 @@ $$
 q_{i,j}^{\text{rh}} = \varphi(\mathbf{W}_3 \Gamma_j^{\text{rh}} || \mathbf{W}_4 \mathbf{r}_i), \tag{12}
 $$
 
-where**W**1, **W**2, **W**3, and **W**<sup>4</sup> are learnable parameters. *φ*is the activation function, implemented by LeakyReLU. || is the concatenation operation.*N*eh and *N*rh are the numbers of entity hyperedges and relation hyperedges, respectively.
+where **W**^1^, **W**^2^, **W**^3^, and **W**^4^ are learnable parameters. *φ* is the activation function, implemented by LeakyReLU. || is the concatenation operation. *N*^eh^ and *N*^rh^ are the numbers of entity hyperedges and relation hyperedges, respectively.
 
 After obtaining the aggregated information, entity representations or relation representations are updated, formulated as
 
@@ -213,7 +202,7 @@ $$
 \bar{\boldsymbol{r}}_j = \xi^{\mathrm{r}}(\hat{\boldsymbol{r}}_j||\boldsymbol{r}_i),\tag{14}
 $$
 
-where *ξ*<sup>e</sup> and*ξ*<sup>r</sup> are the transformation functions, implemented by the MLP.
+where *ξ*^e^ and *ξ*^r^ are the transformation functions, implemented by the MLP.
 
 To jointly utilize the information of dual hypergraphs, the entity to relation fuser and the relation to entity fuser are designed to conduct the representation fusion guided by the entity-relation incidence matrix. Specifically, we first conduct the relation to entity fusion and then the entity to relation fusion, which can leverage relation and entity information to enhance each other while still maintaining their individual properties. The fused representations of entities or relations are formulated as
 
@@ -225,28 +214,28 @@ $$
 \boldsymbol{r}'_i = \Psi^{\mathrm{r}} \left( \left( \sum_{j=1}^{N^{\mathrm{e}}} \mathbf{M}_{i,j} \boldsymbol{e}'_i \right) || \bar{\boldsymbol{r}}_i \right), \tag{16}
 $$
 
-where Ψ<sup>e</sup> and Ψ<sup>r</sup> are the fusion functions, implemented by the MLP. **M**∈ R|E |× |R | is the entityrelation incidence matrix that encodesthe connections between entities and relations on the entity graph, defined as if entity*e<sup>i</sup>*connects with relation*r<sup>i</sup>*,**M***i*,*<sup>j</sup>*= 1, and 0 otherwise.**M***i*,*jr***¯***<sup>j</sup>*aggregates the updated representations of relations connected with the corresponding entity, and**M***i*,*je <sup>i</sup>*aggregates the fused representations of entities connected with the corresponding relation.
+where Ψ^e^ and Ψ^r^ are the fusion functions, implemented by the MLP. **M**∈ R^|E|^×^|R|^ is the entity-relation incidence matrix that encodes the connections between entities and relations on the entity graph, defined as if entity *e*^i^ connects with relation *r*^i^, **M**^i^,^j^ = 1, and 0 otherwise. **M**^i^,^j^r^~^j^ aggregates the updated representations of relations connected with the corresponding entity, and **M**^i^,^j^e^i^ aggregates the fused representations of entities connected with the corresponding relation.
 
 ## 4.2 Residual Gate
 
-Entities and relations evolve over time, while some inherent characteristics may remain constant. To transfer residual information from the past to the future, we utilize the residual gate to generate the input of DHGNN for a timestep, which combines the output of the previous timestep with the initial entity and relation representations. Note that for simplicity, the subscripts*i*and*j*of variables are omitted in the following sections without causing ambiguity. The input of DHGNN for timestep*t*is formulated as
+Entities and relations evolve over time, while some inherent characteristics may remain constant. To transfer residual information from the past to the future, we utilize the residual gate to generate the input of DHGNN for a timestep, which combines the output of the previous timestep with the initial entity and relation representations. Note that for simplicity, the subscripts *i* and *j* of variables are omitted in the following sections without causing ambiguity. The input of DHGNN for timestep *t* is formulated as
 
 $$
 X_t = S_t \otimes X_{t-1} + (1 - S_t) \otimes X^{(0)},
 $$
-\n(17)
+(17)
 
-where ⊗ denotes the dot product operation.*Xt*−<sup>1</sup> is the output of the previous timestep, i.e., the fused representations of entities or relations. *X*(0) is the initial representations of entities or relations. *S<sup>t</sup>*is the residual gate, which determines the proportion of residual information to be preserved, formulated as
+where ⊗ denotes the dot product operation. *X*^t^-1^ is the output of the previous timestep, i.e., the fused representations of entities or relations. *X*^(0)^ is the initial representations of entities or relations. *S*^t^ is the residual gate, which determines the proportion of residual information to be preserved, formulated as
 
 $$
 S_t = \sigma \left( \mathbf{W}_5 \mathbf{X}_{t-1} + b \right),\tag{18}
 $$
 
-where*σ*is the sigmoid function and**W**<sup>5</sup> and *b* are learnable parameters.
+where *σ* is the sigmoid function and **W**^5^ and *b* are learnable parameters.
 
 ### 4.3 Attentive Temporal Encoder
 
-Compared with RNN and LSTM, the position enhanced self-attention mechanism has shown superior performance in sequence modeling [\[43–45\]](#page-22-0). To encode the temporal information, we introduce the attentive temporal encoder to capture the temporal dependency among representations, which leverages timestamps by position embedding.
+Compared with RNN and LSTM, the position enhanced self-attention mechanism has shown superior performance in sequence modeling [[43]](#ref-43)–[[45]](#ref-45). To encode the temporal information, we introduce the attentive temporal encoder to capture the temporal dependency among representations, which leverages timestamps by position embedding.
 
 The sinusoidal functions are exploited to generate position representations based on timestamps, formulated as:
 
@@ -254,30 +243,30 @@ $$
 \mu_t = \sqrt{\frac{1}{d}} \left[ \cos \left( \omega_1 \tau_t \right), \sin \left( \omega_1 \tau_t \right), \dots, \cos \left( \omega_d \tau_t \right), \sin \left( \omega_d \tau_t \right) \right],\tag{19}
 $$
 
-where {*ω<sup>i</sup>* }*i*=1,2,...,*<sup>d</sup>*are the learnable parameters.*τ*is the timestamp. We use*zt*=*μ<sup>t</sup>* ||*X<sup>t</sup>*to represent the position enhanced representations of entities or relations (denoted as*zm*,*<sup>n</sup>*in the following sections, where*m*,*n*are indices used for computing attention), where*X<sup>t</sup>*is the fused representations of entities or relations calculated by Equation (17). Given representation sequence*z*1:*<sup>T</sup>* <sup>−</sup><sup>1</sup> = {*z*1, *z*2, . . . , *zt*, . . . , *z<sup>T</sup>*<sup>−</sup>1}, the position enhanced self-attention mechanism is exploited to capture the temporal dependency among the fused representations. Note that for simplicity, the subscript*t*of variables is omitted in the following sections. The integrated entity representation or relation representation is formulated as
+where {*ω*^i^ }*i*=1,2,...,*d* are the learnable parameters. *τ* is the timestamp. We use *z*^t^ = *μ*^t^ ||*X*^t^ to represent the position enhanced representations of entities or relations (denoted as *z*^m^,^n^ in the following sections, where *m*,*n* are indices used for computing attention), where *X*^t^ is the fused representations of entities or relations calculated by Equation (17). Given representation sequence *z*^1:^T^-1^ = {*z*^1^, *z*^2^, . . . , *z*^t^, . . . , *z*^T^-1^}, the position enhanced self-attention mechanism is exploited to capture the temporal dependency among the fused representations. Note that for simplicity, the subscript *t* of variables is omitted in the following sections. The integrated entity representation or relation representation is formulated as
 
 $$
 \tilde{\boldsymbol{h}}_{m} = \sum_{n=1}^{T-1} a_{m,n} z_{m,n},
 $$
-\n(20)
+(20)
 
 $$
 a_{m,n} = \frac{\exp(e_{m,n})}{\sum_{j=1}^{T-1} \exp(e_{m,j})'},
 $$
-\n(21)
+(21)
 
 $$
 e_{m,n} = \frac{(\mathbf{W}_{\mathcal{Q}} z_m)^{\mathrm{T}} (\mathbf{W}_{\mathcal{K}} z_n)}{\sqrt{d}},\tag{22}
 $$
 
-<span id="page-9-0"></span>where**W**<sup>Q</sup> and **W**<sup>K</sup> are learnable parameters. *am*,*<sup>n</sup>*isthe attention weight. In this way, the attentive temporal encoder outputs the integrated representation of entities or relations**˜** *h<sup>m</sup>*(denoted as*e***˜**s, *e***˜**o, or *r***˜**in the following sections, where*e***˜**<sup>s</sup> is the integrated representation of head entities, *e***˜**<sup>o</sup> is the integrated representation of tail entities, and *r***˜**is the integrated representation of relations, which integrate the temporal information and graph structure information).
+where **W**^Q^ and **W**^K^ are learnable parameters. *a*^m^,^n^ is the attention weight. In this way, the attentive temporal encoder outputs the integrated representation of entities or relations **˜** *h*^m^ (denoted as *e*^~^s, *e*^~^o, or *r*^~^ in the following sections, where *e*^~^s is the integrated representation of head entities, *e*^~^o is the integrated representation of tail entities, and *r*^~^ is the integrated representation of relations, which integrate the temporal information and graph structure information).
 
 ## 4.4 Event Prediction
 
-Following [\[14\]](#page-21-0), we employ the Conv-TransE [\[41\]](#page-22-0)to predict the probability of each relation between an entity pair, which is calculated as
-*P*(*y***ˆ**|*s*, *o*, G1:*<sup>T</sup>*<sup>−</sup><sup>1</sup> ) =*σ* (*L*rConvFC (*e***˜**s, *e***˜**o)), (23)
+Following [[14]](#ref-14), we employ the Conv-TransE [[41]](#ref-41) to predict the probability of each relation between an entity pair, which is calculated as
+*P*(*y*^~^|*s*, *o*, G^1:^T^-1^ ) = *σ* (*L*^r^ConvFC (*e*^~^s, *e*^~^o)), (23)
 
-where *y***ˆ**∈ R|R| is the probability vector of relations, and |R| is the number of relations.*σ*is the sigmoid function.*e***˜**<sup>s</sup> and *e***˜**<sup>o</sup> are the integrated entity representations. *L*<sup>r</sup> is the integrated relation representation matrix, each row of which corresponds to an integrated relation representation *r***˜**. ConvFC(·) denotes the 1D convolution layer and the fully connected layer.
+where *y*^~^∈ R^|R|^ is the probability vector of relations, and |R| is the number of relations. *σ* is the sigmoid function. *e*^~^s and *e*^~^o are the integrated entity representations. *L*^r^ is the integrated relation representation matrix, each row of which corresponds to an integrated relation representation *r*^~^. ConvFC(·) denotes the 1D convolution layer and the fully connected layer.
 
 The training objective of DHyper is to minimize the cross-entropy loss, which is formulated as
 
@@ -285,19 +274,19 @@ $$
 \mathcal{L} = -\frac{1}{F} \sum_{i=1}^{F} \sum_{j=1}^{N^{\text{r}}} \{y_{i,j} \log P_{i,j} + (1 - y_{i,j}) \log (1 - P_{i,j})\},\tag{24}
 $$
 
-where *F*and*N*<sup>r</sup> are the numbers of samples in the training set and relations, respectively. *yi*,*<sup>j</sup>*denotes the label of relation*j*for sample*i*, and *yi*,*<sup>j</sup>*∈ {0, 1}.*Pi*,*<sup>j</sup>*is the predicted probability of relation*j*for sample*i*, calculated by Equation (23).
+where *F* and *N*^r^ are the numbers of samples in the training set and relations, respectively. *y*^i^,^j^ denotes the label of relation *j* for sample *i*, and *y*^i^,^j^ ∈ {0, 1}. *P*^i^,^j^ is the predicted probability of relation *j* for sample *i*, calculated by Equation (23).
 
 ## 4.5 Complexity Analysis
 
-We analyze the computational complexity of DHyper. For DHL, owing to the designs of the lowrank factorization and sparse threshold strategies, the time complexity is*O*((N<sup>1</sup> + N2)×D), where N<sup>1</sup> and N<sup>2</sup> are the numbers of hyperedges in *G*eh and *G*rh, respectively, and D is the dimension of representations. For DHMP, the time complexity is *O*( L × (*ζ*+*ϖ*) × (N<sup>1</sup> + N2)×D), where L is the number of layers in DHMP, and *ζ*and*ϖ*are the numbers of entities and relations, respectively. The time complexity of the residual gate is*O*(MD), as we unroll M timesteps. For the attentive temporal encoder, the time complexity is *O*(T D), where T is the length of history. For the event prediction module, the time complexity is *O*(D).
+We analyze the computational complexity of DHyper. For DHL, owing to the designs of the low-rank factorization and sparse threshold strategies, the time complexity is *O*((N^1^ + N^2^)×D), where N^1^ and N^2^ are the numbers of hyperedges in *G*^eh^ and *G*^rh^, respectively, and D is the dimension of representations. For DHMP, the time complexity is *O*( L × (*ζ*+*ϖ*) × (N^1^ + N^2^)×D), where L is the number of layers in DHMP, and *ζ* and *ϖ* are the numbers of entities and relations, respectively. The time complexity of the residual gate is *O*(MD), as we unroll M timesteps. For the attentive temporal encoder, the time complexity is *O*(T D), where T is the length of history. For the event prediction module, the time complexity is *O*(D).
 
-## 5 EXPERIMENTS
+## 5 EXPERIMENTS {#sec-5}
 
 In this section, we present extensive experiments to justify the superiority of DHyper. We first introduce the experimental datasets and settings, followed by the comparison with baselines and ablation study. Next, we provide the parameter sensitivity analysis. Finally, we present the case study to further validate the effectiveness of DHyper.
 
 ## 5.1 Datasets
 
-To evaluate the performance of DHyper, we conduct experiments on six real-world datasets, i.e., ICEWS14, ICEWS18, GDELT18, ICEWS14C, ICEWS18C, and GDELT18C. The former three datasets are collected by Li et al. [\[14\]](#page-21-0), covering periods from 2014/1/1 to 2014/12/31, from 2018/1/1 to 2018/10/31, and from 2018/1/1 to 2018/1/31, respectively. We pre-process them to obtain the last three datasets by setting the type field of entities as countries to conduct filtering, which only contain the records of country-specific events and can contribute to more clear and insightful analyses of real-world relations between countries. Following [\[14\]](#page-21-0), all datasets are split into the training set,
+To evaluate the performance of DHyper, we conduct experiments on six real-world datasets, i.e., ICEWS14, ICEWS18, GDELT18, ICEWS14C, ICEWS18C, and GDELT18C. The former three datasets are collected by Li et al. [[14]](#ref-14), covering periods from 2014/1/1 to 2014/12/31, from 2018/1/1 to 2018/10/31, and from 2018/1/1 to 2018/1/31, respectively. We pre-process them to obtain the last three datasets by setting the type field of entities as countries to conduct filtering, which only contain the records of country-specific events and can contribute to more clear and insightful analyses of real-world relations between countries. Following [[14]](#ref-14), all datasets are split into the training set,
 
 | Dataset | #Entity | #Relation | Training set | Validation set | Test set | #Timestep | Time granularity |
 |----------|---------|-----------|--------------|----------------|----------|-----------|------------------|
@@ -324,26 +313,26 @@ validation set, and test set in chronological order. The detailed statistics of 
 
 ### 5.2 Experimental Settings
 
-DHyper is implemented in Python with PyTorch and trained with one GPU (NVIDIA RTX3080), and the source code is released on GitHub.<sup>1</sup> We evaluate DHyper on the event prediction task, which aims at predicting relations between entity pairsfortimestep*T* , based on the set of historical events G1:*<sup>T</sup>*<sup>−</sup>1. In addition, following [\[14\]](#page-21-0), we conduct the entity prediction task and present the experimental results.
+DHyper is implemented in Python with PyTorch and trained with one GPU (NVIDIA RTX3080), and the source code is released on GitHub.^1^ We evaluate DHyper on the event prediction task, which aims at predicting relations between entity pairs for timestep *T* , based on the set of historical events G^1:^T^-1^. In addition, following [[14]](#ref-14), we conduct the entity prediction task and present the experimental results.
 
-We exploit the**neural network intelligence (NNI)**toolkit<sup>2</sup> to automatically select the best hyper-parameters. The search spaces and the final choices of hyper-parameters are given in Table 2. For the configurations of NNI, the max trial number is set to 10, and the optimization algorithm is the Tree-structured Parzen Estimator [\[38\]](#page-22-0).
+We exploit the **neural network intelligence (NNI)** toolkit^2^ to automatically select the best hyper-parameters. The search spaces and the final choices of hyper-parameters are given in Table 2. For the configurations of NNI, the max trial number is set to 10, and the optimization algorithm is the Tree-structured Parzen Estimator [[38]](#ref-38).
 
-Following [\[6\]](#page-21-0), the batch size is set to 16, and the dimension of representations is set to 100. The hidden sizesforthe residual gate and attentive temporal encoder are set to 200. Adam [\[11\]](#page-21-0)is chosen as the optimizer with the learning rate set to 0.01. The average results across five independent runs are reported. Evaluation metrics are Hits@k and**MRR (Mean Reciprocal Rank)**. Hits@k refers to the percentage of correct relations ranked in the top *k* predictions and MRR refers to the average reciprocal rank of relations. Higher Hits@k and MRR demonstrate better performance. The Hits@k and MRR are formulated as
+Following [[6]](#ref-6), the batch size is set to 16, and the dimension of representations is set to 100. The hidden sizes for the residual gate and attentive temporal encoder are set to 200. Adam [[11]](#ref-11) is chosen as the optimizer with the learning rate set to 0.01. The average results across five independent runs are reported. Evaluation metrics are Hits@k and **MRR (Mean Reciprocal Rank)**. Hits@k refers to the percentage of correct relations ranked in the top *k* predictions and MRR refers to the average reciprocal rank of relations. Higher Hits@k and MRR demonstrate better performance. The Hits@k and MRR are formulated as
 
 $$
 Hits@k = \frac{1}{\sum_{j\in N} |\mathcal{L}_j|} \sum_{j\in N} \sum_{q\in\mathcal{L}_j} I\left(\text{rank}_q \le k\right),\tag{25}
 $$
 
-[<sup>1</sup>https://github.com/xt-23/DHyper](https://github.com/xt-23/DHyper)
+[^1]: https://github.com/xt-23/DHyper
 
-[<sup>2</sup>https://github.com/microsoft/nni](https://github.com/microsoft/nni)
+[^2]: https://github.com/microsoft/nni
 
 $$
 MRR = \frac{1}{\sum_{j \in N} |\mathcal{L}_j|} \sum_{j \in N} \sum_{q \in \mathcal{L}_j} \frac{1}{\text{rank}_q},
 $$
-\n(26)
+(26)
 
-where L*<sup>j</sup>*represents the true label set for sample*j* and |L*<sup>j</sup>*| is the number of true labels.*I*(·) is the indicator function. rank*<sup>q</sup>*is the rank of*q* in the prediction.
+where L^j^ represents the true label set for sample *j* and |L^j^| is the number of true labels. *I*(·) is the indicator function. rank^q^ is the rank of *q* in the prediction.
 
 ### 5.3 Comparison with Baselines
 
@@ -351,25 +340,25 @@ To justify the superiority of DHyper, we compare it with the SOTA event predicti
 
 ### Shallow encoders-based approaches:
 
-- —**TTransE** [\[12\]](#page-21-0) extends TransE [\[46\]](#page-22-0) by modeling timestamps as corresponding representations.
-- —**HyTE** [\[4\]](#page-21-0) models timestamps as corresponding hyperplanes.
+- —**TTransE** [[12]](#ref-12) extends TransE [[46]](#ref-46) by modeling timestamps as corresponding representations.
+- —**HyTE** [[4]](#ref-4) models timestamps as corresponding hyperplanes.
 
 ## DNNs based approaches:
 
-- —**TeMP** [\[26\]](#page-22-0) uses R-GCN [\[18\]](#page-21-0) to model the influence of neighbor entities and employs a frequency-based gating GRU to model the temporal dependency among inactive events.
-- —**RE-NET** [\[10\]](#page-21-0) uses GCNs to model the influence of neighbor entities and employs RNNs to model the temporal dependency among events.
-- —**Glean** [\[6\]](#page-21-0) uses CompGCN [\[24\]](#page-21-0) to model the influence of neighbor entities and employs GRUs to model the temporal dependency among representations.
-- —**RE-GCN** [\[14\]](#page-21-0) uses R-GCN to model the influence of neighbor entities and employs an autoregressive GRU to model the temporal dependency among events.
-- —**DACHA** [\[3\]](#page-21-0) introduces a dual graph convolution network to obtain entity representations and utilizes a self-attentive encoder to model the temporal dependency among relations.
-- —**TiRGN** [\[15\]](#page-21-0) is the SOTA approach, which introduces a multi-relation-based GCN to capture graph structure information and develops a double recurrent mechanism to model the temporal dependency.
+- —**TeMP** [[26]](#ref-26) uses R-GCN [[18]](#ref-18) to model the influence of neighbor entities and employs a frequency-based gating GRU to model the temporal dependency among inactive events.
+- —**RE-NET** [[10]](#ref-10) uses GCNs to model the influence of neighbor entities and employs RNNs to model the temporal dependency among events.
+- —**Glean** [[6]](#ref-6) uses CompGCN [[24]](#ref-24) to model the influence of neighbor entities and employs GRUs to model the temporal dependency among representations.
+- —**RE-GCN** [[14]](#ref-14) uses R-GCN to model the influence of neighbor entities and employs an autoregressive GRU to model the temporal dependency among events.
+- —**DACHA** [[3]](#ref-3) introduces a dual graph convolution network to obtain entity representations and utilizes a self-attentive encoder to model the temporal dependency among relations.
+- —**TiRGN** [[15]](#ref-15) is the SOTA approach, which introduces a multi-relation-based GCN to capture graph structure information and develops a double recurrent mechanism to model the temporal dependency.
 
 ## Derived structures-based approaches:
 
-- —**TITer** [\[19\]](#page-21-0) incorporates temporal agent-based reinforcement learning to search paths and obtains entity representations by the inductive mean.
-- —**GTRL** [\[21\]](#page-21-0) is the SOTA approach, which introduces the entity group modeling to model the influence of distant and unreachable entities and exploits GRUs to model the temporal dependency among representations.
-- —**EvoExplore** [\[34\]](#page-22-0) is the SOTA approach, which establishes dynamic communities to model the latent correlations between entities.
+- —**TITer** [[19]](#ref-19) incorporates temporal agent-based reinforcement learning to search paths and obtains entity representations by the inductive mean.
+- —**GTRL** [[21]](#ref-21) is the SOTA approach, which introduces the entity group modeling to model the influence of distant and unreachable entities and exploits GRUs to model the temporal dependency among representations.
+- —**EvoExplore** [[34]](#ref-34) is the SOTA approach, which establishes dynamic communities to model the latent correlations between entities.
 
-To ensure fairness, we compare all baselines based on the same experimental protocol with welltuned hyper-parameters. The experimental results for predicting events and entities are shown in Tables [3,](#page-12-0) [4,](#page-12-0) [5,](#page-13-0) and [6,](#page-13-0) from which we can observe the following phenomena:
+To ensure fairness, we compare all baselines based on the same experimental protocol with well-tuned hyper-parameters. The experimental results for predicting events and entities are shown in Tables [[3]](#tab-3), [[4]](#tab-4), [[5]](#tab-5), and [[6]](#tab-6), from which we can observe the following phenomena:
 
 (1) DHyper shows superior performance compared to all baselines on the event prediction and entity prediction task, especially in surpassing the best baseline by an average of 13.09%, 4.26%, 17.60%, and 18.03% in MRR, Hits@1, Hits@3, and Hits@10 for the event prediction task on six datasets, respectively. The results justify the advantage of introducing the hypergraph modeling to capture the high-order correlation among entities and among relations. Note that the results of DHyper on ICEWS14C, ICEWS18C, and GDELT18C
 
@@ -390,9 +379,9 @@ To ensure fairness, we compare all baselines based on the same experimental prot
 | DHyper | | | | | 56.15 ± 0.28 43.76 ± 0.22 65.46 ± 0.16 85.89 ± 0.18 54.16 ± 0.06 41.45 ± 0.21 62.03 ± 0.11 75.35 ± 0.09 | | | | | |
 | Improvement | 17.69% | 7.57% | 25.00% | 30.25% | 6.30% | 2.83% | 14.09% | 14.46% | | |
 
-<span id="page-12-0"></span>Table 3. The Performance (in Percentage) of DHyper and the Compared Approaches on ICEWS14 and ICEWS14c (Mean ± Std)
+Table 3. The Performance (in Percentage) of DHyper and the Compared Approaches on ICEWS14 and ICEWS14c (Mean ± Std)
 
-<sup>∗</sup>indicates that DHyper is statistically superior to the compared approaches according to pairwise*t*-test at a 95% significance level. The best results are in bold and the second-best results are underlined.
+* indicates that DHyper is statistically superior to the compared approaches according to pairwise *t*-test at a 95% significance level. The best results are in bold and the second-best results are underlined.
 
 | Table 4. | The Performance (in Percentage) of DHyper and the Compared Approaches on ICEWS18 and | |
 |----------|--------------------------------------------------------------------------------------|--|
@@ -415,7 +404,9 @@ To ensure fairness, we compare all baselines based on the same experimental prot
 | DHyper | | | | 54.22 ± 0.05 42.16 ± 0.21 63.26 ± 0.21 75.38 ± 0.24 52.11 ± 0.06 41.04 ± 0.21 60.03 ± 0.11 73.22 ± 0.07 | | | | | |
 | Improvement | 16.23% | 2.95% | 23.58% | 19.84% | 5.64% | 2.22% | 12.44% | 20.55% | |
 
-<sup>∗</sup>indicates that DHyper is statistically superior to the compared approaches according to pairwise*t*-test at a 95% significance level. The best results are in bold and the second-best results are underlined.
+Table 4. The Performance (in Percentage) of DHyper and the Compared Approaches on ICEWS18 and ICEWS18C (Mean ± Std)
+
+* indicates that DHyper is statistically superior to the compared approaches according to pairwise *t*-test at a 95% significance level. The best results are in bold and the second-best results are underlined.
 
 are inferior to those on ICEWS14, ICEWS18, and GDELT18, possibly due to their sparser nature, which limits the benefits of hypergraph modeling. In addition, a notable performance decline of RE-GCN and TiRGN is also observed on ICEWS18C, ICEWS14C, and GDELT18C. This is most likely because sparser datasets impose constraints on the capability of RE-GCN and TiRGN to effectively capture and generalize the underlying patterns in the data.
 
@@ -438,9 +429,9 @@ are inferior to those on ICEWS14, ICEWS18, and GDELT18, possibly due to their sp
 | DHyper | | 51.15 ± 0.05 40.22 ± 0.25 57.29 ± 0.24 65.33 ± 0.22 50.11 ± 0.06 39.45 ± 0.21 55.23 ± 0.11 63.95 ± 0.06 | | | | | | | |
 | Improvement | 27.46% | 7.40% | 20.89% | 11.22% | 5.23% | 2.60% | 9.61% | 11.86% | |
 
-<span id="page-13-0"></span>Table 5. The Performance (in Percentage) of DHyper and the Compared Approaches on GDELT18 and GDELT18C (Mean ± Std)
+Table 5. The Performance (in Percentage) of DHyper and the Compared Approaches on GDELT18 and GDELT18C (Mean ± Std)
 
-<sup>∗</sup>indicates that DHyper is statistically superior to the compared approaches according to pairwise*t*-test at a 95% significance level. The best results are in bold and the second-best results are underlined.
+* indicates that DHyper is statistically superior to the compared approaches according to pairwise *t*-test at a 95% significance level. The best results are in bold and the second-best results are underlined.
 
 | Approach | MRR | Hits@1 | Hits@3 | Hits@10 |
 |------------|-------|--------|--------|---------|
@@ -481,7 +472,9 @@ are inferior to those on ICEWS14, ICEWS18, and GDELT18, possibly due to their sp
 | | 41.87 | 35.17 | 45.45 | 54.09 |
 | | 0.07* | 0.02* | 0.17* | 0.03*|
 
-<sup>∗</sup>indicates that DHyper is statistically superior to the compared approaches according to pairwise*t*-test at a 95% significance level. The best results are in bold and the second-best results are underlined.
+Table 6. The Performance (in Percentage) of DHyper and the Compared Approaches on Entity Prediction Task (Mean ± Std)
+
+* indicates that DHyper is statistically superior to the compared approaches according to pairwise *t*-test at a 95% significance level. The best results are in bold and the second-best results are underlined.
 
 demonstrates the benefit of introducing derived structures, e.g., entity groups and communities, to capture the latent pairwise correlation between entities. However, TITer performs worse than TiRGN, as it can only model rules with limited length, leading to lower performance when dealing with entities that are far apart or even unreachable.
 
@@ -510,18 +503,18 @@ DHyper: A Recurrent Dual Hypergraph Neural Network for Event Prediction 129:15
 | DHyper-DP | | | 52.56 ± 0.01* 42.09 ± 0.61* 60.37 ± 0.11* 75.44 ± 0.03* 50.76 ± 0.21* 40.67 ± 0.18* 58.37 ± 0.01* 70.74 ± 0.11*| | | | | |
 | DHyper | | | 56.15 ± 0.28 43.76 ± 0.22 65.46 ± 0.16 85.89 ± 0.38 54.16 ± 0.06 41.45 ± 0.21 62.03 ± 0.11 75.35 ± 0.09 | | | | | |
 
-<sup>∗</sup>indicates that DHyper is statistically superior to its variants according to pairwise*t*-test at a 95% significance level. The best results are in bold.
+* indicates that DHyper is statistically superior to its variants according to pairwise *t*-test at a 95% significance level. The best results are in bold.
 
 *5.4.1 Impact of DHL.* To justify the advantage of introducing DHL to generate the entity hypergraph and the relation hypergraph, we compare DHyper with eight variants. The detailed descriptions of variants are as follows:
 
 - —**DHyper w/o Sparse (DHyper w/o S)** removes the sparse threshold strategy and only exploits the low-rank factorization strategy in learning hypergraph incidence matrices.
-- —**DHyper w/o Low-rank (DHyper w/o L)** removesthe low-rank factorization strategy and only exploits the sparse threshold strategy in learning hypergraph incidence matrices.
+- —**DHyper w/o Low-rank (DHyper w/o L)** removes the low-rank factorization strategy and only exploits the sparse threshold strategy in learning hypergraph incidence matrices.
 - —**DHyper w/o Low-rank and Sparse (DHyper w/o LS)** removes the low-rank factorization strategy and the sparse threshold strategy in learning hypergraph incidence matrices.
 - —**DHyper w/o Relation and Prior (DHyper w/o RP)** removes the relation and prior hypergraph mappers.
 - —**DHyper w/o Entity (DHyper w/o E)** removes the entity hypergraph mapper.
 - —**DHyper w/o Relation (DHyper w/o R)** removes the relation hypergraph mapper.
 - —**DHyper w/o Prior (DHyper w/o P)** removes the prior hypergraph mapper.
-- —**DHyper-Differentiable Pooling (DHyper-DP)** generates dual hypergraphs by the differentiable pooling [\[32\]](#page-22-0), which utilizes the cluster representation and the cluster adjacency matrix as the input of the softmax function to obtain the incidence matrix.
+- —**DHyper-Differentiable Pooling (DHyper-DP)** generates dual hypergraphs by the differentiable pooling [[32]](#ref-32), which utilizes the cluster representation and the cluster adjacency matrix as the input of the softmax function to obtain the incidence matrix.
 
 The results are shown in Table 7, from which we can observe the following phenomena:
 
@@ -542,26 +535,25 @@ Table 8. The Comparison (in Percentage) of DHyper and its Variants with Differen
 | DHyper w/o F | | 52.17 ± 0.33* 41.98 ± 0.13* 61.33 ± 0.14* 78.73 ± 0.21* 51.55 ± 0.32* 40.95 ± 0.23* 57.09 ± 0.21* 71.26 ± 0.32*| | | | | | |
 | DHyper | | 56.15 ± 0.28 43.76 ± 0.22 65.46 ± 0.16 85.89 ± 0.38 54.16 ± 0.06 41.45 ± 0.21 62.03 ± 0.11 75.35 ± 0.09 | | | | | | |
 
-<sup>∗</sup>indicates that DHyper is statistically superior to its variants according to pairwise*t*-test at a 95% significance level. The best results are in bold.
+* indicates that DHyper is statistically superior to its variants according to pairwise *t*-test at a 95% significance level. The best results are in bold.
 
 *5.4.2 Impact of DHMP.* To justify the advantage of introducing DHMP to perform the information aggregation and representation fusion on the entity hypergraph and the relation hypergraph, we compare DHyper with six variants. The detailed descriptions of variants are as follows:
 
 - —**DHyper w/o Relation Hypergraph (DHyper w/o RH)** removes RHGNN, only performing the message aggregation on the entity hypergraph.
 - —**DHyper w/o Entity Hypergraph (DHyper w/o EH)** removes EHGNN, only performing the message aggregation on the relation hypergraph.
-- —**DHyper-Unweighted Hyperedge Aggregation (DHyper-U)** replaces the attentive way in the hyperedge to entity or relation aggregation with an unweighted way by removing the attention weights in Equations [\(7\)](#page-7-0) and [\(8\)](#page-7-0).
+- —**DHyper-Unweighted Hyperedge Aggregation (DHyper-U)** replaces the attentive way in the hyperedge to entity or relation aggregation with an unweighted way by removing the attention weights in Equations [[7]](#eq-7) and [[8]](#eq-8).
 - —**DHyper w/o Fuser (DHyper w/o F)** removes the entity to relation fuser and the relation to entity fuser, only performing the message aggregation on the entity hypergraph and the relation hypergraph, respectively.
 - —**DHyper-Entity and Relation Fusion (DHyper-E/R)** simultaneously performs the entity to relation fusion and the relation to entity fusion.
-- —**DHyper-Entity then Relation Fusion (DHyper-E**+**R)**first performs the entity to relation fusion and then performs the relation to entity fusion.
+- —**DHyper-Entity then Relation Fusion (DHyper-E**+**R)** first performs the entity to relation fusion and then performs the relation to entity fusion.
 
 The results are shown in Table 8, from which we can observe the following phenomena:
 
 - (1) DHyper achieves significantly better performance than DHyper-U, which indicates that introducing the attentive aggregation in the hyperedge to entity or relation aggregation can distinguish different impacts of hyperedges.
-- (2) DHyper outperforms DHyper w/o RH and DHyper w/o EH, which demonstratesthe effectiveness of performing the message aggregation on both entity and relation hypergraphs.
+- (2) DHyper outperforms DHyper w/o RH and DHyper w/o EH, which demonstrates the effectiveness of performing the message aggregation on both entity and relation hypergraphs.
 - (3) DHyper shows superior performance over DHyper w/o F, which highlights the importance of introducing the entity to relation fuser and the relation to entity fuser.
 - (4) DHyper consistently outperforms DHyper-E/R and DHyper-E+R, demonstrating that the fusion order has a significant impact on the final performance. In DHyper, the relation to entity fusion is conducted first, which may allow the model to identify the most relevant entities for a given relation and better capture the overall structure of TKGs. This can provide a strong foundation for the subsequent entity to relation fusion, resulting in better performance overall.
 
-<span id="page-16-0"></span>![](_page_16_Figure_0.jpeg)
-<!-- Image Description: The image contains four line graphs (a-d) showing Mean Reciprocal Rank (MRR) performance of three knowledge graph embedding models (ICEWS14, ICEWS18, GDELT18). Graphs (a) and (b) plot MRR against the number of entity and relation hyperedges, respectively. Graphs (c) and (d) show MRR versus the length of the historical window and the number of layers in DHMP, respectively. The purpose is to compare the models' performance under varying hyperparameters. -->
+![The impact of hyper-parameters.](_page_16_Figure_0.jpeg){#fig-3}
 
 Figure 3. The impact of hyper-parameters.
 
@@ -571,49 +563,39 @@ To investigate the impact of several important parameters, including the numbers
 
 We evaluate the impact of the numbers of entity hyperedges and relation hyperedges, varying them from 2 to 20 with the step of 2. The results are presented in Figure 3(a) and (b), from which we can observe that with the increase of the numbers of entity and relation hyperedges, the performance initially improves but then drops slightly. The best performances are achieved when there are 14, 12, and 16 entity hyperedges and 8, 6, and 10 relation hyperedges on ICEWS14, ICEWS18, and GDELT18, respectively. This is probably because the large hyperedge numbers may contain excessive noises that would reduce the capacity of representing entities and relations.
 
-![](_page_17_Figure_1.jpeg)
-<!-- Image Description: The image is a fragment showing only the numbers ":18". Without further context from the paper, it's impossible to determine its meaning or purpose. It could be a time stamp, a reference number, or part of a larger figure. More information is needed for a complete analysis. -->
-
-![](_page_17_Figure_2.jpeg)
-<!-- Image Description: The image presents two scatter plots comparing the performance of EvoExplore (a) and DHyper (b) algorithms. Each plot displays data points representing different countries, with some labeled. The plots likely illustrate the algorithms' performance in a two-dimensional feature space, showing the clustering or distribution of results for each algorithm. The purpose is to visually compare the algorithms' effectiveness and potentially reveal differences in their data representation. -->
+![The visualization of entity representations.](_page_17_Figure_2.jpeg){#fig-4}
 
 Figure 4. The visualization of entity representations.
 
-We evaluate the impact of the length of the historical window, varying it from 1 to 10 with the step of 1. The results are shown in Figure [3\(](#page-16-0)c), from which we can observe an initial improvement in performance with the increase of the length of the historical window, followed by a gradual decline. The best performances are achieved when the length of the historical window is 7, 5, and 3 on ICEWS14, ICEWS18, and GDELT18, respectively. This suggests that an excessively long historical window may lead to a large number of irrelevant or noisy information, adversely affecting model performance.
+We evaluate the impact of the length of the historical window, varying it from 1 to 10 with the step of 1. The results are shown in Figure [[3]](#fig-3)c), from which we can observe an initial improvement in performance with the increase of the length of the historical window, followed by a gradual decline. The best performances are achieved when the length of the historical window is 7, 5, and 3 on ICEWS14, ICEWS18, and GDELT18, respectively. This suggests that an excessively long historical window may lead to a large number of irrelevant or noisy information, adversely affecting model performance.
 
-We evaluate the impact of the number of layersin the DHMP, varying it from 1 to 5 with the step of 1. The results are shown in Figure [3\(](#page-16-0)d), from which we can observe that with the increase of the number of layers, first the performance increases and then degrades rapidly. The best performance is achieved when the number of layers is 2 on all datasets. This is most likely because the model complexity grows with the number of layers in DHMP. When the number of layers is too large, the high model complexity will increase the risk of over-fitting.
+We evaluate the impact of the number of layers in the DHMP, varying it from 1 to 5 with the step of 1. The results are shown in Figure [[3]](#fig-3)d), from which we can observe that with the increase of the number of layers, first the performance increases and then degrades rapidly. The best performance is achieved when the number of layers is 2 on all datasets. This is most likely because the model complexity grows with the number of layers in DHMP. When the number of layers is too large, the high model complexity will increase the risk of over-fitting.
 
 ## 5.6 Case Study
 
 To intuitively reveal the superiority of DHyper, we perform several case studies.
 
-In Figures 4 and [5,](#page-18-0) we use the t-SNE method [\[23\]](#page-21-0) to visualize entity representations and relation representations obtained by DHyper and the SOTA derived structures-based approach EvoExplore [\[34\]](#page-22-0) on ICEWS14C. It can be observed that the entity and relation representations obtained by Evo-Explore exhibit a more concentrated distribution than those obtained by DHyper, which exhibits a dispersed distribution. In addition, DHyper demonstrates the capability to distribute the representations of highly correlated entities and relations closer together. For example, the representations of countries attending the G7 summit, i.e., "Japan," "the United States," "France," "Canada," "United Kingdom," "Germany," and "Italy," are distributed close to each other. The representations of relations related to the military conflict, i.e., "Fight with small arms and light weapons," "Use conventional military force," "Provide military aid," "Criticize or denounce," and "Express intent to meet or negotiate," are compactly distributed. These results illustrate that by introducing the hypergraph modeling to capture the high-order correlations among entities and relations, DHyper can learn better representations.
+In Figures 4 and [[5]](#fig-5), we use the t-SNE method [[23]](#ref-23) to visualize entity representations and relation representations obtained by DHyper and the SOTA derived structures-based approach EvoExplore [[34]](#ref-34) on ICEWS14C. It can be observed that the entity and relation representations obtained by Evo-Explore exhibit a more concentrated distribution than those obtained by DHyper, which exhibits a dispersed distribution. In addition, DHyper demonstrates the capability to distribute the representations of highly correlated entities and relations closer together. For example, the representations of countries attending the G7 summit, i.e., "Japan," "the United States," "France," "Canada," "United Kingdom," "Germany," and "Italy," are distributed close to each other. The representations of relations related to the military conflict, i.e., "Fight with small arms and light weapons," "Use conventional military force," "Provide military aid," "Criticize or denounce," and "Express intent to meet or negotiate," are compactly distributed. These results illustrate that by introducing the hypergraph modeling to capture the high-order correlations among entities and relations, DHyper can learn better representations.
 
-<span id="page-18-0"></span>![](_page_18_Figure_1.jpeg)
-<!-- Image Description: The image presents two scatter plots, (a) EvoExplore and (b) DHyper, visualizing data from a dimensionality reduction technique. Each plot displays data points representing different types of actions (e.g., "Provide military aid," "Fight with small arms"). The plots compare the spatial distribution of these actions across two different dimensionality reduction methods, illustrating how the methods cluster similar actions. The purpose is to show the effectiveness of each method in representing the data. -->
+![The visualization of relation representations.](_page_18_Figure_1.jpeg){#fig-5}
 
 Figure 5. The visualization of relation representations.
 
-![](_page_18_Figure_3.jpeg)
-<!-- Image Description: The image displays four heatmaps (a-d), each visualizing an entity-hyperedge adjacency matrix. The color intensity represents a value between 0 and 1, likely indicating a relationship strength. (a) shows results for DHyper; (b) shows DHyper without S; (c) shows DHyper without L; and (d) shows GTRL. The heatmaps compare different models' performance by visualizing the relationships between entities and hyperedges. -->
+![The visualization of the mapping matrix of GTRL and the entity incidence matrices of DHyper, DHyper w/o S, and DHyper w/o L. The darker colors represent the higher probabilities.](_page_18_Figure_3.jpeg){#fig-6}
 
 Figure 6. The visualization of the mapping matrix of GTRL and the entity incidence matrices of DHyper, DHyper w/o S, and DHyper w/o L. The darker colors represent the higher probabilities.
 
-In Figure 6, we visualize the entity incidence matrices of the entity hypergraphs obtained by DHyper, DHyper w/o S, and DHyper w/o L, along with the mapping matrix of the entity group mapper obtained by the SOTA derived structures-based approach GTRL [\[21\]](#page-21-0) on ICEWS14C. We observe a more dispersed probability distribution in Figure 6(a), with most probabilities ranging between 0 and 0.8, indicating that DHyper more effectively discerns dependencies among diverse entities through a more pronounced differentiation in the incidence matrix. In contrast, Figure 6(b) shows a more uniform probability distribution with minimal variation, all below 0.4, likely due to the absence of the sparse threshold strategy in DHyper w/o S, which fails to filter out less significant connections, resulting in a more homogeneous probability distribution. The probability distribution in Figure 6(c) shows greater randomness, reflecting a reduced capability of DHyper w/o L to discern underlying dependencies following the removal of the low-rank strategy. In Figure 6(d),
+In Figure 6, we visualize the entity incidence matrices of the entity hypergraphs obtained by DHyper, DHyper w/o S, and DHyper w/o L, along with the mapping matrix of the entity group mapper obtained by the SOTA derived structures-based approach GTRL [[21]](#ref-21) on ICEWS14C. We observe a more dispersed probability distribution in Figure 6(a), with most probabilities ranging between 0 and 0.8, indicating that DHyper more effectively discerns dependencies among diverse entities through a more pronounced differentiation in the incidence matrix. In contrast, Figure 6(b) shows a more uniform probability distribution with minimal variation, all below 0.4, likely due to the absence of the sparse threshold strategy in DHyper w/o S, which fails to filter out less significant connections, resulting in a more homogeneous probability distribution. The probability distribution in Figure 6(c) shows greater randomness, reflecting a reduced capability of DHyper w/o L to discern underlying dependencies following the removal of the low-rank strategy. In Figure 6(d),
 
-<span id="page-19-0"></span>![](_page_19_Figure_1.jpeg)
-<!-- Image Description: The image shows the numerical expression "129:20". This likely represents a ratio or a proportion within the paper's technical context, possibly indicating a comparison of two quantities, such as a data point or a measurement. Without further context from the paper, the specific meaning remains unclear. -->
-
-![](_page_19_Figure_2.jpeg)
-<!-- Image Description: The image displays four heatmaps (a-d), each visualizing the relationship between relation hyperedges. The color intensity represents a numerical value (0.0-1.0) indicating the strength or frequency of the relationships. Each heatmap (a) DHyper, (b) DHyper w/o S, (c) DHyper w/o L, and (d) DHyper w/o LS represents a different experimental condition, allowing comparison of relationship strength under varying parameters. The purpose is to illustrate and compare the effects of these parameters on the relationships within a system. -->
+![The visualization of the relation hypergraph incidence matrices of DHyper, DHyper w/o L, DHyper w/o S, and DHyper w/o LS. The darker colors represent the higher probabilities.](_page_19_Figure_2.jpeg){#fig-7}
 
 Figure 7. The visualization of the relation hypergraph incidence matrices of DHyper, DHyper w/o L, DHyper w/o S, and DHyper w/o LS. The darker colors represent the higher probabilities.
 
-GTRL produces the most uniform probability distribution, all below 0.4, highlighting the importance of both low-rank factorization and sparse threshold strategies in learning hypergraph incidence matrices. Without these strategies, the incidence matrix produced by GTRL lacks distinctiveness and prominence in terms of probabilities. This observation is consistent with the comparison of the relation hypergraph incidence matrices generated by DHyper, DHyper w/o L, DHyper w/o S, and DHyper w/o LS. Forinstance, in Figure 7(a), the relation incidence matrix produced by DHyper exhibits a more clearly differentiated set of probabilities, with most ranging from 0 to 0.6. However, in Figure 7(d), there is minimal variation in probabilities, all below 0.4. These results provide strong evidence for the effectiveness of DHyper. By introducing the dual hypergraph modeling armed with the low-rank factorization and sparse threshold strategies in learning hypergraph incidence matrices, DHyper can better discriminate the dependencies between hyperedges and nodes.
+GTRL produces the most uniform probability distribution, all below 0.4, highlighting the importance of both low-rank factorization and sparse threshold strategies in learning hypergraph incidence matrices. Without these strategies, the incidence matrix produced by GTRL lacks distinctiveness and prominence in terms of probabilities. This observation is consistent with the comparison of the relation hypergraph incidence matrices generated by DHyper, DHyper w/o L, DHyper w/o S, and DHyper w/o LS. For instance, in Figure 7(a), the relation incidence matrix produced by DHyper exhibits a more clearly differentiated set of probabilities, with most ranging from 0 to 0.6. However, in Figure 7(d), there is minimal variation in probabilities, all below 0.4. These results provide strong evidence for the effectiveness of DHyper. By introducing the dual hypergraph modeling armed with the low-rank factorization and sparse threshold strategies in learning hypergraph incidence matrices, DHyper can better discriminate the dependencies between hyperedges and nodes.
 
-In Table [9,](#page-20-0) we present the top ten predicted relations for three test samples in the test set of ICEWS14C, which are obtained by DHyper, the SOTA DNNs based approach TiRGN [\[15\]](#page-21-0), and the SOTA derived structures-based approach EvoExplore [\[34\]](#page-22-0). The test samples concern the conflict that arose between Russia and Ukraine in February 2014. Russia sent military forces to the Crimean region of Ukraine, leading to condemnations and sanctions by several countries, including the United States and European nations. The following three test samples, i.e., (Russia, ?, Ukraine, 2014/12/16), (the United States, ?, Russia, 2014/12/17), and (France, ?, Russia, 2014/12/17), are investigated. We can find that compared to TiRGN and EvoExplore, DHyper predicts more correct relations and achieves a higher ranking of correctly predicted relations. The results indicate that by introducing the hypergraph modeling to capture the high-order correlations among entities and among relations, DHyper is capable of achieving more accurate prediction results.
+In Table [[9]](#tab-9), we present the top ten predicted relations for three test samples in the test set of ICEWS14C, which are obtained by DHyper, the SOTA DNNs based approach TiRGN [[15]](#ref-15), and the SOTA derived structures-based approach EvoExplore [[34]](#ref-34). The test samples concern the conflict that arose between Russia and Ukraine in February 2014. Russia sent military forces to the Crimean region of Ukraine, leading to condemnations and sanctions by several countries, including the United States and European nations. The following three test samples, i.e., (Russia, ?, Ukraine, 2014/12/16), (the United States, ?, Russia, 2014/12/17), and (France, ?, Russia, 2014/12/17), are investigated. We can find that compared to TiRGN and EvoExplore, DHyper predicts more correct relations and achieves a higher ranking of correctly predicted relations. The results indicate that by introducing the hypergraph modeling to capture the high-order correlations among entities and among relations, DHyper is capable of achieving more accurate prediction results.
 
-## 6 CONCLUSIONS AND FUTURE WORK
+## 6 CONCLUSIONS AND FUTURE WORK {#sec-6}
 
 Accurate event predicting in TKGs requires the ability to capture correlations among entities and among relations. To this end, we propose DHyper, a recurrent DHGNN that leverages the hypergraph modeling to simultaneously capture high-order correlations among entities and among
 
@@ -658,65 +640,64 @@ Correct prediction results are underlined.
 
 relations. Specifically, DHL is proposed to discover the high-order correlations among entities and among relations in a parameterized way. DHMP is introduced to simultaneously perform the information propagation on the EH. Comprehensive experiments are conducted on six real-world datasets, including the comparison with baselines, the ablation study, and the parameter sensitivity analysis, which demonstrate the superior performance of DHyper. Furthermore, the case study is conducted to further justify the effectiveness of DHyper.
 
-In the future, we will extend this work in the following directions. Firstly, DHL captures only one type of high-order correlation among entities and among relations. To tackle complex scenarios with diverse entities and relations in TKGs, we will improve DHL by introducing different types of high-order correlations based on their semantics. Secondly, DHyper only considers two levels of hierarchy, i.e., entities and entity hyperedges orrelations and relation hyperedges. To explore more complex correlations with different granularities among entities and relations, we plan to improve <span id="page-21-0"></span>DHyper by introducing multi-level hyperedges. Lastly, DHyper only conducts experiments on the event prediction task in TKGs. To explore the generalization ability of models, we would like to enhance DHyper by optimizing the recommendation task and event prediction task with a jointlearning framework.
+In the future, we will extend this work in the following directions. Firstly, DHL captures only one type of high-order correlation among entities and among relations. To tackle complex scenarios with diverse entities and relations in TKGs, we will improve DHL by introducing different types of high-order correlations based on their semantics. Secondly, DHyper only considers two levels of hierarchy, i.e., entities and entity hyperedges or relations and relation hyperedges. To explore more complex correlations with different granularities among entities and relations, we plan to improve DHyper by introducing multi-level hyperedges. Lastly, DHyper only conducts experiments on the event prediction task in TKGs. To explore the generalization ability of models, we would like to enhance DHyper by optimizing the recommendation task and event prediction task with a joint learning framework.
 
 ## REFERENCES
 
-- [1] Yuyue Zhao, Xiang Wang, Jiawei Chen, Yashen Wang, Wei Tang, Xiangnan He, and Haiyong Xie. 2022. Time-aware path reasoning on knowledge graph for recommendation.*ACM Transactions on Information Systems*41, 2 (2022), 1–26.
-- [2] Yakun Li, Lei Hou, and Juanzi Li. 2023. Preference-aware graph attention networks for cross-domain recommendations with collaborative knowledge graph.*ACM Transactions on Information Systems*41, 3 (2023), 1–26.
-- [3] Ling Chen, Xing Tang, Yuntao Qian, Yansheng Li, and Yongjun Zhang. 2022. DACHA: A dual graph convolution based temporal knowledge graph representation learning method using historical relation.*ACM Transactions on Knowledge Discovery from Data*16, 3 (2022), 1–18.
-- [4] Shib Sankar Dasgupta, Swayambhu Nath Ray, and Partha Talukdar. 2018. HyTE: Hyperplane-based temporally aware knowledge graph embedding. In*EMNLP 2001–2011*.
-- [5] Yashar Deldjoo, Markus Schedl, Paolo Cremonesi, and Gabriella Pasi. 2020. Recommender systems leveraging multimedia content. *ACM Computing Surveys*53, 5 (2020), 1–38.
-- [6] Songgaojun Deng, Rangwala Huzefa, and Ning Yue. 2020. Dynamic knowledge graph based multi-event forecasting. In*KDD*. 1585–1595.
-- [7] Jingzhi Fang, Yanyan Shen, Yue Wang, and Lei Chen. 2020. Optimizing DNN computation graph using graph substitutions. In *VLDB*, 13, 12 (2020), 2734–2746.
-- [8] Yifan Feng, Haoxuan You, Zizhao Zhang, Rongrong Ji, and Yue Gao. 2019. Hypergraph neural networks. In *AAAI*, 3558–3565.
-- [9] Yue Gao, Yifan Feng, Shuyi Ji, and Rongrong Ji. 2022. HGNN+: General hypergraph neural networks. *IEEE Transactions on Pattern Analysis and Machine Intelligence*45, 3 (2022), 3181–3199.
-- [10] Woojeong Jin, Meng Qu, Xisen Jin, and Xiang Ren. 2020. Recurrent event network: Autoregressive structure inference over temporal knowledge graphs. In*EMNLP*. 6669–6683.
-- [11] Diederik P. Kingma and Jimmy Ba. 2015. Adam: A method for stochastic optimization. In *ICLR*. 1–15.
-- [12] Julien Leblay and Melisachew Wudage Chekol. 2018. Deriving validity time in knowledge graph. In *WWW*. 1771–1776.
-- [13] Kalev Leetaru and Philip A. Schrodt. 2013. GDELT: Global data on events, location, and tone, 1979–2012. *ISA Annual Convention*2, 4 (2013), 1–49.
-- [14] Zixuan Li, Xiaolong Jin, Wei Li, Saiping Guan, Jiafeng Guo, Huawei Shen, Yuanzhuo Wang, and Xueqi Cheng. 2021. Temporal knowledge graph reasoning based on evolutional representation learning. In*SIGIR*. 408–417.
-- [15] Yujia Li, Shiliang Sun, and Jing Zhao. 2022. TiRGN: Time-guided recurrent graph network with local-global historical patterns for temporal knowledge graph reasoning. In *IJCAI*. 2152–2158.
-- [16] Kangzheng Liu, Feng Zhao, Hongxu Chen, Yicong Li, Guandong Xu, and Hai Jin. 2022. DA-Net: Distributed attention network for temporal knowledge graph reasoning. In *CIKM*. 1289–1298.
-- [17] Minh Tam Pham, Thanh Dat Hoang, Minh Hieu Nguyen, Viet Hung Vu, Thanh Trung Huynh, and Quyet Thang Huynh. 2022. Social multi-role discovering with hypergraph embedding for location-based social networks. In *ACIIDS*. 675–687.
-- [18] Michael Schlichtkrull, Thomas N. Kipf, Peter Bloem, Rianne Van Den Berg, Ivan Titov, and Max Welling. 2018. Modeling relational data with graph convolutional networks. In *ESWC*. 593–607.
-- [19] Haohai Sun, Jialun Zhong, Yunpu Ma, Zhen Han, and Kun He. 2021. TimeTraveler: Reinforcement learning for temporal knowledge graph forecasting. In *EMNLP*. 8306–8319.
-- [20] Xing Tang, Ling Chen, Jun Cui, and Baogang Wei. 2019. Knowledge representation learning with entity descriptions, hierarchical types, and textual relations. *Information Processing and Management*56, 3 (2019), 809–822.
-- [21] Xing Tang and Ling Chen. 2023. GTRL: An entity group-aware temporal knowledge graph representation learning method.*IEEE Transactions on Knowledge and Data Engineering*99 (2023), 1–16. DOI:[10.1109/TKDE.2023.3334165](https://doi.org/10.1109/TKDE.2023.3334165)
-- [22] Rakshit Trivedi, Hanjun Dai, Yichen Wang, and Le Song. 2017. Know-Evolve: Deep temporal reasoning for dynamic knowledge graphs. In*ICML*. 3462–3471.
-- [23] Laurens Van der Maaten and Geoffrey Hinton. 2008. Visualizing data using t-SNE. *Journal of Machine Learning Research*9, 11 (2008), 2579–2605.
-- [24] Shikhar Vashishth, Soumya Sanyal, Vikram Nitin, and Partha Talukdar. 2020. Composition-based multi-relational graph convolutional networks. In*ICLR*, 1–16.
+- [[1]](#ref-1) Yuyue Zhao, Xiang Wang, Jiawei Chen, Yashen Wang, Wei Tang, Xiangnan He, and Haiyong Xie. 2022. Time-aware path reasoning on knowledge graph for recommendation. *ACM Transactions on Information Systems* 41, 2 (2022), 1–26.
+- [[2]](#ref-2) Yakun Li, Lei Hou, and Juanzi Li. 2023. Preference-aware graph attention networks for cross-domain recommendations with collaborative knowledge graph. *ACM Transactions on Information Systems* 41, 3 (2023), 1–26.
+- [[3]](#ref-3) Ling Chen, Xing Tang, Yuntao Qian, Yansheng Li, and Yongjun Zhang. 2022. DACHA: A dual graph convolution based temporal knowledge graph representation learning method using historical relation. *ACM Transactions on Knowledge Discovery from Data* 16, 3 (2022), 1–18.
+- [[4]](#ref-4) Shib Sankar Dasgupta, Swayambhu Nath Ray, and Partha Talukdar. 2018. HyTE: Hyperplane-based temporally aware knowledge graph embedding. In *EMNLP 2001–2011*.
+- [[5]](#ref-5) Yashar Deldjoo, Markus Schedl, Paolo Cremonesi, and Gabriella Pasi. 2020. Recommender systems leveraging multimedia content. *ACM Computing Surveys* 53, 5 (2020), 1–38.
+- [[6]](#ref-6) Songgaojun Deng, Rangwala Huzefa, and Ning Yue. 2020. Dynamic knowledge graph based multi-event forecasting. In *KDD*. 1585–1595.
+- [[7]](#ref-7) Jingzhi Fang, Yanyan Shen, Yue Wang, and Lei Chen. 2020. Optimizing DNN computation graph using graph substitutions. In *VLDB*, 13, 12 (2020), 2734–2746.
+- [[8]](#ref-8) Yifan Feng, Haoxuan You, Zizhao Zhang, Rongrong Ji, and Yue Gao. 2019. Hypergraph neural networks. In *AAAI*, 3558–3565.
+- [[9]](#ref-9) Yue Gao, Yifan Feng, Shuyi Ji, and Rongrong Ji. 2022. HGNN+: General hypergraph neural networks. *IEEE Transactions on Pattern Analysis and Machine Intelligence* 45, 3 (2022), 3181–3199.
+- [[10]](#ref-10) Woojeong Jin, Meng Qu, Xisen Jin, and Xiang Ren. 2020. Recurrent event network: Autoregressive structure inference over temporal knowledge graphs. In *EMNLP*. 6669–6683.
+- [[11]](#ref-11) Diederik P. Kingma and Jimmy Ba. 2015. Adam: A method for stochastic optimization. In *ICLR*. 1–15.
+- [[12]](#ref-12) Julien Leblay and Melisachew Wudage Chekol. 2018. Deriving validity time in knowledge graph. In *WWW*. 1771–1776.
+- [[13]](#ref-13) Kalev Leetaru and Philip A. Schrodt. 2013. GDELT: Global data on events, location, and tone, 1979–2012. *ISA Annual Convention* 2, 4 (2013), 1–49.
+- [[14]](#ref-14) Zixuan Li, Xiaolong Jin, Wei Li, Saiping Guan, Jiafeng Guo, Huawei Shen, Yuanzhuo Wang, and Xueqi Cheng. 2021. Temporal knowledge graph reasoning based on evolutional representation learning. In *SIGIR*. 408–417.
+- [[15]](#ref-15) Yujia Li, Shiliang Sun, and Jing Zhao. 2022. TiRGN: Time-guided recurrent graph network with local-global historical patterns for temporal knowledge graph reasoning. In *IJCAI*. 2152–2158.
+- [[16]](#ref-16) Kangzheng Liu, Feng Zhao, Hongxu Chen, Yicong Li, Guandong Xu, and Hai Jin. 2022. DA-Net: Distributed attention network for temporal knowledge graph reasoning. In *CIKM*. 1289–1298.
+- [[17]](#ref-17) Minh Tam Pham, Thanh Dat Hoang, Minh Hieu Nguyen, Viet Hung Vu, Thanh Trung Huynh, and Quyet Thang Huynh. 2022. Social multi-role discovering with hypergraph embedding for location-based social networks. In *ACIIDS*. 675–687.
+- [[18]](#ref-18) Michael Schlichtkrull, Thomas N. Kipf, Peter Bloem, Rianne Van Den Berg, Ivan Titov, and Max Welling. 2018. Modeling relational data with graph convolutional networks. In *ESWC*. 593–607.
+- [[19]](#ref-19) Haohai Sun, Jialun Zhong, Yunpu Ma, Zhen Han, and Kun He. 2021. TimeTraveler: Reinforcement learning for temporal knowledge graph forecasting. In *EMNLP*. 8306–8319.
+- [[20]](#ref-20) Xing Tang, Ling Chen, Jun Cui, and Baogang Wei. 2019. Knowledge representation learning with entity descriptions, hierarchical types, and textual relations. *Information Processing and Management* 56, 3 (2019), 809–822.
+- [[21]](#ref-21) Xing Tang and Ling Chen. 2023. GTRL: An entity group-aware temporal knowledge graph representation learning method. *IEEE Transactions on Knowledge and Data Engineering* 99 (2023), 1–16. DOI:[10.1109/TKDE.2023.3334165](https://doi.org/10.1109/TKDE.2023.3334165)
+- [[22]](#ref-22) Rakshit Trivedi, Hanjun Dai, Yichen Wang, and Le Song. 2017. Know-Evolve: Deep temporal reasoning for dynamic knowledge graphs. In *ICML*. 3462–3471.
+- [[23]](#ref-23) Laurens Van der Maaten and Geoffrey Hinton. 2008. Visualizing data using t-SNE. *Journal of Machine Learning Research* 9, 11 (2008), 2579–2605.
+- [[24]](#ref-24) Shikhar Vashishth, Soumya Sanyal, Vikram Nitin, and Partha Talukdar. 2020. Composition-based multi-relational graph convolutional networks. In *ICLR*, 1–16.
 
-## <span id="page-22-0"></span>DHyper: A Recurrent Dual Hypergraph Neural Network for Event Prediction 129:23
+## DHyper: A Recurrent Dual Hypergraph Neural Network for Event Prediction 129:23
 
-- [25] Jianling Wang, Kaize Ding, Liangjie Hong, Huan Liu, and James Caverlee. 2020. Next-item recommendation with sequential hypergraphs. In *SIGIR*. 1101–1110.
-- [26] Jiapeng Wu, Meng Cao, Jackie Chi Kit Cheung, and William L. Hamilton. 2020. TeMP: Temporal message passing for temporal knowledge graph completion. In *EMNLP*. 5730–5746.
-- [27] Lianghao Xia, Chao Huang, Yong Xu, Jiashu Zhao, Dawei Yin, and Jimmy Huang. 2022. Hypergraph contrastive collaborative filtering. In *SIGIR*. 70–79.
-- [28] Dingqi Yang, Bingqing Qu, Jie Yang, and Philippe Cudré-Mauroux. 2020. LBSN2Vec++: Heterogeneous hypergraph embedding for location-based social networks. *IEEE Transactions on Knowledge and Data Engineering*34, 4 (2020), 1843–1855.
-- [29] Yuhao Yang, Chao Huang, Lianghao Xia, Yuxuan Liang, Yanwei Yu, and Chenliang Li. 2022. Multi-behavior hypergraph-enhanced transformer for sequential recommendation. In*KDD*. 2263–2274.
-- [30] Jaehyuk Yi and Jinkyoo Park. 2020. Hypergraph convolutional recurrent neural network. In *KDD*. 3366—3376.
-- [31] Nan Yin, Fuli Feng, Zhigang Luo, Xiang Zhang, Wenjie Wang, Xiao Luo, Chong Chen, and Xian-Sheng Hua. 2022. Dynamic hypergraph convolutional network. In *ICDE*. 1621–1634.
-- [32] Zhitao Ying, Jiaxuan You, Christopher Morris, Xiang Ren, Will Hamilton, and Jure Leskovec. 2018. Hierarchical graph representation learning with differentiable pooling. In *NIPS*. 4801–4811.
-- [33] Denis Degterev, Kristina Badrutdinova, and Anna Stepanova. 2017. Interconnections among the United States, Russia and China: Does Kissinger's American leadership formula apply? *International Organizations Research Journal*12, 1 (2017), 81–109.
-- [34] Jiasheng Zhang, Shuang Liang, Yongpan Sheng, and Jie Shao. 2022. Temporal knowledge graph representation learning with local and global evolutions.*Knowledge-Based Systems*251, 9 (2022), 1–13.
-- [35] Jiying Zhang, Yuzhao Chen, Xi Xiao, Runiu Lu, and Shu-Tao Xia. 2022. Learnable hypergraph Laplacian for hypergraph learning. In*ICASSP*. 4503–4507.
-- [36] Zhen Zhang, Jiajun Bu, Martin Ester, Jianfeng Zhang, Zhao Li, Chengwei Yao, Huifen Dai, Zhi Yu, and Can Wang. 2021. Hierarchical multi-view graph pooling with structure learning. *IEEE Transactions on Knowledge and Data Engineering*35, 1 (2021), 545–559.
-- [37] Andre Martins and Ramon Astudillo. 2016. From softmax to sparsemax: A sparse model of attention and multi-label classification. In*ICML*. 1614–1623.
-- [38] James Bergstra, Brent Komer, Chris Eliasmith, Dan Yamins, and David D. Cox. 2015. Hyperopt: A python library for model selection and hyperparameter optimization. *Computational Science and Discovery*8, 1 (2015), 1–25.
-- [39] Ling Chen, Jun Cui, Xing Tang, Yuntao Qian, Yansheng Li, and Yongjun Zhang. 2022. RLPath: A knowledge graph link prediction method using reinforcement learning based attentive relation path searching and representation learning.*Applied Intelligence*52, 4 (2022), 4715–4726.
-- [40] Hanrui Wu, Jinyi Long, Nuosi Li, Dahai Yu, and Michael K. Ng. 2022. Adversarial auto-encoder domain adaptation for cold-start recommendation with positive and negative hypergraphs.*ACM Transactions on Information Systems*41, 2 (2022), 1–25.
-- [41] Chao Shang, Yun Tang, Jing Huang, Jinbo Bi, Xiaodong He, and Bowen Zhou. 2019. End-to-end structure-aware convolutional networks for knowledge base completion. In*AAAI*. 3060–3067.
-- [42] Lei Guo, Hongzhi Yin, Tong Chen, Xiangliang Zhang, and Kai Zheng. 2021. Hierarchical hyperedge embeddingbased representation learning for group recommendation. *ACM Transactions on Information Systems*40, 1 (2021), 1–27.
-- [43] Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Łukasz Kaiser, and Illia Polosukhin. 2017. Attention is all you need. In*NIPS*. 5998–6008.
-- [44] John Boaz Lee, Ryan A. Rossi, Sungchul Kim, Nesreen K. Ahmed, and Eunyee Koh. 2019. Attention models in graphs: A survey. *ACM Transactions on Knowledge Discovery from Data*13, 6 (2019), 1–25.
-- [45] Yue Zhao, Gao Cong, Jiachen Shi, and Chunyan Miao. 2022. QueryFormer: A tree transformer model for query plan representation. In*VLDB*15, 8 (2022), 1658–1670.
-- [46] Antoine Bordes, Nicolas Usunier, Alberto Garcia-Duran, Jason Weston, and Oksana Yakhnenko. 2013. Translating embeddings for modeling multi-relational data. In*NIPS*. 2787–2795.
-- [47] Elizabeth Boschee, Jennifer Lautenschlager, Sean O'Brien, Steve Shellman, James Starz, and Michael Ward. 2015. ICEWS Coded Event Data. Harvard Dataverse. DOI:[10.7910/DVN/28075](https://doi.org/10.7910/DVN/28075)
-- [48] Martin Atzmueller. 2019. Onto model-based anomalous link pattern mining on feature-rich social interaction networks. In *Companion Proceedings of the 27th World Wide Web Conference*. 1047–1050.
-- [49] Daniel M. Dunlavy, Tamara G. Kolda, and Evrim Acar. 2011. Temporal link prediction using matrix and tensor factorizations. *ACM Transactions on Knowledge Discovery from Data* 5, 2 (2011), 1–27.
+- [[25]](#ref-25) Jianling Wang, Kaize Ding, Liangjie Hong, Huan Liu, and James Caverlee. 2020. Next-item recommendation with sequential hypergraphs. In *SIGIR*. 1101–1110.
+- [[26]](#ref-26) Jiapeng Wu, Meng Cao, Jackie Chi Kit Cheung, and William L. Hamilton. 2020. TeMP: Temporal message passing for temporal knowledge graph completion. In *EMNLP*. 5730–5746.
+- [[27]](#ref-27) Lianghao Xia, Chao Huang, Yong Xu, Jiashu Zhao, Dawei Yin, and Jimmy Huang. 2022. Hypergraph contrastive collaborative filtering. In *SIGIR*. 70–79.
+- [[28]](#ref-28) Dingqi Yang, Bingqing Qu, Jie Yang, and Philippe Cudré-Mauroux. 2020. LBSN2Vec++: Heterogeneous hypergraph embedding for location-based social networks. *IEEE Transactions on Knowledge and Data Engineering* 34, 4 (2020), 1843–1855.
+- [[29]](#ref-29) Yuhao Yang, Chao Huang, Lianghao Xia, Yuxuan Liang, Yanwei Yu, and Chenliang Li. 2022. Multi-behavior hypergraph-enhanced transformer for sequential recommendation. In *KDD*. 2263–2274.
+- [[30]](#ref-30) Jaehyuk Yi and Jinkyoo Park. 2020. Hypergraph convolutional recurrent neural network. In *KDD*. 3366—3376.
+- [[31]](#ref-31) Nan Yin, Fuli Feng, Zhigang Luo, Xiang Zhang, Wenjie Wang, Xiao Luo, Chong Chen, and Xian-Sheng Hua. 2022. Dynamic hypergraph convolutional network. In *ICDE*. 1621–1634.
+- [[32]](#ref-32) Zhitao Ying, Jiaxuan You, Christopher Morris, Xiang Ren, Will Hamilton, and Jure Leskovec. 2018. Hierarchical graph representation learning with differentiable pooling. In *NIPS*. 4801–4811.
+- [[33]](#ref-33) Denis Degterev, Kristina Badrutdinova, and Anna Stepanova. 2017. Interconnections among the United States, Russia and China: Does Kissinger's American leadership formula apply? *International Organizations Research Journal* 12, 1 (2017), 81–109.
+- [[34]](#ref-34) Jiasheng Zhang, Shuang Liang, Yongpan Sheng, and Jie Shao. 2022. Temporal knowledge graph representation learning with local and global evolutions. *Knowledge-Based Systems* 251, 9 (2022), 1–13.
+- [[35]](#ref-35) Jiying Zhang, Yuzhao Chen, Xi Xiao, Runiu Lu, and Shu-Tao Xia. 2022. Learnable hypergraph Laplacian for hypergraph learning. In *ICASSP*. 4503–4507.
+- [[36]](#ref-36) Zhen Zhang, Jiajun Bu, Martin Ester, Jianfeng Zhang, Zhao Li, Chengwei Yao, Huifen Dai, Zhi Yu, and Can Wang. 2021. Hierarchical multi-view graph pooling with structure learning. *IEEE Transactions on Knowledge and Data Engineering* 35, 1 (2021), 545–559.
+- [[37]](#ref-37) Andre Martins and Ramon Astudillo. 2016. From softmax to sparsemax: A sparse model of attention and multi-label classification. In *ICML*. 1614–1623.
+- [[38]](#ref-38) James Bergstra, Brent Komer, Chris Eliasmith, Dan Yamins, and David D. Cox. 2015. Hyperopt: A python library for model selection and hyperparameter optimization. *Computational Science and Discovery* 8, 1 (2015), 1–25.
+- [[39]](#ref-39) Ling Chen, Jun Cui, Xing Tang, Yuntao Qian, Yansheng Li, and Yongjun Zhang. 2022. RLPath: A knowledge graph link prediction method using reinforcement learning based attentive relation path searching and representation learning. *Applied Intelligence* 52, 4 (2022), 4715–4726.
+- [[40]](#ref-40) Hanrui Wu, Jinyi Long, Nuosi Li, Dahai Yu, and Michael K. Ng. 2022. Adversarial auto-encoder domain adaptation for cold-start recommendation with positive and negative hypergraphs. *ACM Transactions on Information Systems* 41, 2 (2022), 1–25.
+- [[41]](#ref-41) Chao Shang, Yun Tang, Jing Huang, Jinbo Bi, Xiaodong He, and Bowen Zhou. 2019. End-to-end structure-aware convolutional networks for knowledge base completion. In *AAAI*. 3060–3067.
+- [[42]](#ref-42) Lei Guo, Hongzhi Yin, Tong Chen, Xiangliang Zhang, and Kai Zheng. 2021. Hierarchical hyperedge embedding-based representation learning for group recommendation. *ACM Transactions on Information Systems* 40, 1 (2021), 1–27.
+- [[43]](#ref-43) Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Łukasz Kaiser, and Illia Polosukhin. 2017. Attention is all you need. In *NIPS*. 5998–6008.
+- [[44]](#ref-44) John Boaz Lee, Ryan A. Rossi, Sungchul Kim, Nesreen K. Ahmed, and Eunyee Koh. 2019. Attention models in graphs: A survey. *ACM Transactions on Knowledge Discovery from Data* 13, 6 (2019), 1–25.
+- [[45]](#ref-45) Yue Zhao, Gao Cong, Jiachen Shi, and Chunyan Miao. 2022. QueryFormer: A tree transformer model for query plan representation. In *VLDB* 15, 8 (2022), 1658–1670.
+- [[46]](#ref-46) Antoine Bordes, Nicolas Usunier, Alberto Garcia-Duran, Jason Weston, and Oksana Yakhnenko. 2013. Translating embeddings for modeling multi-relational data. In *NIPS*. 2787–2795.
+- [[47]](#ref-47) Elizabeth Boschee, Jennifer Lautenschlager, Sean O'Brien, Steve Shellman, James Starz, and Michael Ward. 2015. ICEWS Coded Event Data. Harvard Dataverse. DOI:[10.7910/DVN/28075](https://doi.org/10.7910/DVN/28075)
+- [[48]](#ref-48) Martin Atzmueller. 2019. Onto model-based anomalous link pattern mining on feature-rich social interaction networks. In *Companion Proceedings of the 27th World Wide Web Conference*. 1047–1050.
+- [[49]](#ref-49) Daniel M. Dunlavy, Tamara G. Kolda, and Evrim Acar. 2011. Temporal link prediction using matrix and tensor factorizations. *ACM Transactions on Knowledge Discovery from Data* 5, 2 (2011), 1–27.
 
 Received 27 April 2023; revised 2 February 2024; accepted 6 March 2024
-
 
 ## TL;DR
 Research on dhyper: a recurrent dual hypergraph neural network for event prediction in temporal knowledge graphs providing insights for knowledge graph development and data integration.
@@ -726,10 +707,10 @@ Provides approaches for temporal data modeling and time-based analysis in knowle
 
 ## Metadata Summary
 ### Research Context
-- **Research Question**: 
-- **Methodology**: 
-- **Key Findings**: 
+- **Research Question**: How to effectively capture high-order correlations among entities and relations in temporal knowledge graphs for improved event prediction?
+- **Methodology**: Proposes DHyper, a recurrent Dual Hypergraph Neural Network, which includes a dual hypergraph learning module (DHL) for parameterized discovery of high-order correlations and a dual hypergraph message passing (DHMP) network for information aggregation and representation fusion. It also incorporates a residual gate and an attentive temporal encoder.
+- **Key Findings**: DHyper achieves state-of-the-art performance on event prediction in TKGs, outperforming baselines significantly. It effectively models high-order correlations among both entities and relations, and the parameterized learning of hypergraphs, combined with low-rank factorization and sparse threshold strategies, is crucial for its superior performance.
 
 ### Analysis
-- **Limitations**: 
-- **Future Work**: 
+- **Limitations**: Performance on sparser datasets (ICEWS14C, ICEWS18C, GDELT18C) is inferior to denser ones, suggesting limitations in hypergraph modeling benefits for very sparse data. DHL currently captures only one type of high-order correlation. DHyper considers only two levels of hierarchy (entities/entity hyperedges, relations/relation hyperedges). Experiments are limited to event prediction in TKGs.
+- **Future Work**: Extend DHL to introduce different types of high-order correlations based on semantics for complex scenarios. Improve DHyper by introducing multi-level hyperedges to explore more complex correlations with different granularities. Enhance DHyper by optimizing recommendation and event prediction tasks with a joint learning framework to explore generalization ability.
